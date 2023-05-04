@@ -1,9 +1,10 @@
 using UnityEngine;
 
-namespace EtrasStarterAssets{
+namespace Etra.StarterAssets.Interactables
+{
     public class WeightedButton : MonoBehaviour
     {
-        //From Just Kris#0001
+        //From Krissy#1337
         /*
         The MIT License (MIT)
         Copyright 2023 Krissy
@@ -25,7 +26,7 @@ namespace EtrasStarterAssets{
         private void Start()
         {
             buttonMain = transform.GetChild(0);
-            Vector3 buttonStartPos = buttonMain.transform.position;
+            var buttonStartPos = buttonMain.transform.position;
         }
 
         //Check for player or object collision
@@ -38,7 +39,7 @@ namespace EtrasStarterAssets{
             }
             else if (other.GetComponent<Rigidbody>() != null)
             {
-              //  numObjects++; // New object on button
+                //  numObjects++; // New object on button
                 buttonPressed();
             }
         }
@@ -50,14 +51,14 @@ namespace EtrasStarterAssets{
 
         public void removeObject()
         {
-         //   numObjects--;
+            //   numObjects--;
         }
 
         public void doorClose()
         {
             removeObject();
-          //  if (numObjects == 0)
-             buttonReleased();
+            //  if (numObjects == 0)
+            buttonReleased();
         }
 
         public void buttonPressed()
