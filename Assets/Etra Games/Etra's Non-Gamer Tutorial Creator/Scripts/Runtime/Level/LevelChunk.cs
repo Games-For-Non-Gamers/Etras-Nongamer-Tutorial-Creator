@@ -12,6 +12,8 @@ namespace Etra.NonGamerTutorialCreator.Level
         public Sprite icon;
         public bool required;
 
+        [Tooltip("Determines if the level can have duplicate chunks")] public bool useSingle;
+
         [AbilitySelector] public string[] taughtAbilities;
         [AbilitySelector] public string[] abilitiesToTeach;
 

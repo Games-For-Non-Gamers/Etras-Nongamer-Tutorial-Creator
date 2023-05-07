@@ -271,20 +271,29 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
             Rect rect = GUILayoutUtility.GetLastRect();
             tree?.OnGUI(rect);
         }
-        #endregion
+        #endregion 
 
         #region Utility
         void SkipPage(int amount)
         {
             Page += amount;
             Page = Mathf.Clamp(Page, 0, PAGE_LIMIT);
+
+            switch (Page)
+            {
+                case 3:
+                    _levelBuilder.TaughtAbilities = _abilityTreeView.GetTaughtAbilities();
+                    _levelBuilder.NewAbilities = _abilityTreeView.GetNewAbilities();
+                    _levelBuilder.Reload();
+                    break;
+            }
         }
         #endregion
 
         #region Creation
         public void CreateOrModify()
         {
-
+            _levelBuilder.CreateOrModify();
         }
         #endregion
 

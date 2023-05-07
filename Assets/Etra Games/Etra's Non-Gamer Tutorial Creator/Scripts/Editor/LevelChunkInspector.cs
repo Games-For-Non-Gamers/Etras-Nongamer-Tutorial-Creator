@@ -32,6 +32,10 @@ namespace Etra.NonGamerTutorialCreator.Editor
             EditorGUILayout.Space();
             EditorGUILayout.Space();
 
+            EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.useSingle)));
+
+            EditorGUILayout.Space();
+
             EditorGUILayout.LabelField("Abilities", EditorStyles.boldLabel);
             EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.taughtAbilities)));
             EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.abilitiesToTeach)));

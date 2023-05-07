@@ -17,13 +17,15 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
     public class TutorialCreatorAbilityTreeView : TreeView
     {
         const string _ABILITY_HEADER = "Ability";
-        const string _CANNOT_HEADER = "Cannot";
-        const string _STARTS_WITH_HEADER = "Starts With";
-        const string _TAUGHT_TO_HEADER = "Is Taught To";
+        const string _DISABLED_ABILITY_HEADER = "Cannot";
+        const string _TAUGHT_ABILITY_HEADER = "Already Knows";
+        const string _NEW_ABILITY_HEADER = "Is Taught To";
 
-        const float _CANNOT_COLUMN_WIDTH = 0.3333f;
-        const float _STARTS_WITH_COLUMN_WIDTH = 0.3333f;
-        const float _TAUGHT_TO_COLUMN_WIDTH = 0.3333f;
+        const float _DISABLED_ABILITY_COLUMN_WIDTH = 0.3333f;
+        const float _TAUGHT_ABILITY_COLUMN_WIDTH = 0.3333f;
+        const float _NEW_ABILITY_COLUMN_WIDTH = 0.3333f;
+
+        const string _SELECT_ALL_BUTTON_TEXT = "Select All";
 
         public float Width { get; set; }
 
@@ -69,6 +71,27 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
         #endregion
 
         #region Abilities
+        public List<Type> GetDisabledAbilities() =>
+            abilities
+            .Select(x => x.Value)
+            .Where(x => x.state == Ability.State.Disabled)
+            .Select(x => x.type)
+            .ToList();
+
+        public List<Type> GetTaughtAbilities() =>
+            abilities
+            .Select(x => x.Value)
+            .Where(x => x.state == Ability.State.Taught)
+            .Select(x => x.type)
+            .ToList();
+
+        public List<Type> GetNewAbilities() =>
+            abilities
+            .Select(x => x.Value)
+            .Where(x => x.state == Ability.State.New)
+            .Select(x => x.type)
+            .ToList();
+
         public void GenerateAbilitiesAndItems()
         {
             //Initialize abilities
@@ -127,22 +150,51 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
                 .BorderLeft(EditorGUIUtility.labelWidth);
 
             Rect cannotRect = itemsRect
-                .SetWidth(_CANNOT_COLUMN_WIDTH * itemsRect.width);
+                .SetWidth(_DISABLED_ABILITY_COLUMN_WIDTH * itemsRect.width);
 
             Rect startsWithRect = itemsRect
-                .BorderLeft(_CANNOT_COLUMN_WIDTH * itemsRect.width)
-                .BorderRight(_TAUGHT_TO_COLUMN_WIDTH * itemsRect.width);
+                .BorderLeft(_DISABLED_ABILITY_COLUMN_WIDTH * itemsRect.width)
+                .BorderRight(_NEW_ABILITY_COLUMN_WIDTH * itemsRect.width);
 
             Rect taughtToRect = itemsRect
-                .ResizeToRight(_TAUGHT_TO_COLUMN_WIDTH * itemsRect.width);
+                .ResizeToRight(_NEW_ABILITY_COLUMN_WIDTH * itemsRect.width);
 
             switch (args.item.id)
             {
                 case -1:
-                    EditorGUI.LabelField(abilityRect, _ABILITY_HEADER, Styles.HeaderLabel);
-                    EditorGUI.LabelField(cannotRect, _CANNOT_HEADER, Styles.HeaderLabel);
-                    EditorGUI.LabelField(startsWithRect, _STARTS_WITH_HEADER, Styles.HeaderLabel);
-                    EditorGUI.LabelField(taughtToRect, _TAUGHT_TO_HEADER, Styles.HeaderLabel);
+                    var bottomSpace = EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+
+                    EditorGUI.LabelField(abilityRect.BorderBottom(bottomSpace), _ABILITY_HEADER, Styles.HeaderLabel);
+                    EditorGUI.LabelField(cannotRect.BorderBottom(bottomSpace), _DISABLED_ABILITY_HEADER, Styles.HeaderLabel);
+                    EditorGUI.LabelField(startsWithRect.BorderBottom(bottomSpace), _TAUGHT_ABILITY_HEADER, Styles.HeaderLabel);
+                    EditorGUI.LabelField(taughtToRect.BorderBottom(bottomSpace), _NEW_ABILITY_HEADER, Styles.HeaderLabel);
+
+                    EditorStyles.miniButton.CalcMinMaxWidth(new GUIContent(_SELECT_ALL_BUTTON_TEXT), out float buttonWidth, out _);
+
+                    //I hate this
+                    Rect cannotSelectAllRect = cannotRect
+                        .ResizeToBottom(bottomSpace)
+                        .BorderBottom(EditorGUIUtility.standardVerticalSpacing)
+                        .ResizeWidthToCenter(buttonWidth);
+
+                    Rect startsWithSelectAllRect = startsWithRect
+                        .ResizeToBottom(bottomSpace)
+                        .BorderBottom(EditorGUIUtility.standardVerticalSpacing)
+                        .ResizeWidthToCenter(buttonWidth);
+
+                    Rect taughtToSelectAllRect = taughtToRect
+                        .ResizeToBottom(bottomSpace)
+                        .BorderBottom(EditorGUIUtility.standardVerticalSpacing)
+                        .ResizeWidthToCenter(buttonWidth);
+
+                    if (GUI.Button(cannotSelectAllRect, _SELECT_ALL_BUTTON_TEXT))
+                        SelectAll(Ability.State.Disabled);
+
+                    if (GUI.Button(startsWithSelectAllRect, _SELECT_ALL_BUTTON_TEXT))
+                        SelectAll(Ability.State.Taught);
+
+                    if (GUI.Button(taughtToSelectAllRect, _SELECT_ALL_BUTTON_TEXT))
+                        SelectAll(Ability.State.New);
                     break;
                 default:
                     GUIContent abilityContent = new GUIContent(args.label);
@@ -154,11 +206,11 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
                     if (EditorGUI.Toggle(cannotRect.ResizeWidthToCenter(EditorGUIUtility.singleLineHeight), ability.state == Ability.State.Disabled))
                         ability.state = Ability.State.Disabled;
 
-                    if (EditorGUI.Toggle(startsWithRect.ResizeWidthToCenter(EditorGUIUtility.singleLineHeight), ability.state == Ability.State.StartsWith))
-                        ability.state = Ability.State.StartsWith;
+                    if (EditorGUI.Toggle(startsWithRect.ResizeWidthToCenter(EditorGUIUtility.singleLineHeight), ability.state == Ability.State.Taught))
+                        ability.state = Ability.State.Taught;
 
-                    if (EditorGUI.Toggle(taughtToRect.ResizeWidthToCenter(EditorGUIUtility.singleLineHeight), ability.state == Ability.State.TaughtTo))
-                        ability.state = Ability.State.TaughtTo;
+                    if (EditorGUI.Toggle(taughtToRect.ResizeWidthToCenter(EditorGUIUtility.singleLineHeight), ability.state == Ability.State.New))
+                        ability.state = Ability.State.New;
 
                     break;
             }
@@ -203,12 +255,21 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
             float[] heights = new float[]
             {
                 Styles.HeaderLabel.CalcHeight(new GUIContent(_ABILITY_HEADER), labelWidth),
-                Styles.HeaderLabel.CalcHeight(new GUIContent(_CANNOT_HEADER), totalWidth * _CANNOT_COLUMN_WIDTH),
-                Styles.HeaderLabel.CalcHeight(new GUIContent(_STARTS_WITH_HEADER), totalWidth * _STARTS_WITH_COLUMN_WIDTH),
-                Styles.HeaderLabel.CalcHeight(new GUIContent(_TAUGHT_TO_HEADER), totalWidth * _TAUGHT_TO_COLUMN_WIDTH),
+                Styles.HeaderLabel.CalcHeight(new GUIContent(_DISABLED_ABILITY_HEADER), totalWidth * _DISABLED_ABILITY_COLUMN_WIDTH),
+                Styles.HeaderLabel.CalcHeight(new GUIContent(_TAUGHT_ABILITY_HEADER), totalWidth * _TAUGHT_ABILITY_COLUMN_WIDTH),
+                Styles.HeaderLabel.CalcHeight(new GUIContent(_NEW_ABILITY_HEADER), totalWidth * _NEW_ABILITY_COLUMN_WIDTH),
             };
 
-            return Mathf.Max(heights);
+            return Mathf.Max(heights) + //Headers
+                EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing; //"Select all" functions
+        }
+        #endregion
+
+        #region Utility
+        public void SelectAll(Ability.State state)
+        {
+            foreach (var item in abilities)
+                item.Value.state = state;
         }
         #endregion
 
@@ -224,8 +285,8 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
             public enum State
             {
                 Disabled,
-                StartsWith,
-                TaughtTo,
+                Taught,
+                New,
             }
 
             public Type type;

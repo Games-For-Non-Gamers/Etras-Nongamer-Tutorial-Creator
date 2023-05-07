@@ -14,9 +14,9 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
         const float _IMAGE_WIDTH = 64f;
 
         /// <summary>List of abilities that the player already knows</summary>
-        public static List<Type> TaughtAbilities { get; set; }
+        public List<Type> TaughtAbilities { get; set; } = new List<Type>();
         /// <summary>List of abilities that the player is going to learn</summary>
-        public static List<Type> NewAbilities { get; set; }
+        public List<Type> NewAbilities { get; set; } = new List<Type>();
 
         #region Initialize
         [NonSerialized] bool _init = false;
@@ -35,8 +35,53 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
             reorderableList.elementHeightCallback += ReorderableList_ElementHeightCallback;
             reorderableList.onAddDropdownCallback += ReorderableList_OnAddDropdownCallback;
             reorderableList.onCanRemoveCallback += ReorderableList_OnCanRemoveCallback;
+            reorderableList.onCanAddCallback += ReorderableList_OnCanAddCallback;
+
+            Reload();
 
             _init = true;
+        }
+        #endregion
+
+        #region Reloading
+        private bool _autoReload = true;
+        /// <summary>If true, the level builder will reload it's data automatically whenever something changes (eg. an asset gets created or deleted)</summary>
+        public bool AutoReload
+        {
+            get => _autoReload;
+            set
+            {
+                _autoReload = value;
+                switch (value)
+                {
+                    case true:
+                        LevelChunk.OnAssetValidation += _ => Reload();
+                        break;
+                    case false:
+                        LevelChunk.OnAssetValidation -= _ => Reload();
+                        break;
+                }
+            }
+        }
+
+        /// <summary>Reloads level builder's data. If <see cref="AutoReload"/> is set to true, this method will get called automatically</summary>
+        public void Reload()
+        {
+            RebuildAvaliableChunksCache();
+            CheckChunksList();
+        }
+        #endregion
+
+        #region GUI
+        ReorderableList reorderableList;
+
+        /// <summary>Method for drawing GUI</summary>
+        public void OnGUI()
+        {
+            InitializeIfNeeded();
+
+            using (new GUILayout.VerticalScope(Styles.List))
+                reorderableList.DoLayoutList();
         }
 
         private void ReorderableList_DrawHeaderCallback(Rect rect)
@@ -96,48 +141,23 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
 
         private bool ReorderableList_OnCanRemoveCallback(ReorderableList list)
         {
-            return true;
-        }
-        #endregion
+            var selectedChunk = _chunks[list.index];
+            var type = selectedChunk.GetType();
 
-        #region Reloading
-        private bool _autoReload = true;
-        /// <summary>If true, the level builder will reload it's data automatically whenever something changes (eg. an asset gets created or deleted)</summary>
-        public bool AutoReload
-        {
-            get => _autoReload;
-            set
-            {
-                _autoReload = value;
-                switch (value)
-                {
-                    case true:
-                        LevelChunk.OnAssetValidation += _ => Reload();
-                        break;
-                    case false:
-                        LevelChunk.OnAssetValidation -= _ => Reload();
-                        break;
-                }
-            }
+            int duplicatesCount = _chunks
+                .Select(x => x.GetType())
+                .Where(x => x == type)
+                .Count();
+
+            return !selectedChunk.required ||
+                duplicatesCount > 1;
         }
 
-        /// <summary>Reloads level builder's data. If <see cref="AutoReload"/> is set to true, this method will get called automatically</summary>
-        public void Reload()
+        private bool ReorderableList_OnCanAddCallback(ReorderableList list)
         {
-            RebuildAvaliableChunksCache();
-        }
-        #endregion
-
-        #region GUI
-        ReorderableList reorderableList;
-
-        /// <summary>Method for drawing GUI</summary>
-        public void OnGUI()
-        {
-            InitializeIfNeeded();
-
-            using (new GUILayout.VerticalScope(Styles.List))
-                reorderableList.DoLayoutList();
+            return AvaliableChunks
+                .Where(x => !x.useSingle || !_chunks.Contains(x))
+                .Any();
         }
         #endregion
 
@@ -160,10 +180,41 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
         /// <summary>Rebuilds the cache of <see cref="AvaliableChunks"/></summary>
         public void RebuildAvaliableChunksCache()
         {
+            var taughtAbilitiesPaths = TaughtAbilities
+                .Select(x => x.FullName)
+                .ToList();
+
+            var newAbilitiesPaths = NewAbilities
+                .Select(x => x.FullName)
+                .ToList();
+
             _avaliableChunks = AssetDatabase.FindAssets($"t:{typeof(LevelChunk).Name}")
                 .Select(x => AssetDatabase.GUIDToAssetPath(x))
                 .Select(x => AssetDatabase.LoadAssetAtPath<LevelChunk>(x))
+                .Where(x => !x.taughtAbilities.Except(taughtAbilitiesPaths).Any()) //If all chunks taught abilities have been selected
+                .Where(x => !x.abilitiesToTeach.Except(newAbilitiesPaths).Except(taughtAbilitiesPaths).Any()) //If all chunks new abilities have been selected as new or taught
                 .ToList();
+        }
+
+        public void CheckChunksList()
+        {
+            _chunks = _chunks
+                .Intersect(AvaliableChunks)
+                .ToList();
+
+            var requiredChunks = AvaliableChunks
+                .Where(x => x.required);
+
+            _chunks.AddRange(requiredChunks.Except(_chunks));
+
+            reorderableList.list = _chunks;
+        }
+        #endregion
+
+        #region Creation
+        public void CreateOrModify()
+        {
+
         }
         #endregion
 
