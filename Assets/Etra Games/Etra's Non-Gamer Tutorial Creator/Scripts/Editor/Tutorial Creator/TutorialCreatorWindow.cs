@@ -73,7 +73,12 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
         #region Inherited
         public void AddItemsToMenu(GenericMenu menu)
         {
+            menu.AddItem(new GUIContent("Prefs/Keep Opened"), Preferences.KeepOpened, () => Preferences.KeepOpened = !Preferences.KeepOpened);
+        }
 
+        private void OnDestroy()
+        {
+            _levelBuilder.Dispose();
         }
         #endregion
 
@@ -93,6 +98,8 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
 
             _levelBuilder = new TutorialCreatorLevelBuilder();
             _levelBuilder.Initialize();
+
+            OnChangePage();
 
             _init = true;
         }
@@ -271,20 +278,28 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
             Rect rect = GUILayoutUtility.GetLastRect();
             tree?.OnGUI(rect);
         }
-        #endregion 
+        #endregion
 
         #region Utility
         void SkipPage(int amount)
         {
+            var previousPage = Page;
             Page += amount;
             Page = Mathf.Clamp(Page, 0, PAGE_LIMIT);
 
+            if (Page != previousPage)
+                OnChangePage();
+        }
+
+        void OnChangePage()
+        {
             switch (Page)
             {
                 case 3:
                     _levelBuilder.TaughtAbilities = _abilityTreeView.GetTaughtAbilities();
                     _levelBuilder.NewAbilities = _abilityTreeView.GetNewAbilities();
                     _levelBuilder.Reload();
+                    _levelBuilder.CheckForTarget();
                     break;
             }
         }
@@ -294,6 +309,9 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
         public void CreateOrModify()
         {
             _levelBuilder.CreateOrModify();
+
+            if (!Preferences.KeepOpened)
+                Close();
         }
         #endregion
 

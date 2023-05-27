@@ -44,10 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e9fb051787b9e41b8412b7dfc64d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boundsCenter: {x: 0, y: 1.5, z: 0}
-  boundsSize: {x: 10, y: 5, z: 10}
   startConnectionPoint: {x: -5, y: 0, z: 0}
   endConnectionPoint: {x: 5, y: 0, z: 0}
+  playerSpawnPosition: {x: 0, y: 1, z: 1}
 --- !u!1 &4509226543181117515
 GameObject:
   m_ObjectHideFlags: 0
