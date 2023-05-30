@@ -17,7 +17,7 @@ namespace Etra.StarterAssets.Interactables
         public string Ability_To_Activate;
         private List<Ability> generalAbilities;
         EtraAbilityBaseClass selectedAbility;
-
+        
         //Set the correct selected ability
         private void Start()
         {

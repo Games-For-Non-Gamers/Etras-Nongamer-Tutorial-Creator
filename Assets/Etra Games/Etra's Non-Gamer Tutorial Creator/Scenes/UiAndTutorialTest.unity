@@ -7694,13 +7694,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anims:
-  - Speed: 0
-    Animation: {fileID: 0}
-    FPS: 15
-    objectToMove: {fileID: 0}
-    time: 0
-    Position: {x: 0, y: 0, z: 0}
-    NormalRotation: {x: 0, y: 0, z: 0}
+  - tweenedObject: {fileID: 0}
+    chosenTweenEvent: 4
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    flashTimes: {x: 0, y: 0, z: 0}
+    flashDelay: 0
+    secondsToWait: 3.71
+    opacity: 0
+    fadeTime: 0
+  - tweenedObject: {fileID: 0}
+    chosenTweenEvent: 0
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    flashTimes: {x: 0, y: 0, z: 0}
+    flashDelay: 0
+    secondsToWait: 0
+    opacity: 0
+    fadeTime: 0
 --- !u!65 &905254922
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7775,7 +7796,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &909132894
 GameObject:
@@ -10556,7 +10577,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6550386371876898523, guid: 5b2c0c05a401742419a5cc93d216b8b8, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6550386371876898523, guid: 5b2c0c05a401742419a5cc93d216b8b8, type: 3}
       propertyPath: m_LocalPosition.x
