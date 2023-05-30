@@ -15,6 +15,7 @@ MonoBehaviour:
   chunkName: Test Chunk
   icon: {fileID: 21300000, guid: 043f05095bba0fa459d596a134a4005a, type: 3}
   required: 0
+  useSingle: 0
   taughtAbilities: []
   abilitiesToTeach:
   - Etra.StarterAssets.Abilities.ABILITY_ActivateInteract
