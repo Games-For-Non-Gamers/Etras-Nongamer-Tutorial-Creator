@@ -12,7 +12,9 @@ using UnityEngine;
             Flash,
             Wait, 
             Fade,
-            UnlockAbility
+            UnlockAbility,
+            ToStartTransform,
+            InstantCenterObject
         }
 
         public AnimationEvents chosenTweenEvent;
@@ -31,7 +33,7 @@ using UnityEngine;
         public float scaleTime;
 
         //Flash
-        public Vector3 flashTimes;
+        public float flashTimes;
         public float flashDelay;
 
         //Wait
@@ -41,6 +43,8 @@ using UnityEngine;
         public float opacity;
         public float fadeTime;
 
+        //ToStartPositionAndScale,
+        public float toStartTime;
 }
 
 

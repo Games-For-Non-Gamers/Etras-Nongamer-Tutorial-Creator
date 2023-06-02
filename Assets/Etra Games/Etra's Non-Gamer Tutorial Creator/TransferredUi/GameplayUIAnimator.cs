@@ -375,12 +375,12 @@ public class GameplayUIAnimator : MonoBehaviour
     /// <EVENTS>
     /// 1. Right
     /// 2. Shoot
-    /// 3. Left
-    /// 4. Back
-    /// 5. Forward
+    /// 3. Left-Basic Grow and Flash
+    /// 4. Back-Basic Grow and flash
+    /// 5. Forward-Basic Grow and flash 
     /// 6. Crouch
     /// 7. Mouse up/down
-    /// 8. Jump
+    /// 8. Jump - Basic Grow and flash WITH Text
     /// 9. Dash
     /// 10. Mouse Left Right
     /// //special mouse move anim later

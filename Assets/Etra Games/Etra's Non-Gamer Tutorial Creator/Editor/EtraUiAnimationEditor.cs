@@ -92,7 +92,12 @@ using UnityEngine.UIElements;
                 break;
 
             case EtraUiAnimation.AnimationEvents.UnlockAbility:
+                break;
 
+            case EtraUiAnimation.AnimationEvents.ToStartTransform:
+                SerializedProperty toStartTime = prop.FindPropertyRelative("toStartTime");
+                EditorGUI.PropertyField(new Rect(pos.x, pos.y + 50, pos.width, 20), toStartTime);
+                break;
 
             default:
                 break;
