@@ -1,9 +1,14 @@
+using Etra.StarterAssets;
+using Etra.StarterAssets.Abilities;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
 using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using static EtraUiAnimation;
+using static UnityEditor.Experimental.GraphView.Port;
 
 public class AbilityOrItemUI : MonoBehaviour
 {
@@ -30,16 +35,7 @@ public class AbilityOrItemUI : MonoBehaviour
 
         foreach (RectTransform uiObject in uiObjects)
         {
-            if (uiObject.GetComponent<Image>())
-            {
-                uiObject.GetComponent<Image>().enabled = true;
-            }
-
-            if (uiObject.GetComponent<Text>())
-            {
-                uiObject.GetComponent<Text>().enabled = true;
-            }
-
+            showOrHideUiObject(uiObject, true);
         }
         objectsHidden = false;
     }
@@ -48,17 +44,22 @@ public class AbilityOrItemUI : MonoBehaviour
     {
         foreach (RectTransform uiObject in uiObjects)
         {
-            if (uiObject.GetComponent<Image>())
-            {
-                uiObject.GetComponent<Image>().enabled = false;
-            }
-
-            if (uiObject.GetComponent<Text>())
-            {
-                uiObject.GetComponent<Text>().enabled = false;
-            }
+            showOrHideUiObject(uiObject, false);
         }
         objectsHidden = true;
+    }
+
+    public void showOrHideUiObject(RectTransform uiObject, bool visibility)
+    {
+        if (uiObject.GetComponent<Image>())
+        {
+            uiObject.GetComponent<Image>().enabled = visibility;
+        }
+
+        if (uiObject.GetComponent<Text>())
+        {
+            uiObject.GetComponent<Text>().enabled = visibility;
+        }
     }
 
 
@@ -67,14 +68,21 @@ public class AbilityOrItemUI : MonoBehaviour
     public List<EtraUiAnimation> controllerAnimation;
 
 
-    public void runUiEvent()
+    //Run into object.
+    //Based off ability name get ui event.
+    //PAss ability name to ui event.
+    //Unlock ability by ui event sending string to character. 
+    //need character ability unlock function
+    //Also need sub ability unlocks.
+
+    public void runUiEvent(AbilityScriptAndNameHolder abilityToActivate) //have parameter of event to unlock string?
     {
-        StartCoroutine(runKeyboardEventArray());
+        StartCoroutine(runKeyboardEventArray(abilityToActivate));
         //StartCoroutine(runControllerEventArray());
     }
 
     //Making these two enumerators right now, I'm certain this code could be better, but just making something functional rn
-    IEnumerator runKeyboardEventArray()
+    IEnumerator runKeyboardEventArray(AbilityScriptAndNameHolder abilityToActivate)
     {
 
         foreach (EtraUiAnimation UiEvent in keyboardAnimation)
@@ -83,48 +91,79 @@ public class AbilityOrItemUI : MonoBehaviour
             switch (UiEvent.chosenTweenEvent)
             {
                 case AnimationEvents.MoveAndScale:
-                    LeanTween.move(obj, UiEvent.scaleAndMovePosition, UiEvent.scaleAndMoveTime);
-                    LeanTween.scale(obj, UiEvent.scaleAndMoveScale, UiEvent.scaleAndMoveTime);
+                    LeanTween.move(obj, UiEvent.scaleAndMovePosition, UiEvent.scaleAndMoveTime).setEaseInOutSine();
+                    LeanTween.scale(obj, UiEvent.scaleAndMoveScale, UiEvent.scaleAndMoveTime).setEaseInOutSine();
                     break;
 
                 case AnimationEvents.Move:
-                    LeanTween.move(obj, UiEvent.movePosition, UiEvent.moveTime);
+                    LeanTween.move(obj, UiEvent.movePosition, UiEvent.moveTime).setEaseInOutSine();
                     break;
+
                 case AnimationEvents.Scale:
-                    LeanTween.scale(obj, UiEvent.scaleAndMoveScale, UiEvent.scaleAndMoveTime);
+                    LeanTween.scale(obj, UiEvent.scaleAndMoveScale, UiEvent.scaleAndMoveTime).setEaseInOutSine();
                     break;
+
                 case AnimationEvents.Flash:
-
-
                     for (int i = 0; i < UiEvent.flashTimes; i++)
                     {
-                        element.GetComponent<Image>().enabled = true;
+                        showOrHideUiObject(obj, true);
                         yield return new WaitForSeconds(UiEvent.flashDelay);
-                        element.GetComponent<Image>().enabled = false;
+                        showOrHideUiObject(obj, false);
                         yield return new WaitForSeconds(UiEvent.flashDelay);
                     }
                     break;
+
                 case AnimationEvents.Wait:
-                    print("Ulg, glib, Pblblblblb");
+                    yield return new WaitForSeconds(UiEvent.secondsToWait);
                     break;
+
                 case AnimationEvents.Fade:
-                    print("Whadya want?");
+
+
+                    if (obj.GetComponent<Image>())
+                    {
+                        Image image= obj.GetComponent<Image>();
+                        LeanTween.color(obj, new Color(image.color.r, image.color.g, image.color.b, UiEvent.opacity), UiEvent.fadeTime).setEaseInOutSine();
+                    }
+
+                    if (obj.GetComponent<Text>())
+                    {
+                        Text text= obj.GetComponent<Text>();
+                        LeanTween.colorText(obj, new Color(text.color.r, text.color.g, text.color.b, UiEvent.opacity), UiEvent.fadeTime).setEaseInOutSine();
+                    }
                     break;
+
                 case AnimationEvents.UnlockAbility:
-                    print("Grog SMASH!");
+                    abilityToActivate.script.unlockAbility(abilityToActivate.name);
                     break;
+
                 case AnimationEvents.ToStartTransform:
-                    print("Ulg, glib, Pblblblblb");
+
+                    //Find the element
+                    ObjectStarterTransform foundObjectTransform = new ObjectStarterTransform();
+
+                    foreach (ObjectStarterTransform uitransform in startPositions)
+                    {
+                        if (uitransform.objectName == obj.name)
+                        {
+                            foundObjectTransform = uitransform;
+                        }
+                    }
+                    //Move to that pos, rot, and scale
+                    LeanTween.move(obj, foundObjectTransform.startTransform.position, UiEvent.toStartTime).setEaseInOutSine();
+                    LeanTween.rotate(obj, foundObjectTransform.startTransform.rotation.eulerAngles, UiEvent.toStartTime).setEaseInOutSine();
+                    LeanTween.scale(obj, foundObjectTransform.startTransform.localScale, UiEvent.toStartTime).setEaseInOutSine();
                     break;
+
                 case AnimationEvents.InstantCenterObject:
-                    print("Whadya want?");
+                    LeanTween.move(obj, Vector3.zero, 0);
                     break;
+
                 default:
-                    print("Incorrect intelligence level.");
+                    Debug.Log("Invalid Animation Event");
                     break;
             }
 
-            yield return new WaitForSeconds(5);
         }
     }
 
@@ -134,6 +173,11 @@ public class AbilityOrItemUI : MonoBehaviour
         public string objectName;
         public Transform startTransform;
 
+
+        public ObjectStarterTransform()
+        {
+
+        }
 
         public ObjectStarterTransform(string n, Transform trans)
         {
