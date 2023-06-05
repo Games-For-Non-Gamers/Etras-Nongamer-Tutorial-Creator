@@ -91,7 +91,7 @@ using UnityEngine.UIElements;
                 EditorGUI.PropertyField(new Rect(pos.x, pos.y + 70, pos.width, 20), fadeTime);
                 break;
 
-            case EtraUiAnimation.AnimationEvents.UnlockAbility:
+            case EtraUiAnimation.AnimationEvents.UnlockAbilityOrItem:
                 break;
 
             case EtraUiAnimation.AnimationEvents.ToStartTransform:

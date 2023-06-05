@@ -1,26 +1,36 @@
 using Etra.StarterAssets;
 using Etra.StarterAssets.Source;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
 public class AbilityOrItemUIGenerator : MonoBehaviour
 {
-    //I should run when a new item or ability script is made
 
 
     [ContextMenu("Re-Generate Ability And Item Ui Objects")]
-    void generateAbilityAndItemUiObjects()
+    public void generateAbilityAndItemUiObjects()
     {
         generateAbilityUiObjects();
+        generateFpsItemUiObjects();
+
+
+        foreach (Transform child in transform)
+        {
+            child.position = Vector3.zero;
+            child.localPosition = Vector3.zero;
+            child.rotation = Quaternion.identity;
+            child.localScale = Vector3.one;
+        }
+
+        // Save the modified prefab
+        string prefabPath = PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(this.transform.parent.gameObject);
+        PrefabUtility.SaveAsPrefabAssetAndConnect(this.transform.parent.gameObject, prefabPath, InteractionMode.AutomatedAction);
     }
 
     private List<AbilityScriptAndNameHolder> abilityAndSubAbilities;
     public void generateAbilityUiObjects()
     {
-
         abilityAndSubAbilities = EtrasResourceGrabbingFunctions.GetAllAbilitiesAndSubAbilities();
         foreach (var ability in abilityAndSubAbilities)
         {
@@ -29,22 +39,36 @@ public class AbilityOrItemUIGenerator : MonoBehaviour
             {
                 //make objects and add them to 
                 GameObject addedObject = new GameObject(getUiObjectName(ability.shortenedName));
-                // Instantiate(addedObject, Vector3.zero, Quaternion.identity);
                 #if UNITY_EDITOR
                 PrefabUtility.InstantiatePrefab(addedObject);
-                #endif
-
+                 #endif
                 addedObject.AddComponent<AbilityOrItemUI>();
-
                 addedObject.transform.parent = this.transform;
             }
 
         }
+    }
 
-        // Save the modified prefab
-        string prefabPath = PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(this.transform.parent.gameObject);
-        PrefabUtility.SaveAsPrefabAssetAndConnect(this.transform.parent.gameObject, prefabPath, InteractionMode.AutomatedAction);
+    private List<ItemScriptAndNameHolder> fpsItems;
+    public void generateFpsItemUiObjects()
+    {
+        fpsItems = EtrasResourceGrabbingFunctions.GetAllItems();
+        foreach (var item in fpsItems)
+        {
 
+            if (!transform.Find(getUiObjectName(item.shortenedName).ToString()))
+            {
+                //make objects and add them to 
+                GameObject addedObject = new GameObject(getUiObjectName(item.shortenedName));
+                // Instantiate(addedObject, Vector3.zero, Quaternion.identity);
+                #if UNITY_EDITOR
+                PrefabUtility.InstantiatePrefab(addedObject);
+                #endif
+                addedObject.AddComponent<AbilityOrItemUI>();
+                addedObject.transform.parent = this.transform;
+            }
+
+        }
     }
 
     private string getUiObjectName(string baseName)

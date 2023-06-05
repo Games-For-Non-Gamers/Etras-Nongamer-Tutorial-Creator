@@ -1,4 +1,5 @@
 using Etra.StarterAssets.Abilities;
+using Etra.StarterAssets.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -185,14 +186,49 @@ namespace Etra.StarterAssets.Source
             }
 
 
-            List<string> temp = new List<string>();
-            foreach (var ability in abilityAndSubAbilities)
-            {
-                temp.Add(ability.shortenedName);
-            }
             //Debug.Log("List elements: " + string.Join(", ", temp));
             return abilityAndSubAbilities;
         }
+
+
+        public static IEnumerable<EtraFPSUsableItemBaseClass> FindAllFPSItemScripts<T>() where T : MonoBehaviour
+        {
+            var targetType = typeof(T);
+            var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+
+            foreach (var assembly in assemblies)
+            {
+                var types = assembly.GetTypes()
+                    .Where(t => targetType.IsAssignableFrom(t) && t != targetType);
+
+                foreach (var type in types)
+                {
+                    var gameObject = new GameObject("Tempcube");
+                    var scriptComponent = gameObject.AddComponent(type);
+
+                    if (scriptComponent is EtraFPSUsableItemBaseClass script)
+                    {
+                        yield return script;
+                    }
+
+                    DestroyImmediate(gameObject);
+                }
+            }
+        }
+
+
+        public static List<ItemScriptAndNameHolder> GetAllItems()
+        {
+            //Get all EtraAbilityBaseClass
+
+            List<ItemScriptAndNameHolder> tempItems = new List<ItemScriptAndNameHolder>();
+            tempItems = FindAllFPSItemScripts<EtraFPSUsableItemBaseClass>().Select(x => new ItemScriptAndNameHolder(x)).ToList();
+
+            //Debug.Log("List elements: " + string.Join(", ", temp));
+            return tempItems;
+        }
+
+
 
     }
 }

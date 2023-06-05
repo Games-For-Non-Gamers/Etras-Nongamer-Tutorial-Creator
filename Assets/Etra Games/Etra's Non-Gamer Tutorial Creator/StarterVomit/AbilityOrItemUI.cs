@@ -1,5 +1,6 @@
 using Etra.StarterAssets;
 using Etra.StarterAssets.Abilities;
+using EtrasStarterAssets;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -79,14 +80,14 @@ public class AbilityOrItemUI : MonoBehaviour
     //need character ability unlock function
     //Also need sub ability unlocks.
 
-    public void runUiEvent(AbilityScriptAndNameHolder abilityToActivate) //have parameter of event to unlock string?
+    public void runUiEvent(AbilityScriptAndNameHolder abilityToActivate, ItemScriptAndNameHolder selectedItem, bool isAbility) //have parameter of event to unlock string?
     {
-        StartCoroutine(runKeyboardEventArray(abilityToActivate));
+        StartCoroutine(runKeyboardEventArray(abilityToActivate, selectedItem, isAbility));
         //StartCoroutine(runControllerEventArray());
     }
 
     //Making these two enumerators right now, I'm certain this code could be better, but just making something functional rn
-    IEnumerator runKeyboardEventArray(AbilityScriptAndNameHolder abilityToActivate)
+    IEnumerator runKeyboardEventArray(AbilityScriptAndNameHolder abilityToActivate, ItemScriptAndNameHolder selectedItem, bool isAbility)
     {
 
         foreach (EtraUiAnimation UiEvent in keyboardAnimation)
@@ -137,10 +138,22 @@ public class AbilityOrItemUI : MonoBehaviour
                     }
                     break;
 
-                case AnimationEvents.UnlockAbility:
+                case AnimationEvents.UnlockAbilityOrItem:
 
-                    EtraAbilityBaseClass abilityScriptOnCharacter = (EtraAbilityBaseClass)EtraCharacterMainController.Instance.etraAbilityManager.GetComponent(abilityToActivate.script.GetType());
-                    abilityScriptOnCharacter.unlockAbility(abilityToActivate.name);
+                    if (isAbility)
+                    {
+                        EtraAbilityBaseClass abilityScriptOnCharacter = (EtraAbilityBaseClass)EtraCharacterMainController.Instance.etraAbilityManager.GetComponent(abilityToActivate.script.GetType());
+                        abilityScriptOnCharacter.unlockAbility(abilityToActivate.name);
+                    }
+                    else //is Item
+                    {
+                        //Add the script to the item manager
+                        EtraCharacterMainController.Instance.etraFPSUsableItemManager.gameObject.AddComponent(selectedItem.script.GetType());
+                        //Update the items array
+                        EtraCharacterMainController.Instance.etraFPSUsableItemManager.updateUsableItemsArray();
+                        //Equip the new item
+                        EtraCharacterMainController.Instance.etraFPSUsableItemManager.equipLastItem();
+                    }
                     break;
 
                 case AnimationEvents.ToStartTransform:
@@ -163,6 +176,14 @@ public class AbilityOrItemUI : MonoBehaviour
 
                 case AnimationEvents.InstantCenterObject:
                     LeanTween.move(obj, Vector3.zero, 0);
+                    break;
+
+                case AnimationEvents.MakeVisible:
+                    showOrHideUiObject(obj, true);
+                    break;
+
+                case AnimationEvents.PlaySfx:
+                    transform.parent.parent.GetComponent<AudioManager>().Play("UiElementMove");
                     break;
 
                 default:

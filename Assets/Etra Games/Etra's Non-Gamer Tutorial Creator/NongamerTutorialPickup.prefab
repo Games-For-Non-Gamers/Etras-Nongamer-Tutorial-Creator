@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24bfd7cae390b104cb904a9f625e73e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityShortenedNames:
+  abilityAndItemShortenedNames:
   - Activate Interact
   - Camera Movement
   - 'Camera Movement: UnlockX'
@@ -127,7 +127,12 @@ MonoBehaviour:
   - TPS Aim
   - FPS Crouch
   - Dash
-  Ability_To_Activate: Activate Interact
+  - Blaster
+  - Flashlight
+  - Grabber
+  - Sword
+  AbilityOrItem_To_Activate: Activate Interact
+  showTutorialPopup: 1
 --- !u!114 &3370215689563160681
 MonoBehaviour:
   m_ObjectHideFlags: 0

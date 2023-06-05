@@ -10,44 +10,70 @@ using UnityEngine;
 public class NonGamerTutorialPickup : MonoBehaviour, ISerializationCallbackReceiver
 {
     public static List<string> TMPList;
-    [HideInInspector] public List<string> abilityShortenedNames;
+    [HideInInspector] public List<string> abilityAndItemShortenedNames;
     [ListToPopup(typeof(NonGamerTutorialPickup), "TMPList")]
-    public string Ability_To_Activate;
+    public string AbilityOrItem_To_Activate;
     private List<AbilityScriptAndNameHolder> abilityAndSubAbilities;
     AbilityScriptAndNameHolder selectedAbility;
     EtraAbilityBaseClass abilityScriptOnCharacter;
+    private List<ItemScriptAndNameHolder> fpsItems;
+    ItemScriptAndNameHolder selectedItem;
+    bool isAbility = false;
+    bool isItem = false;
 
     public bool showTutorialPopup = true;
 
     //Set the correct selected ability
     private void Start()
     {
-        updateAbilities();
+        updateAbilitiesAndItems();
 
-        foreach (AbilityScriptAndNameHolder abil in abilityAndSubAbilities)
+        //Check items first
+        foreach (ItemScriptAndNameHolder item in fpsItems)
         {
-            if (abil.shortenedName == Ability_To_Activate)
+            if (item.shortenedName == AbilityOrItem_To_Activate)
             {
-                selectedAbility = abil;
+                selectedItem = item;
+            }
+        }
+
+        if (selectedItem != null)
+        {
+            isItem = true;
+            isAbility = false;
+        }
+        //Then check abilities
+        else
+        {
+            isAbility = true;
+            isItem = false;
+
+            foreach (AbilityScriptAndNameHolder abil in abilityAndSubAbilities)
+            {
+                if (abil.shortenedName == AbilityOrItem_To_Activate)
+                {
+                    selectedAbility = abil;
+                }
+            }
+
+            //If the ability is not on the player, it cannot be activated or deactivated
+            if ((EtraAbilityBaseClass)EtraCharacterMainController.Instance.etraAbilityManager.GetComponent(selectedAbility.script.GetType()) == null)
+            {
+                Debug.LogWarning("PickupAbility.cs cannot activate the " + AbilityOrItem_To_Activate + " ability on your character because your character does not have the " + AbilityOrItem_To_Activate + " script attached to its ability manager.");
+            }
+            else
+            {
+                abilityScriptOnCharacter = (EtraAbilityBaseClass)EtraCharacterMainController.Instance.etraAbilityManager.GetComponent(selectedAbility.script.GetType());
             }
         }
 
 
-        //If the ability is not on the player, it cannot be activated or deactivated
-        if ((EtraAbilityBaseClass)EtraCharacterMainController.Instance.etraAbilityManager.GetComponent(selectedAbility.script.GetType()) == null)
-        {
-            Debug.LogWarning("PickupAbility.cs cannot activate the " + Ability_To_Activate + " ability on your character because your character does not have the " + Ability_To_Activate + " script attached to its ability manager.");
-        }
-        else
-        {
-            abilityScriptOnCharacter = (EtraAbilityBaseClass)EtraCharacterMainController.Instance.etraAbilityManager.GetComponent(selectedAbility.script.GetType());
-        }
 
     }
 
     private void Reset()
     {
-        updateAbilities();
+        updateAbilitiesAndItems();
     }
 
     //If the player collides with the pickup...
@@ -55,19 +81,41 @@ public class NonGamerTutorialPickup : MonoBehaviour, ISerializationCallbackRecei
     {
         if (other.gameObject.tag == "Player")
         {
-            GetComponent<MeshRenderer>().enabled = false;
-            GetComponent<SphereCollider>().enabled = false;
-            GetComponent<AudioManager>().Play("AbilityGet");
-            //enable the ability and destroy the pickup
-            if (showTutorialPopup)
+
+            if (isAbility)
             {
-                GameObject.Find(getUiObjectName(selectedAbility.shortenedName)).GetComponent<AbilityOrItemUI>().runUiEvent(selectedAbility);
-            }
-            else
+                GetComponent<MeshRenderer>().enabled = false;
+                GetComponent<SphereCollider>().enabled = false;
+                GetComponent<AudioManager>().Play("AbilityGet");
+                //enable the ability and destroy the pickup
+                if (showTutorialPopup)
+                {
+                    GameObject.Find(getUiObjectName(selectedAbility.shortenedName)).GetComponent<AbilityOrItemUI>().runUiEvent(selectedAbility, selectedItem, true);
+                }
+                else
+                {
+                    abilityScriptOnCharacter.unlockAbility(selectedAbility.name);
+                }
+                StartCoroutine(waitToDestroy());
+            } 
+            else if (isItem)
             {
-                abilityScriptOnCharacter.unlockAbility(selectedAbility.name);
+                if (showTutorialPopup)
+                {
+                    GameObject.Find(getUiObjectName(selectedItem.shortenedName)).GetComponent<AbilityOrItemUI>().runUiEvent(selectedAbility, selectedItem, false);
+                }
+                else
+                {
+                    //Add the script to the item manager
+                    EtraCharacterMainController.Instance.etraFPSUsableItemManager.gameObject.AddComponent(selectedItem.script.GetType());
+                    //Update the items array
+                    EtraCharacterMainController.Instance.etraFPSUsableItemManager.updateUsableItemsArray();
+                    //Equip the new item
+                    EtraCharacterMainController.Instance.etraFPSUsableItemManager.equipLastItem();
+                }
+                //Destory this pickup
+                Destroy(gameObject);
             }
-            StartCoroutine(waitToDestroy());
         }
 
     }
@@ -86,14 +134,28 @@ public class NonGamerTutorialPickup : MonoBehaviour, ISerializationCallbackRecei
 
 
     //Update the list every frame on editor selection "functionally"
-    [ContextMenu("Update Abilities")]
-    public void updateAbilities()
+    [ContextMenu("Update Abilities And Items")]
+    public void updateAbilitiesAndItems()
+    {
+        abilityAndItemShortenedNames = new List<string>();
+        updateAbilities();
+        updateItems();
+    }
+    void updateAbilities()
     {
         abilityAndSubAbilities = EtrasResourceGrabbingFunctions.GetAllAbilitiesAndSubAbilities();
-        abilityShortenedNames = new List<string>();
         foreach (var ability in abilityAndSubAbilities)
         {
-            abilityShortenedNames.Add(ability.shortenedName);
+            abilityAndItemShortenedNames.Add(ability.shortenedName);
+        }
+
+    }
+    void updateItems()
+    {
+        fpsItems = EtrasResourceGrabbingFunctions.GetAllItems();
+        foreach (ItemScriptAndNameHolder item in fpsItems)
+        {
+            abilityAndItemShortenedNames.Add(item.shortenedName);
         }
 
     }
@@ -101,7 +163,7 @@ public class NonGamerTutorialPickup : MonoBehaviour, ISerializationCallbackRecei
     public void OnBeforeSerialize()
     {
         //abilityShortenedNames = GetAllAbilities();
-        TMPList = abilityShortenedNames;
+        TMPList = abilityAndItemShortenedNames;
     }
 
     public void OnAfterDeserialize()

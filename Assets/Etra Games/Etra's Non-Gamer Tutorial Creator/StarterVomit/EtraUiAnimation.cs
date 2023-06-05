@@ -12,9 +12,11 @@ using UnityEngine;
             Flash,
             Wait, 
             Fade,
-            UnlockAbility,
+            UnlockAbilityOrItem,
             ToStartTransform,
-            InstantCenterObject
+            InstantCenterObject,
+            MakeVisible,
+            PlaySfx
         }
 
         public AnimationEvents chosenTweenEvent;
