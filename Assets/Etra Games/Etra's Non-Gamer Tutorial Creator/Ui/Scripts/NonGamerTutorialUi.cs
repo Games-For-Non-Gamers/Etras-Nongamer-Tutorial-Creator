@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
+using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.UI;
 
 namespace Etra.NonGamerTutorialCreator{
@@ -90,6 +92,7 @@ namespace Etra.NonGamerTutorialCreator{
             {
                 keyboardUi.SetActive(true);
                 controllerUi.SetActive(false);
+
             }
             else //Controller
             {
@@ -122,49 +125,54 @@ namespace Etra.NonGamerTutorialCreator{
         }
 
 
-        public void setControllerImages(int controllerNum)
-        {
 
 
-        }
-
-        void Update()
-        {
-            detectAndUpdateController();
-        }
-        private bool isUsingGamepad = false;
         private bool isUsingKeyboard = false;
-        string currentDeviceName = "";
-        string previousDevice = "";
-        private void detectAndUpdateController()
+        private bool isUsingGamepad = false;
+        private string currentDeviceName = "";
+        private string previousDevice = "";
+        private string previousGamepad = "";
+
+        private void OnEnable()
         {
-            //update for auto and controller swap thingbviuhydfhjkgnf
+            // Subscribe to input events
+            Keyboard.current.onTextInput += OnTextInput;
+        }
 
-            if (Gamepad.current != null)
+        private void OnDisable()
+        {
+            // Unsubscribe from input events
+            Keyboard.current.onTextInput -= OnTextInput;
+        }
+
+        private void Update()
+        {
+            // Update for auto and controller swap
+            if (Gamepad.current != null && IsAnyGamepadButtonPressed())
             {
-
-                if (!isUsingGamepad && Gamepad.current.wasUpdatedThisFrame)
+                if (previousGamepad != Gamepad.current.name) 
                 {
-                    isUsingGamepad = true;
+                    previousGamepad = Gamepad.current.name;
                     currentDeviceName = Gamepad.current.name;
                 }
 
-
-                if (previousDevice != Gamepad.current.device.name)
+                if (!isUsingGamepad)
                 {
+                    isUsingGamepad = true;
+                    isUsingKeyboard = false;
                     currentDeviceName = Gamepad.current.name;
                 }
             }
-
-            // Check if any key on the keyboard is pressed
-            if (Keyboard.current != null && Keyboard.current.anyKey.isPressed)
+            else if (Keyboard.current != null && Keyboard.current.anyKey.isPressed)
             {
                 if (!isUsingKeyboard)
                 {
                     isUsingKeyboard = true;
+                    isUsingGamepad = false;
                     currentDeviceName = "Keyboard";
                 }
             }
+
 
             if (previousDevice != currentDeviceName)
             {
@@ -200,7 +208,8 @@ namespace Etra.NonGamerTutorialCreator{
                     {
                         switchUi(UiTypes.XboxOne);
                     }
-                } else if (allowAutoSwitchToKeyboard)
+                }
+                else if (allowAutoSwitchToKeyboard)
                 {
                     if (currentDeviceName == "Keyboard")
                     {
@@ -215,9 +224,44 @@ namespace Etra.NonGamerTutorialCreator{
                 {
                     switchFromActiveUi();
                 }
-
             }
         }
-    }
+
+        private void OnTextInput(char character)
+        {
+            if (!isUsingKeyboard && Keyboard.current.anyKey.isPressed)
+            {
+                // If not using the keyboard UI and a key is pressed, switch to the keyboard UI
+                isUsingKeyboard = true;
+                isUsingGamepad = false;
+                currentDeviceName = "Keyboard";
+            }
+            else if (!isUsingGamepad && Gamepad.current != null)
+            {
+                if (!isUsingKeyboard && IsAnyGamepadButtonPressed())
+                {
+                    // If not using the gamepad UI and any button on the gamepad is pressed, switch to the gamepad UI
+                    isUsingGamepad = true;
+                    isUsingKeyboard = false;
+                    currentDeviceName = Gamepad.current.displayName;
+                }
+            }
+        }
+
+        private bool IsAnyGamepadButtonPressed()
+        {
+            foreach (var button in Gamepad.current.allControls)
+            {
+                if (button is ButtonControl buttonControl && buttonControl.isPressed)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+
+    }  
 }
 

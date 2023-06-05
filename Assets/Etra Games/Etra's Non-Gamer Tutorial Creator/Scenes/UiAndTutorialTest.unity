@@ -15749,15 +15749,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1281498602352929490, guid: f92fbf0cafede1944a1128d04e77b180, type: 3}
       propertyPath: activeUi
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7982650616151969380, guid: f92fbf0cafede1944a1128d04e77b180, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7982650616337563482, guid: f92fbf0cafede1944a1128d04e77b180, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7982650616480194280, guid: f92fbf0cafede1944a1128d04e77b180, type: 3}
       propertyPath: m_Pivot.x
