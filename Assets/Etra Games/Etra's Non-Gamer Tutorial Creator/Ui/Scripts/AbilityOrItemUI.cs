@@ -172,8 +172,9 @@ namespace Etra.NonGamerTutorialCreator
                         LeanTween.scale(obj, foundObjectTransform.startScale, UiEvent.toStartTime).setEaseInOutSine();
                         break;
 
-                    case AnimationEvents.InstantCenterObject:
+                    case AnimationEvents.InstantCenterAndZeroScaleObject:
                         LeanTween.move(obj, Vector3.zero, 0);
+                        LeanTween.scale(obj, Vector3.zero, 0);
                         break;
 
                     case AnimationEvents.MakeVisible:

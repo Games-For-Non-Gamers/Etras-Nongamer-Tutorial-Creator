@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5130cf7af078c1b4ca28a4105cb964e2, type: 3}
+  m_Name: SwitchPro
+  m_EditorClassIdentifier: 
+  leftJoystick: {fileID: 21300000, guid: cff62cd72a86dd94d9c9546e38ea15e7, type: 3}
+  rightJoystick: {fileID: 21300000, guid: 02e9214e8151a5b4b936f15947d13058, type: 3}
+  leftShoulder: {fileID: 21300000, guid: 8e5787a10985c9843b31efeebeccbf01, type: 3}
+  leftTrigger: {fileID: 21300000, guid: 2d67f69b2c7944d4a9519a36a1e38eae, type: 3}
+  rightShoulder: {fileID: 21300000, guid: 73840ca41d1cb264ea0589241e62cdd6, type: 3}
+  rightTrigger: {fileID: 21300000, guid: 8a8982e05a97eb2419c7f676195c1a02, type: 3}
+  start: {fileID: 21300000, guid: 5302606b023c3894faedfc9f4688bcbf, type: 3}
+  select: {fileID: 21300000, guid: 3f644d7145b05864b8bed9d8413c2eb2, type: 3}
+  upFace: {fileID: 21300000, guid: 789532012d20d6d48984e16de68719f2, type: 3}
+  downFace: {fileID: 21300000, guid: 078f35bb798dd2f498f0d3a71e918d1f, type: 3}
+  leftFace: {fileID: 21300000, guid: c99dd86f4948ac34f9ee8a445337e014, type: 3}
+  rightFace: {fileID: 21300000, guid: f923211784215b24a93242e29b9abcad, type: 3}
+  upDpad: {fileID: 21300000, guid: 3197399c2a443e1478dd5d726b82f54c, type: 3}
+  downDpad: {fileID: 21300000, guid: 875a3431a5bdc3c4ba8bc861642adf21, type: 3}
+  leftDpad: {fileID: 21300000, guid: 34c9c63854e30e047a9eb5cdd6067b81, type: 3}
+  rightDpad: {fileID: 21300000, guid: 426b485b26d3d13469039f161b141ec6, type: 3}
+  dpadBase: {fileID: 21300000, guid: 0399b9f156029d54bb33df797dcba64f, type: 3}

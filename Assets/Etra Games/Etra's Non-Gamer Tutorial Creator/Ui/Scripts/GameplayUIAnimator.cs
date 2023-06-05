@@ -295,10 +295,10 @@ public class GameplayUIAnimator : MonoBehaviour
             rightShoulder.GetComponent<Image>().sprite = controllerImages[controllerNum].rightShoulder;
             leftFace.GetComponent<Image>().sprite = controllerImages[controllerNum].leftFace;
             downFace.GetComponent<Image>().sprite = controllerImages[controllerNum].downFace;
-            FADEDleftFace.GetComponent<Image>().sprite = controllerImages[controllerNum].FADEDleftFace;
-            FADEDrightFace.GetComponent<Image>().sprite = controllerImages[controllerNum].FADEDrightFace;
-            FADEDupFace.GetComponent<Image>().sprite = controllerImages[controllerNum].FADEDupFace;
-            FADEDdownFace.GetComponent<Image>().sprite = controllerImages[controllerNum].FADEDdownFace;
+            FADEDleftFace.GetComponent<Image>().sprite = controllerImages[controllerNum].leftFace;
+            FADEDrightFace.GetComponent<Image>().sprite = controllerImages[controllerNum].rightFace;
+            FADEDupFace.GetComponent<Image>().sprite = controllerImages[controllerNum].upFace;
+            FADEDdownFace.GetComponent<Image>().sprite = controllerImages[controllerNum].downFace;
         }
 
     }

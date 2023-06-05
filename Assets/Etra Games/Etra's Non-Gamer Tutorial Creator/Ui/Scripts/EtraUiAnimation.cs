@@ -16,7 +16,7 @@ namespace Etra.NonGamerTutorialCreator
             Fade,
             UnlockAbilityOrItem,
             ToStartTransform,
-            InstantCenterObject,
+            InstantCenterAndZeroScaleObject,
             MakeVisible,
             PlaySfx
         }

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5130cf7af078c1b4ca28a4105cb964e2, type: 3}
+  m_Name: Steam
+  m_EditorClassIdentifier: 
+  leftJoystick: {fileID: 21300000, guid: a459e1fb8eccb9f4cba41e3cc1e1b394, type: 3}
+  rightJoystick: {fileID: 21300000, guid: 8239ab14d1ff6bb40855f647f4d59d99, type: 3}
+  leftShoulder: {fileID: 21300000, guid: c982cab58a7620043bb281c044d8bf0a, type: 3}
+  leftTrigger: {fileID: 21300000, guid: 1f092c216b1838d4aaa6a1b9239ca02c, type: 3}
+  rightShoulder: {fileID: 21300000, guid: 1ceb69268571a124980548aa56c0fa24, type: 3}
+  rightTrigger: {fileID: 21300000, guid: 69a58de72be8bf94fa1060f1696d465b, type: 3}
+  start: {fileID: 21300000, guid: 420fcbd396884a840af9ce6432fdef69, type: 3}
+  select: {fileID: 21300000, guid: 1a0a14784f66edf4fbca118c9705eaab, type: 3}
+  upFace: {fileID: 21300000, guid: 5cbadf6af405b174cab62456f84dba76, type: 3}
+  downFace: {fileID: 21300000, guid: 12b264f7446d5414985d401e95fd85e9, type: 3}
+  leftFace: {fileID: 21300000, guid: 8531a6311cb27b246bc174d9801a8b6c, type: 3}
+  rightFace: {fileID: 21300000, guid: 7966c1a9ef3a4c64ba7700e7bad03a8b, type: 3}
+  upDpad: {fileID: 21300000, guid: 624c37e6cb8664a40aad4f6448e5d0c4, type: 3}
+  downDpad: {fileID: 21300000, guid: 1d217d95d0d1df74a88bd5c5f6a21725, type: 3}
+  leftDpad: {fileID: 21300000, guid: 689f4c9a8763474468955b70f4fee462, type: 3}
+  rightDpad: {fileID: 21300000, guid: 377600e9513eb5f4888a82c13a4daddc, type: 3}
+  dpadBase: {fileID: 21300000, guid: d8f6c1c4c32de6349a3614af0e846afc, type: 3}

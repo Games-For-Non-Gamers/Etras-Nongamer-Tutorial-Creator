@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5130cf7af078c1b4ca28a4105cb964e2, type: 3}
+  m_Name: Ps4
+  m_EditorClassIdentifier: 
+  leftJoystick: {fileID: 21300000, guid: 1b8aa35cba91fcb4b950e55dc4134d7b, type: 3}
+  rightJoystick: {fileID: 21300000, guid: 34866066e1d425e4da65ed6f239badd0, type: 3}
+  leftShoulder: {fileID: 21300000, guid: 519237aea94d1484cbd4e64668843955, type: 3}
+  leftTrigger: {fileID: 21300000, guid: 03a6b5d20f87bd445bf51a72b96d5951, type: 3}
+  rightShoulder: {fileID: 21300000, guid: 251742b05b097ac4e85208ef6c693eed, type: 3}
+  rightTrigger: {fileID: 21300000, guid: a62144e7a96fbfb42832ab995b59f87c, type: 3}
+  start: {fileID: 21300000, guid: 2321b450ca0248a4c9498de486e89609, type: 3}
+  select: {fileID: 21300000, guid: 10f084cbb37024d4f975baed81dfc10a, type: 3}
+  upFace: {fileID: 21300000, guid: 82b5ed0951b9e914ba712e208f8fdd54, type: 3}
+  downFace: {fileID: 21300000, guid: 25e3edffe8fa92e48a382f2f0ccf6b1c, type: 3}
+  leftFace: {fileID: 21300000, guid: a735faf46223fdf4e94cfdb82b175c4f, type: 3}
+  rightFace: {fileID: 21300000, guid: 74f39e2fe2a46734384c2291e80eca72, type: 3}
+  upDpad: {fileID: 21300000, guid: 18552b0074356c54fac6d28e85315762, type: 3}
+  downDpad: {fileID: 21300000, guid: 354322d8ba5c441418b39950368756ec, type: 3}
+  leftDpad: {fileID: 21300000, guid: 7e2134c9f57c5c34ead03dd1948fdb49, type: 3}
+  rightDpad: {fileID: 21300000, guid: 561940a2bb7d07a4f8890b5213302096, type: 3}
+  dpadBase: {fileID: 21300000, guid: bd8505c116e63d9499485a783270a61c, type: 3}

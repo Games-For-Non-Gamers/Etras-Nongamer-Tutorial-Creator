@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5130cf7af078c1b4ca28a4105cb964e2, type: 3}
+  m_Name: XboxSeries
+  m_EditorClassIdentifier: 
+  leftJoystick: {fileID: 21300000, guid: 7d67073e86306dc4fb5ff559ed824ed0, type: 3}
+  rightJoystick: {fileID: 21300000, guid: cca11fc11a762c5469ce4091fb4b3515, type: 3}
+  leftShoulder: {fileID: 21300000, guid: c9511740d4242fd4989d33d4f6a0ca6d, type: 3}
+  leftTrigger: {fileID: 21300000, guid: c3eb30d5fd597814eaa79619b4ea5c4e, type: 3}
+  rightShoulder: {fileID: 21300000, guid: 7f1a86a0218434d4ea8d570d84bc2ed2, type: 3}
+  rightTrigger: {fileID: 21300000, guid: c15426175248b7c4f9909cd533a9504d, type: 3}
+  start: {fileID: 21300000, guid: ff612895af819054690b4e0e180854f0, type: 3}
+  select: {fileID: 21300000, guid: a417036c8c7b1d8429eae8e295c5e757, type: 3}
+  upFace: {fileID: 21300000, guid: 19ec48d125da587488c3631dc5c3e512, type: 3}
+  downFace: {fileID: 21300000, guid: f7122261af6a8af49b09040c9422d34d, type: 3}
+  leftFace: {fileID: 21300000, guid: 9c7d1448fbe26c84d871d5b18261dd64, type: 3}
+  rightFace: {fileID: 21300000, guid: 6d8e32b1746cd1a4bb1c49cb9f860b85, type: 3}
+  upDpad: {fileID: 21300000, guid: fb096724eb86ae349a54288c3a06ce45, type: 3}
+  downDpad: {fileID: 21300000, guid: d3b5e38a33f648f4fa888cf611d3d3cf, type: 3}
+  leftDpad: {fileID: 21300000, guid: b6dce70f7b502504aac8bf66b2ccfe95, type: 3}
+  rightDpad: {fileID: 21300000, guid: 687a0dd8eacbb49479841c00811c2878, type: 3}
+  dpadBase: {fileID: 21300000, guid: a2fd0ca0a50391843b9f235e62dd8250, type: 3}
