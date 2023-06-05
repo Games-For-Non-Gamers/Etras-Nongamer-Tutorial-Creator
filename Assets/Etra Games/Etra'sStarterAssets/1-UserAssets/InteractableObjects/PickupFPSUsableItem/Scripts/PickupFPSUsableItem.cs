@@ -2,8 +2,6 @@ using Etra.StarterAssets.Items;
 using Etra.StarterAssets.Source;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
 using UnityEngine;
 
 namespace Etra.StarterAssets.Interactables

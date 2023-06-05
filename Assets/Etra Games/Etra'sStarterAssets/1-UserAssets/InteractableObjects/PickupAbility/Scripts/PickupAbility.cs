@@ -1,15 +1,9 @@
 using Etra.StarterAssets.Abilities;
 using Etra.StarterAssets.Source;
 using EtrasStarterAssets;
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text.RegularExpressions;
-using UnityEditor;
 using UnityEngine;
-using static Etra.StarterAssets.Abilities.EtraAbilityBaseClass;
 
 namespace Etra.StarterAssets.Interactables
 {

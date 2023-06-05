@@ -1,7 +1,6 @@
 using Etra.StarterAssets.Items;
 using System.Linq;
 using System.Text.RegularExpressions;
-using UnityEngine;
 
 namespace Etra.StarterAssets
 {
