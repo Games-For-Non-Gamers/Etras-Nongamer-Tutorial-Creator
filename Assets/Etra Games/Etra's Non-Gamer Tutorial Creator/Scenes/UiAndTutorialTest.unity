@@ -11254,7 +11254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb1d1e1816bc9b141911b2502678a026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiObjects: []
+  uiObjects:
+  - {fileID: 208963762}
   showUiIfAbilityIsActive: 1
   keyboardAnimation:
   - tweenedObject: {fileID: 208963762}
@@ -11273,7 +11274,7 @@ MonoBehaviour:
     fadeTime: 0
     toStartTime: 0
   - tweenedObject: {fileID: 208963762}
-    chosenTweenEvent: 0
+    chosenTweenEvent: 7
     scaleAndMovePosition: {x: 3, y: 3, z: 3}
     scaleAndMoveScale: {x: 3, y: 3, z: 3}
     scaleAndMoveTime: 3
@@ -13642,6 +13643,34 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1796323720}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1799090103 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7982650616480194283, guid: f92fbf0cafede1944a1128d04e77b180, type: 3}
+  m_PrefabInstance: {fileID: 7783501418710695141}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1799090109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799090103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d10d9b6d879748499838bb462e075de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: UiElementMove
+    clip: {fileID: 8300000, guid: 2003fab8ca9f7a441b0c4a1c4300959b, type: 3}
+    volume: 0.8
+    basePitch: 1
+    spatialBlend: 1
+    randomizePitch: 0
+    randomPitchRange: {x: 0.95, y: 1.05}
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &1802861542 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6958318317044482779, guid: 4c0022dfa1a9bd24897c8665f357b665, type: 3}
@@ -16760,6 +16789,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7982650617367514337, guid: f92fbf0cafede1944a1128d04e77b180, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982650618128758098, guid: f92fbf0cafede1944a1128d04e77b180, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982650618128758098, guid: f92fbf0cafede1944a1128d04e77b180, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982650618128758098, guid: f92fbf0cafede1944a1128d04e77b180, type: 3}
+      propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

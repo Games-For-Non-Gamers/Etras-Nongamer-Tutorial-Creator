@@ -33,7 +33,8 @@ namespace Etra.StarterAssets.Abilities
 
         private void changeAbilityLockState(string abilityName, bool state)
         {
-            if (abilityName == this.name)
+
+            if (abilityName == this.GetType().Name)
             {
                 abilityEnabled = state;
             }
@@ -72,7 +73,7 @@ namespace Etra.StarterAssets.Abilities
             public subAbilityUnlock(string n, bool e)
             {
                 subAbilityName = n;
-                subAbilityEnabled=e;
+                subAbilityEnabled = e;
             }
         }
 

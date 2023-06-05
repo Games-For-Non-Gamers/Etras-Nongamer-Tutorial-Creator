@@ -57,8 +57,16 @@ public class NonGamerTutorialPickup : MonoBehaviour, ISerializationCallbackRecei
         {
             GetComponent<MeshRenderer>().enabled = false;
             GetComponent<SphereCollider>().enabled = false;
+            GetComponent<AudioManager>().Play("AbilityGet");
             //enable the ability and destroy the pickup
-            GameObject.Find(getUiObjectName(selectedAbility.shortenedName)).GetComponent<AbilityOrItemUI>().runUiEvent(selectedAbility);
+            if (showTutorialPopup)
+            {
+                GameObject.Find(getUiObjectName(selectedAbility.shortenedName)).GetComponent<AbilityOrItemUI>().runUiEvent(selectedAbility);
+            }
+            else
+            {
+                abilityScriptOnCharacter.unlockAbility(selectedAbility.name);
+            }
             StartCoroutine(waitToDestroy());
         }
 

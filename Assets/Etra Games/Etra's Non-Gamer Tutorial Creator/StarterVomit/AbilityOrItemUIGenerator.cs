@@ -40,6 +40,11 @@ public class AbilityOrItemUIGenerator : MonoBehaviour
             }
 
         }
+
+        // Save the modified prefab
+        string prefabPath = PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(this.transform.parent.gameObject);
+        PrefabUtility.SaveAsPrefabAssetAndConnect(this.transform.parent.gameObject, prefabPath, InteractionMode.AutomatedAction);
+
     }
 
     private string getUiObjectName(string baseName)
