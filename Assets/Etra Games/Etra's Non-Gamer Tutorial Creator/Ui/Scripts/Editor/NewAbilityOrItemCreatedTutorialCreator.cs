@@ -39,8 +39,8 @@ namespace Etra.NonGamerTutorialCreator.Editor
 
                         if (changed)
                         {
-                            NonGamerTutorialPickup[] foundScripts = GameObject.FindObjectsOfType<NonGamerTutorialPickup>(true);
-                            foreach (NonGamerTutorialPickup pickup in foundScripts)
+                            AbilityOrItempPickup[] foundScripts = GameObject.FindObjectsOfType<AbilityOrItempPickup>(true);
+                            foreach (AbilityOrItempPickup pickup in foundScripts)
                             {
                                 pickup.updateAbilitiesAndItems();
                             }

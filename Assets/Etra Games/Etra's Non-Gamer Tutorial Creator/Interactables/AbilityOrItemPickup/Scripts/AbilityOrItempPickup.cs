@@ -8,11 +8,11 @@ using UnityEngine;
 
 namespace Etra.NonGamerTutorialCreator
 {
-    public class NonGamerTutorialPickup : MonoBehaviour, ISerializationCallbackReceiver
+    public class AbilityOrItempPickup : MonoBehaviour, ISerializationCallbackReceiver
     {
         public static List<string> TMPList;
         [HideInInspector] public List<string> abilityAndItemShortenedNames;
-        [ListToPopup(typeof(NonGamerTutorialPickup), "TMPList")]
+        [ListToPopup(typeof(AbilityOrItempPickup), "TMPList")]
         public string AbilityOrItem_To_Activate;
         private List<AbilityScriptAndNameHolder> abilityAndSubAbilities;
         AbilityScriptAndNameHolder selectedAbility;
@@ -23,6 +23,7 @@ namespace Etra.NonGamerTutorialCreator
         bool isItem = false;
 
         public bool showTutorialPopup = true;
+        public bool playPickupSfx = true;
 
         //Set the correct selected ability
         private void Start()
@@ -87,7 +88,12 @@ namespace Etra.NonGamerTutorialCreator
                 {
                     GetComponent<MeshRenderer>().enabled = false;
                     GetComponent<SphereCollider>().enabled = false;
-                    GetComponent<AudioManager>().Play("AbilityGet");
+
+                    if (playPickupSfx)
+                    {
+                        GetComponent<AudioManager>().Play("AbilityGet");
+                    }
+                    
                     //enable the ability and destroy the pickup
                     if (showTutorialPopup)
                     {

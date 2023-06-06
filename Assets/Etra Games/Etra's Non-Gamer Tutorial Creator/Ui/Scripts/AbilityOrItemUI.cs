@@ -3,6 +3,7 @@ using Etra.StarterAssets.Abilities;
 using EtrasStarterAssets;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using static Etra.NonGamerTutorialCreator.EtraUiAnimation;
@@ -81,7 +82,7 @@ namespace Etra.NonGamerTutorialCreator
         public void runUiEvent(AbilityScriptAndNameHolder abilityToActivate, ItemScriptAndNameHolder selectedItem, bool isAbility) //have parameter of event to unlock string?
         {
             StartCoroutine(runKeyboardEventArray(abilityToActivate, selectedItem, isAbility));
-            //StartCoroutine(runControllerEventArray());
+            StartCoroutine(runControllerEventArray(abilityToActivate, selectedItem, isAbility));
         }
 
         //Making these two enumerators right now, I'm certain this code could be better, but just making something functional rn
@@ -182,7 +183,138 @@ namespace Etra.NonGamerTutorialCreator
                         break;
 
                     case AnimationEvents.PlaySfx:
-                        transform.parent.parent.GetComponent<AudioManager>().Play("UiElementMove");
+                        if (transform.parent.parent.GetComponent<NonGamerTutorialUi>().keyboardUi.activeInHierarchy) //so the controller and keyboard sfx don't play over each other
+                        {
+                            if (UiEvent.sfxName == "" || UiEvent.sfxName == null)
+                            {
+                                transform.parent.parent.GetComponent<AudioManager>().Play("UiElementMove");
+                            }
+                            else
+                            {
+                                transform.parent.parent.GetComponent<AudioManager>().Play(UiEvent.sfxName);
+                            }
+                        }
+
+                        break;
+
+                    default:
+                        Debug.Log("Invalid Animation Event");
+                        break;
+                }
+
+            }
+        }
+
+
+        IEnumerator runControllerEventArray(AbilityScriptAndNameHolder abilityToActivate, ItemScriptAndNameHolder selectedItem, bool isAbility)
+        {
+
+            foreach (EtraUiAnimation UiEvent in controllerAnimation)
+            {
+                RectTransform obj = UiEvent.tweenedObject;
+                switch (UiEvent.chosenTweenEvent)
+                {
+                    case AnimationEvents.MoveAndScale:
+                        LeanTween.move(obj, UiEvent.scaleAndMovePosition, UiEvent.scaleAndMoveTime).setEaseInOutSine();
+                        LeanTween.scale(obj, UiEvent.scaleAndMoveScale, UiEvent.scaleAndMoveTime).setEaseInOutSine();
+                        break;
+
+                    case AnimationEvents.Move:
+                        LeanTween.move(obj, UiEvent.movePosition, UiEvent.moveTime).setEaseInOutSine();
+                        break;
+
+                    case AnimationEvents.Scale:
+                        LeanTween.scale(obj, UiEvent.scaleAndMoveScale, UiEvent.scaleAndMoveTime).setEaseInOutSine();
+                        break;
+
+                    case AnimationEvents.Flash:
+                        for (int i = 0; i < UiEvent.flashTimes; i++)
+                        {
+                            showOrHideUiObject(obj, true);
+                            yield return new WaitForSeconds(UiEvent.flashDelay);
+                            showOrHideUiObject(obj, false);
+                            yield return new WaitForSeconds(UiEvent.flashDelay);
+                        }
+                        break;
+
+                    case AnimationEvents.Wait:
+                        yield return new WaitForSeconds(UiEvent.secondsToWait);
+                        break;
+
+                    case AnimationEvents.Fade:
+
+
+                        if (obj.GetComponent<Image>())
+                        {
+                            Image image = obj.GetComponent<Image>();
+                            LeanTween.color(obj, new Color(image.color.r, image.color.g, image.color.b, UiEvent.opacity), UiEvent.fadeTime).setEaseInOutSine();
+                        }
+
+                        if (obj.GetComponent<Text>())
+                        {
+                            Text text = obj.GetComponent<Text>();
+                            LeanTween.colorText(obj, new Color(text.color.r, text.color.g, text.color.b, UiEvent.opacity), UiEvent.fadeTime).setEaseInOutSine();
+                        }
+                        break;
+
+                    case AnimationEvents.UnlockAbilityOrItem:
+
+                        if (isAbility)
+                        {
+                            EtraAbilityBaseClass abilityScriptOnCharacter = (EtraAbilityBaseClass)EtraCharacterMainController.Instance.etraAbilityManager.GetComponent(abilityToActivate.script.GetType());
+                            abilityScriptOnCharacter.unlockAbility(abilityToActivate.name);
+                        }
+                        else //is Item
+                        {
+                            //Add the script to the item manager
+                            EtraCharacterMainController.Instance.etraFPSUsableItemManager.gameObject.AddComponent(selectedItem.script.GetType());
+                            //Update the items array
+                            EtraCharacterMainController.Instance.etraFPSUsableItemManager.updateUsableItemsArray();
+                            //Equip the new item
+                            EtraCharacterMainController.Instance.etraFPSUsableItemManager.equipLastItem();
+                        }
+                        break;
+
+                    case AnimationEvents.ToStartTransform:
+
+                        //Find the element
+                        ObjectStarterTransform foundObjectTransform = new ObjectStarterTransform();
+
+                        foreach (ObjectStarterTransform uitransform in startPositions)
+                        {
+                            if (uitransform.objectName == obj.name)
+                            {
+                                foundObjectTransform = uitransform;
+                            }
+                        }
+                        //Move to that pos, rot, and scale
+                        LeanTween.move(obj, foundObjectTransform.startPosition, UiEvent.toStartTime).setEaseInOutSine();
+                        // LeanTween.rotate(obj, foundObjectTransform.startPosition.rotation.eulerAngles, UiEvent.toStartTime).setEaseInOutSine();
+                        LeanTween.scale(obj, foundObjectTransform.startScale, UiEvent.toStartTime).setEaseInOutSine();
+                        break;
+
+                    case AnimationEvents.InstantCenterAndZeroScaleObject:
+                        LeanTween.move(obj, Vector3.zero, 0);
+                        LeanTween.scale(obj, Vector3.zero, 0);
+                        break;
+
+                    case AnimationEvents.MakeVisible:
+                        showOrHideUiObject(obj, true);
+                        break;
+
+                    case AnimationEvents.PlaySfx:
+                        if (transform.parent.parent.GetComponent<NonGamerTutorialUi>().controllerUi.activeInHierarchy) //so the controller and keyboard sfx don't play over each other
+                        {
+                            if (UiEvent.sfxName == "" || UiEvent.sfxName == null)
+                            {
+                                transform.parent.parent.GetComponent<AudioManager>().Play("UiElementMove");
+                            }
+                            else
+                            {
+                                transform.parent.parent.GetComponent<AudioManager>().Play(UiEvent.sfxName);
+                            }
+                        }
+                        
                         break;
 
                     default:

@@ -1,3 +1,4 @@
+using Etra.StarterAssets.Source;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -126,6 +127,31 @@ namespace Etra.NonGamerTutorialCreator{
 
 
 
+        [ContextMenu("Hide All Components On Active UI Objects")]
+        public void hideAllComponentsOnActiveUiObjects()
+        {
+            AbilityOrItemUI[] controlComponentUi = GetComponentsInChildren<AbilityOrItemUI>();
+            foreach (AbilityOrItemUI component in controlComponentUi)
+            {
+                Debug.Log(component.name);
+                component.hideAllUiObjects();
+            }
+            //same for new text object event thing
+
+        }
+
+        [ContextMenu("Show All Components On Active UI Objects")]
+        public void showAllComponentsOnActiveUiObjects()
+        {
+            AbilityOrItemUI[] controlComponentUi = GetComponentsInChildren<AbilityOrItemUI>();
+            foreach (AbilityOrItemUI component in controlComponentUi)
+            {
+                component.hideAllUiObjects();
+            }
+            //same for new text object event thing
+
+        }
+
 
         private bool isUsingKeyboard = false;
         private bool isUsingGamepad = false;
@@ -148,9 +174,18 @@ namespace Etra.NonGamerTutorialCreator{
         private void Update()
         {
             // Update for auto and controller swap
-            if (Gamepad.current != null && IsAnyGamepadButtonPressed())
+            if (Keyboard.current != null && Keyboard.current.anyKey.isPressed)
             {
-                if (previousGamepad != Gamepad.current.name) 
+                if (!isUsingKeyboard)
+                {
+                    isUsingKeyboard = true;
+                    isUsingGamepad = false;
+                    currentDeviceName = "Keyboard";
+                }
+            }
+            else if (Gamepad.current != null && IsAnyGamepadButtonPressed())
+            {
+                if (previousGamepad != Gamepad.current.name)
                 {
                     previousGamepad = Gamepad.current.name;
                     currentDeviceName = Gamepad.current.name;
@@ -161,15 +196,6 @@ namespace Etra.NonGamerTutorialCreator{
                     isUsingGamepad = true;
                     isUsingKeyboard = false;
                     currentDeviceName = Gamepad.current.name;
-                }
-            }
-            else if (Keyboard.current != null && Keyboard.current.anyKey.isPressed)
-            {
-                if (!isUsingKeyboard)
-                {
-                    isUsingKeyboard = true;
-                    isUsingGamepad = false;
-                    currentDeviceName = "Keyboard";
                 }
             }
 

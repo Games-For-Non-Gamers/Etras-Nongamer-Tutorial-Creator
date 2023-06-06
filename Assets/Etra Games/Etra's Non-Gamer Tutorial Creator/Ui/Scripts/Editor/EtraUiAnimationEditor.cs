@@ -95,6 +95,11 @@ namespace Etra.NonGamerTutorialCreator
                     EditorGUI.PropertyField(new Rect(pos.x, pos.y + 50, pos.width, 20), toStartTime);
                     break;
 
+                case EtraUiAnimation.AnimationEvents.PlaySfx:
+                    SerializedProperty sfxName = prop.FindPropertyRelative("sfxName");
+                    EditorGUI.PropertyField(new Rect(pos.x, pos.y + 50, pos.width, 20), sfxName);
+                    break;
+
                 default:
                     break;
             }

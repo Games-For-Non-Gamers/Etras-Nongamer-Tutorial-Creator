@@ -49,6 +49,9 @@ namespace Etra.NonGamerTutorialCreator
 
         //ToStartPositionAndScale,
         public float toStartTime;
+
+        //PlaySfx
+        public string sfxName;
     }
 }
 
