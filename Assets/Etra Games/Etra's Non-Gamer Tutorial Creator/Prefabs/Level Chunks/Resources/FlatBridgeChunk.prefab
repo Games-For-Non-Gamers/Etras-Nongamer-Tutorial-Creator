@@ -1229,9 +1229,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1301360406}
-  - component: {fileID: 3679949790752568383}
-  - component: {fileID: 1325794622166519651}
-  - component: {fileID: 9189065135558264125}
+  - component: {fileID: 517855251271577581}
+  - component: {fileID: 2962934860591371195}
+  - component: {fileID: 759378461199118398}
   m_Layer: 0
   m_Name: MiniBridge
   m_TagString: Untagged
@@ -1246,8 +1246,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1301360405}
-  m_LocalRotation: {x: -0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1388816945}
@@ -1255,8 +1255,8 @@ Transform:
   - {fileID: 1996610480}
   m_Father: {fileID: 4509226543046020627}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -10, y: 0, z: 0}
---- !u!65 &3679949790752568383
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &517855251271577581
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1269,7 +1269,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2189697, y: 0.5875767, z: 2.1}
   m_Center: {x: 0.92631966, y: 0.31378832, z: 1.0459783}
---- !u!65 &1325794622166519651
+--- !u!65 &2962934860591371195
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1282,7 +1282,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.1, y: 0.1, z: 2.1}
   m_Center: {x: 0.01, y: 0, z: 1.0459783}
---- !u!65 &9189065135558264125
+--- !u!65 &759378461199118398
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1897,8 +1897,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4509226543046020627}
   - component: {fileID: 4509226543046020639}
+  - component: {fileID: 3609011317811619737}
   m_Layer: 0
-  m_Name: AngledBridgeChunk
+  m_Name: FlatBridgeChunk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1931,6 +1932,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e9fb051787b9e41b8412b7dfc64d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startConnectionPoint: {x: 0, y: 0, z: 0.03}
-  endConnectionPoint: {x: 0, y: 0, z: 2.03}
+  startConnectionPoint: {x: 0, y: 0, z: 0}
+  endConnectionPoint: {x: 0, y: 0, z: 2.1}
   playerSpawnPosition: {x: 0, y: 1, z: 1}
+--- !u!114 &3609011317811619737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4509226543046020638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cbee0e41ad5712489d361b1d5c7a51f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
