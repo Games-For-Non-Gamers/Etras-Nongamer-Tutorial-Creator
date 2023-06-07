@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e9fb051787b9e41b8412b7dfc64d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startConnectionPoint: {x: -5, y: 0, z: 0}
-  endConnectionPoint: {x: 5, y: 0, z: 0}
+  startConnectionPoint: {x: 0, y: 0, z: -5}
+  endConnectionPoint: {x: 0, y: 0, z: 5}
   playerSpawnPosition: {x: 0, y: 1, z: 1}
 --- !u!1 &4509226543181117515
 GameObject:

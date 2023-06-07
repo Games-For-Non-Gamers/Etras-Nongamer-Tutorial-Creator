@@ -9,6 +9,8 @@ namespace Etra.NonGamerTutorialCreator.Level
 
         public List<LevelChunkObject> chunks = new List<LevelChunkObject>();
 
+        public bool ooooga;
+
         /// <summary>Forces all chunks to connect properly</summary>
         public void ResetAllChunksPositions()
         {
