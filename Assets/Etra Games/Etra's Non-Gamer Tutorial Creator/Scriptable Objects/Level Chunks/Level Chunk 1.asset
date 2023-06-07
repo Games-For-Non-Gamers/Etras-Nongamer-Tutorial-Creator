@@ -18,5 +18,6 @@ MonoBehaviour:
   useSingle: 1
   taughtAbilities:
   - Etra.StarterAssets.Abilities.ABILITY_ActivateInteract
-  abilitiesToTeach: []
+  abilitiesToTeach:
+  - Etra.StarterAssets.Abilities.ABILITY_ActivateInteract
   chunkObject: {fileID: 4509226543046020639, guid: ca49f91b1c84341449b0925167f4a720, type: 3}
