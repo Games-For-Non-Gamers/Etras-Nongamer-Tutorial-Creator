@@ -146,7 +146,7 @@ namespace Etra.NonGamerTutorialCreator{
             AbilityOrItemUI[] controlComponentUi = GetComponentsInChildren<AbilityOrItemUI>();
             foreach (AbilityOrItemUI component in controlComponentUi)
             {
-                component.hideAllUiObjects();
+                component.showAllUiObjects();
             }
             //same for new text object event thing
 

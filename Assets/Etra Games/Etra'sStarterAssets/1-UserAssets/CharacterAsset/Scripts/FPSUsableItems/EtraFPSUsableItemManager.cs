@@ -225,7 +225,10 @@ namespace Etra.StarterAssets.Items
         private void Start()
         {
             fpsItemAudioManager = GameObject.FindGameObjectWithTag("MainCamera").transform.Find("FPSItemSfx").GetComponent<AudioManager>();
-            instatiateItemAtStart();
+            if (usableItems.Length >0)
+            {
+                instatiateItemAtStart();
+            }
 
         }
 

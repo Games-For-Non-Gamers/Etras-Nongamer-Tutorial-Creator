@@ -13,7 +13,7 @@ namespace Etra.NonGamerTutorialCreator
             Scale,
             Flash,
             Wait,
-            Fade,
+            FadeIn,
             UnlockAbilityOrItem,
             ToStartTransform,
             InstantCenterAndZeroScaleObject,

@@ -115,24 +115,27 @@ namespace Etra.NonGamerTutorialCreator
                             showOrHideUiObject(obj, false);
                             yield return new WaitForSeconds(UiEvent.flashDelay);
                         }
+                        showOrHideUiObject(obj, true);
                         break;
 
                     case AnimationEvents.Wait:
                         yield return new WaitForSeconds(UiEvent.secondsToWait);
                         break;
 
-                    case AnimationEvents.Fade:
-
-
+                    case AnimationEvents.FadeIn:
                         if (obj.GetComponent<Image>())
                         {
                             Image image = obj.GetComponent<Image>();
+                            LeanTween.color(obj, new Color(image.color.r, image.color.g, image.color.b, 0), 0);
+                            image.enabled = true;
                             LeanTween.color(obj, new Color(image.color.r, image.color.g, image.color.b, UiEvent.opacity), UiEvent.fadeTime).setEaseInOutSine();
                         }
 
                         if (obj.GetComponent<Text>())
                         {
                             Text text = obj.GetComponent<Text>();
+                            LeanTween.colorText(obj, new Color(text.color.r, text.color.g, text.color.b, 0), 0);
+                            text.enabled = true;
                             LeanTween.colorText(obj, new Color(text.color.r, text.color.g, text.color.b, UiEvent.opacity), UiEvent.fadeTime).setEaseInOutSine();
                         }
                         break;
@@ -235,24 +238,27 @@ namespace Etra.NonGamerTutorialCreator
                             showOrHideUiObject(obj, false);
                             yield return new WaitForSeconds(UiEvent.flashDelay);
                         }
+                        showOrHideUiObject(obj, true);
                         break;
 
                     case AnimationEvents.Wait:
                         yield return new WaitForSeconds(UiEvent.secondsToWait);
                         break;
 
-                    case AnimationEvents.Fade:
-
-
+                    case AnimationEvents.FadeIn:
                         if (obj.GetComponent<Image>())
                         {
                             Image image = obj.GetComponent<Image>();
+                            LeanTween.color(obj, new Color(image.color.r, image.color.g, image.color.b, 0), 0);
+                            image.enabled = true;
                             LeanTween.color(obj, new Color(image.color.r, image.color.g, image.color.b, UiEvent.opacity), UiEvent.fadeTime).setEaseInOutSine();
                         }
 
                         if (obj.GetComponent<Text>())
                         {
                             Text text = obj.GetComponent<Text>();
+                            LeanTween.colorText(obj, new Color(text.color.r, text.color.g, text.color.b, 0), 0);
+                            text.enabled = true;
                             LeanTween.colorText(obj, new Color(text.color.r, text.color.g, text.color.b, UiEvent.opacity), UiEvent.fadeTime).setEaseInOutSine();
                         }
                         break;

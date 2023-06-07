@@ -79,7 +79,7 @@ namespace Etra.NonGamerTutorialCreator
                     EditorGUI.PropertyField(new Rect(pos.x, pos.y + 50, pos.width, 20), secondsToWait);
                     break;
 
-                case EtraUiAnimation.AnimationEvents.Fade:
+                case EtraUiAnimation.AnimationEvents.FadeIn:
                     SerializedProperty opacity = prop.FindPropertyRelative("opacity");
                     EditorGUI.PropertyField(new Rect(pos.x, pos.y + 50, pos.width, 20), opacity);
 

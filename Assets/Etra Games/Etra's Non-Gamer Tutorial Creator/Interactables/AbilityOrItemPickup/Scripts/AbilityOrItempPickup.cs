@@ -22,7 +22,8 @@ namespace Etra.NonGamerTutorialCreator
         bool isAbility = false;
         bool isItem = false;
 
-        public bool showTutorialPopup = true;
+        public bool showTutorialAnimation = true;
+        public bool showUi = true;
         public bool playPickupSfx = true;
 
         //Set the correct selected ability
@@ -95,24 +96,34 @@ namespace Etra.NonGamerTutorialCreator
                     }
                     
                     //enable the ability and destroy the pickup
-                    if (showTutorialPopup)
+                    if (showTutorialAnimation)
                     {
                         GameObject.Find(getUiObjectName(selectedAbility.shortenedName)).GetComponent<AbilityOrItemUI>().runUiEvent(selectedAbility, selectedItem, true);
                     }
                     else
                     {
+                        if (showUi)
+                        {
+                            GameObject.Find(getUiObjectName(selectedAbility.shortenedName)).GetComponent<AbilityOrItemUI>().showAllUiObjects();
+                        }
                         abilityScriptOnCharacter.unlockAbility(selectedAbility.name);
                     }
                     StartCoroutine(waitToDestroy());
                 }
                 else if (isItem)
                 {
-                    if (showTutorialPopup)
+                    if (showTutorialAnimation)
                     {
                         GameObject.Find(getUiObjectName(selectedItem.shortenedName)).GetComponent<AbilityOrItemUI>().runUiEvent(selectedAbility, selectedItem, false);
+                       
                     }
                     else
                     {
+                        if (showUi)
+                        {
+                            GameObject.Find(getUiObjectName(selectedItem.shortenedName)).GetComponent<AbilityOrItemUI>().showAllUiObjects();
+                        }
+
                         //Add the script to the item manager
                         EtraCharacterMainController.Instance.etraFPSUsableItemManager.gameObject.AddComponent(selectedItem.script.GetType());
                         //Update the items array
