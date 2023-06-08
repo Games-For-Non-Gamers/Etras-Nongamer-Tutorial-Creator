@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4bc135820d99004a873a2b3c3e39a8b, type: 3}
-  m_Name: Level Chunk 0
+  m_Name: CrouchChunk
   m_EditorClassIdentifier: 
-  chunkName: Test Chunk
-  icon: {fileID: 21300000, guid: 043f05095bba0fa459d596a134a4005a, type: 3}
+  chunkName: Crouch Chunk
+  icon: {fileID: 21300000, guid: d595792927f391e4f81cc7cd8b8772a8, type: 3}
   required: 0
   useSingle: 0
   taughtAbilities:
   - Etra.StarterAssets.Abilities.ABILITY_ActivateInteract
   abilitiesToTeach:
   - Etra.StarterAssets.Abilities.ABILITY_ActivateInteract
-  chunkObject: {fileID: 4509226543046020639, guid: ca49f91b1c84341449b0925167f4a720, type: 3}
+  chunkObject: {fileID: 4509226543046020639, guid: 3680767b0884af14c8f753aedaf246a4, type: 3}
