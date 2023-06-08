@@ -442,23 +442,33 @@ namespace Etra.StarterAssets.Items
 
         public void disableFPSItemInputs()
         {
-            inputsLocked = true;
-            usableItems[activeItemNum].script.inputsLocked = true;
-            if (EtraCharacterMainController.Instance.GetComponentInChildren<FPSUsableItemSwayAndBobAnimations>())
+
+            if (usableItems.Length > 0)
             {
-                EtraCharacterMainController.Instance.GetComponentInChildren<FPSUsableItemSwayAndBobAnimations>().lockInput = true;
+                inputsLocked = true;
+                usableItems[activeItemNum].script.inputsLocked = true;
+                if (EtraCharacterMainController.Instance.GetComponentInChildren<FPSUsableItemSwayAndBobAnimations>())
+                {
+                    EtraCharacterMainController.Instance.GetComponentInChildren<FPSUsableItemSwayAndBobAnimations>().lockInput = true;
+                }
             }
 
         }
 
         public void enableFPSItemInputs()
         {
-            inputsLocked = false;
-            usableItems[activeItemNum].script.inputsLocked = false;
-            if (EtraCharacterMainController.Instance.GetComponentInChildren<FPSUsableItemSwayAndBobAnimations>())
+
+            if (usableItems.Length > 0)
             {
-                EtraCharacterMainController.Instance.GetComponentInChildren<FPSUsableItemSwayAndBobAnimations>().lockInput = false;
+                inputsLocked = false;
+                usableItems[activeItemNum].script.inputsLocked = false;
+                if (EtraCharacterMainController.Instance.GetComponentInChildren<FPSUsableItemSwayAndBobAnimations>())
+                {
+                    EtraCharacterMainController.Instance.GetComponentInChildren<FPSUsableItemSwayAndBobAnimations>().lockInput = false;
+                }
             }
+
+
         }
 
     }
