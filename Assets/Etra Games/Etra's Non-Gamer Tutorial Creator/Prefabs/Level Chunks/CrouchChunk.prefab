@@ -8117,55 +8117,55 @@ MonoBehaviour:
   - m_Vertices: 0b0000000e00000012000000
   m_SharedTextures: []
   m_Positions:
-  - {x: 0, y: 0, z: 7.0259504}
-  - {x: 10, y: 0, z: 7.0259504}
+  - {x: 0, y: -5.57994, z: 7.0259476}
+  - {x: 10, y: -5.57994, z: 7.0259476}
   - {x: 0, y: 1, z: 7.0259504}
   - {x: 10, y: 1, z: 7.0259504}
-  - {x: 10, y: 0, z: 7.0259504}
-  - {x: 10, y: 0, z: -10}
+  - {x: 10, y: -5.57994, z: 7.0259476}
+  - {x: 10, y: -5.57994, z: -10}
   - {x: 10, y: 1, z: 7.0259504}
   - {x: 10, y: 1, z: -10}
-  - {x: 10, y: 0, z: -10}
-  - {x: 0, y: 0, z: -10}
+  - {x: 10, y: -5.57994, z: -10}
+  - {x: 0, y: -5.57994, z: -10}
   - {x: 10, y: 1, z: -10}
   - {x: 0, y: 1, z: -10}
-  - {x: 0, y: 0, z: -10}
-  - {x: 0, y: 0, z: 7.0259504}
+  - {x: 0, y: -5.57994, z: -10}
+  - {x: 0, y: -5.57994, z: 7.0259476}
   - {x: 0, y: 1, z: -10}
   - {x: 0, y: 1, z: 7.0259504}
   - {x: 0, y: 1, z: 7.0259504}
   - {x: 10, y: 1, z: 7.0259504}
   - {x: 0, y: 1, z: -10}
   - {x: 10, y: 1, z: -10}
-  - {x: 0, y: 0, z: -10}
-  - {x: 10, y: 0, z: -10}
-  - {x: 0, y: 0, z: 7.0259504}
-  - {x: 10, y: 0, z: 7.0259504}
+  - {x: 0, y: -5.57994, z: -10}
+  - {x: 10, y: -5.57994, z: -10}
+  - {x: 0, y: -5.57994, z: 7.0259476}
+  - {x: 10, y: -5.57994, z: 7.0259476}
   m_Textures0:
-  - {x: 0, y: 0}
-  - {x: -10, y: 0}
-  - {x: 0, y: 1}
-  - {x: -10, y: 1}
-  - {x: 7.0259504, y: 0}
-  - {x: -10, y: 0}
+  - {x: 0, y: -5.579937}
+  - {x: -10, y: -5.579937}
+  - {x: 0, y: 1.0000031}
+  - {x: -10, y: 1.0000031}
+  - {x: 7.0259476, y: -5.57994}
+  - {x: -10, y: -5.57994}
   - {x: 7.0259504, y: 1}
   - {x: -10, y: 1}
-  - {x: 10, y: 0}
-  - {x: 0, y: 0}
+  - {x: 10, y: -5.57994}
+  - {x: 0, y: -5.57994}
   - {x: 10, y: 1}
   - {x: 0, y: 1}
-  - {x: 10, y: 0}
-  - {x: -7.0259504, y: 0}
+  - {x: 10, y: -5.57994}
+  - {x: -7.0259476, y: -5.57994}
   - {x: 10, y: 1}
   - {x: -7.0259504, y: 1}
   - {x: 0, y: 7.0259504}
   - {x: 10, y: 7.0259504}
   - {x: 0, y: -10}
   - {x: 10, y: -10}
-  - {x: 0, y: -10}
+  - {x: -0, y: -10}
   - {x: -10, y: -10}
-  - {x: 0, y: 7.0259504}
-  - {x: -10, y: 7.0259504}
+  - {x: 0, y: 7.0259476}
+  - {x: -10, y: 7.0259476}
   m_Textures2: []
   m_Textures3: []
   m_Tangents:
@@ -8203,9 +8203,17 @@ MonoBehaviour:
   assetGuid: 
   m_Mesh: {fileID: 0}
   m_IsSelectable: 1
-  m_SelectedFaces: 
-  m_SelectedEdges: []
-  m_SelectedVertices: 
+  m_SelectedFaces: 05000000
+  m_SelectedEdges:
+  - a: 20
+    b: 21
+  - a: 22
+    b: 20
+  - a: 21
+    b: 23
+  - a: 23
+    b: 22
+  m_SelectedVertices: 14000000150000001600000017000000
 --- !u!23 &8320066417590262179
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8981,7 +8989,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4082332788365929858, guid: cc04179483fc4d2429b4dc63541ee1b8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4
+      value: -4.35
       objectReference: {fileID: 0}
     - target: {fileID: 4082332788365929858, guid: cc04179483fc4d2429b4dc63541ee1b8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9017,7 +9025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4082332788365930108, guid: cc04179483fc4d2429b4dc63541ee1b8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4082332788365930109, guid: cc04179483fc4d2429b4dc63541ee1b8, type: 3}
       propertyPath: teleportToGround

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4bc135820d99004a873a2b3c3e39a8b, type: 3}
-  m_Name: BlasterIntro
+  m_Name: Blaster2
   m_EditorClassIdentifier: 
-  chunkName: Blaster Intro
+  chunkName: Blaster 2
   icon: {fileID: 21300000, guid: 4575d7bb126accf4d9e614c29885de25, type: 3}
   required: 0
   useSingle: 0
@@ -20,4 +20,4 @@ MonoBehaviour:
   - Etra.StarterAssets.Abilities.ABILITY_ActivateInteract
   abilitiesToTeach:
   - Etra.StarterAssets.Abilities.ABILITY_ActivateInteract
-  chunkObject: {fileID: 4509226543046020639, guid: 6b5b9cbccbd47d14db67f702dccd548a, type: 3}
+  chunkObject: {fileID: 4509226543046020639, guid: c665af4aa83a39d4499648f099fd5703, type: 3}
