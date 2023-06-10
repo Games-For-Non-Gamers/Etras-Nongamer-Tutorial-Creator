@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7116608836990772780}
   - component: {fileID: 7116608836990772781}
   - component: {fileID: 7116608836990772786}
-  - component: {fileID: 7116608836990772787}
   - component: {fileID: 4699087773536787261}
+  - component: {fileID: 6725769188302219412}
   - component: {fileID: 3370215689563160681}
   m_Layer: 0
   m_Name: NongamerTutorialPickup
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7116608836990772785}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &7116608836990772786
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 218e7c0c380ce344ea36143c5ec6f40b, type: 2}
+  - {fileID: 2100000, guid: ea6ef8608c8bdaf44941545fb84e9c9e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,19 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7116608836990772787
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7116608836990772785}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4699087773536787261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,7 +119,24 @@ MonoBehaviour:
   - Grabber
   - Sword
   AbilityOrItem_To_Activate: Jump
-  showTutorialPopup: 1
+  showTutorialAnimation: 1
+  showUi: 1
+  playPickupSfx: 1
+  showInEditor: 1
+  showInGame: 0
+--- !u!65 &6725769188302219412
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7116608836990772785}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3370215689563160681
 MonoBehaviour:
   m_ObjectHideFlags: 0

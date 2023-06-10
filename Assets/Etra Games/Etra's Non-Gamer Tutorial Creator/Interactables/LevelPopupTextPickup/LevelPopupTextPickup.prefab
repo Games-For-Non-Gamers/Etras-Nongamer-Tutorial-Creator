@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4100393487459693349}
   - component: {fileID: 4100393487459693348}
   - component: {fileID: 4100393487459693371}
-  - component: {fileID: 4100393487459693370}
   - component: {fileID: 4100393487459693509}
+  - component: {fileID: 4533838913880790676}
   m_Layer: 0
   m_Name: LevelPopupTextPickup
   m_TagString: Untagged
@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4100393487459693368}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &4100393487459693371
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5108297977968896842, guid: d98e8021d4fc3744bad5c3fed153b37c, type: 3}
+  - {fileID: 2100000, guid: 413019bad318bab4d93fb2681b7d9911, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,19 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &4100393487459693370
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4100393487459693368}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4100393487459693509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,3 +97,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textLabelToShow: Congatulations_Text
   showPopupAnimation: 0
+  showInEditor: 1
+  showInGame: 0
+--- !u!65 &4533838913880790676
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4100393487459693368}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

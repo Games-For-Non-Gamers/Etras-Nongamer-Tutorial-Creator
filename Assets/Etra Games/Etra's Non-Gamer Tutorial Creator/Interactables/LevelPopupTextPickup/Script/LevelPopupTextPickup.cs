@@ -1,10 +1,4 @@
 using Etra.NonGamerTutorialCreator;
-using Etra.StarterAssets.Abilities;
-using Etra.StarterAssets.Source;
-using Etra.StarterAssets;
-using EtrasStarterAssets;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelPopupTextPickup : MonoBehaviour
@@ -13,9 +7,22 @@ public class LevelPopupTextPickup : MonoBehaviour
     public bool showPopupAnimation = true;
     LevelPopupTextUi textUi;
 
+    [Header("Rendering")]
+    public bool showInEditor = true;
+    public bool showInGame = false;
+
     //Set the correct selected ability
     private void Start()
     {
+        if (showInGame)
+        {
+            showRenderers();
+        }
+        else
+        {
+            hideRenderers();
+        }
+
         if (GameObject.Find(textLabelToShow).GetComponent<LevelPopupTextUi>() !=null)
         {
             textUi = GameObject.Find(textLabelToShow).GetComponent<LevelPopupTextUi>();
@@ -46,4 +53,29 @@ public class LevelPopupTextPickup : MonoBehaviour
         }
 
     }
+
+
+    private void OnValidate()
+    {
+        if (showInEditor)
+        {
+            showRenderers();
+        }
+        else
+        {
+            hideRenderers();
+        }
+
+    }
+
+    void showRenderers()
+    {
+        this.GetComponent<MeshRenderer>().enabled = true;
+    }
+
+    void hideRenderers()
+    {
+        this.GetComponent<MeshRenderer>().enabled = false;
+    }
+
 }

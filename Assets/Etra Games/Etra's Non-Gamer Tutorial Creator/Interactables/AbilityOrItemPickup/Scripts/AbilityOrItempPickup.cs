@@ -10,6 +10,7 @@ namespace Etra.NonGamerTutorialCreator
 {
     public class AbilityOrItempPickup : MonoBehaviour, ISerializationCallbackReceiver
     {
+        [Header("Ability or Item")]
         public static List<string> TMPList;
         [HideInInspector] public List<string> abilityAndItemShortenedNames;
         [ListToPopup(typeof(AbilityOrItempPickup), "TMPList")]
@@ -26,9 +27,24 @@ namespace Etra.NonGamerTutorialCreator
         public bool showUi = true;
         public bool playPickupSfx = true;
 
+        [Header("Rendering")]
+        public bool showInEditor = true;
+        public bool showInGame = false;
+
+
         //Set the correct selected ability
         private void Start()
         {
+
+            if (showInGame)
+            {
+                showRenderers();
+            }
+            else
+            {
+                hideRenderers();
+            }
+
             updateAbilitiesAndItems();
 
             //Check items first
@@ -187,6 +203,30 @@ namespace Etra.NonGamerTutorialCreator
         public void OnAfterDeserialize()
         {
 
+        }
+
+
+        private void OnValidate()
+        {
+            if (showInEditor)
+            {
+                showRenderers();
+            }
+            else
+            {
+                hideRenderers();
+            }
+
+        }
+
+        void showRenderers()
+        {
+            this.GetComponent<MeshRenderer>().enabled = true;
+        }
+
+        void hideRenderers()
+        {
+            this.GetComponent<MeshRenderer>().enabled = false;
         }
 
     }

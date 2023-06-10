@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 98907425450827405}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.2680397, y: -1.7502496, z: 2.094658}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.14, y: 0.14, z: 0.14}
   m_Children: []
   m_Father: {fileID: 4588325930318732855}
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4588325930318732855}
   m_Layer: 0
-  m_Name: Base RopePositions (Don't Move)
+  m_Name: Base RopePositions  (DON'T REARRANGE)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1145757072093070038}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.6009598, y: 2.8182497, z: -0.4856577}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8995709944440236725}
@@ -167,7 +167,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2233123659998937154}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.869, y: 1.0680001, z: 1.609}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.14, y: 0.14, z: 0.14}
   m_Children:
   - {fileID: 9186796950036471300}
@@ -201,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2574734186314807310}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.8689995, y: 1.0680001, z: 1.6090002}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.14, y: 0.14, z: 0.14}
   m_Children: []
   m_Father: {fileID: 5163745508596885163}
@@ -441,7 +441,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5163745508596885163}
   m_Layer: 0
-  m_Name: Source Objects (DON'T MOVE)
+  m_Name: Source Objects (DON'T REARRANGE)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -477,7 +477,7 @@ GameObject:
   - component: {fileID: 6593996427628351895}
   - component: {fileID: 5845744536202133764}
   m_Layer: 0
-  m_Name: MovingTargetAnchorLine  (Don't Move)
+  m_Name: MovingTargetAnchorLine  (DON'T REARRANGE)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -933,7 +933,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8310948679207727526}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.2680397, y: -1.0272496, z: 2.094658}
+  m_LocalPosition: {x: 0, y: 0.7, z: 0}
   m_LocalScale: {x: 0.14, y: 0.14, z: 0.14}
   m_Children: []
   m_Father: {fileID: 4588325930318732855}
@@ -963,7 +963,7 @@ GameObject:
   - component: {fileID: 1284325957623813577}
   - component: {fileID: 8684504524245461289}
   m_Layer: 0
-  m_Name: RopeLine (Don't Move)
+  m_Name: RopeLine (DON'T REARRANGE)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1024,9 +1024,9 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: -1.61, y: 2.35, z: 2.478}
-  - {x: -2.8689995, y: 1.7910001, z: 1.6090002}
-  - {x: -2.8689995, y: 1.0680001, z: 1.6090002}
+  - {x: 0, y: 2, z: 0}
+  - {x: 0, y: 0.7, z: 0}
+  - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -1109,7 +1109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9186796949038456982}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -2.8689995, y: 1.0680001, z: 1.6090002}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.2, y: 0.20000002, z: 0.10000001}
   m_Children: []
   m_Father: {fileID: 5163745508596885163}
@@ -1210,7 +1210,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9186796949762207071}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.61, y: 2.35, z: 2.478}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2290901709564813682}
