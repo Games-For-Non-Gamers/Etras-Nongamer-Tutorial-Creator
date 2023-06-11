@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 4509226543046020627}
   - component: {fileID: 4509226543046020639}
   m_Layer: 0
-  m_Name: Example Level Chunk
+  m_Name: Example Level Chunk 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

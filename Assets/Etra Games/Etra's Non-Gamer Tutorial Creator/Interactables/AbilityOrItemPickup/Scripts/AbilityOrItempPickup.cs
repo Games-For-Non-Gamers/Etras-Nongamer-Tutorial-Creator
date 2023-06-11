@@ -104,7 +104,7 @@ namespace Etra.NonGamerTutorialCreator
                 if (isAbility)
                 {
                     GetComponent<MeshRenderer>().enabled = false;
-                    GetComponent<SphereCollider>().enabled = false;
+                    GetComponent<BoxCollider>().enabled = false;
 
                     if (playPickupSfx)
                     {

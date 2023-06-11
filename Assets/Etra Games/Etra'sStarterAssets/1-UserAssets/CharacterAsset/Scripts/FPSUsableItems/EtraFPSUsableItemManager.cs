@@ -375,7 +375,10 @@ namespace Etra.StarterAssets.Items
 
         public void equipLastItem()
         {
-            StartCoroutine(equipItem(usableItems.Length - 1));
+            if (usableItems.Length>0)
+            {
+                StartCoroutine(equipItem(usableItems.Length - 1));
+            }
         }
 
         IEnumerator equipItem(int newItemNum)
@@ -384,7 +387,7 @@ namespace Etra.StarterAssets.Items
             isEquipping = true;
 
 
-            if (playUnequipAnims)
+            if (playUnequipAnims && usableItems.Length > 1)
             {
                 usableItems[activeItemNum].script.runUnequipAnimation();
                 yield return new WaitForSeconds(usableItems[activeItemNum].script.getItemUnequipSpeed());
