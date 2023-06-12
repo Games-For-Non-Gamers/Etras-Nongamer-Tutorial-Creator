@@ -140,7 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startConnectionPoint: {x: 0, y: 0, z: -5}
   endConnectionPoint: {x: 0, y: 0, z: 5}
-  playerSpawnPosition: {x: 0, y: 1, z: 1}
+  playerSpawnPosition: {x: 0, y: 1, z: -4.5}
 --- !u!1 &8568612910932411473
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,7 +475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4082332788365929858, guid: cc04179483fc4d2429b4dc63541ee1b8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 4082332788365929858, guid: cc04179483fc4d2429b4dc63541ee1b8, type: 3}
       propertyPath: m_LocalRotation.w

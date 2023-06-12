@@ -705,8 +705,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startConnectionPoint: {x: 0, y: 0, z: -5}
-  endConnectionPoint: {x: 0, y: 0, z: 17.4}
-  playerSpawnPosition: {x: 0, y: 1, z: 1}
+  endConnectionPoint: {x: 0, y: 0, z: 17}
+  playerSpawnPosition: {x: 0, y: 1, z: -4.5}
 --- !u!1 &5401200741048093931
 GameObject:
   m_ObjectHideFlags: 0
@@ -2609,16 +2609,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7116608836990772780, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.939116
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116608836990772780, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.8225
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116608836990772780, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.1147
       objectReference: {fileID: 0}
     - target: {fileID: 7116608836990772780, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7116608836990772780, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 7116608836990772780, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2774,7 +2782,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4082332788365929858, guid: cc04179483fc4d2429b4dc63541ee1b8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 4082332788365929858, guid: cc04179483fc4d2429b4dc63541ee1b8, type: 3}
       propertyPath: m_LocalRotation.w

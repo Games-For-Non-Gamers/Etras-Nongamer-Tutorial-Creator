@@ -6,10 +6,15 @@ using Etra.StarterAssets.Items;
 using Etra.StarterAssets.Source;
 using Etra.StarterAssets.Source.Camera;
 using EtrasStarterAssets;
+using JetBrains.Annotations;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.HID;
+using UnityEngine.InputSystem.XR;
+using UnityEngine.Networking.Types;
 #endif
 
 namespace Etra.StarterAssets
@@ -69,6 +74,9 @@ namespace Etra.StarterAssets
         public float Gravity = -15.0f;
         [Tooltip("Time required to pass before entering the fall state. Useful for walking down stairs")]
         public float FallTimeout = 0.15f;
+        [Tooltip("The maximum slope of an object the character can climb up")]
+        public float maxWalkableSlope = 45;
+        public float currentSlopeAngle;
         [Tooltip("If the character is grounded or not. Not part of the CharacterController built in grounded check")]
         public bool Grounded = true;
         [Tooltip("Useful for rough ground")]
@@ -80,7 +88,7 @@ namespace Etra.StarterAssets
         [Header("Cam Shake")]
         public bool landingShakeEnabled = true;
         public Vector2 landingShake = new Vector2(1f, 0.1f);
-
+        
 
 
         [HideInInspector]
@@ -106,6 +114,7 @@ namespace Etra.StarterAssets
         private bool _hasAnimator;
         private Animator _animator;
         private CharacterController _controller;
+        private float characterHeight;
         private ABILITY_Jump abilityJump;
         private GameObject _mainCamera;
         private AudioManager abilitySoundManager;
@@ -289,14 +298,78 @@ namespace Etra.StarterAssets
         }
         #endregion
         #region Grounded and Gravity Functions
+
+        public RaycastHit hit;
+        bool stuckOnWallSlope = false;
+        Vector3 flatBeamToTarget;
         public void GroundedCheck()
         {
-
-            // set sphere position, with offset
+            //Get ground slope angle for slide ability
+            updateSlope();
+            //set sphere position, with offset
             Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
-            //Vector3 spherePosition = new Vector3(characterController.center.x, characterController.center.y - GroundedOffset, transform.position.z);
-            Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
 
+            //Get every object that the player is colliding with
+            Collider[] hitcolliders = new Collider[5];//max colliders to check
+            int hitColliderCount = Physics.OverlapSphereNonAlloc(spherePosition, GroundedRadius, hitcolliders, GroundLayers, QueryTriggerInteraction.Ignore);
+            if (hitColliderCount > 0)
+            {
+                Grounded = false; //Start grounded as false and it should be proven
+
+                //This whole section exists to make sure the character is not grounded on any 46-89 degree surface. 
+                //Without a special clause for this, the player can jump up objects with sharp angles.
+                for(int i = 0; i< hitColliderCount; i++)
+                {
+                    Vector3 target;
+                    if (hitcolliders[i] is MeshCollider meshCollider && !meshCollider.convex)
+                    {
+                        //If a non-convex mesh collider is hit, it is hard to get it's angle since you can't get its contact point.
+                        //The next best thing we can go off of is the position of the object
+                        target = hitcolliders[i].transform.position;
+                    }
+                    else
+                    {
+                        //for all other colliders we can get the contact point of the object
+                        target = hitcolliders[i].ClosestPoint(transform.position);
+                    }
+                   
+                    //Make a flat raycast toward the target
+                    flatBeamToTarget = new Vector3(target.x, 0, target.z)  - new Vector3(transform.position.x, 0, transform.position.z); 
+                    //The range of the raycast is only in the sphere collider where the character can start climbing walls.
+                    if (Physics.Raycast(transform.position, flatBeamToTarget, out hit, _controller.radius))
+                    {
+                        //Check if the angle is larger than the max walkable slope
+                        if (Vector3.Angle(Vector3.up, hit.normal) > maxWalkableSlope)
+                        {
+                            Grounded = false;
+                            stuckOnWallSlope = true;
+                        }
+                        //If the angle is walkable, then apply grounded and break from the loop. There is no need to check the other colliders
+                        else
+                        {
+                            Grounded = true;
+                            break;
+                        }
+                    }
+                    else // if the Raycast is out of range, apply grounded and break from the loop.There is no need to check the other colliders
+                    {
+                        Grounded = true;
+                        break;
+                    }
+
+                }
+            }
+            else //If the sphere is hitting no colliders then set grounded to false
+            {
+                stuckOnWallSlope = false; //They are not stuck on the wall if they are not touching anything
+                Grounded = false;
+            }
+
+            //Make stuckOnWallSlope false if an earlier object homehow triggered this and was later corrected
+            if (Grounded)
+            {
+                stuckOnWallSlope = false;
+            }
             // update animator if using character
             if (_hasAnimator)
             {
@@ -305,6 +378,17 @@ namespace Etra.StarterAssets
         }
 
 
+
+        void updateSlope()
+        {
+            RaycastHit slopeHit;
+            if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, characterHeight * 0.5f + 0.3f))
+            {
+                currentSlopeAngle = Vector3.Angle(Vector3.up, slopeHit.normal);
+            }
+        }
+
+        bool pauseGravityGain = false;
         bool jumpReset = true;
         bool startGameLandSfxOff = true;
         private void ApplyGravity()
@@ -364,12 +448,36 @@ namespace Etra.StarterAssets
             // apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
             if (_verticalVelocity < _terminalVelocity)
             {
-                _verticalVelocity += Gravity * Time.deltaTime;
+                if (!pauseGravityGain)
+                {
+                    _verticalVelocity += Gravity * Time.deltaTime;
+                }
+                
+                if (!stuckOnWallSlope)
+                {
+                    pauseGravityGain = false;
+                    addConstantForceToEtraCharacter(new Vector3(0, _verticalVelocity, 0));
+                }
+                else
+                {
+                    Vector3 angledForce = Vector3.ProjectOnPlane(flatBeamToTarget, hit.normal).normalized;
+                    if (angledForce != Vector3.zero) // If we are not cornered on a flat surface slide down with the slope angle
+                    {
+                        addConstantForceToEtraCharacter((Vector3.ProjectOnPlane(flatBeamToTarget, hit.normal).normalized) * _verticalVelocity);
+                    }
+                    else
+                    {
+                        //adds a fixed force of negative one to slide the character off the edge if they are in trapped in the corner of a square obstacle
+                        pauseGravityGain = true;
+                        addConstantForceToEtraCharacter((flatBeamToTarget.normalized) * -1 + new Vector3(0, _verticalVelocity, 0));
+                    }
+                    
+                }
+                
             }
 
-
-
         }
+
 
 
         private void OnDrawGizmosSelected()
@@ -417,6 +525,8 @@ namespace Etra.StarterAssets
             _hasAnimator = EtrasResourceGrabbingFunctions.TryGetComponentInChildren<Animator>(modelParent);
             if (_hasAnimator) { _animator = modelParent.GetComponentInChildren<Animator>(); }
             _controller = GetComponent<CharacterController>();
+            maxWalkableSlope = _controller.slopeLimit;
+            characterHeight = _controller.height;
             _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             abilitySoundManager = _mainCamera.transform.Find("AbilitySfx").GetComponent<AudioManager>();
         }
@@ -427,7 +537,9 @@ namespace Etra.StarterAssets
             GroundedCheck();
             ApplyGravity();
             //Apply vertical velocity from gravity or jump every frame
-            addConstantForceToEtraCharacter(new Vector3(0.0f, _verticalVelocity, 0.0f));
+   
+
+            
             updateImpulseVariables();
 
         }

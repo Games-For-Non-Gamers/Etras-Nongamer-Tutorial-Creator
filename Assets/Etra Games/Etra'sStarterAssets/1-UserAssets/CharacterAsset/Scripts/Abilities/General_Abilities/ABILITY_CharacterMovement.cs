@@ -4,6 +4,7 @@ using Etra.StarterAssets.Source;
 using EtrasStarterAssets;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Etra.StarterAssets.Abilities
 {
@@ -237,7 +238,7 @@ namespace Etra.StarterAssets.Abilities
             {
                 _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg + _mainCamera.transform.eulerAngles.y;
                 float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity, rotateTowardMoveDirectionSpeed);
-                var targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
+                var targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward ;
 
                 // if there is a move input rotate player when the player is moving
                 if (rotateTowardMoveDirection)
