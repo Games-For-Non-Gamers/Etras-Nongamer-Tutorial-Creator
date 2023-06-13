@@ -9,8 +9,6 @@ Starter Assets - First Person Character Controller
     Copyright (c), Unity Technologies
     Unity Companion License
 
-
-
 ~~THIRD PARTY CONTRIBUTIONS:~~
 Dock Frankenstein
     Contributions:
@@ -20,6 +18,17 @@ Dock Frankenstein
     Copyright (c) 2023 Dock Frankenstein
     The MIT License
 
+~~THIRD PARTY Models:~~
+    Akshat
+    https://sketchfab.com/3d-models/star-f7a96ca9ce3c4a0ba622088fffffa51c
+    "Star.blend" by Akshat is is licensed under CC BY 4.0
+    This model was modified to create the Star interactable.
+
+~~THIRD PARTY Textures and Materials:~~
+A3D
+    https://www.artstation.com/a3d
+    "Five Seamless Tileable Ground Textures" and "Tileable Hand Painted Ground Texture Pack 2" 
+    have been contributed to this project by the creator, A3D with written permission.
 
 ~~THIRD PARTY AUDIO:~~
 harrietniamh

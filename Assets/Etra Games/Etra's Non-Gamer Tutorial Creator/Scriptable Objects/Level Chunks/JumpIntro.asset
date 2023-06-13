@@ -14,10 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chunkName: Jump Intro
   icon: {fileID: 21300000, guid: 043f05095bba0fa459d596a134a4005a, type: 3}
-  required: 1
-  useSingle: 1
-  taughtAbilities:
-  - Etra.StarterAssets.Abilities.ABILITY_ActivateInteract
-  abilitiesToTeach:
-  - Etra.StarterAssets.Abilities.ABILITY_ActivateInteract
+  required: 0
+  useSingle: 0
+  testedAbilities:
+  - 
+  taughtAbilities: []
+  testedAbilityOne: 
+  testedAbilityTwo: 
+  testedAbilityThree: 
+  testedAbilityFour: 
+  testedAbilityFive: 
+  taughtAbilityOne: 
+  taughtAbilityTwo: 
+  taughtAbilityThree: 
   chunkObject: {fileID: 4509226543046020639, guid: 947703e5486a08c4bb5c70cde818a0f4, type: 3}

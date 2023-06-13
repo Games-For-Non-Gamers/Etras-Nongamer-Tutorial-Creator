@@ -7,9 +7,15 @@ using Etra.StarterAssets.Items;
 using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using Unity.Plastic.Newtonsoft.Json.Linq;
+using UnityEngine.PlayerLoop;
+using UnityEngine.Rendering.VirtualTexturing;
+using Etra.NonGamerTutorialCreator.Level;
 
 namespace Etra.NonGamerTutorialCreator.Attributes.Editor
 {
+
+
     [CustomPropertyDrawer(typeof(AbilitySelectorAttribute))]
     public class AbilitySelectorAttributeDrawer : PropertyDrawer
     {
@@ -66,12 +72,14 @@ namespace Etra.NonGamerTutorialCreator.Attributes.Editor
                 .ToList();
 
             //Get the current ability index
+            
             if (_abilityIndex == -1)
             {
                 _abilityIndex = 0;
                 if (abilityPaths.Contains(property.stringValue))
                     _abilityIndex = abilityPaths.IndexOf(property.stringValue);
             }
+            
 
             position = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Keyboard), label);
 
@@ -85,6 +93,7 @@ namespace Etra.NonGamerTutorialCreator.Attributes.Editor
                 .Prepend(new GUIContent("None"))
                 .ToArray();
 
+            
             using (var changeCheck = new EditorGUI.ChangeCheckScope())
             {
                 _abilityIndex = EditorGUI.Popup(position, _abilityIndex, abilityNames);
@@ -95,6 +104,11 @@ namespace Etra.NonGamerTutorialCreator.Attributes.Editor
                     property.serializedObject.ApplyModifiedProperties();
                 }
             }
+            
         }
     }
+
+
+
+
 }

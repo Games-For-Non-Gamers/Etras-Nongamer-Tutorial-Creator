@@ -16,9 +16,9 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
         const float _IMAGE_WIDTH = 64f;
 
         /// <summary>List of abilities that the player already knows</summary>
-        public List<Type> TaughtAbilities { get; set; } = new List<Type>();
+        public List<Type> TestedAbilities { get; set; } = new List<Type>();
         /// <summary>List of abilities that the player is going to learn</summary>
-        public List<Type> NewAbilities { get; set; } = new List<Type>();
+        public List<Type> TaughtAbilities { get; set; } = new List<Type>();
 
         #region Initialize
         [NonSerialized] bool _init = false;
@@ -123,7 +123,7 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
                 .ResizeToRight(_IMAGE_WIDTH);
 
             GUI.Label(labelRect, chunk.chunkName, Styles.ChunkName);
-            GUI.Label(abilitiesRect, string.Join(", ", chunk.abilitiesToTeach.Select(x => x.Split('.').Last())), Styles.Abilities);
+            GUI.Label(abilitiesRect, string.Join(", ", chunk.taughtAbilities.Select(x => x.Split('.').Last())), Styles.Abilities);
             GUI.Label(imageRect, GUIContent.none, EditorStyles.helpBox);
 
             if (chunk.icon != null)
@@ -336,19 +336,19 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
         /// <summary>Rebuilds the cache of <see cref="AvaliableChunks"/></summary>
         public void RebuildAvaliableChunksCache()
         {
-            var taughtAbilitiesPaths = TaughtAbilities
+            var testedAbilitiesPaths = TestedAbilities
                 .Select(x => x.FullName)
                 .ToList();
 
-            var newAbilitiesPaths = NewAbilities
+            var taughtAbilitiesPaths = TaughtAbilities
                 .Select(x => x.FullName)
                 .ToList();
 
             _avaliableChunks = AssetDatabase.FindAssets($"t:{typeof(LevelChunk).Name}")
                 .Select(x => AssetDatabase.GUIDToAssetPath(x))
                 .Select(x => AssetDatabase.LoadAssetAtPath<LevelChunk>(x))
-                .Where(x => !x.taughtAbilities.Except(taughtAbilitiesPaths).Any()) //If all chunks taught abilities have been selected
-                .Where(x => !x.abilitiesToTeach.Except(newAbilitiesPaths).Except(taughtAbilitiesPaths).Any()) //If all chunks new abilities have been selected as new or taught
+                .Where(x => !x.testedAbilities.Except(testedAbilitiesPaths).Any()) //If all chunks taught abilities have been selected
+                .Where(x => !x.taughtAbilities.Except(taughtAbilitiesPaths).Except(testedAbilitiesPaths).Any()) //If all chunks new abilities have been selected as new or taught
                 .ToList();
         }
 

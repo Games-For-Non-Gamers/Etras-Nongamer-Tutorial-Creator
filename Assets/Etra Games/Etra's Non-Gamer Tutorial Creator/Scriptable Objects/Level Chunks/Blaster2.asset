@@ -16,8 +16,15 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 4575d7bb126accf4d9e614c29885de25, type: 3}
   required: 0
   useSingle: 0
-  taughtAbilities:
-  - Etra.StarterAssets.Abilities.ABILITY_ActivateInteract
-  abilitiesToTeach:
-  - Etra.StarterAssets.Abilities.ABILITY_ActivateInteract
+  testedAbilities:
+  - 
+  taughtAbilities: []
+  testedAbilityOne: 
+  testedAbilityTwo: 
+  testedAbilityThree: 
+  testedAbilityFour: 
+  testedAbilityFive: 
+  taughtAbilityOne: 
+  taughtAbilityTwo: 
+  taughtAbilityThree: 
   chunkObject: {fileID: 4509226543046020639, guid: b5064381b07abf94994cc44649acda6e, type: 3}

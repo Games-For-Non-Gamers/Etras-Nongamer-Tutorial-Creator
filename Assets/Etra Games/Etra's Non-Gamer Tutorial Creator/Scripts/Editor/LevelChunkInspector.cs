@@ -1,6 +1,17 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using Etra.NonGamerTutorialCreator.Level;
+using static Etra.NonGamerTutorialCreator.TutorialCreator.TutorialCreatorAbilityTreeView;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEditorInternal;
+using System;
+using Codice.Client.BaseCommands;
+using Etra.StarterAssets.Abilities;
+using Etra.StarterAssets.Items;
+using Etra.StarterAssets.Source.Editor;
+using System.Text.RegularExpressions;
+using UnityEngine.UIElements;
 
 namespace Etra.NonGamerTutorialCreator.Editor
 {
@@ -37,8 +48,17 @@ namespace Etra.NonGamerTutorialCreator.Editor
             EditorGUILayout.Space();
 
             EditorGUILayout.LabelField("Abilities", EditorStyles.boldLabel);
+            EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.testedAbilities)));
             EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.taughtAbilities)));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.abilitiesToTeach)));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.testedAbilityOne)));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.testedAbilityTwo)));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.testedAbilityThree)));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.testedAbilityFour)));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.testedAbilityFive)));
+
+            EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.taughtAbilityOne)));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.taughtAbilityTwo)));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.taughtAbilityThree)));
 
             EditorGUILayout.LabelField("Object", EditorStyles.boldLabel);
             EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.chunkObject)));
@@ -48,5 +68,7 @@ namespace Etra.NonGamerTutorialCreator.Editor
 
             serializedObject.UpdateIfRequiredOrScript();
         }
+
     }
+
 }

@@ -296,8 +296,8 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
             switch (Page)
             {
                 case 3:
-                    _levelBuilder.TaughtAbilities = _abilityTreeView.GetTaughtAbilities();
-                    _levelBuilder.NewAbilities = _abilityTreeView.GetNewAbilities();
+                    _levelBuilder.TestedAbilities = _abilityTreeView.GetTaughtAbilities();
+                    _levelBuilder.TaughtAbilities = _abilityTreeView.GetNewAbilities();
                     _levelBuilder.Reload();
                     _levelBuilder.CheckForTarget();
                     break;

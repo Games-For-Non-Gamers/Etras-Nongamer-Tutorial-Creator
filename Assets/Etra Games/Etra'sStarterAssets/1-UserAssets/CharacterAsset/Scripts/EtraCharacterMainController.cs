@@ -336,7 +336,8 @@ namespace Etra.StarterAssets
                     //Make a flat raycast toward the target
                     flatBeamToTarget = new Vector3(target.x, 0, target.z)  - new Vector3(transform.position.x, 0, transform.position.z); 
                     //The range of the raycast is only in the sphere collider where the character can start climbing walls.
-                    if (Physics.Raycast(transform.position, flatBeamToTarget, out hit, _controller.radius))
+                    //The beam starts from 5% of player height
+                    if (Physics.Raycast(transform.position + new Vector3 (0,_controller.height*0.05f,0), flatBeamToTarget, out hit, _controller.radius))
                     {
                         //Check if the angle is larger than the max walkable slope
                         if (Vector3.Angle(Vector3.up, hit.normal) > maxWalkableSlope)
