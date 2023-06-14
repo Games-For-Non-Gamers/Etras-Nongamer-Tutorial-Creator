@@ -75,6 +75,8 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
             RebuildAvaliableChunksCache();
             CheckChunksList();
             VerifyTargetLevelChunks();
+            CheckForTarget();
+            Target.ResetAllChunksPositions();
         }
         #endregion
 
@@ -204,6 +206,7 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
         {
             if (Target != null)
             {
+                Target.chunks.Reverse();
                 var targetOldIndex = Target.chunks.Count - oldIndex - 1;
                 var targetNewIndex = Target.chunks.Count - newIndex - 1;
 
@@ -211,7 +214,7 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
                 var toReplaceChunk = Target.chunks[targetNewIndex];
                 Target.chunks[targetOldIndex] = toReplaceChunk;
                 Target.chunks[targetNewIndex] = selectedChunk;
-
+                Target.chunks.Reverse();
                 Target.ResetAllChunksPositions();
 
                 //Rearrange in the hierarchy if both chunks are children of the target
@@ -224,6 +227,7 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
                     selectedChunk.transform.SetSiblingIndex(toReplaceChunkSiblingIndex);
                     toReplaceChunk.transform.SetSiblingIndex(selectedChunkSiblingIndex);
                 }
+                Target.ResetAllChunksPositions();
             }
 
         }
@@ -347,8 +351,8 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
             _avaliableChunks = AssetDatabase.FindAssets($"t:{typeof(LevelChunk).Name}")
                 .Select(x => AssetDatabase.GUIDToAssetPath(x))
                 .Select(x => AssetDatabase.LoadAssetAtPath<LevelChunk>(x))
-                .Where(x => !x.testedAbilities.Except(testedAbilitiesPaths).Any()) //If all chunks taught abilities have been selected
-                .Where(x => !x.taughtAbilities.Except(taughtAbilitiesPaths).Except(testedAbilitiesPaths).Any()) //If all chunks new abilities have been selected as new or taught
+                .Where(x => !x.testedAbilities.Except(testedAbilitiesPaths).Except(taughtAbilitiesPaths).Any()) //If all chunks taught abilities have been selected
+                .Where(x => !x.taughtAbilities.Except(taughtAbilitiesPaths).Any()) //If all chunks new abilities have been selected as new or taught
                 .ToList();
         }
 
@@ -363,7 +367,18 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
 
             _chunks.AddRange(requiredChunks.Except(_chunks));
 
+            //put recommended here
+
+            var recommendedChunks = AvaliableChunks
+            .Where(x => x.recommended);
+
+            _chunks.AddRange(recommendedChunks.Except(_chunks));
+
+            _chunks = _chunks.OrderByDescending(chunk => chunk.orderPriority).ToList();
+
+
             reorderableList.list = _chunks;
+           
         }
 
         public LevelChunkObject CreateChunkObject(LevelChunk chunk)

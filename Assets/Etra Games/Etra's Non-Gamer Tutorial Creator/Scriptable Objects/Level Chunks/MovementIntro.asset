@@ -13,11 +13,20 @@ MonoBehaviour:
   m_Name: MovementIntro
   m_EditorClassIdentifier: 
   chunkName: Movement Intro Chunk
-  icon: {fileID: 21300000, guid: d595792927f391e4f81cc7cd8b8772a8, type: 3}
+  icon: {fileID: 21300000, guid: 11eb3130dbf42fc4aa23f3b0bde193c4, type: 3}
   required: 0
   useSingle: 0
+  recommended: 1
+  orderPriority: 0
+  testedAbilities: []
   taughtAbilities:
-  - Etra.StarterAssets.Abilities.ABILITY_ActivateInteract
-  abilitiesToTeach:
-  - Etra.StarterAssets.Abilities.ABILITY_ActivateInteract
+  - Etra.StarterAssets.Abilities.ABILITY_CharacterMovement
+  testedAbilityOne: 
+  testedAbilityTwo: 
+  testedAbilityThree: 
+  testedAbilityFour: 
+  testedAbilityFive: 
+  taughtAbilityOne: Etra.StarterAssets.Abilities.ABILITY_CharacterMovement
+  taughtAbilityTwo: 
+  taughtAbilityThree: 
   chunkObject: {fileID: 4509226543046020639, guid: ca49f91b1c84341449b0925167f4a720, type: 3}

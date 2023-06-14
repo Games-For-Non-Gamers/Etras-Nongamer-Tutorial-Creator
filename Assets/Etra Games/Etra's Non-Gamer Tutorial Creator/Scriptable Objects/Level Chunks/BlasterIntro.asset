@@ -13,25 +13,20 @@ MonoBehaviour:
   m_Name: BlasterIntro
   m_EditorClassIdentifier: 
   chunkName: Blaster Intro
-  icon: {fileID: 21300000, guid: 4575d7bb126accf4d9e614c29885de25, type: 3}
+  icon: {fileID: 21300000, guid: 6ad92a5e904f18d4b92aa426a6fb4abf, type: 3}
   required: 0
   useSingle: 0
-  testedAbilities:
-  - 
-  - 
-  - 
-  - 
-  - 
+  recommended: 1
+  orderPriority: 10
+  testedAbilities: []
   taughtAbilities:
-  - 
-  - 
-  - 
+  - Etra.StarterAssets.Items.USABLEITEM_FPS_Blaster
   testedAbilityOne: 
   testedAbilityTwo: 
   testedAbilityThree: 
   testedAbilityFour: 
   testedAbilityFive: 
-  taughtAbilityOne: 
+  taughtAbilityOne: Etra.StarterAssets.Items.USABLEITEM_FPS_Blaster
   taughtAbilityTwo: 
   taughtAbilityThree: 
   chunkObject: {fileID: 4509226543046020639, guid: 6b5b9cbccbd47d14db67f702dccd548a, type: 3}

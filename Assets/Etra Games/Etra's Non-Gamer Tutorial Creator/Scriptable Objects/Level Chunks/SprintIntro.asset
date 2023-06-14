@@ -13,18 +13,20 @@ MonoBehaviour:
   m_Name: SprintIntro
   m_EditorClassIdentifier: 
   chunkName: Sprint Intro
-  icon: {fileID: 21300000, guid: 043f05095bba0fa459d596a134a4005a, type: 3}
+  icon: {fileID: 21300000, guid: 8b9325f8f1c979745b1c01d76be77989, type: 3}
   required: 0
   useSingle: 0
-  testedAbilities:
-  - 
-  taughtAbilities: []
+  recommended: 1
+  orderPriority: 200
+  testedAbilities: []
+  taughtAbilities:
+  - Etra.StarterAssets.Abilities.ABILITY_Sprint
   testedAbilityOne: 
   testedAbilityTwo: 
   testedAbilityThree: 
   testedAbilityFour: 
   testedAbilityFive: 
-  taughtAbilityOne: 
+  taughtAbilityOne: Etra.StarterAssets.Abilities.ABILITY_Sprint
   taughtAbilityTwo: 
   taughtAbilityThree: 
   chunkObject: {fileID: 4509226543046020639, guid: 16663c839d0e8d644a5a1283e71f0f7f, type: 3}

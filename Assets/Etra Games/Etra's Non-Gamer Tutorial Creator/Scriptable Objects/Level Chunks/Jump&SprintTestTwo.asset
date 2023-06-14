@@ -12,19 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4bc135820d99004a873a2b3c3e39a8b, type: 3}
   m_Name: Jump&SprintTestTwo
   m_EditorClassIdentifier: 
-  chunkName: Jump & Sprint Test Two
-  icon: {fileID: 21300000, guid: 4575d7bb126accf4d9e614c29885de25, type: 3}
+  chunkName: Jump and Sprint Test Two
+  icon: {fileID: 21300000, guid: 9deff251b4e78c143a48217197101b37, type: 3}
   required: 0
   useSingle: 0
+  recommended: 1
+  orderPriority: 220
   testedAbilities:
-  - 
+  - Etra.StarterAssets.Abilities.ABILITY_Jump
+  - Etra.StarterAssets.Abilities.ABILITY_Sprint
   taughtAbilities: []
-  testedAbilityOne: 
-  testedAbilityTwo: 
+  testedAbilityOne: Etra.StarterAssets.Abilities.ABILITY_Jump
+  testedAbilityTwo: Etra.StarterAssets.Abilities.ABILITY_Sprint
   testedAbilityThree: 
   testedAbilityFour: 
   testedAbilityFive: 
   taughtAbilityOne: 
   taughtAbilityTwo: 
   taughtAbilityThree: 
-  chunkObject: {fileID: 4509226543046020639, guid: f427ef63f94a07c47a2ad9276246215a, type: 3}
+  chunkObject: {fileID: 4509226543046020639, guid: 5cb9b3f8887bdfd409ea993829afd10b, type: 3}

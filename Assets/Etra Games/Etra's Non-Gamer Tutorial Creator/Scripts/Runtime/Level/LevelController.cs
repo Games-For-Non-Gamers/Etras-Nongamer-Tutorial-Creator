@@ -56,8 +56,10 @@ namespace Etra.NonGamerTutorialCreator.Level
 
         void placeChunks(List<LevelChunkObject> chunkList)
         {
+            List<LevelChunkObject> flippedList = chunkList;
+            flippedList.Reverse();
             Vector3 offset = Vector3.zero;
-            foreach (var chunk in chunkList)
+            foreach (var chunk in flippedList)
             {
                 offset -= chunk.startConnectionPoint;
                 chunk.transform.localPosition = offset;
