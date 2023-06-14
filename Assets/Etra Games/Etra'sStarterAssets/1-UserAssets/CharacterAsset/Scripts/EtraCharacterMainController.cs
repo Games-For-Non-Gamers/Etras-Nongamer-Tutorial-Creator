@@ -302,6 +302,7 @@ namespace Etra.StarterAssets
         public RaycastHit hit;
         bool stuckOnWallSlope = false;
         Vector3 flatBeamToTarget;
+        Vector3 lastStableStandingPosition;
         public void GroundedCheck()
         {
             //Get ground slope angle for slide ability
@@ -320,6 +321,8 @@ namespace Etra.StarterAssets
                 //Without a special clause for this, the player can jump up objects with sharp angles.
                 for(int i = 0; i< hitColliderCount; i++)
                 {
+                    Debug.Log("Collider:"+ hitcolliders[i].name);
+
                     Vector3 target;
                     if (hitcolliders[i] is MeshCollider meshCollider && !meshCollider.convex)
                     {
@@ -334,11 +337,28 @@ namespace Etra.StarterAssets
                     }
                    
                     //Make a flat raycast toward the target
-                    flatBeamToTarget = new Vector3(target.x, 0, target.z)  - new Vector3(transform.position.x, 0, transform.position.z); 
+                    flatBeamToTarget = new Vector3(target.x, 0, target.z)  - new Vector3(transform.position.x, 0, transform.position.z);
                     //The range of the raycast is only in the sphere collider where the character can start climbing walls.
                     //The beam starts from 5% of player height
-                    if (Physics.Raycast(transform.position + new Vector3 (0,_controller.height*0.05f,0), flatBeamToTarget, out hit, _controller.radius))
+
+                    Vector3 raycastOrigin = transform.position + new Vector3(0, _controller.height * 0.02f, 0);
+
+                    if (i ==0 )
                     {
+                        Debug.DrawRay(raycastOrigin, flatBeamToTarget * _controller.radius, Color.red);
+                    }
+                    if (i == 1)
+                    {
+                        Debug.DrawRay(raycastOrigin, flatBeamToTarget * _controller.radius, Color.blue);
+                    }
+                    if (i == 2)
+                    {
+                        Debug.DrawRay(raycastOrigin, flatBeamToTarget * _controller.radius, Color.green);
+                    }
+
+                    if (Physics.Raycast(raycastOrigin, flatBeamToTarget, out hit, _controller.radius))
+                    {
+                        Debug.Log(Vector3.Angle(Vector3.up, hit.normal));
                         //Check if the angle is larger than the max walkable slope
                         if (Vector3.Angle(Vector3.up, hit.normal) > maxWalkableSlope)
                         {
@@ -371,6 +391,14 @@ namespace Etra.StarterAssets
             {
                 stuckOnWallSlope = false;
             }
+
+            if (!stuckOnWallSlope)
+            {
+                lastStableStandingPosition = this.transform.position;
+            }
+
+
+
             // update animator if using character
             if (_hasAnimator)
             {
@@ -461,16 +489,22 @@ namespace Etra.StarterAssets
                 }
                 else
                 {
+                    Debug.Log("Stuck");
                     Vector3 angledForce = Vector3.ProjectOnPlane(flatBeamToTarget, hit.normal).normalized;
                     if (angledForce != Vector3.zero) // If we are not cornered on a flat surface slide down with the slope angle
                     {
-                        addConstantForceToEtraCharacter((Vector3.ProjectOnPlane(flatBeamToTarget, hit.normal).normalized) * _verticalVelocity);
+                        Debug.Log("tilt");
+                        addConstantForceToEtraCharacter(angledForce * _verticalVelocity);
                     }
                     else
                     {
+                        Debug.Log("90");
                         //adds a fixed force of negative one to slide the character off the edge if they are in trapped in the corner of a square obstacle
-                        pauseGravityGain = true;
-                        addConstantForceToEtraCharacter((flatBeamToTarget.normalized) * -1 + new Vector3(0, _verticalVelocity, 0));
+                         pauseGravityGain = true;
+                        Vector3 awayFromLastStablePoint = new Vector3(transform.position.x, 0, transform.position.z) - new Vector3(lastStableStandingPosition.x, 0, lastStableStandingPosition.z) ;
+
+                        addConstantForceToEtraCharacter((flatBeamToTarget.normalized) * -1) ;
+                      //  addConstantForceToEtraCharacter((awayFromLastStablePoint.normalized) * 1);
                     }
                     
                 }
