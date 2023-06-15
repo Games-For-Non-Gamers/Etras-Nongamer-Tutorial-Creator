@@ -61,6 +61,7 @@ namespace Etra.StarterAssets.Items
             gunAnimator = referenceToBlasterTransform.GetComponentInChildren<Animator>();
             bulletSpawnPos = GameObject.Find("EtraFPSGunFireLocation").transform;
             camMoveScript = GameObject.Find("EtraAbilityManager").GetComponent<ABILITY_CameraMovement>();
+            starterAssetsInputs.shoot = false;
         }
 
 

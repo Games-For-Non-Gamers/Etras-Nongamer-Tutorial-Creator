@@ -108,11 +108,11 @@ namespace Etra.StarterAssets.Interactables.Enemies
         public void aimAtPlayer()
         {
             //Base y rotation toward player
-            var targetDirection = target.transform.position - baseSpin.transform.position;
+            Vector3 targetDirection = target.transform.position - baseSpin.transform.position;
             float singleStep = spinSpeed * Time.deltaTime;
             Vector3 newDirection = Vector3.RotateTowards(baseSpin.transform.forward, targetDirection, singleStep, 0.0f);
             Quaternion lookRot = Quaternion.LookRotation(newDirection);
-            Quaternion yRotation = new Quaternion(0, lookRot.y, 0, lookRot.w);
+            Quaternion yRotation = new Quaternion(0, lookRot.y, 0,0);
             baseSpin.transform.rotation = yRotation;
 
 

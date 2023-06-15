@@ -122,11 +122,7 @@ namespace Etra.StarterAssets.Interactables
         //So that's a bit wierd, but I worked with it
         public void updateRopes()
         {
-            //Don't update the ropes constantly if the game is playing
-            if (Application.isPlaying)
-            {
-                return;
-            }
+
 
             //Set the positions array size
             Vector3[] positions = new Vector3[ropePoints.Length + 2];
