@@ -11,6 +11,7 @@ using Etra.StarterAssets.Items;
 using Etra.StarterAssets.Source.Editor;
 
 using static Etra.StarterAssets.EtraCharacterMainController;
+using Etra.NonGamerTutorialCreator.Level;
 
 namespace Etra.NonGamerTutorialCreator.TutorialCreator
 {
@@ -92,9 +93,42 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
             .Select(x => x.type)
             .ToList();
 
+        private List<LevelChunk> _avaliableChunks = null;
+        private List<string> abilitiesOrItemsThatHaveTeachingChunks;
         public void GenerateAbilitiesAndItems()
         {
-            //Initialize abilities
+            //Only get types that have level chunk connected to it.
+            var allAbilityNames = EtraGUIUtility.FindAllTypes<EtraAbilityBaseClass>().Select(x => x.GetType().Name).ToList();
+            var allItemNames = EtraGUIUtility.FindAllTypes<EtraFPSUsableItemBaseClass>().Select(x => x.GetType().Name).ToList();
+
+            List<string> tempStringList = new List<string>();
+            
+            //Load All level chunks
+            _avaliableChunks = AssetDatabase.FindAssets($"t:{typeof(LevelChunk).Name}").Select(x => AssetDatabase.GUIDToAssetPath(x)).Select(x => AssetDatabase.LoadAssetAtPath<LevelChunk>(x)).ToList();
+
+            foreach (LevelChunk chunk in _avaliableChunks)
+            {
+                foreach (string n in chunk.taughtAbilities)
+                {
+                    if (!tempStringList.Contains(n))
+                    {
+                        tempStringList.Add(n);
+                    }
+                }
+            }
+
+            abilitiesOrItemsThatHaveTeachingChunks = new List<string>();
+
+            foreach (string name in tempStringList)
+            {
+                string nameTemp = name;
+                nameTemp = nameTemp.Split('_').Last();
+                nameTemp = Regex.Replace(nameTemp, "([a-z])([A-Z])", "$1 $2");
+                abilitiesOrItemsThatHaveTeachingChunks.Add(nameTemp);
+            }
+
+
+
             var allAbilities = EtraGUIUtility.FindAllTypes<EtraAbilityBaseClass>()
                 .Select(x => new Ability(x))
                 .ToList();
@@ -137,6 +171,7 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
         #endregion
 
         #region GUI
+        bool noTeachingChunk = true;
         protected override void RowGUI(RowGUIArgs args)
         {
             bool repaint = Event.current.type == EventType.Repaint;
@@ -158,6 +193,18 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
 
             Rect taughtToRect = itemsRect
                 .ResizeToRight(_NEW_ABILITY_COLUMN_WIDTH * itemsRect.width);
+
+            //Don't allow enabling of those that don't have a teaching chunk to be taught.
+            //Have wierd double negatives cause thats how it decided to work.
+            if (abilitiesOrItemsThatHaveTeachingChunks.Contains(args.item.displayName))
+            {
+                noTeachingChunk = false;
+            }
+            else
+            {
+                noTeachingChunk = true;
+            }
+
 
             switch (args.item.id)
             {
@@ -199,6 +246,7 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
                 default:
                     GUIContent abilityContent = new GUIContent(args.label);
 
+                    
                     if (ability is ItemAbility)
                         abilityContent.image = EditorGUIUtility.IconContent("d_FilterByType").image;
 
@@ -209,9 +257,10 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
                     if (EditorGUI.Toggle(startsWithRect.ResizeWidthToCenter(EditorGUIUtility.singleLineHeight), ability.state == Ability.State.Taught))
                         ability.state = Ability.State.Taught;
 
+                    EditorGUI.BeginDisabledGroup(noTeachingChunk);
                     if (EditorGUI.Toggle(taughtToRect.ResizeWidthToCenter(EditorGUIUtility.singleLineHeight), ability.state == Ability.State.New))
                         ability.state = Ability.State.New;
-
+                    EditorGUI.EndDisabledGroup();
                     break;
             }
 
@@ -268,8 +317,26 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
         #region Utility
         public void SelectAll(Ability.State state)
         {
+
             foreach (var item in abilities)
-                item.Value.state = state;
+            {
+
+                if (state == Ability.State.New)
+                {
+                    //only set State.New to true if possible/ has a teaching chunk
+                    if (abilitiesOrItemsThatHaveTeachingChunks.Contains(item.Value.name))
+                    {
+                        item.Value.state = state;
+                    }
+
+                }
+                else
+                {
+                    item.Value.state = state;
+                }
+
+            }
+                
         }
         #endregion
 

@@ -9,6 +9,7 @@ using Etra.StarterAssets.Source.Editor;
 using Etra.NonGamerTutorialCreator.Level;
 
 using static Etra.StarterAssets.EtraCharacterMainController;
+using System.Linq;
 
 namespace Etra.NonGamerTutorialCreator.TutorialCreator
 {
@@ -18,6 +19,7 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
         const string PAGE_SESSION_KEY = "etra_nongamer_tutorial_creator_page";
         const float DEFAULT_WINDOW_WIDTH = 500f;
         const float DEFAULT_WINDOW_HEIGHT = 700f;
+
 
         int? _page = null;
         int Page
@@ -308,10 +310,38 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
         #region Creation
         public void CreateOrModify()
         {
+
+            //Previously need to only load abilities based off tps of fps
+
             _levelBuilder.CreateOrModify();
 
             if (!Preferences.KeepOpened)
                 Close();
+
+            //Character creation here. Could move to a seperate script later.
+
+            //Abilities the player has and is abilityActive.enabled = true;
+             var testedAbilitiesPaths = _levelBuilder.TestedAbilities
+                .Select(x => x.FullName)
+                .ToList();
+
+            //Abilities the player has and is abilityActive.enabled = false;
+            var taughtAbilitiesPaths = _levelBuilder.TaughtAbilities
+                .Select(x => x.FullName)
+                .ToList();
+
+
+
+
+            /*
+            _avaliableChunks = AssetDatabase.FindAssets($"t:{typeof(LevelChunk).Name}")
+                .Select(x => AssetDatabase.GUIDToAssetPath(x))
+                .Select(x => AssetDatabase.LoadAssetAtPath<LevelChunk>(x))
+                .Where(x => !x.testedAbilities.Except(testedAbilitiesPaths).Except(taughtAbilitiesPaths).Any()) //If all chunks taught abilities have been selected
+                .Where(x => !x.taughtAbilities.Except(taughtAbilitiesPaths).Any()) //If all chunks new abilities have been selected as new or taught
+                .ToList();
+            */
+
         }
         #endregion
 
