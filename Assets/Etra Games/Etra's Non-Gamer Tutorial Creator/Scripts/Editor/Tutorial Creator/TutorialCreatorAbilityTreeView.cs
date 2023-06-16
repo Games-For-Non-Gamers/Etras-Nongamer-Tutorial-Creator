@@ -97,9 +97,6 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
         private List<string> abilitiesOrItemsThatHaveTeachingChunks;
         public void GenerateAbilitiesAndItems()
         {
-            //Only get types that have level chunk connected to it.
-            var allAbilityNames = EtraGUIUtility.FindAllTypes<EtraAbilityBaseClass>().Select(x => x.GetType().Name).ToList();
-            var allItemNames = EtraGUIUtility.FindAllTypes<EtraFPSUsableItemBaseClass>().Select(x => x.GetType().Name).ToList();
 
             List<string> tempStringList = new List<string>();
             

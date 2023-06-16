@@ -10,6 +10,11 @@ using Etra.NonGamerTutorialCreator.Level;
 
 using static Etra.StarterAssets.EtraCharacterMainController;
 using System.Linq;
+using Etra.StarterAssets;
+using Etra.StarterAssets.Abilities;
+using Etra.StarterAssets.Items;
+using static Etra.StarterAssets.Items.EtraFPSUsableItemManager;
+using static UnityEditor.Progress;
 
 namespace Etra.NonGamerTutorialCreator.TutorialCreator
 {
@@ -314,33 +319,64 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
             //Previously need to only load abilities based off tps of fps
 
             _levelBuilder.CreateOrModify();
+            //get the endmost location to spawn the player at. 
+
+
+
+
+            //Character creation here. Could move to a seperate script later.
+            //Get player from this
+            EtraCharacterMainController character = EtraCharacterCreatorCreateOrModify.CreateOrModify(_gameplayType, _fpModel, _tpModel, _abilityTreeView.GetTaughtAbilities(), _abilityTreeView.GetNewAbilities());
+
+            //disable abilities with _abilityTreeView.GetNewAbilities()
+
+            //Combine the Ability lists and get their names
+
+
+            List<string> abilitiesToTeach = new List<string>();
+            foreach (Type abil in _abilityTreeView.GetNewAbilities())
+            {
+                abilitiesToTeach.Add(abil.Name);
+            }
+
+            //Disable all abilities
+            character.disableAllActiveAbilitiesAndSubAblities();
+
+            //Activate what is not in the learn array
+            foreach (EtraAbilityBaseClass ability in character.etraAbilityManager.characterAbilityUpdateOrder)
+            {
+                if (!abilitiesToTeach.Contains(ability.GetType().Name))
+                {
+                    ability.abilityEnabled = true;
+
+                    for (int i = 0; i < ability.subAbilityUnlocks.Length; i++)
+                    {
+                        ability.subAbilityUnlocks[i].subAbilityEnabled = true;
+                    }
+                    ability.abilityCheckSubAbilityUnlocks();
+                }
+            }
+
+            //Remove taught weapons
+            if (character.GetComponentInChildren<EtraFPSUsableItemManager>())
+            {
+                EtraFPSUsableItemManager itemManager = character.GetComponentInChildren<EtraFPSUsableItemManager>();
+
+                for (int i = 0; i < itemManager.usableItems.Length; i++)
+                {
+                    if (abilitiesToTeach.Contains(itemManager.usableItems[i].script.GetType().Name))
+                    {
+                        DestroyImmediate(itemManager.GetComponent(itemManager.usableItems[i].script.GetType()));
+                        itemManager.usableItems[i].script = null;
+                        itemManager.updateUsableItemsArray();
+                    }
+                }
+            }
+
+            _levelBuilder.Target.chunks[_levelBuilder.Target.chunks.Count - 1].makePlayerSpawn();
 
             if (!Preferences.KeepOpened)
                 Close();
-
-            //Character creation here. Could move to a seperate script later.
-
-            //Abilities the player has and is abilityActive.enabled = true;
-             var testedAbilitiesPaths = _levelBuilder.TestedAbilities
-                .Select(x => x.FullName)
-                .ToList();
-
-            //Abilities the player has and is abilityActive.enabled = false;
-            var taughtAbilitiesPaths = _levelBuilder.TaughtAbilities
-                .Select(x => x.FullName)
-                .ToList();
-
-
-
-
-            /*
-            _avaliableChunks = AssetDatabase.FindAssets($"t:{typeof(LevelChunk).Name}")
-                .Select(x => AssetDatabase.GUIDToAssetPath(x))
-                .Select(x => AssetDatabase.LoadAssetAtPath<LevelChunk>(x))
-                .Where(x => !x.testedAbilities.Except(testedAbilitiesPaths).Except(taughtAbilitiesPaths).Any()) //If all chunks taught abilities have been selected
-                .Where(x => !x.taughtAbilities.Except(taughtAbilitiesPaths).Any()) //If all chunks new abilities have been selected as new or taught
-                .ToList();
-            */
 
         }
         #endregion

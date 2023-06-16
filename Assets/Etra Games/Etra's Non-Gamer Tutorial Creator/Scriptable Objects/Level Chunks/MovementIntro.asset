@@ -21,12 +21,13 @@ MonoBehaviour:
   testedAbilities: []
   taughtAbilities:
   - Etra.StarterAssets.Abilities.ABILITY_CharacterMovement
+  - Etra.StarterAssets.Abilities.ABILITY_CheckpointRespawn
   testedAbilityOne: 
   testedAbilityTwo: 
   testedAbilityThree: 
   testedAbilityFour: 
   testedAbilityFive: 
   taughtAbilityOne: Etra.StarterAssets.Abilities.ABILITY_CharacterMovement
-  taughtAbilityTwo: 
+  taughtAbilityTwo: Etra.StarterAssets.Abilities.ABILITY_CheckpointRespawn
   taughtAbilityThree: 
   chunkObject: {fileID: 4509226543046020639, guid: ca49f91b1c84341449b0925167f4a720, type: 3}

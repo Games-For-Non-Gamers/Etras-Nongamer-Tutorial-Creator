@@ -222,11 +222,13 @@ namespace Etra.StarterAssets.Source.Editor
                     case false:
                         using (new EditorGUI.DisabledScope(Application.isPlaying))
                             if (GUI.Button(nextButtonRect, _target == null ? "Create" : "Modify"))
-                                CreateOrModify();
-                            //Then set _target
-                            //Finally close window
-                       //     if (!Preferences.KeepOpened)
-                     //           CloseWindow();
+                            {
+                                _target = EtraCharacterCreatorCreateOrModify.
+                                    CreateOrModify(_target, _gameplayType, _fpModel, _tpModel, generalAbilities, fpAbilities, tpAbilities, fpsItems);
+                            }
+                                
+                            if (!Preferences.KeepOpened)
+                                CloseWindow();
                         break;
                 }
             }
@@ -485,114 +487,7 @@ namespace Etra.StarterAssets.Source.Editor
 
             }
 
-        //public void CreateOrModify(List<Ability> generalAbilities, List<Ability> fpAbilities, List<Ability> tpAbilities, List<Ability> fpsItems)
-             public void CreateOrModify()
-            {
-
-                var group = _target == null ?
-                    EtrasResourceGrabbingFunctions.addPrefabFromResourcesByName("EtraCharacterAssetGroup") :
-                    GetRootParent(_target.transform).gameObject;
-
-                if (_target == null)
-                    _target = group.GetComponentInChildren<EtraCharacterMainController>();
-
-                _target.setChildObjects();
-
-                var abilityManager = _target.etraAbilityManager;
-
-                var selectAbilityScriptTypes = generalAbilities
-                    .Concat(_gameplayType switch
-                    {
-                        GameplayType.FirstPerson => fpAbilities,
-                        GameplayType.ThirdPerson => tpAbilities,
-                        _ => new List<Ability>(),
-                    })
-                    .Select(x => x.type)
-                    .ToList();
-
-                foreach (var item in abilityManager.characterAbilityUpdateOrder)
-                    if (item != null && !selectAbilityScriptTypes.Contains(item.GetType()))
-                        DestroyImmediate(item, true);
-
-                abilityManager.characterAbilityUpdateOrder = new EtraAbilityBaseClass[0];
-
-                //Add base abilities
-                AddAbilities(abilityManager, generalAbilities, false);
-
-                switch (_gameplayType)
-                {
-                    case GameplayType.FirstPerson:
-                        AddAbilities(abilityManager, fpAbilities, log: "Adding first person ability");
-
-                        //Add FPS Items
-                        bool requiresItems = fpsItems
-                            .Where(x => x.state)
-                            .Count() > 0;
-
-                        switch (requiresItems)
-                        {
-                            case true:
-                                //TODO: don't
-                                var itemManager = FindObjectOfType<EtraFPSUsableItemManager>() ??
-                                    EtrasResourceGrabbingFunctions.addPrefabFromAssetsByName("EtraFPSUsableItemManagerPrefab", _target.transform)
-                                    .GetComponent<EtraFPSUsableItemManager>();
-
-                                var itemsToDelete = itemManager.usableItems;
-
-                                foreach (var item in itemsToDelete)
-                                    DestroyImmediate(item.script, true);
-
-                                itemManager.Reset();
-
-                                foreach (var item in fpsItems)
-                                {
-                                    if (!item.state) continue;
-                                    var component = (EtraFPSUsableItemBaseClass)itemManager.gameObject.AddComponent(item.type);
-                                    itemManager.usableItems = itemManager.usableItems
-                                        .Concat(new usableItemScriptAndPrefab[] { new usableItemScriptAndPrefab(component) })
-                                        .ToArray();
-
-                                    DebugLog($"Adding item '{item.name}'");
-                                }
-
-                                break;
-                            case false:
-                                var manager = FindObjectOfType<EtraFPSUsableItemManager>();
-
-                                if (manager != null)
-                                    DestroyImmediate(manager.gameObject, true);
-                                break;
-                        }
-
-                        var aimCamera = GameObject.Find("Etra'sStarterAssetsThirdPersonAimCamera");
-                        if (aimCamera != null)
-                            DestroyImmediate(aimCamera.gameObject, true);
-
-
-
-                        _target.applyGameplayChanges(_gameplayType, _fpModel);
-                        break;
-
-                    case GameplayType.ThirdPerson:
-                        var usableItemManager = FindObjectOfType<EtraFPSUsableItemManager>();
-                        if (usableItemManager != null)
-                            DestroyImmediate(usableItemManager.gameObject, true);
-
-                        var itemCamera = GameObject.Find("FPSUsableItemsCamera");
-                        if (itemCamera != null)
-                            DestroyImmediate(itemCamera.gameObject, true);
-
-
-                        AddAbilities(abilityManager, tpAbilities, log: "Adding third person ability");
-                        _target.applyGameplayChanges(_gameplayType, _tpModel);
-                        break;
-            }
-
-            EditorSceneManager.MarkSceneDirty(UnityEngine.SceneManagement.SceneManager.GetActiveScene());
-            Selection.objects = new UObject[] { group };
-
-
-        }
+           
         #endregion
 
         #region Utility
@@ -602,37 +497,10 @@ namespace Etra.StarterAssets.Source.Editor
                 Debug.Log($"[Etra Character Creator] {text}");
         }
 
-        void AddAbilities(EtraAbilityManager abilityManager, List<Ability> abilities, bool assignScripts = true, string log = "Adding generic ability")
-        {
-            foreach (var item in abilities)
-            {
-                if (!item.state || abilityManager.gameObject.GetComponent(item.type)) continue;
 
-                abilityManager.gameObject.AddComponent(item.type);
-
-                DebugLog($"{log} '{item.name}'");
-            }
-
-            if (assignScripts)
-                abilityManager.characterAbilityUpdateOrder = abilityManager.gameObject.GetComponents<EtraAbilityBaseClass>();
-        }
-
-        Transform GetRootParent(Transform trans)
-        {
-            if (trans == null)
-                return trans;
-
-            while (true)
-            {
-                if (trans.parent == null)
-                    return trans;
-
-                trans = trans.parent;
-            }
-        }
         #endregion
 
-        class Ability
+        public class Ability
         {
             public Ability(Type type)
             {

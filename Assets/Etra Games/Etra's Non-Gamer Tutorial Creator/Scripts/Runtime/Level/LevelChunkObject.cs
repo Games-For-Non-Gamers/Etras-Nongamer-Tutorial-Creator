@@ -10,6 +10,30 @@ namespace Etra.NonGamerTutorialCreator.Level
         public Vector3 endConnectionPoint = new Vector3(5f, 0f, 0f);
         public Vector3 playerSpawnPosition = new Vector3(0f, 0f, 1f);
 
+        [HideInInspector]
+        GameObject playerSpawn;
+        public void makePlayerSpawn()
+        {
+            if (GameObject.Find("PlayerSpawn"))
+            {
+                return;
+            }
+            playerSpawn = new GameObject("PlayerSpawn");
+            playerSpawn.transform.SetParent(this.transform);
+            playerSpawn.transform.localPosition = playerSpawnPosition;
+            GameObject.FindGameObjectWithTag("Player").transform.position = playerSpawn.transform.position;
+        }
+
+        private void Start()
+        {
+            if (playerSpawn != null)
+            {
+                playerSpawn.transform.localPosition = playerSpawnPosition;
+                GameObject.FindGameObjectWithTag("Player").transform.position= playerSpawn.transform.position;
+            }
+        }
+
+
         private void OnDrawGizmos()
         {
             const float pointRadius = 0.1f;

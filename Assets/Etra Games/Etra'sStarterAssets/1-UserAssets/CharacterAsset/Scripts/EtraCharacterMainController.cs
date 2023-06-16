@@ -772,6 +772,19 @@ namespace Etra.StarterAssets
             }
         }
 
+        public void disableAllActiveAbilitiesAndSubAblities()
+        {
+            disableAllActiveAbilities();
+            foreach (EtraAbilityBaseClass ability in etraAbilityManager.characterAbilityUpdateOrder)
+            {
+                for (int i = 0; i < ability.subAbilityUnlocks.Length; i++)
+                {
+                    ability.subAbilityUnlocks[i].subAbilityEnabled = false;
+                }
+                ability.abilityCheckSubAbilityUnlocks();
+            }
+        }
+
         public void enableAllActiveAbilities()
         {
             etraAbilityManager.enableAllActiveAbilities();
@@ -781,6 +794,23 @@ namespace Etra.StarterAssets
             }
             
         }
+
+        public void enableAllActiveAbilitiesAndSubAblities()
+        {
+            enableAllActiveAbilities();
+            foreach (EtraAbilityBaseClass ability in etraAbilityManager.characterAbilityUpdateOrder)
+            {
+
+                    for (int i = 0; i < ability.subAbilityUnlocks.Length; i++)
+                    {
+                        ability.subAbilityUnlocks[i].subAbilityEnabled = true;
+                    }
+                    ability.abilityCheckSubAbilityUnlocks();
+            }
+
+        }
+
+
 
     }
 

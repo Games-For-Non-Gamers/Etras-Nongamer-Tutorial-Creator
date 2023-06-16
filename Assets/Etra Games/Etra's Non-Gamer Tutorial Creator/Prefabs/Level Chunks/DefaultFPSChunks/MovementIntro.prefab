@@ -1913,6 +1913,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 7142817371072165615}
     m_Modifications:
     - target: {fileID: 4699087773536787261, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
+      propertyPath: playPickupSfx
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699087773536787261, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
       propertyPath: showTutorialPopup
       value: 0
       objectReference: {fileID: 0}
