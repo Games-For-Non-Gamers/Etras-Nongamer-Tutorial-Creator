@@ -32,6 +32,7 @@ namespace Etra.StarterAssets.Abilities
         [HideInInspector] public Vector2 passedMovementInput;
         private StarterAssetsInputs _input;
         private CharacterController _controller;
+        private bool _hasSprint;
         private ABILITY_Sprint sprintSource;
         private GameObject _mainCamera;
         private Animator _animator;
@@ -79,6 +80,7 @@ namespace Etra.StarterAssets.Abilities
 
         public override void abilityStart()
         {
+  
             //Set Refences
             if (_mainCamera == null)
             {
@@ -95,12 +97,13 @@ namespace Etra.StarterAssets.Abilities
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
 
             //Set Sprint speed if Sprint is an attached script
-            if (gameObject.GetComponent<ABILITY_Sprint>() != null)
+            if (gameObject.GetComponent<ABILITY_Sprint>())
             {
-                sprintSource = gameObject.GetComponent<ABILITY_Sprint>();
-                sprintSource.sprintSpeed = sprintSpeed;
-            }
-            else { sprintSpeed = moveSpeed; }
+                if (gameObject.GetComponent<ABILITY_Sprint>().abilityEnabled == false)
+                {
+                    sprintSpeed = moveSpeed;
+                }
+            }   
         }
 
         float stepTime = 0;
@@ -155,6 +158,7 @@ namespace Etra.StarterAssets.Abilities
 
             }
             passedMovementInput = new Vector2(inputX, inputY);
+
 
             //Set correct speed based off of sprint or crouch modifiers
             float targetSpeed;

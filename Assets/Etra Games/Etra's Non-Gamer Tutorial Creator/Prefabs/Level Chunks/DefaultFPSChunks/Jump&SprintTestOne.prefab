@@ -61,8 +61,8 @@ Transform:
   m_LocalPosition: {x: -2, y: -10, z: 7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4509226543046020627}
-  m_RootOrder: 4
+  m_Father: {fileID: 7919998417750991605}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3069302651547191249
 MonoBehaviour:
@@ -191,52 +191,52 @@ MonoBehaviour:
   - m_Vertices: 0b0000000e00000012000000
   m_SharedTextures: []
   m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 4, y: 0, z: 0}
+  - {x: 0, y: -10, z: 0}
+  - {x: 4, y: -10, z: 0}
   - {x: 0, y: 10, z: 0}
   - {x: 4, y: 10, z: 0}
-  - {x: 4, y: 0, z: 0}
-  - {x: 4, y: 0, z: -5}
+  - {x: 4, y: -10, z: 0}
+  - {x: 4, y: -10, z: -5}
   - {x: 4, y: 10, z: 0}
   - {x: 4, y: 10, z: -5}
-  - {x: 4, y: 0, z: -5}
-  - {x: 0, y: 0, z: -5}
+  - {x: 4, y: -10, z: -5}
+  - {x: 0, y: -10, z: -5}
   - {x: 4, y: 10, z: -5}
   - {x: 0, y: 10, z: -5}
-  - {x: 0, y: 0, z: -5}
-  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: -10, z: -5}
+  - {x: 0, y: -10, z: 0}
   - {x: 0, y: 10, z: -5}
   - {x: 0, y: 10, z: 0}
   - {x: 0, y: 10, z: 0}
   - {x: 4, y: 10, z: 0}
   - {x: 0, y: 10, z: -5}
   - {x: 4, y: 10, z: -5}
-  - {x: 0, y: 0, z: -5}
-  - {x: 4, y: 0, z: -5}
-  - {x: 0, y: 0, z: 0}
-  - {x: 4, y: 0, z: 0}
+  - {x: 0, y: -10, z: -5}
+  - {x: 4, y: -10, z: -5}
+  - {x: 0, y: -10, z: 0}
+  - {x: 4, y: -10, z: 0}
   m_Textures0:
-  - {x: 0, y: 0}
-  - {x: -4, y: 0}
+  - {x: 0, y: -10}
+  - {x: -4, y: -10}
   - {x: 0, y: 10}
   - {x: -4, y: 10}
-  - {x: 0, y: 0}
-  - {x: -5, y: 0}
+  - {x: 0, y: -10}
+  - {x: -5, y: -10}
   - {x: 0, y: 10}
   - {x: -5, y: 10}
-  - {x: 4, y: 0}
-  - {x: 0, y: 0}
+  - {x: 4, y: -10}
+  - {x: 0, y: -10}
   - {x: 4, y: 10}
   - {x: 0, y: 10}
-  - {x: 5, y: 0}
-  - {x: 0, y: 0}
+  - {x: 5, y: -10}
+  - {x: 0, y: -10}
   - {x: 5, y: 10}
   - {x: 0, y: 10}
   - {x: 0, y: 0}
   - {x: 4, y: 0}
   - {x: 0, y: -5}
   - {x: 4, y: -5}
-  - {x: 0, y: -5}
+  - {x: -0, y: -5}
   - {x: -4, y: -5}
   - {x: 0, y: 0}
   - {x: -4, y: 0}
@@ -341,7 +341,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
 --- !u!1 &1132920827574623515
@@ -370,7 +370,10 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1549247560153432184}
+  - {fileID: 7018668760900871434}
+  - {fileID: 6705704449840899511}
   m_Father: {fileID: 4509226543046020627}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -402,7 +405,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6252867213489043612}
-  - {fileID: 2925138914433484683}
   - {fileID: 1252910264470764349}
   - {fileID: 4742707724238980575}
   m_Father: {fileID: 4509226543046020627}
@@ -439,8 +441,8 @@ Transform:
   m_LocalPosition: {x: -2, y: -10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4509226543046020627}
-  m_RootOrder: 3
+  m_Father: {fileID: 7919998417750991605}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5533498567703156784
 MonoBehaviour:
@@ -569,52 +571,52 @@ MonoBehaviour:
   - m_Vertices: 0b0000000e00000012000000
   m_SharedTextures: []
   m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 4, y: 0, z: 0}
+  - {x: 0, y: -10, z: 0}
+  - {x: 4, y: -10, z: 0}
   - {x: 0, y: 10, z: 0}
   - {x: 4, y: 10, z: 0}
-  - {x: 4, y: 0, z: 0}
-  - {x: 4, y: 0, z: -5}
+  - {x: 4, y: -10, z: 0}
+  - {x: 4, y: -10, z: -5}
   - {x: 4, y: 10, z: 0}
   - {x: 4, y: 10, z: -5}
-  - {x: 4, y: 0, z: -5}
-  - {x: 0, y: 0, z: -5}
+  - {x: 4, y: -10, z: -5}
+  - {x: 0, y: -10, z: -5}
   - {x: 4, y: 10, z: -5}
   - {x: 0, y: 10, z: -5}
-  - {x: 0, y: 0, z: -5}
-  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: -10, z: -5}
+  - {x: 0, y: -10, z: 0}
   - {x: 0, y: 10, z: -5}
   - {x: 0, y: 10, z: 0}
   - {x: 0, y: 10, z: 0}
   - {x: 4, y: 10, z: 0}
   - {x: 0, y: 10, z: -5}
   - {x: 4, y: 10, z: -5}
-  - {x: 0, y: 0, z: -5}
-  - {x: 4, y: 0, z: -5}
-  - {x: 0, y: 0, z: 0}
-  - {x: 4, y: 0, z: 0}
+  - {x: 0, y: -10, z: -5}
+  - {x: 4, y: -10, z: -5}
+  - {x: 0, y: -10, z: 0}
+  - {x: 4, y: -10, z: 0}
   m_Textures0:
-  - {x: 0, y: 0}
-  - {x: -4, y: 0}
+  - {x: 0, y: -10}
+  - {x: -4, y: -10}
   - {x: 0, y: 10}
   - {x: -4, y: 10}
-  - {x: 0, y: 0}
-  - {x: -5, y: 0}
+  - {x: 0, y: -10}
+  - {x: -5, y: -10}
   - {x: 0, y: 10}
   - {x: -5, y: 10}
-  - {x: 4, y: 0}
-  - {x: 0, y: 0}
+  - {x: 4, y: -10}
+  - {x: 0, y: -10}
   - {x: 4, y: 10}
   - {x: 0, y: 10}
-  - {x: 5, y: 0}
-  - {x: 0, y: 0}
+  - {x: 5, y: -10}
+  - {x: 0, y: -10}
   - {x: 5, y: 10}
   - {x: 0, y: 10}
   - {x: 0, y: 0}
   - {x: 4, y: 0}
   - {x: 0, y: -5}
   - {x: 4, y: -5}
-  - {x: 0, y: -5}
+  - {x: -0, y: -5}
   - {x: -4, y: -5}
   - {x: 0, y: 0}
   - {x: -4, y: 0}
@@ -719,7 +721,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
 --- !u!1 &2802714719358065842
@@ -753,8 +755,8 @@ Transform:
   m_LocalPosition: {x: -2, y: -10, z: 15.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4509226543046020627}
-  m_RootOrder: 5
+  m_Father: {fileID: 7919998417750991605}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4223894357183414116
 MonoBehaviour:
@@ -883,54 +885,54 @@ MonoBehaviour:
   - m_Vertices: 0b0000000e00000012000000
   m_SharedTextures: []
   m_Positions:
-  - {x: 0, y: 0, z: -1}
-  - {x: 4, y: 0, z: -1}
+  - {x: 0, y: -10, z: -1}
+  - {x: 4, y: -10, z: -1}
   - {x: 0, y: 10, z: -1}
   - {x: 4, y: 10, z: -1}
-  - {x: 4, y: 0, z: -1}
-  - {x: 4, y: 0, z: -5}
+  - {x: 4, y: -10, z: -1}
+  - {x: 4, y: -10, z: -5}
   - {x: 4, y: 10, z: -1}
   - {x: 4, y: 10, z: -5}
-  - {x: 4, y: 0, z: -5}
-  - {x: 0, y: 0, z: -5}
+  - {x: 4, y: -10, z: -5}
+  - {x: 0, y: -10, z: -5}
   - {x: 4, y: 10, z: -5}
   - {x: 0, y: 10, z: -5}
-  - {x: 0, y: 0, z: -5}
-  - {x: 0, y: 0, z: -1}
+  - {x: 0, y: -10, z: -5}
+  - {x: 0, y: -10, z: -1}
   - {x: 0, y: 10, z: -5}
   - {x: 0, y: 10, z: -1}
   - {x: 0, y: 10, z: -1}
   - {x: 4, y: 10, z: -1}
   - {x: 0, y: 10, z: -5}
   - {x: 4, y: 10, z: -5}
-  - {x: 0, y: 0, z: -5}
-  - {x: 4, y: 0, z: -5}
-  - {x: 0, y: 0, z: -1}
-  - {x: 4, y: 0, z: -1}
+  - {x: 0, y: -10, z: -5}
+  - {x: 4, y: -10, z: -5}
+  - {x: 0, y: -10, z: -1}
+  - {x: 4, y: -10, z: -1}
   m_Textures0:
-  - {x: 0, y: 0}
-  - {x: -4, y: 0}
+  - {x: -0, y: -10}
+  - {x: -4, y: -10}
   - {x: 0, y: 10}
   - {x: -4, y: 10}
-  - {x: -1, y: 0}
-  - {x: -5, y: 0}
+  - {x: -1, y: -10}
+  - {x: -5, y: -10}
   - {x: -1, y: 10}
   - {x: -5, y: 10}
-  - {x: 4, y: 0}
-  - {x: 0, y: 0}
+  - {x: 4, y: -10}
+  - {x: 0, y: -10}
   - {x: 4, y: 10}
   - {x: 0, y: 10}
-  - {x: 5, y: 0}
-  - {x: 1, y: 0}
+  - {x: 5, y: -10}
+  - {x: 1, y: -10}
   - {x: 5, y: 10}
   - {x: 1, y: 10}
   - {x: 0, y: -1}
   - {x: 4, y: -1}
   - {x: 0, y: -5}
   - {x: 4, y: -5}
-  - {x: 0, y: -5}
+  - {x: -0, y: -5}
   - {x: -4, y: -5}
-  - {x: 0, y: -1}
+  - {x: -0, y: -1}
   - {x: -4, y: -1}
   m_Textures2: []
   m_Textures3: []
@@ -1033,7 +1035,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
 --- !u!1 &4509226543046020638
@@ -1067,9 +1069,6 @@ Transform:
   - {fileID: 3204301150056619237}
   - {fileID: 7919998417750991605}
   - {fileID: 2009609372299083894}
-  - {fileID: 1549247560153432184}
-  - {fileID: 7018668760900871434}
-  - {fileID: 6705704449840899511}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1097,7 +1096,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4082332788365929858, guid: cc04179483fc4d2429b4dc63541ee1b8, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4082332788365929858, guid: cc04179483fc4d2429b4dc63541ee1b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1161,80 +1160,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4082332788365929858, guid: cc04179483fc4d2429b4dc63541ee1b8, type: 3}
   m_PrefabInstance: {fileID: 3009643932217988799}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &5357990875018781095
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 3204301150056619237}
-    m_Modifications:
-    - target: {fileID: 4699087773536787261, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
-      propertyPath: showTutorialAnimation
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7116608836990772780, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7116608836990772780, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3.0525665
-      objectReference: {fileID: 0}
-    - target: {fileID: 7116608836990772780, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.7199
-      objectReference: {fileID: 0}
-    - target: {fileID: 7116608836990772780, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.0445
-      objectReference: {fileID: 0}
-    - target: {fileID: 7116608836990772780, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.079
-      objectReference: {fileID: 0}
-    - target: {fileID: 7116608836990772780, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 7116608836990772780, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7116608836990772780, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7116608836990772780, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7116608836990772780, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7116608836990772780, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7116608836990772780, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7116608836990772780, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7116608836990772785, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
-      propertyPath: m_Name
-      value: NongamerTutorialPickup
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
---- !u!4 &2925138914433484683 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7116608836990772780, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
-  m_PrefabInstance: {fileID: 5357990875018781095}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7953912827856049438
 PrefabInstance:
@@ -1319,7 +1244,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4082332788365929858, guid: cc04179483fc4d2429b4dc63541ee1b8, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4082332788365929858, guid: cc04179483fc4d2429b4dc63541ee1b8, type: 3}
       propertyPath: m_LocalPosition.x

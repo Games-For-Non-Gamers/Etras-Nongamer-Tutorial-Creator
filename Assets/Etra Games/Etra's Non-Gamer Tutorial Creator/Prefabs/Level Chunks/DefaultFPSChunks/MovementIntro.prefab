@@ -310,7 +310,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
 --- !u!1 &391763072174870104
@@ -623,7 +623,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
 --- !u!1 &4036400499809490569
@@ -870,45 +870,45 @@ MonoBehaviour:
   - m_Vertices: 0b0000000e00000012000000
   m_SharedTextures: []
   m_Positions:
-  - {x: 0, y: -9, z: 0}
-  - {x: 10, y: -9, z: 0}
+  - {x: 0, y: -19, z: 0}
+  - {x: 10, y: -19, z: 0}
   - {x: 0, y: 1, z: 0}
   - {x: 10, y: 1, z: 0}
-  - {x: 10, y: -9, z: 0}
-  - {x: 10, y: -9, z: -19}
+  - {x: 10, y: -19, z: 0}
+  - {x: 10, y: -19, z: -19}
   - {x: 10, y: 1, z: 0}
   - {x: 10, y: 1, z: -19}
-  - {x: 10, y: -9, z: -19}
-  - {x: 0, y: -9, z: -19}
+  - {x: 10, y: -19, z: -19}
+  - {x: 0, y: -19, z: -19}
   - {x: 10, y: 1, z: -19}
   - {x: 0, y: 1, z: -19}
-  - {x: 0, y: -9, z: -19}
-  - {x: 0, y: -9, z: 0}
+  - {x: 0, y: -19, z: -19}
+  - {x: 0, y: -19, z: 0}
   - {x: 0, y: 1, z: -19}
   - {x: 0, y: 1, z: 0}
   - {x: 0, y: 1, z: 0}
   - {x: 10, y: 1, z: 0}
   - {x: 0, y: 1, z: -19}
   - {x: 10, y: 1, z: -19}
-  - {x: 0, y: -9, z: -19}
-  - {x: 10, y: -9, z: -19}
-  - {x: 0, y: -9, z: 0}
-  - {x: 10, y: -9, z: 0}
+  - {x: 0, y: -19, z: -19}
+  - {x: 10, y: -19, z: -19}
+  - {x: 0, y: -19, z: 0}
+  - {x: 10, y: -19, z: 0}
   m_Textures0:
-  - {x: 0, y: -9}
-  - {x: -10, y: -9}
+  - {x: 0, y: -19}
+  - {x: -10, y: -19}
   - {x: 0, y: 1}
   - {x: -10, y: 1}
-  - {x: 0, y: -9}
-  - {x: -19, y: -9}
+  - {x: 0, y: -19}
+  - {x: -19, y: -19}
   - {x: 0, y: 1}
   - {x: -19, y: 1}
-  - {x: 10, y: -9}
-  - {x: 0, y: -9}
+  - {x: 10, y: -19}
+  - {x: 0, y: -19}
   - {x: 10, y: 1}
   - {x: 0, y: 1}
-  - {x: 19, y: -9}
-  - {x: 0, y: -9}
+  - {x: 19, y: -19}
+  - {x: 0, y: -19}
   - {x: 19, y: 1}
   - {x: 0, y: 1}
   - {x: 0, y: 0}
@@ -1019,7 +1019,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
 --- !u!1 &5893314778289480474
@@ -1332,7 +1332,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
 --- !u!1 &6704330817745566239
@@ -1645,7 +1645,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
 --- !u!1 &7463103848588972862
@@ -2438,7 +2438,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4699087773536787261, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
       propertyPath: showTutorialAnimation
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4699087773536787261, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
       propertyPath: AbilityOrItem_To_Activate
