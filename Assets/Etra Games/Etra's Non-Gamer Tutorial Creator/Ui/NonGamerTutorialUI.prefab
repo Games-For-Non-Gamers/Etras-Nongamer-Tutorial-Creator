@@ -614,6 +614,41 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2231175046269963002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7930366855724523128}
+  m_Layer: 5
+  m_Name: OpeningScene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7930366855724523128
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2231175046269963002}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7982650617062245804}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2575077532535539407
 GameObject:
   m_ObjectHideFlags: 0
@@ -1631,7 +1666,7 @@ MonoBehaviour:
     fadeTime: 1
     toStartTime: 1
     sfxName: 
-  - tweenedObject: {fileID: 7982650617135524445}
+  - tweenedObject: {fileID: 7982650616774079006}
     chosenTweenEvent: 4
     scaleAndMovePosition: {x: 50, y: 50, z: 0}
     scaleAndMoveScale: {x: 2, y: 2, z: 2}
@@ -3473,7 +3508,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7982650617062245804}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -3549,8 +3584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9213237882e70264bb643a5ac8fdfd7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiObjects:
-  - {fileID: 7982650616387025941}
+  uiObjects: []
   showUiIfAbilityIsActive: 1
   textAnimation: []
 --- !u!1 &7982650616426672652
@@ -4364,7 +4398,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7982650617062245804}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -4444,8 +4478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9213237882e70264bb643a5ac8fdfd7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiObjects:
-  - {fileID: 7982650616746555882}
+  uiObjects: []
   showUiIfAbilityIsActive: 1
   textAnimation: []
 --- !u!1 &7982650616759646985
@@ -5212,7 +5245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7982650617062245804}
   m_Layer: 5
-  m_Name: FinalText
+  m_Name: AdditionalEvents
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5229,6 +5262,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 7930366855724523128}
   - {fileID: 7982650616387025941}
   - {fileID: 7982650616746555882}
   m_Father: {fileID: 7982650618024886581}
@@ -9026,18 +9060,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiObjects:
-  - {fileID: 7982650617789547479}
-  - {fileID: 7982650616529868977}
-  - {fileID: 7982650617212833572}
-  - {fileID: 7982650616321887780}
-  - {fileID: 7982650616817630740}
-  - {fileID: 7982650617821656014}
-  - {fileID: 7982650617674831871}
-  - {fileID: 7982650616132151461}
-  - {fileID: 7982650618147299954}
-  - {fileID: 7982650616343111004}
-  - {fileID: 7982650618040287265}
-  - {fileID: 7982650617385866966}
+  - {fileID: 7982650617789547478}
+  - {fileID: 7982650616529868976}
+  - {fileID: 7982650617212833575}
+  - {fileID: 7982650616321887783}
+  - {fileID: 7982650616817630743}
+  - {fileID: 7982650617821656009}
+  - {fileID: 7982650617674831870}
+  - {fileID: 7982650616132151460}
+  - {fileID: 7982650618147299965}
+  - {fileID: 7982650616343111007}
+  - {fileID: 7982650618040287264}
+  - {fileID: 7982650617385866961}
   showUiIfAbilityIsActive: 1
   keyboardAnimation: []
   controllerAnimation: []

@@ -4,8 +4,8 @@ using UnityEngine;
 public class LevelPopupTextPickup : MonoBehaviour
 {
     public string textLabelToShow = "";
-    public bool showPopupAnimation = true;
-    LevelPopupTextUi textUi;
+    public bool runAnimation = true;
+    LevelPopupTextUi objectWithEtraAnimationScript;
 
     [Header("Rendering")]
     public bool showInEditor = true;
@@ -25,7 +25,7 @@ public class LevelPopupTextPickup : MonoBehaviour
 
         if (GameObject.Find(textLabelToShow).GetComponent<LevelPopupTextUi>() !=null)
         {
-            textUi = GameObject.Find(textLabelToShow).GetComponent<LevelPopupTextUi>();
+            objectWithEtraAnimationScript = GameObject.Find(textLabelToShow).GetComponent<LevelPopupTextUi>();
         }
         else
         {
@@ -38,15 +38,15 @@ public class LevelPopupTextPickup : MonoBehaviour
     //If the player collides with the pickup...
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" && textUi != null)
+        if (other.gameObject.tag == "Player" && objectWithEtraAnimationScript != null)
         {
-            if (showPopupAnimation)
+            if (runAnimation)
             {
-                textUi.runUiEvent();
+                objectWithEtraAnimationScript.runUiEvent();
             }
             else
             {
-                textUi.showAllUiObjects();
+                objectWithEtraAnimationScript.showAllUiObjects();
             }
            
             Destroy(gameObject);

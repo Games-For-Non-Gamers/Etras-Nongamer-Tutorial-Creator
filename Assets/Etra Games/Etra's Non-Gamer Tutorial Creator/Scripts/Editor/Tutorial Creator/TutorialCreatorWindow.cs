@@ -66,6 +66,7 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
                 window.maxSize = new Vector2(DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT);
             }
 
+
             window.minSize = new Vector2(500f, 700f);
             window.maxSize = new Vector2(700f, 1000f);
 
@@ -85,7 +86,11 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
 
         private void OnDestroy()
         {
-            _levelBuilder.Dispose();
+            if (_levelBuilder != null)
+            {
+                _levelBuilder.Dispose();
+            }
+            
         }
         #endregion
 
@@ -111,18 +116,40 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
             _init = true;
         }
         #endregion
-
+        
         #region GUI
         Vector2 _scroll;
-
         private void OnGUI()
         {
-            InitializeIfRequired();
+            if (Preferences.LevelCreated)
+            {
+                LevelController temp = FindObjectOfType<LevelController>();
+                if (temp != null)
+                {
+                }
+                else
+                {
+                    InitializeIfRequired();
+                }
+            }
+            else
+            {
+                InitializeIfRequired();
+            }
 
             using (var scope = new GUILayout.ScrollViewScope(_scroll))
             {
                 using (var change = new EditorGUI.ChangeCheckScope())
                 {
+                    if (Preferences.LevelCreated)
+                    {
+                        LevelController temp = FindObjectOfType<LevelController>();
+                        if (temp != null)
+                        {
+                            Page = PAGE_LIMIT;
+                        }
+                    }
+
                     ContentGUI();
 
                     //if (change.changed)
@@ -136,6 +163,12 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
             }
 
             EtraGUIUtility.HorizontalLineLayout();
+
+            //If on reset page don't display the pages bar
+            if (Page == PAGE_LIMIT)
+            {
+                return; //e
+            }
 
             using (new GUILayout.VerticalScope())
             {
@@ -160,6 +193,7 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
                     if (GUI.Button(previousButtonRect, "<< Previous"))
                         SkipPage(-1);
 
+
                 switch (Page + 1 < PAGE_LIMIT)
                 {
                     case true:
@@ -169,7 +203,10 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
                     case false:
                         using (new EditorGUI.DisabledScope(Application.isPlaying))
                             if (GUI.Button(nextButtonRect, true ? "Create" : "Modify"))
+                            {
                                 CreateOrModify();
+                                Preferences.LevelCreated = true;
+                            }
                         break;
                 }
             }
@@ -253,6 +290,61 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
 
                     _levelBuilder.OnGUI();
                     break;
+
+                case PAGE_LIMIT: //Reset Page
+
+
+                    GUILayout.Label("Etra's Non-Gamer Tutorial Creator", Styles.Title);
+
+                    int linkIndex1 = GUILayout.SelectionGrid(-1, new string[] { "Documentation", "Discord", "Tutorials" }, 3);
+
+                    if (linkIndex1 != -1)
+                    {
+                        switch (linkIndex1)
+                        {
+                            case 0:
+                                Application.OpenURL("Assets\\Etra Games\\Etra'sStarterAssets\\1-UserAssets\\Etra'sStarterAssets_Documentation.pdf");
+                                break;
+                            case 1:
+                                Application.OpenURL("https://discord.gg/d3AzQDGj4C");
+                                break;
+                            case 2:
+                                Application.OpenURL("https://www.youtube.com/playlist?list=PLvmCfejZtwhO7w1sI0DAMHWqrr6JMABpD");
+                                break;
+                        }
+                    }
+
+                    GUILayout.Label("Reset Level Builder", EtraGUIUtility.Styles.Header);
+
+                    EditorGUILayout.Space(2f);
+
+                    using (new GUILayout.VerticalScope(Styles.DescriptionBackground))
+                        GUILayout.Label("To reuse the Level Builder you must delete the current level and character. \n\nIf you want to modify or add to the current level and chararacter you can... \n\n-Add, remove, or modify level chunks from the Level Controller Object. \n-Go to (Window->StarterAssets->Etra's Character Creator) to modify the current character.", Styles.WrappedLabel);
+
+                    GUILayout.Space(10);
+                    // Create a GUIStyle for the button
+                    GUIStyle buttonStyle = new GUIStyle(GUI.skin.button);
+                    buttonStyle.fixedHeight = 100;
+                    buttonStyle.fontSize = 18;
+
+                    // Calculate the position to center the button
+                    float centerX = position.width / 2 - buttonStyle.fixedWidth / 2;
+                    float centerY = position.height / 2 - buttonStyle.fixedHeight / 2;
+                    Rect buttonRect = new Rect(centerX+10, centerY, position.width, buttonStyle.fixedHeight);
+
+                    // Draw the button using the GUIStyle
+                    if (GUILayout.Button("Delete The Level and Character", buttonStyle, GUILayout.Width(buttonRect.width -10), GUILayout.Height(buttonStyle.fixedHeight)))
+                    {
+                        Preferences.LevelCreated = false;
+                        Page = 0;
+                        DestroyImmediate(GameObject.FindGameObjectWithTag("Player").transform.parent.gameObject);
+                    }
+
+
+
+
+
+                    break;
             }
         }
 
@@ -316,23 +408,14 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
         public void CreateOrModify()
         {
 
-            //Previously need to only load abilities based off tps of fps
-
             _levelBuilder.CreateOrModify();
-            //get the endmost location to spawn the player at. 
 
-
-
-
-            //Character creation here. Could move to a seperate script later.
             //Get player from this
             EtraCharacterMainController character = EtraCharacterCreatorCreateOrModify.CreateOrModify(_gameplayType, _fpModel, _tpModel, _abilityTreeView.GetTaughtAbilities(), _abilityTreeView.GetNewAbilities());
 
             //disable abilities with _abilityTreeView.GetNewAbilities()
 
             //Combine the Ability lists and get their names
-
-
             List<string> abilitiesToTeach = new List<string>();
             foreach (Type abil in _abilityTreeView.GetNewAbilities())
             {
@@ -456,6 +539,25 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
                 {
                     _firstTime = value;
                     EditorPrefs.SetBool(_FIRST_TIME, value);
+                }
+            }
+
+
+            private const string _LEVEL_CREATED = "etra_nongamer_tutorial_creator_created";
+            private static bool? _levelCreated = null;
+            public static bool LevelCreated
+            {
+                get
+                {
+                    if (_levelCreated == null)
+                        _levelCreated = EditorPrefs.GetBool(_LEVEL_CREATED, false);
+
+                    return _levelCreated ?? false;
+                }
+                set
+                {
+                    _levelCreated = value;
+                    EditorPrefs.SetBool(_LEVEL_CREATED, value);
                 }
             }
         }

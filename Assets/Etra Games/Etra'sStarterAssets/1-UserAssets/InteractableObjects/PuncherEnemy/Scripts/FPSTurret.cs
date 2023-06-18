@@ -77,7 +77,7 @@ namespace Etra.StarterAssets.Interactables.Enemies
                 audioManager.Play("RobotPunch");
             }
             
-
+            //e
         }
 
         // This coroutine will rotate the object back to its starting position
@@ -112,7 +112,7 @@ namespace Etra.StarterAssets.Interactables.Enemies
             float singleStep = spinSpeed * Time.deltaTime;
             Vector3 newDirection = Vector3.RotateTowards(baseSpin.transform.forward, targetDirection, singleStep, 0.0f);
             Quaternion lookRot = Quaternion.LookRotation(newDirection);
-            Quaternion yRotation = new Quaternion(0, lookRot.y, 0,0);
+            Quaternion yRotation = new Quaternion(0, lookRot.y, 0, lookRot.w);
             baseSpin.transform.rotation = yRotation;
 
 
