@@ -406,12 +406,17 @@ namespace Etra.NonGamerTutorialCreator
                         break;
 
                     case AnimationEvents.MoveToGameObject:
-                            LeanTween.move(animEvent.tweenedObject, animEvent.moveToObjectGameobject.transform.position, animEvent.moveToObjectTime).setEaseInOutSine();
+                            LeanTween.move(animEvent.tweenedObject, animEvent.moveToObjectGameobject.transform.position + animEvent.addedPosition, animEvent.moveToObjectTime).setEaseInOutSine();
 
                         break;
 
                     case AnimationEvents.RotateToGameObject:
                             LeanTween.rotate(animEvent.tweenedObject, animEvent.rotToObjectGameobject.transform.rotation.eulerAngles, animEvent.rotToObjectTime).setEaseInOutSine();
+                        break;
+
+                    case AnimationEvents.RunEtraAnimationActivatedScript:
+                        animEvent.etraAnimationActivatedScript.runScript(animEvent.passedString);
+
                         break;
                     default:
                         Debug.Log("Invalid Animation Event");

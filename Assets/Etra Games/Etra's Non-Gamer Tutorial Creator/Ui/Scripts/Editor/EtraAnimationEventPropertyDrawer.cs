@@ -114,6 +114,8 @@ namespace Etra.NonGamerTutorialCreator
                     EditorGUI.PropertyField(new Rect(pos.x, pos.y + 50, pos.width, 20), moveToObjectGameobject);
                     SerializedProperty moveToObjectTime = prop.FindPropertyRelative("moveToObjectTime");
                     EditorGUI.PropertyField(new Rect(pos.x, pos.y + 70, pos.width, 20), moveToObjectTime);
+                    SerializedProperty addedPosition = prop.FindPropertyRelative("addedPosition");
+                    EditorGUI.PropertyField(new Rect(pos.x, pos.y + 90, pos.width, 20), addedPosition);
                     break;
 
                 case EtraAnimationEvent.AnimationEvents.RotateToGameObject:
@@ -123,6 +125,12 @@ namespace Etra.NonGamerTutorialCreator
                     EditorGUI.PropertyField(new Rect(pos.x, pos.y + 70, pos.width, 20), rotToObjectTime);
                     break;
 
+                case EtraAnimationEvent.AnimationEvents.RunEtraAnimationActivatedScript:
+                    SerializedProperty etraAnimationActivatedScript = prop.FindPropertyRelative("etraAnimationActivatedScript");
+                    EditorGUI.PropertyField(new Rect(pos.x, pos.y + 50, pos.width, 20), etraAnimationActivatedScript);
+                    SerializedProperty passedString = prop.FindPropertyRelative("passedString");
+                    EditorGUI.PropertyField(new Rect(pos.x, pos.y + 70, pos.width, 20), passedString);
+                    break;
 
                 default:
                     break;

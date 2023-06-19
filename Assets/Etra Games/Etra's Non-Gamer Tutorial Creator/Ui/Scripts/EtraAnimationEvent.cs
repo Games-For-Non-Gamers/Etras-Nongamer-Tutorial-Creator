@@ -28,7 +28,8 @@ namespace Etra.NonGamerTutorialCreator
             LockPlayer,
             Rotate,
             MoveToGameObject,
-            RotateToGameObject
+            RotateToGameObject,
+            RunEtraAnimationActivatedScript
         }
 
         public AnimationEvents chosenEvent;
@@ -73,10 +74,15 @@ namespace Etra.NonGamerTutorialCreator
         //MoveToGameObject
         public GameObject moveToObjectGameobject;
         public float moveToObjectTime;
+        public Vector3 addedPosition;
 
         //RotateToGameObject
         public GameObject rotToObjectGameobject;
         public float rotToObjectTime;
+
+        //EtraAnimationActivatedScript
+        public EtraAnimationActivatedScript etraAnimationActivatedScript;
+        public string passedString;
     }
 }
 
