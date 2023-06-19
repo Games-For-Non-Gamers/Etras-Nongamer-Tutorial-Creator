@@ -130,11 +130,11 @@ namespace Etra.NonGamerTutorialCreator{
         [ContextMenu("Hide All Components On Active UI Objects")]
         public void hideAllComponentsOnActiveUiObjects()
         {
-            AbilityOrItemUI[] controlComponentUi = GetComponentsInChildren<AbilityOrItemUI>();
-            foreach (AbilityOrItemUI component in controlComponentUi)
+            EtraAnimationHolder[] controlComponentUi = GetComponentsInChildren<EtraAnimationHolder>();
+            foreach (EtraAnimationHolder component in controlComponentUi)
             {
                 Debug.Log(component.name);
-                component.hideAllUiObjects();
+                component.hideAllAnimatedObjects();
             }
             //same for new text object event thing
 
@@ -143,10 +143,10 @@ namespace Etra.NonGamerTutorialCreator{
         [ContextMenu("Show All Components On Active UI Objects")]
         public void showAllComponentsOnActiveUiObjects()
         {
-            AbilityOrItemUI[] controlComponentUi = GetComponentsInChildren<AbilityOrItemUI>();
-            foreach (AbilityOrItemUI component in controlComponentUi)
+            EtraAnimationHolder[] controlComponentUi = GetComponentsInChildren<EtraAnimationHolder>();
+            foreach (EtraAnimationHolder component in controlComponentUi)
             {
-                component.showAllUiObjects();
+                component.showAllAnimatedObjects();
             }
             //same for new text object event thing
 

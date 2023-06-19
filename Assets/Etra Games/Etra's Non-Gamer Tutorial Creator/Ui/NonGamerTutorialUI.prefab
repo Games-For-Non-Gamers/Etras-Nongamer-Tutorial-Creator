@@ -40,6 +40,57 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &248313642020320847
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7527245262724487963}
+  - component: {fileID: 7489767588584721935}
+  m_Layer: 0
+  m_Name: Checkpoint Respawn UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7527245262724487963
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248313642020320847}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7982650617726045282}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7489767588584721935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248313642020320847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animatedObjects: []
+  hideAllObjectsAtStart: 1
+  sfxPlayer: {fileID: 1799090109}
+  separateKeyboardControllerAnimations: 0
+  standardAnimation: []
+  keyboardAnimation: []
+  controllerAnimation: []
+  objectsHidden: 0
 --- !u!1 &266214595209164975
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,6 +166,57 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &304906915171744357
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8916193441650690867}
+  - component: {fileID: 3125181711868721961}
+  m_Layer: 0
+  m_Name: Flashlight UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8916193441650690867
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304906915171744357}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7982650617726045282}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3125181711868721961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304906915171744357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animatedObjects: []
+  hideAllObjectsAtStart: 1
+  sfxPlayer: {fileID: 1799090109}
+  separateKeyboardControllerAnimations: 0
+  standardAnimation: []
+  keyboardAnimation: []
+  controllerAnimation: []
+  objectsHidden: 0
 --- !u!1 &414914796123630810
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,7 +367,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &1038616778049227326
+--- !u!1 &1096929223826827226
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -273,53 +375,100 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8373699779228331206}
-  - component: {fileID: 2107831339420409731}
+  - component: {fileID: 2111979859920939710}
+  - component: {fileID: 7798500759494243061}
   m_Layer: 0
-  m_Name: 'Camera Movement: UnlockX UI'
+  m_Name: 'Camera Movement: UnlockY UI'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8373699779228331206
+--- !u!4 &2111979859920939710
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1038616778049227326}
+  m_GameObject: {fileID: 1096929223826827226}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7982650617726045282}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2107831339420409731
+--- !u!114 &7798500759494243061
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1038616778049227326}
+  m_GameObject: {fileID: 1096929223826827226}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb1d1e1816bc9b141911b2502678a026, type: 3}
+  m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiObjects:
-  - {fileID: 7982650617789547479}
-  - {fileID: 7982650616321887780}
-  - {fileID: 7982650616817630740}
-  - {fileID: 7982650617821656014}
-  - {fileID: 7982650617674831871}
-  - {fileID: 7982650616132151461}
-  - {fileID: 7982650618040287265}
-  - {fileID: 7982650617385866966}
-  showUiIfAbilityIsActive: 1
+  animatedObjects: []
+  hideAllObjectsAtStart: 1
+  sfxPlayer: {fileID: 1799090109}
+  separateKeyboardControllerAnimations: 0
+  standardAnimation: []
   keyboardAnimation: []
   controllerAnimation: []
+  objectsHidden: 0
+--- !u!1 &1431290976386266276
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3166227256064015411}
+  - component: {fileID: 1102832464475620753}
+  m_Layer: 0
+  m_Name: Jump UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3166227256064015411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431290976386266276}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7982650617726045282}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1102832464475620753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431290976386266276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animatedObjects: []
+  hideAllObjectsAtStart: 1
+  sfxPlayer: {fileID: 1799090109}
+  separateKeyboardControllerAnimations: 0
+  standardAnimation: []
+  keyboardAnimation: []
+  controllerAnimation: []
+  objectsHidden: 0
 --- !u!1 &1433586438314815683
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,7 +544,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &1625404169427539022
+--- !u!1 &1963478097521357413
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -403,92 +552,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3385171666553540241}
-  - component: {fileID: 7100782121368824588}
+  - component: {fileID: 493231343734469607}
+  - component: {fileID: 6728141045837574006}
   m_Layer: 0
-  m_Name: Sword UI
+  m_Name: 'Camera Movement: UnlockX UI'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3385171666553540241
+--- !u!4 &493231343734469607
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1625404169427539022}
+  m_GameObject: {fileID: 1963478097521357413}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7982650617726045282}
-  m_RootOrder: 20
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7100782121368824588
+--- !u!114 &6728141045837574006
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1625404169427539022}
+  m_GameObject: {fileID: 1963478097521357413}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb1d1e1816bc9b141911b2502678a026, type: 3}
+  m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiObjects: []
-  showUiIfAbilityIsActive: 1
+  animatedObjects: []
+  hideAllObjectsAtStart: 1
+  sfxPlayer: {fileID: 1799090109}
+  separateKeyboardControllerAnimations: 0
+  standardAnimation: []
   keyboardAnimation: []
   controllerAnimation: []
---- !u!1 &1680367885614183002
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3413886390476519313}
-  - component: {fileID: 4485939824913540144}
-  m_Layer: 0
-  m_Name: Grab Interact UI
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3413886390476519313
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1680367885614183002}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7982650617726045282}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4485939824913540144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1680367885614183002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb1d1e1816bc9b141911b2502678a026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiObjects: []
-  showUiIfAbilityIsActive: 1
-  keyboardAnimation: []
-  controllerAnimation: []
+  objectsHidden: 0
 --- !u!1 &1973847569400339571
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,6 +670,57 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &2066172501360958468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4093710423687447027}
+  - component: {fileID: 1821664440096492024}
+  m_Layer: 0
+  m_Name: Grabber UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4093710423687447027
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066172501360958468}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7982650617726045282}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1821664440096492024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066172501360958468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animatedObjects: []
+  hideAllObjectsAtStart: 1
+  sfxPlayer: {fileID: 1799090109}
+  separateKeyboardControllerAnimations: 0
+  standardAnimation: []
+  keyboardAnimation: []
+  controllerAnimation: []
+  objectsHidden: 0
 --- !u!1 &2229007280863056134
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,7 +881,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &2783729209672978233
+--- !u!1 &2710896463764275740
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -732,54 +889,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4367731905848272849}
-  - component: {fileID: 6514312908747990881}
+  - component: {fileID: 8564495370936048238}
+  - component: {fileID: 1482768930052305488}
   m_Layer: 0
-  m_Name: 'Camera Movement: UnlockY UI'
+  m_Name: Rigidbody Push UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4367731905848272849
+--- !u!4 &8564495370936048238
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2783729209672978233}
+  m_GameObject: {fileID: 2710896463764275740}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7982650617726045282}
-  m_RootOrder: 3
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6514312908747990881
+--- !u!114 &1482768930052305488
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2783729209672978233}
+  m_GameObject: {fileID: 2710896463764275740}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb1d1e1816bc9b141911b2502678a026, type: 3}
+  m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiObjects:
-  - {fileID: 7982650617789547479}
-  - {fileID: 7982650616529868977}
-  - {fileID: 7982650617212833572}
-  - {fileID: 7982650617821656014}
-  - {fileID: 7982650617674831871}
-  - {fileID: 7982650618147299954}
-  - {fileID: 7982650616343111004}
-  - {fileID: 7982650617385866966}
-  showUiIfAbilityIsActive: 1
+  animatedObjects: []
+  hideAllObjectsAtStart: 1
+  sfxPlayer: {fileID: 1799090109}
+  separateKeyboardControllerAnimations: 0
+  standardAnimation: []
   keyboardAnimation: []
   controllerAnimation: []
---- !u!1 &2888904147939023679
+  objectsHidden: 0
+--- !u!1 &2998092308947872562
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -787,124 +940,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8761526883661914410}
-  - component: {fileID: 2713677896961039106}
+  - component: {fileID: 3821689185984125817}
+  - component: {fileID: 8577568623774986847}
   m_Layer: 0
-  m_Name: 'Character Movement: UnlockLeft UI'
+  m_Name: Dash UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8761526883661914410
+--- !u!4 &3821689185984125817
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2888904147939023679}
+  m_GameObject: {fileID: 2998092308947872562}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7982650617726045282}
-  m_RootOrder: 6
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2713677896961039106
+--- !u!114 &8577568623774986847
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2888904147939023679}
+  m_GameObject: {fileID: 2998092308947872562}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb1d1e1816bc9b141911b2502678a026, type: 3}
+  m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiObjects:
-  - {fileID: 7982650616551363307}
-  - {fileID: 7982650616976593283}
-  - {fileID: 7982650617367514342}
-  - {fileID: 7982650616774079006}
-  - {fileID: 7982650616426672653}
-  - {fileID: 7982650616247066664}
-  - {fileID: 7982650616077884360}
-  - {fileID: 7982650617071535046}
-  - {fileID: 7982650616767957065}
-  showUiIfAbilityIsActive: 1
-  keyboardAnimation:
-  - tweenedObject: {fileID: 0}
-    chosenTweenEvent: 0
-    scaleAndMovePosition: {x: 0, y: 0, z: 0}
-    scaleAndMoveScale: {x: 0, y: 0, z: 0}
-    scaleAndMoveTime: 0
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 0
-    opacity: 0
-    fadeTime: 0
-    toStartTime: 0
-    sfxName: 
-  controllerAnimation: []
---- !u!1 &2932575109178696792
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2067993163128322556}
-  - component: {fileID: 212206935018700919}
-  m_Layer: 0
-  m_Name: Sprint UI
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2067993163128322556
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2932575109178696792}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7982650617726045282}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &212206935018700919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2932575109178696792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb1d1e1816bc9b141911b2502678a026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiObjects:
-  - {fileID: 7982650618146454366}
-  - {fileID: 7982650618179535690}
-  - {fileID: 7982650616575389356}
-  - {fileID: 7982650617490587595}
-  - {fileID: 8015863368562557823}
-  - {fileID: 8424922637925700974}
-  showUiIfAbilityIsActive: 1
+  animatedObjects: []
+  hideAllObjectsAtStart: 1
+  sfxPlayer: {fileID: 1799090109}
+  separateKeyboardControllerAnimations: 0
+  standardAnimation: []
   keyboardAnimation: []
   controllerAnimation: []
---- !u!1 &3167184104992981004
+  objectsHidden: 0
+--- !u!1 &3373624961069037381
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -912,54 +991,151 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6830150423006111823}
-  - component: {fileID: 3960075362152610813}
+  - component: {fileID: 4685507191171321390}
+  - component: {fileID: 580213243221772677}
   m_Layer: 0
-  m_Name: 'Character Movement: UnlockUp UI'
+  m_Name: Grab Interact UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6830150423006111823
+--- !u!4 &4685507191171321390
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3167184104992981004}
+  m_GameObject: {fileID: 3373624961069037381}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7982650617726045282}
-  m_RootOrder: 7
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3960075362152610813
+--- !u!114 &580213243221772677
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3167184104992981004}
+  m_GameObject: {fileID: 3373624961069037381}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb1d1e1816bc9b141911b2502678a026, type: 3}
+  m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiObjects:
-  - {fileID: 7982650617907698434}
-  - {fileID: 7982650616075410092}
-  - {fileID: 7982650617367514342}
-  - {fileID: 7982650616774079006}
-  - {fileID: 7982650617945078170}
-  - {fileID: 7982650616247066664}
-  - {fileID: 7982650616077884360}
-  - {fileID: 7982650617071535046}
-  - {fileID: 7982650616767957065}
-  showUiIfAbilityIsActive: 1
+  animatedObjects: []
+  hideAllObjectsAtStart: 1
+  sfxPlayer: {fileID: 1799090109}
+  separateKeyboardControllerAnimations: 0
+  standardAnimation: []
   keyboardAnimation: []
   controllerAnimation: []
+  objectsHidden: 0
+--- !u!1 &3555469669254405321
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 259286183478878384}
+  - component: {fileID: 8084003964208189405}
+  m_Layer: 0
+  m_Name: 'Character Movement: UnlockDown UI'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &259286183478878384
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3555469669254405321}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7982650617726045282}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8084003964208189405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3555469669254405321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animatedObjects: []
+  hideAllObjectsAtStart: 1
+  sfxPlayer: {fileID: 1799090109}
+  separateKeyboardControllerAnimations: 0
+  standardAnimation: []
+  keyboardAnimation: []
+  controllerAnimation: []
+  objectsHidden: 0
+--- !u!1 &4179155673922359914
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6886272094514459105}
+  - component: {fileID: 7438726437902484679}
+  m_Layer: 0
+  m_Name: Character Movement UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6886272094514459105
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4179155673922359914}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7982650617726045282}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7438726437902484679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4179155673922359914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animatedObjects: []
+  hideAllObjectsAtStart: 1
+  sfxPlayer: {fileID: 1799090109}
+  separateKeyboardControllerAnimations: 0
+  standardAnimation: []
+  keyboardAnimation: []
+  controllerAnimation: []
+  objectsHidden: 0
 --- !u!1 &4373518371548619396
 GameObject:
   m_ObjectHideFlags: 0
@@ -1035,7 +1211,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &4414132282261935107
+--- !u!1 &4733186733295040682
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1043,8 +1219,59 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6212456190345428724}
-  - component: {fileID: 6122108625639956810}
+  - component: {fileID: 1703652911427792933}
+  - component: {fileID: 5973989731334140892}
+  m_Layer: 0
+  m_Name: 'Character Movement: UnlockLeft UI'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1703652911427792933
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4733186733295040682}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7982650617726045282}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5973989731334140892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4733186733295040682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animatedObjects: []
+  hideAllObjectsAtStart: 1
+  sfxPlayer: {fileID: 1799090109}
+  separateKeyboardControllerAnimations: 0
+  standardAnimation: []
+  keyboardAnimation: []
+  controllerAnimation: []
+  objectsHidden: 0
+--- !u!1 &4937896950618449983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4646346090096661631}
+  - component: {fileID: 4049145161461017147}
   m_Layer: 0
   m_Name: FPS Crouch UI
   m_TagString: Untagged
@@ -1052,13 +1279,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6212456190345428724
+--- !u!4 &4646346090096661631
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4414132282261935107}
+  m_GameObject: {fileID: 4937896950618449983}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -1066,75 +1293,26 @@ Transform:
   m_Father: {fileID: 7982650617726045282}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6122108625639956810
+--- !u!114 &4049145161461017147
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4414132282261935107}
+  m_GameObject: {fileID: 4937896950618449983}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb1d1e1816bc9b141911b2502678a026, type: 3}
+  m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiObjects:
-  - {fileID: 7982650618115618879}
-  - {fileID: 7982650617865052097}
-  - {fileID: 7982650616385025514}
-  - {fileID: 7982650617555851552}
-  - {fileID: 7982650616126453611}
-  - {fileID: 7982650616774079006}
-  showUiIfAbilityIsActive: 1
+  animatedObjects: []
+  hideAllObjectsAtStart: 1
+  sfxPlayer: {fileID: 1799090109}
+  separateKeyboardControllerAnimations: 0
+  standardAnimation: []
   keyboardAnimation: []
   controllerAnimation: []
---- !u!1 &4420749499863458302
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1729404175012934676}
-  - component: {fileID: 4958879823024698521}
-  m_Layer: 0
-  m_Name: Dash UI
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1729404175012934676
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4420749499863458302}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7982650617726045282}
-  m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4958879823024698521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4420749499863458302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb1d1e1816bc9b141911b2502678a026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiObjects: []
-  showUiIfAbilityIsActive: 1
-  keyboardAnimation: []
-  controllerAnimation: []
+  objectsHidden: 0
 --- !u!1 &5387914669303897851
 GameObject:
   m_ObjectHideFlags: 0
@@ -1210,494 +1388,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &5761573239917515918
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7285401222640041123}
-  - component: {fileID: 1690614931027929430}
-  m_Layer: 0
-  m_Name: TPS Aim UI
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7285401222640041123
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5761573239917515918}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7982650617726045282}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1690614931027929430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5761573239917515918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb1d1e1816bc9b141911b2502678a026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiObjects: []
-  showUiIfAbilityIsActive: 1
-  keyboardAnimation: []
-  controllerAnimation: []
---- !u!1 &6032364155068827586
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 929146838591556765}
-  - component: {fileID: 1417031136179751087}
-  m_Layer: 0
-  m_Name: 'Character Movement: UnlockRight UI'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &929146838591556765
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6032364155068827586}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7982650617726045282}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1417031136179751087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6032364155068827586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb1d1e1816bc9b141911b2502678a026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiObjects:
-  - {fileID: 7982650616902458740}
-  - {fileID: 7982650617054229556}
-  - {fileID: 7982650617367514342}
-  - {fileID: 7982650616774079006}
-  - {fileID: 7982650617135524445}
-  - {fileID: 7982650617180905573}
-  - {fileID: 7982650616247066664}
-  - {fileID: 7982650616077884360}
-  - {fileID: 7982650617071535046}
-  - {fileID: 7982650616767957065}
-  showUiIfAbilityIsActive: 1
-  keyboardAnimation:
-  - tweenedObject: {fileID: 7982650616902458740}
-    chosenTweenEvent: 8
-    scaleAndMovePosition: {x: 0, y: 0, z: 0}
-    scaleAndMoveScale: {x: 0, y: 0, z: 0}
-    scaleAndMoveTime: 0
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 0
-    opacity: 0
-    fadeTime: 0
-    toStartTime: 0
-    sfxName: 
-  - tweenedObject: {fileID: 7982650616902458740}
-    chosenTweenEvent: 9
-    scaleAndMovePosition: {x: 0, y: 0, z: 0}
-    scaleAndMoveScale: {x: 0, y: 0, z: 0}
-    scaleAndMoveTime: 0
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 0
-    opacity: 0
-    fadeTime: 0
-    toStartTime: 0
-    sfxName: 
-  - tweenedObject: {fileID: 7982650616902458740}
-    chosenTweenEvent: 0
-    scaleAndMovePosition: {x: 0, y: 0, z: 0}
-    scaleAndMoveScale: {x: 2, y: 2, z: 2}
-    scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 0
-    opacity: 0
-    fadeTime: 0
-    toStartTime: 0
-    sfxName: 
-  - tweenedObject: {fileID: 7982650616642587691}
-    chosenTweenEvent: 4
-    scaleAndMovePosition: {x: 50, y: 50, z: 0}
-    scaleAndMoveScale: {x: 2, y: 2, z: 2}
-    scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 3
-    opacity: 0
-    fadeTime: 0
-    toStartTime: 0
-    sfxName: 
-  - tweenedObject: {fileID: 7982650616902458740}
-    chosenTweenEvent: 10
-    scaleAndMovePosition: {x: 50, y: 50, z: 0}
-    scaleAndMoveScale: {x: 2, y: 2, z: 2}
-    scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 1
-    opacity: 1
-    fadeTime: 1
-    toStartTime: 1
-    sfxName: 
-  - tweenedObject: {fileID: 7982650616902458740}
-    chosenTweenEvent: 6
-    scaleAndMovePosition: {x: 50, y: 50, z: 0}
-    scaleAndMoveScale: {x: 2, y: 2, z: 2}
-    scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 1
-    opacity: 1
-    fadeTime: 1
-    toStartTime: 1
-    sfxName: 
-  - tweenedObject: {fileID: 7982650616902458740}
-    chosenTweenEvent: 7
-    scaleAndMovePosition: {x: 50, y: 50, z: 0}
-    scaleAndMoveScale: {x: 2, y: 2, z: 2}
-    scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 3
-    opacity: 0
-    fadeTime: 0
-    toStartTime: 1
-    sfxName: 
-  - tweenedObject: {fileID: 7982650617367514342}
-    chosenTweenEvent: 5
-    scaleAndMovePosition: {x: 50, y: 50, z: 0}
-    scaleAndMoveScale: {x: 2, y: 2, z: 2}
-    scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 1
-    opacity: 1
-    fadeTime: 1
-    toStartTime: 1
-    sfxName: 
-  - tweenedObject: {fileID: 7982650616077884360}
-    chosenTweenEvent: 5
-    scaleAndMovePosition: {x: 50, y: 50, z: 0}
-    scaleAndMoveScale: {x: 2, y: 2, z: 2}
-    scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 1
-    opacity: 1
-    fadeTime: 1
-    toStartTime: 1
-    sfxName: 
-  - tweenedObject: {fileID: 7982650617071535046}
-    chosenTweenEvent: 5
-    scaleAndMovePosition: {x: 50, y: 50, z: 0}
-    scaleAndMoveScale: {x: 2, y: 2, z: 2}
-    scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 1
-    opacity: 1
-    fadeTime: 1
-    toStartTime: 1
-    sfxName: 
-  - tweenedObject: {fileID: 7982650616767957065}
-    chosenTweenEvent: 5
-    scaleAndMovePosition: {x: 50, y: 50, z: 0}
-    scaleAndMoveScale: {x: 2, y: 2, z: 2}
-    scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 1
-    opacity: 1
-    fadeTime: 1
-    toStartTime: 1
-    sfxName: 
-  - tweenedObject: {fileID: 7982650616247066664}
-    chosenTweenEvent: 5
-    scaleAndMovePosition: {x: 50, y: 50, z: 0}
-    scaleAndMoveScale: {x: 2, y: 2, z: 2}
-    scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 1
-    opacity: 1
-    fadeTime: 1
-    toStartTime: 1
-    sfxName: 
-  - tweenedObject: {fileID: 7982650616767957065}
-    chosenTweenEvent: 4
-    scaleAndMovePosition: {x: 50, y: 50, z: 0}
-    scaleAndMoveScale: {x: 2, y: 2, z: 2}
-    scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 1
-    opacity: 1
-    fadeTime: 1
-    toStartTime: 1
-    sfxName: 
-  - tweenedObject: {fileID: 7982650617054229556}
-    chosenTweenEvent: 3
-    scaleAndMovePosition: {x: 50, y: 50, z: 0}
-    scaleAndMoveScale: {x: 2, y: 2, z: 2}
-    scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 3
-    flashDelay: 0.5
-    secondsToWait: 1
-    opacity: 1
-    fadeTime: 1
-    toStartTime: 1
-    sfxName: 
-  controllerAnimation:
-  - tweenedObject: {fileID: 7982650616774079006}
-    chosenTweenEvent: 8
-    scaleAndMovePosition: {x: 0, y: 0, z: 0}
-    scaleAndMoveScale: {x: 0, y: 0, z: 0}
-    scaleAndMoveTime: 0
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 0
-    opacity: 0
-    fadeTime: 0
-    toStartTime: 0
-    sfxName: 
-  - tweenedObject: {fileID: 7982650616774079006}
-    chosenTweenEvent: 9
-    scaleAndMovePosition: {x: 0, y: 0, z: 0}
-    scaleAndMoveScale: {x: 0, y: 0, z: 0}
-    scaleAndMoveTime: 0
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 0
-    opacity: 0
-    fadeTime: 0
-    toStartTime: 0
-    sfxName: 
-  - tweenedObject: {fileID: 7982650616774079006}
-    chosenTweenEvent: 0
-    scaleAndMovePosition: {x: 0, y: 0, z: 0}
-    scaleAndMoveScale: {x: 1, y: 1, z: 1}
-    scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 0
-    opacity: 0
-    fadeTime: 0
-    toStartTime: 0
-    sfxName: 
-  - tweenedObject: {fileID: 7982650616774079006}
-    chosenTweenEvent: 4
-    scaleAndMovePosition: {x: 50, y: 50, z: 0}
-    scaleAndMoveScale: {x: 2, y: 2, z: 2}
-    scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 3
-    opacity: 0
-    fadeTime: 0
-    toStartTime: 0
-    sfxName: 
-  - tweenedObject: {fileID: 7982650616774079006}
-    chosenTweenEvent: 10
-    scaleAndMovePosition: {x: 50, y: 50, z: 0}
-    scaleAndMoveScale: {x: 2, y: 2, z: 2}
-    scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 1
-    opacity: 1
-    fadeTime: 1
-    toStartTime: 1
-    sfxName: 
-  - tweenedObject: {fileID: 7982650616774079006}
-    chosenTweenEvent: 6
-    scaleAndMovePosition: {x: 50, y: 50, z: 0}
-    scaleAndMoveScale: {x: 2, y: 2, z: 2}
-    scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 1
-    opacity: 1
-    fadeTime: 1
-    toStartTime: 1
-    sfxName: 
-  - tweenedObject: {fileID: 7982650616774079006}
-    chosenTweenEvent: 7
-    scaleAndMovePosition: {x: 50, y: 50, z: 0}
-    scaleAndMoveScale: {x: 2, y: 2, z: 2}
-    scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 3
-    opacity: 0
-    fadeTime: 0
-    toStartTime: 1
-    sfxName: 
-  - tweenedObject: {fileID: 7982650617180905573}
-    chosenTweenEvent: 5
-    scaleAndMovePosition: {x: 50, y: 50, z: 0}
-    scaleAndMoveScale: {x: 2, y: 2, z: 2}
-    scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 1
-    opacity: 1
-    fadeTime: 1
-    toStartTime: 1
-    sfxName: 
-  - tweenedObject: {fileID: 7982650616774079006}
-    chosenTweenEvent: 4
-    scaleAndMovePosition: {x: 50, y: 50, z: 0}
-    scaleAndMoveScale: {x: 2, y: 2, z: 2}
-    scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 3
-    flashDelay: 0.5
-    secondsToWait: 1
-    opacity: 1
-    fadeTime: 1
-    toStartTime: 1
-    sfxName: 
-  - tweenedObject: {fileID: 7982650617135524445}
-    chosenTweenEvent: 3
-    scaleAndMovePosition: {x: 50, y: 50, z: 0}
-    scaleAndMoveScale: {x: 2, y: 2, z: 2}
-    scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 3
-    flashDelay: 0.5
-    secondsToWait: 1
-    opacity: 1
-    fadeTime: 1
-    toStartTime: 1
-    sfxName: 
 --- !u!1 &6198284333943924998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1773,7 +1463,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &6307853332227792224
+--- !u!1 &6278801336733291458
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1781,65 +1471,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 819086413434586533}
-  - component: {fileID: 4717214044431856893}
+  - component: {fileID: 2424763505440671214}
+  - component: {fileID: 8050358095792271999}
   m_Layer: 0
-  m_Name: Character Movement UI
+  m_Name: Blaster UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &819086413434586533
+--- !u!4 &2424763505440671214
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6307853332227792224}
+  m_GameObject: {fileID: 6278801336733291458}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7982650617726045282}
-  m_RootOrder: 4
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4717214044431856893
+--- !u!114 &8050358095792271999
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6307853332227792224}
+  m_GameObject: {fileID: 6278801336733291458}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb1d1e1816bc9b141911b2502678a026, type: 3}
+  m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiObjects:
-  - {fileID: 7982650616247066664}
-  - {fileID: 7982650616077884360}
-  - {fileID: 7982650617071535046}
-  - {fileID: 7982650616767957065}
-  - {fileID: 7982650616551363307}
-  - {fileID: 7982650617907698434}
-  - {fileID: 7982650616759646990}
-  - {fileID: 7982650616902458740}
-  - {fileID: 7982650616075410092}
-  - {fileID: 7982650617054229556}
-  - {fileID: 7982650616498887987}
-  - {fileID: 7982650616976593283}
-  - {fileID: 7982650617367514342}
-  - {fileID: 7982650616774079006}
-  - {fileID: 7982650617135524445}
-  - {fileID: 7982650617945078170}
-  - {fileID: 7982650617407039655}
-  - {fileID: 7982650616426672653}
-  - {fileID: 7982650617180905573}
-  showUiIfAbilityIsActive: 1
+  animatedObjects: []
+  hideAllObjectsAtStart: 1
+  sfxPlayer: {fileID: 1799090109}
+  separateKeyboardControllerAnimations: 0
+  standardAnimation: []
   keyboardAnimation: []
   controllerAnimation: []
---- !u!1 &6848837636318870424
+  objectsHidden: 0
+--- !u!1 &6389209463139175914
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1847,45 +1522,151 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5989616040707971224}
-  - component: {fileID: 9207131503858215241}
+  - component: {fileID: 516253657664094185}
+  - component: {fileID: 7492486868179480276}
   m_Layer: 0
-  m_Name: Checkpoint Respawn UI
+  m_Name: 'Character Movement: UnlockRight UI'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5989616040707971224
+--- !u!4 &516253657664094185
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6848837636318870424}
+  m_GameObject: {fileID: 6389209463139175914}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7982650617726045282}
-  m_RootOrder: 9
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9207131503858215241
+--- !u!114 &7492486868179480276
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6848837636318870424}
+  m_GameObject: {fileID: 6389209463139175914}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb1d1e1816bc9b141911b2502678a026, type: 3}
+  m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiObjects: []
-  showUiIfAbilityIsActive: 1
+  animatedObjects: []
+  hideAllObjectsAtStart: 1
+  sfxPlayer: {fileID: 1799090109}
+  separateKeyboardControllerAnimations: 0
+  standardAnimation: []
   keyboardAnimation: []
   controllerAnimation: []
+  objectsHidden: 0
+--- !u!1 &6495758212858959661
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7052639594202061352}
+  - component: {fileID: 6600745247827151669}
+  m_Layer: 0
+  m_Name: TPS Aim UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7052639594202061352
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6495758212858959661}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7982650617726045282}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6600745247827151669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6495758212858959661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animatedObjects: []
+  hideAllObjectsAtStart: 1
+  sfxPlayer: {fileID: 1799090109}
+  separateKeyboardControllerAnimations: 0
+  standardAnimation: []
+  keyboardAnimation: []
+  controllerAnimation: []
+  objectsHidden: 0
+--- !u!1 &6764192452953228451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4113716952812692310}
+  - component: {fileID: 5401404839506207284}
+  m_Layer: 0
+  m_Name: Sword UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4113716952812692310
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6764192452953228451}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7982650617726045282}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5401404839506207284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6764192452953228451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animatedObjects: []
+  hideAllObjectsAtStart: 1
+  sfxPlayer: {fileID: 1799090109}
+  separateKeyboardControllerAnimations: 0
+  standardAnimation: []
+  keyboardAnimation: []
+  controllerAnimation: []
+  objectsHidden: 0
 --- !u!1 &6882534460191842176
 GameObject:
   m_ObjectHideFlags: 0
@@ -1981,7 +1762,7 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 4, y: -4}
   m_UseGraphicAlpha: 1
---- !u!1 &6953962661983455652
+--- !u!1 &7294816693099801076
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1989,46 +1770,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1466578050000443118}
-  - component: {fileID: 3621664900713649484}
+  - component: {fileID: 5984917701552894972}
+  - component: {fileID: 3283861697676185759}
   m_Layer: 0
-  m_Name: Rigidbody Push UI
+  m_Name: Camera Movement UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1466578050000443118
+--- !u!4 &5984917701552894972
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6953962661983455652}
+  m_GameObject: {fileID: 7294816693099801076}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7982650617726045282}
-  m_RootOrder: 12
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3621664900713649484
+--- !u!114 &3283861697676185759
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6953962661983455652}
+  m_GameObject: {fileID: 7294816693099801076}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb1d1e1816bc9b141911b2502678a026, type: 3}
+  m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiObjects: []
-  showUiIfAbilityIsActive: 1
+  animatedObjects: []
+  hideAllObjectsAtStart: 1
+  sfxPlayer: {fileID: 1799090109}
+  separateKeyboardControllerAnimations: 0
+  standardAnimation: []
   keyboardAnimation: []
   controllerAnimation: []
---- !u!1 &7317946239174559402
+  objectsHidden: 0
+--- !u!1 &7434713837800082304
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2036,46 +1821,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6798262558388812782}
-  - component: {fileID: 2562337979573239964}
+  - component: {fileID: 5893905600072682588}
+  - component: {fileID: 892661796866398315}
   m_Layer: 0
-  m_Name: Grabber UI
+  m_Name: 'Character Movement: UnlockUp UI'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6798262558388812782
+--- !u!4 &5893905600072682588
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7317946239174559402}
+  m_GameObject: {fileID: 7434713837800082304}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7982650617726045282}
-  m_RootOrder: 19
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2562337979573239964
+--- !u!114 &892661796866398315
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7317946239174559402}
+  m_GameObject: {fileID: 7434713837800082304}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb1d1e1816bc9b141911b2502678a026, type: 3}
+  m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiObjects: []
-  showUiIfAbilityIsActive: 1
+  animatedObjects: []
+  hideAllObjectsAtStart: 1
+  sfxPlayer: {fileID: 1799090109}
+  separateKeyboardControllerAnimations: 0
+  standardAnimation: []
   keyboardAnimation: []
   controllerAnimation: []
---- !u!1 &7474532796851965581
+  objectsHidden: 0
+--- !u!1 &7642391999511892057
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2083,62 +1872,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6167487484580605671}
-  - component: {fileID: 8245101843029323415}
-  m_Layer: 0
-  m_Name: Blaster UI
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6167487484580605671
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7474532796851965581}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7982650617726045282}
-  m_RootOrder: 17
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8245101843029323415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7474532796851965581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb1d1e1816bc9b141911b2502678a026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiObjects:
-  - {fileID: 7982650617789547479}
-  - {fileID: 7982650617160501118}
-  - {fileID: 7982650616142340465}
-  - {fileID: 7982650616162316945}
-  - {fileID: 7982650616922495657}
-  - {fileID: 7982650617493286377}
-  - {fileID: 7982650617698123076}
-  showUiIfAbilityIsActive: 1
-  keyboardAnimation: []
-  controllerAnimation: []
---- !u!1 &7596322285166524448
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8939577490445865140}
-  - component: {fileID: 3256938292512915296}
+  - component: {fileID: 7083818052284281307}
+  - component: {fileID: 3468838052276810961}
   m_Layer: 0
   m_Name: Activate Interact UI
   m_TagString: Untagged
@@ -2146,13 +1881,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8939577490445865140
+--- !u!4 &7083818052284281307
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7596322285166524448}
+  m_GameObject: {fileID: 7642391999511892057}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -2160,78 +1895,26 @@ Transform:
   m_Father: {fileID: 7982650617726045282}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3256938292512915296
+--- !u!114 &3468838052276810961
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7596322285166524448}
+  m_GameObject: {fileID: 7642391999511892057}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb1d1e1816bc9b141911b2502678a026, type: 3}
+  m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiObjects: []
-  showUiIfAbilityIsActive: 1
+  animatedObjects: []
+  hideAllObjectsAtStart: 1
+  sfxPlayer: {fileID: 1799090109}
+  separateKeyboardControllerAnimations: 0
+  standardAnimation: []
   keyboardAnimation: []
   controllerAnimation: []
---- !u!1 &7941773139331077134
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6261938520062687450}
-  - component: {fileID: 9007602329896252434}
-  m_Layer: 0
-  m_Name: 'Character Movement: UnlockDown UI'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6261938520062687450
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7941773139331077134}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7982650617726045282}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9007602329896252434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7941773139331077134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb1d1e1816bc9b141911b2502678a026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiObjects:
-  - {fileID: 7982650616759646990}
-  - {fileID: 7982650616498887987}
-  - {fileID: 7982650617367514342}
-  - {fileID: 7982650616774079006}
-  - {fileID: 7982650617407039655}
-  - {fileID: 7982650616247066664}
-  - {fileID: 7982650616077884360}
-  - {fileID: 7982650617071535046}
-  - {fileID: 7982650616767957065}
-  showUiIfAbilityIsActive: 1
-  keyboardAnimation: []
-  controllerAnimation: []
+  objectsHidden: 0
 --- !u!1 &7982650616075410095
 GameObject:
   m_ObjectHideFlags: 0
@@ -3488,7 +3171,6 @@ GameObject:
   - component: {fileID: 7982650616387025928}
   - component: {fileID: 7982650616387025931}
   - component: {fileID: 7982650616387025930}
-  - component: {fileID: 3084737701825533132}
   m_Layer: 5
   m_Name: Congatulations_Text
   m_TagString: Untagged
@@ -3572,21 +3254,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 4, y: -4}
   m_UseGraphicAlpha: 1
---- !u!114 &3084737701825533132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7982650616387025940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9213237882e70264bb643a5ac8fdfd7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiObjects: []
-  showUiIfAbilityIsActive: 1
-  textAnimation: []
 --- !u!1 &7982650616426672652
 GameObject:
   m_ObjectHideFlags: 0
@@ -4378,7 +4045,6 @@ GameObject:
   - component: {fileID: 7982650616746555881}
   - component: {fileID: 7982650616746555880}
   - component: {fileID: 7982650616746555883}
-  - component: {fileID: 7216406529779232832}
   m_Layer: 5
   m_Name: Thanks_Text
   m_TagString: Untagged
@@ -4466,21 +4132,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 4, y: -4}
   m_UseGraphicAlpha: 1
---- !u!114 &7216406529779232832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7982650616746555893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9213237882e70264bb643a5ac8fdfd7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiObjects: []
-  showUiIfAbilityIsActive: 1
-  textAnimation: []
 --- !u!1 &7982650616759646985
 GameObject:
   m_ObjectHideFlags: 0
@@ -7013,27 +6664,27 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8939577490445865140}
-  - {fileID: 584653884518565760}
-  - {fileID: 8373699779228331206}
-  - {fileID: 4367731905848272849}
-  - {fileID: 819086413434586533}
-  - {fileID: 929146838591556765}
-  - {fileID: 8761526883661914410}
-  - {fileID: 6830150423006111823}
-  - {fileID: 6261938520062687450}
-  - {fileID: 5989616040707971224}
-  - {fileID: 3413886390476519313}
-  - {fileID: 5635029813065504336}
-  - {fileID: 1466578050000443118}
-  - {fileID: 2067993163128322556}
-  - {fileID: 7285401222640041123}
-  - {fileID: 6212456190345428724}
-  - {fileID: 1729404175012934676}
-  - {fileID: 6167487484580605671}
-  - {fileID: 7398464323793694862}
-  - {fileID: 6798262558388812782}
-  - {fileID: 3385171666553540241}
+  - {fileID: 7083818052284281307}
+  - {fileID: 5984917701552894972}
+  - {fileID: 493231343734469607}
+  - {fileID: 2111979859920939710}
+  - {fileID: 6886272094514459105}
+  - {fileID: 516253657664094185}
+  - {fileID: 1703652911427792933}
+  - {fileID: 5893905600072682588}
+  - {fileID: 259286183478878384}
+  - {fileID: 7527245262724487963}
+  - {fileID: 4685507191171321390}
+  - {fileID: 3166227256064015411}
+  - {fileID: 8564495370936048238}
+  - {fileID: 4978125232677057030}
+  - {fileID: 7052639594202061352}
+  - {fileID: 4646346090096661631}
+  - {fileID: 3821689185984125817}
+  - {fileID: 2424763505440671214}
+  - {fileID: 8916193441650690867}
+  - {fileID: 4093710423687447027}
+  - {fileID: 4113716952812692310}
   m_Father: {fileID: 7982650616480194280}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8421,6 +8072,57 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &8119357884524898603
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4978125232677057030}
+  - component: {fileID: 264387808776400096}
+  m_Layer: 0
+  m_Name: Sprint UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4978125232677057030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8119357884524898603}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7982650617726045282}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &264387808776400096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8119357884524898603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animatedObjects: []
+  hideAllObjectsAtStart: 1
+  sfxPlayer: {fileID: 1799090109}
+  separateKeyboardControllerAnimations: 0
+  standardAnimation: []
+  keyboardAnimation: []
+  controllerAnimation: []
+  objectsHidden: 0
 --- !u!1 &8156415713121706219
 GameObject:
   m_ObjectHideFlags: 0
@@ -8661,286 +8363,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &8493685695459808617
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7398464323793694862}
-  - component: {fileID: 529689679010812395}
-  m_Layer: 0
-  m_Name: Flashlight UI
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7398464323793694862
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8493685695459808617}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7982650617726045282}
-  m_RootOrder: 18
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &529689679010812395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8493685695459808617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb1d1e1816bc9b141911b2502678a026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiObjects: []
-  showUiIfAbilityIsActive: 1
-  keyboardAnimation: []
-  controllerAnimation: []
---- !u!1 &8649380744630807898
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5635029813065504336}
-  - component: {fileID: 6672101093831335468}
-  m_Layer: 0
-  m_Name: Jump UI
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5635029813065504336
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8649380744630807898}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7982650617726045282}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6672101093831335468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8649380744630807898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb1d1e1816bc9b141911b2502678a026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiObjects:
-  - {fileID: 7982650616642587691}
-  - {fileID: 7982650617287644320}
-  - {fileID: 7982650617751051588}
-  - {fileID: 7982650617065824101}
-  - {fileID: 7982650618194304091}
-  - {fileID: 7982650617843489815}
-  - {fileID: 7982650617464984428}
-  - {fileID: 7982650616549487513}
-  - {fileID: 7982650617301509203}
-  - {fileID: 7982650616247135498}
-  showUiIfAbilityIsActive: 1
-  keyboardAnimation:
-  - tweenedObject: {fileID: 7982650616642587691}
-    chosenTweenEvent: 8
-    scaleAndMovePosition: {x: 0, y: 0, z: 0}
-    scaleAndMoveScale: {x: 0, y: 0, z: 0}
-    scaleAndMoveTime: 0
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 0
-    opacity: 0
-    fadeTime: 0
-    toStartTime: 0
-    sfxName: 
-  - tweenedObject: {fileID: 7982650617287644320}
-    chosenTweenEvent: 5
-    scaleAndMovePosition: {x: 0, y: 0, z: 0}
-    scaleAndMoveScale: {x: 0, y: 0, z: 0}
-    scaleAndMoveTime: 0
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 0
-    opacity: 0
-    fadeTime: 0
-    toStartTime: 0
-    sfxName: 
-  - tweenedObject: {fileID: 7982650616642587691}
-    chosenTweenEvent: 9
-    scaleAndMovePosition: {x: 0, y: 0, z: 0}
-    scaleAndMoveScale: {x: 0, y: 0, z: 0}
-    scaleAndMoveTime: 0
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 0
-    opacity: 0
-    fadeTime: 0
-    toStartTime: 0
-    sfxName: 
-  - tweenedObject: {fileID: 7982650617287644320}
-    chosenTweenEvent: 9
-    scaleAndMovePosition: {x: 0, y: 0, z: 0}
-    scaleAndMoveScale: {x: 0, y: 0, z: 0}
-    scaleAndMoveTime: 0
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 0
-    opacity: 0
-    fadeTime: 0
-    toStartTime: 0
-    sfxName: 
-  - tweenedObject: {fileID: 7982650616642587691}
-    chosenTweenEvent: 0
-    scaleAndMovePosition: {x: 50, y: 50, z: 0}
-    scaleAndMoveScale: {x: 2, y: 2, z: 2}
-    scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 0
-    opacity: 0
-    fadeTime: 0
-    toStartTime: 0
-    sfxName: 
-  - tweenedObject: {fileID: 7982650616642587691}
-    chosenTweenEvent: 4
-    scaleAndMovePosition: {x: 50, y: 50, z: 0}
-    scaleAndMoveScale: {x: 2, y: 2, z: 2}
-    scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 3
-    opacity: 0
-    fadeTime: 0
-    toStartTime: 0
-    sfxName: 
-  - tweenedObject: {fileID: 7982650617287644320}
-    chosenTweenEvent: 10
-    scaleAndMovePosition: {x: 50, y: 50, z: 0}
-    scaleAndMoveScale: {x: 2, y: 2, z: 2}
-    scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 1
-    opacity: 1
-    fadeTime: 1
-    toStartTime: 1
-    sfxName: 
-  - tweenedObject: {fileID: 7982650617287644320}
-    chosenTweenEvent: 6
-    scaleAndMovePosition: {x: 50, y: 50, z: 0}
-    scaleAndMoveScale: {x: 2, y: 2, z: 2}
-    scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 1
-    opacity: 1
-    fadeTime: 1
-    toStartTime: 1
-    sfxName: 
-  - tweenedObject: {fileID: 7982650616642587691}
-    chosenTweenEvent: 7
-    scaleAndMovePosition: {x: 50, y: 50, z: 0}
-    scaleAndMoveScale: {x: 2, y: 2, z: 2}
-    scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 3
-    opacity: 0
-    fadeTime: 0
-    toStartTime: 1
-    sfxName: 
-  - tweenedObject: {fileID: 7982650616642587691}
-    chosenTweenEvent: 4
-    scaleAndMovePosition: {x: 50, y: 50, z: 0}
-    scaleAndMoveScale: {x: 2, y: 2, z: 2}
-    scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 1
-    opacity: 0
-    fadeTime: 0
-    toStartTime: 1
-    sfxName: 
-  - tweenedObject: {fileID: 7982650617287644320}
-    chosenTweenEvent: 5
-    scaleAndMovePosition: {x: 50, y: 50, z: 0}
-    scaleAndMoveScale: {x: 2, y: 2, z: 2}
-    scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    secondsToWait: 1
-    opacity: 1
-    fadeTime: 1
-    toStartTime: 1
-    sfxName: 
-  controllerAnimation: []
 --- !u!1 &9034972549061960453
 GameObject:
   m_ObjectHideFlags: 0
@@ -9016,62 +8438,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &9081041926078461888
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 584653884518565760}
-  - component: {fileID: 8340329623095664602}
-  m_Layer: 0
-  m_Name: Camera Movement UI
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &584653884518565760
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9081041926078461888}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7982650617726045282}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8340329623095664602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9081041926078461888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb1d1e1816bc9b141911b2502678a026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiObjects:
-  - {fileID: 7982650617789547478}
-  - {fileID: 7982650616529868976}
-  - {fileID: 7982650617212833575}
-  - {fileID: 7982650616321887783}
-  - {fileID: 7982650616817630743}
-  - {fileID: 7982650617821656009}
-  - {fileID: 7982650617674831870}
-  - {fileID: 7982650616132151460}
-  - {fileID: 7982650618147299965}
-  - {fileID: 7982650616343111007}
-  - {fileID: 7982650618040287264}
-  - {fileID: 7982650617385866961}
-  showUiIfAbilityIsActive: 1
-  keyboardAnimation: []
-  controllerAnimation: []

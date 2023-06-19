@@ -1,6 +1,7 @@
 using EtrasStarterAssets;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -56,6 +57,22 @@ namespace EtrasStarterAssets
                 Debug.LogWarning("Sound " + name + " not found!");
                 return;
             }
+            bool soundFound = false;
+            foreach (Sound so in sounds)
+            {
+                if (so.name == name)
+                {
+                    soundFound = true;
+                    break;
+                }
+
+            }
+            if (soundFound == false)
+            {
+                Debug.LogWarning("Sound " + name + " not found!");
+                return;
+            }
+
             Sound s = sounds.Find((sound) => sound.name == name);
             if (s.randomizePitch)
             {
@@ -76,6 +93,9 @@ namespace EtrasStarterAssets
                 Debug.LogWarning("Sound " + passedSound.name + " not found!");
                 return;
             }
+
+
+
             Sound s = sounds.Find((sound) => sound.name == passedSound.name);
             if (s.randomizePitch)
             {
@@ -88,6 +108,22 @@ namespace EtrasStarterAssets
         public void Stop(string name)
         {
             if (sounds == null)
+            {
+                Debug.LogWarning("Sound " + name + " not found!");
+                return;
+            }
+
+            bool soundFound = false;
+            foreach (Sound so in sounds)
+            {
+                if (so.name == name)
+                {
+                    soundFound = true;
+                    break;
+                }
+
+            }
+            if (soundFound == false)
             {
                 Debug.LogWarning("Sound " + name + " not found!");
                 return;

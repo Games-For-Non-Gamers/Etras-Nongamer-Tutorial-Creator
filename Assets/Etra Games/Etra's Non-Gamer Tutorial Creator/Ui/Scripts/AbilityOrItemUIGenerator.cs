@@ -9,9 +9,7 @@ namespace Etra.NonGamerTutorialCreator
 
     public class AbilityOrItemUIGenerator : MonoBehaviour
     {
-
-
-        // [ContextMenu("Re-Generate Ability And Item Ui Objects")]
+       //  [ContextMenu("Re-Generate Ability And Item Ui Objects")]
         public void generateAbilityAndItemUiObjects()
         {
             generateAbilityUiObjects();
@@ -45,7 +43,7 @@ namespace Etra.NonGamerTutorialCreator
 #if UNITY_EDITOR
                     PrefabUtility.InstantiatePrefab(addedObject);
 #endif
-                    addedObject.AddComponent<AbilityOrItemUI>();
+                    addedObject.AddComponent<EtraAnimationHolder>();
                     addedObject.transform.parent = this.transform;
                 }
 
@@ -67,7 +65,7 @@ namespace Etra.NonGamerTutorialCreator
 #if UNITY_EDITOR
                     PrefabUtility.InstantiatePrefab(addedObject);
 #endif
-                    addedObject.AddComponent<AbilityOrItemUI>();
+                    addedObject.AddComponent<EtraAnimationHolder>();
                     addedObject.transform.parent = this.transform;
                 }
 
