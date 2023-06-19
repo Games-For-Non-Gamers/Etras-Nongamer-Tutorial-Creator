@@ -456,7 +456,10 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
                 }
             }
 
-            _levelBuilder.Target.chunks[_levelBuilder.Target.chunks.Count - 1].makePlayerSpawn();
+            if (_levelBuilder.Target.chunks.Count ==1 || _levelBuilder.Target.chunks[_levelBuilder.Target.chunks.Count - 1].name != "End Chunk")
+            {
+                _levelBuilder.Target.chunks[_levelBuilder.Target.chunks.Count - 1].makePlayerSpawn();
+            }
 
             if (!Preferences.KeepOpened)
                 Close();

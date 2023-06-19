@@ -629,16 +629,28 @@ namespace Etra.StarterAssets
             _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             abilitySoundManager = _mainCamera.transform.Find("AbilitySfx").GetComponent<AudioManager>();
             inputs = GetComponent<StarterAssetsInputs>();
+            teleportToGround();
+        }
 
+
+        public void teleportToGround()
+        {
             Vector3 moveDown = new Vector3(0, -0.01f, 0);
             if (teleportToGroundAtStart)
             {
-                Grounded = false;
-                while (Grounded != true)
+                if (Physics.Raycast(transform.position, Vector3.down, out hit, 100f,  GroundLayers, QueryTriggerInteraction.Ignore))
                 {
-                    transform.position += moveDown;
-                    //force a grounded check
-                    GroundedCheck();
+                    Grounded = false;
+                    while (Grounded != true)
+                    {
+                        transform.position += moveDown;
+                        //force a grounded check
+                        GroundedCheck();
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("There is no ground beneath the player, so they cannot: teleportToGroundAtStart.");
                 }
             }
         }

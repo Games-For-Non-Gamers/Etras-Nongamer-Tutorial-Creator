@@ -1,3 +1,5 @@
+using Etra.StarterAssets;
+using Etra.StarterAssets.Source;
 using UnityEngine;
 
 namespace Etra.NonGamerTutorialCreator.Level
@@ -10,29 +12,20 @@ namespace Etra.NonGamerTutorialCreator.Level
         public Vector3 endConnectionPoint = new Vector3(5f, 0f, 0f);
         public Vector3 playerSpawnPosition = new Vector3(0f, 0f, 1f);
 
-        [HideInInspector]
-        GameObject playerSpawn;
+
+        //Broke again. Spawned object but not saved. Unstable code place.
         public void makePlayerSpawn()
         {
             if (GameObject.Find("PlayerSpawn"))
             {
                 return;
             }
-            playerSpawn = new GameObject("PlayerSpawn");
+            GameObject playerSpawn;
+            playerSpawn = EtrasResourceGrabbingFunctions.addPrefabFromResourcesByName("PlayerSpawn");
             playerSpawn.transform.SetParent(this.transform);
             playerSpawn.transform.localPosition = playerSpawnPosition;
-            GameObject.FindGameObjectWithTag("Player").transform.position = playerSpawn.transform.position;
+            playerSpawn.GetComponent<PlayerSpawn>().teleportPlayerInitial();
         }
-
-        private void Start()
-        {
-            if (playerSpawn != null)
-            {
-                playerSpawn.transform.localPosition = playerSpawnPosition;
-                GameObject.FindGameObjectWithTag("Player").transform.position= playerSpawn.transform.position;
-            }
-        }
-
 
         private void OnDrawGizmos()
         {
