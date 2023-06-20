@@ -198,6 +198,7 @@ MonoBehaviour:
   swayRotation: 1
   bobOffset: 1
   bobSway: 1
+  lockInput: 0
   controllerLookAnimationReduction: 250
   startingPositionOffset: {x: 0.06, y: 0.06, z: 0}
   startingRotationOffset: {x: 0, y: 0, z: 0, w: 1}

@@ -26,6 +26,7 @@ public class OpeningScene : MonoBehaviour
     }
 
     // Update is called once per frame
+    /*
     void Awake()
     {
         camRoot.transform.position = star.transform.position + new Vector3(0,50,-30);
@@ -41,4 +42,5 @@ public class OpeningScene : MonoBehaviour
     {
         LeanTween.move(camRoot, star.transform.position + new Vector3(0, 0, -30), 5).setEaseInOutSine();
     }
+    */
 }
