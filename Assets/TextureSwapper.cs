@@ -18,15 +18,12 @@ public class TextureSwapper : MonoBehaviour
         Winthor64,
         [InspectorName("(Realistic)-Cubed128x")]
         Cubed128,
-        [InspectorName("(Simple)-Firewolf128x")]
-        Firewolf128,
         [InspectorName("(Pixel)-Pixels16x")]
         Pixels16,
         [InspectorName("(Toon)-Acme128x")]
         Acme128,
-        [InspectorName("(Stylized)-Invictus64x")]
-        Invictus64,
-        Custom // Added custom option
+        [InspectorName("Custom Loaded")]
+        Custom 
     }
 
     public TexturePack selectedTexturePack = TexturePack.Winthor64;

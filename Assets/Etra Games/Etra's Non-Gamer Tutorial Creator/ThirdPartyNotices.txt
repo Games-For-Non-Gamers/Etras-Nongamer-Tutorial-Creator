@@ -30,6 +30,26 @@ A3D
     "Five Seamless Tileable Ground Textures" and "Tileable Hand Painted Ground Texture Pack 2" 
     have been contributed to this project by the creator, A3D with written permission.
 
+Studio_Winthor
+    https://www.curseforge.com/minecraft/texture-packs/winthor-medieval-texture-pack-v2-6-wip-mc-1-14/files/3123852
+    The "Winthor Medieval" texture pack is licensed under CC BY 3.0
+    This pack is used to create the (Default)-Winthor Texture Theme
+
+Cubed Community
+    https://www.curseforge.com/minecraft/texture-packs/cubed-textures
+    The "Cubed Textures" texture pack is licensed under CC BY 3.0
+    This pack is used to create the (Realistic)-Cubed Texture Theme
+
+Aurum_32
+    https://www.curseforge.com/minecraft/texture-packs/cubed-textures
+    The "Radiant Pixels" texture pack is licensed under CC BY 3.0
+    This pack is used to create the (Pixel)-Pixels Texture Theme
+
+HastyPixels
+    https://www.curseforge.com/minecraft/texture-packs/acme-pack-128x/files/2730047
+    The "ACME Pack" texture pack is licensed under CC BY 3.0
+    This pack is used to create the (Toon)-Acme Texture Theme
+
 ~~THIRD PARTY AUDIO:~~
 harrietniamh
     https://freesound.org/people/harrietniamh/sounds/219673/
@@ -198,6 +218,7 @@ https://creativecommons.org/publicdomain/zero/1.0/legalcode
     Affirmer offers the Work as-is and makes no representations or warranties of any kind concerning the Work, express, implied, statutory or otherwise, including without limitation warranties of title, merchantability, fitness for a particular purpose, non infringement, or the absence of latent or other defects, accuracy, or the present or absence of errors, whether or not discoverable, all to the greatest extent permissible under applicable law.
     Affirmer disclaims responsibility for clearing rights of other persons that may apply to the Work or any use thereof, including without limitation any person's Copyright and Related Rights in the Work. Further, Affirmer disclaims responsibility for obtaining any necessary consents, permissions or other rights required for any use of the Work.
     Affirmer understands and acknowledges that Creative Commons is not a party to this document and has no duty or obligation with respect to this CC0 or use of the Work.
+
 
 CC 3.0
 https://creativecommons.org/licenses/by/3.0/legalcode
