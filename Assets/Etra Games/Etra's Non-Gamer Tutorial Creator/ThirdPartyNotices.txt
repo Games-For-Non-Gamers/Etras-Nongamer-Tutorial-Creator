@@ -2,13 +2,6 @@ The "Etra's Non-Gamer Tutorial" asset, is under the Unity Asset Store EULA. Howe
 
 This asset is based upon the "Etra's Starter Assets" Asset. The ThirdPartyNotices.txt for that is found in its respective folder.
 
-~~THIRD PARTY COMPONENTS:~~
-Starter Assets - First Person Character Controller
-    Etra Games/Etra'sStarterAssets/2-Source/ThirdParty/StarterAssets-FPC:
-    https://assetstore.unity.com/packages/essentials/starter-assets-first-person-character-controller-urp-196525
-    Copyright (c), Unity Technologies
-    Unity Companion License
-
 ~~THIRD PARTY CONTRIBUTIONS:~~
 Dock Frankenstein
     Contributions:
@@ -18,8 +11,17 @@ Dock Frankenstein
     Copyright (c) 2023 Dock Frankenstein
     The MIT License
 
+ ~~THIRD PARTY COMPONENTS:~~
+Wave Harmonic
+    Etra Games/Etra'sNon-GamerTutorialCreator/2-Source/ThirdParty/Crest
+    https://github.com/wave-harmonic/crest
+    Copyright (c) 2019 Wave Harmonic and contributors
+    The MIT License
+
+
+
 ~~THIRD PARTY Models:~~
-    Akshat
+Akshat
     https://sketchfab.com/3d-models/star-f7a96ca9ce3c4a0ba622088fffffa51c
     "Star.blend" by Akshat is is licensed under CC BY 4.0
     This model was modified to create the Star interactable.
