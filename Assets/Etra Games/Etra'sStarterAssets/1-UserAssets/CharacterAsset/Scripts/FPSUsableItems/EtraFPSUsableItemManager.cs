@@ -12,7 +12,8 @@ namespace Etra.StarterAssets.Items
         //Visible in Inspector
         public bool playEquipAnims = true;
         public bool playUnequipAnims = true;
-
+        [HideInInspector]
+        public bool weaponInitHandledElsewhere = false;
         [Header("The Items Will Be Selected In This Order:")]
         public usableItemScriptAndPrefab[] usableItems;
 
@@ -227,13 +228,17 @@ namespace Etra.StarterAssets.Items
             fpsItemAudioManager = GameObject.FindGameObjectWithTag("MainCamera").transform.Find("FPSItemSfx").GetComponent<AudioManager>();
             if (usableItems.Length >0)
             {
-                instatiateItemAtStart();
+                if (!weaponInitHandledElsewhere)
+                {
+                    instatiateItemAtStart();
+                }
+                
             }
 
         }
 
 
-        void instatiateItemAtStart()
+        public void instatiateItemAtStart()
         {
             var newItem = Instantiate(usableItems[activeItemNum].prefab);
             newItem.transform.SetParent(cameraRoot.transform);
