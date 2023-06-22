@@ -1,3 +1,4 @@
+using Etra.NonGamerTutorialCreator.Level;
 using Etra.StarterAssets;
 using System.Collections;
 using UnityEngine;
@@ -13,6 +14,7 @@ namespace Etra.NonGamerTutorialCreator
         public GameObject camRoot; // make fov 60
         public GameObject cursorCanvas;
         public EtraAnimationHolder starText;
+        public LevelController levelController;
         // Start is called before the first frame update
         private void Reset()
         {
@@ -21,29 +23,31 @@ namespace Etra.NonGamerTutorialCreator
 
         public void initialize()
         {
+            //Switch to child refs
             star = GameObject.Find("Star").GetComponent<Star>();
             playerSpawn = GameObject.Find("PlayerSpawn");
             camRoot = GameObject.Find("EtraPlayerCameraRoot");
             cursorCanvas = GameObject.Find("CursorCanvas");
             starText = GameObject.Find("StarText").GetComponent<EtraAnimationHolder>();
+            levelController = GameObject.Find("Level Controller").GetComponent<LevelController>();
         }
 
         // Update is called once per frame
     
         void Awake()
         {
-            cursorCanvas.SetActive(false);  
+            cursorCanvas.SetActive(false);
+            EtraCharacterMainController.Instance.disableAllActiveAbilities();
+            EtraCharacterMainController.Instance.etraFPSUsableItemManager.weaponInitHandledElsewhere = true;
 
 
-            
         }
         float savedFov;
         GameObject scoutStar;
         GameObject scoutSpawn;
         private void Start()
         {
-            EtraCharacterMainController.Instance.disableAllActiveAbilities();
-            EtraCharacterMainController.Instance.etraFPSUsableItemManager.weaponInitHandledElsewhere = true;
+
             savedFov = EtraCharacterMainController.Instance.getFov();
             EtraCharacterMainController.Instance.setFov(60);
             scoutStar = new GameObject("ScoutStar");
@@ -93,20 +97,42 @@ namespace Etra.NonGamerTutorialCreator
             yield return new WaitForSeconds(0.4f);
             star.TakeDamage(0);
             yield return new WaitForSeconds(3.2f); 
-            LeanTween.move(camRoot, scoutStar.transform.position + new Vector3(0, 0, -15f), 3f).setEaseInOutSine();//Behind scout
-            LeanTween.rotate(camRoot, new Vector3(40,0,0), 1f).setEaseInOutSine();//Behind scout
+            LeanTween.move(camRoot, scoutStar.transform.position + new Vector3(0, 0, -30f), 3f).setEaseInOutSine();//Behind scout
+            LeanTween.rotate(camRoot, new Vector3(20,0,0), 2f).setEaseInOutSine();//Behind scout
             yield return new WaitForSeconds(3.2f);
 
             //Get time vary based off blocks
-            float timeToBack = 14f;
-            LeanTween.move(camRoot, scoutSpawn.transform.position + new Vector3(0, 0, -10f), timeToBack).setEaseInOutSine();//Behind scout
+            //blocks x 1.4
+
+            float timeToBack = levelController.chunks.Count * 1.4f; // in first and last second do ease
+            LeanTween.move(camRoot, scoutSpawn.transform.position + new Vector3(0, 0, -10f), timeToBack).setEaseInOutQuad();//Behind scout
             yield return new WaitForSeconds(timeToBack);
             //change y to proper cam y
             LeanTween.move(camRoot, EtraCharacterMainController.Instance.transform.position + new Vector3(0, 1.375f, -10f), 3).setEaseInOutSine();//Behind scout
+            LeanTween.rotate(camRoot, new Vector3(0, 0, 0), 2f).setEaseInOutSine();//Behind scout
             yield return new WaitForSeconds(3.2f);
             //CHANGE FOV HERE
             LeanTween.move(camRoot, EtraCharacterMainController.Instance.transform.position + new Vector3(0, 1.375f, 0), 3).setEaseInOutSine();
-            yield return new WaitForSeconds(3f);
+
+            LeanTween.value(this.gameObject, EtraCharacterMainController.Instance.getFov(), savedFov, 3).setOnUpdate((float fovValue) => { EtraCharacterMainController.Instance.setFov(fovValue); });
+
+            yield return new WaitForSeconds(2f);
+            if (EtraCharacterMainController.Instance.GetComponentInChildren<MeshRenderer>())
+            {
+                Material material = EtraCharacterMainController.Instance.GetComponentInChildren<MeshRenderer>().material;
+                Color color = material.color;
+                LeanTween.value(this.gameObject, color.a, 0, 1).setOnUpdate((float alphaValue) => { color.a = alphaValue; material.color = color; });
+            }
+
+            yield return new WaitForSeconds(1f);
+
+            if (EtraCharacterMainController.Instance.GetComponentInChildren<MeshRenderer>())
+            {
+                Material material = EtraCharacterMainController.Instance.GetComponentInChildren<MeshRenderer>().material;
+                Color color = material.color;
+                LeanTween.value(this.gameObject, color.a, 255, 0).setOnUpdate((float alphaValue) => { color.a = alphaValue; material.color = color; });
+            }
+
             EtraCharacterMainController.Instance.enableAllActiveAbilities(); //also maybe enable collision boxes for trigger?
             //GEt base player cam root pos
             cursorCanvas.SetActive(true);
