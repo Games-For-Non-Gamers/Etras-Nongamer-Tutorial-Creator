@@ -1,5 +1,6 @@
 using Etra.NonGamerTutorialCreator.Level;
 using Etra.StarterAssets;
+using Etra.StarterAssets.Input;
 using System.Collections;
 using UnityEngine;
 
@@ -7,14 +8,17 @@ namespace Etra.NonGamerTutorialCreator
 {
     public class OpeningScene : MonoBehaviour
     {
-
+        public bool equipAnimForStartingWeapon = true;
         [Header("CutsceneCheckpoints")]
         public Star star;
         public GameObject playerSpawn;
         public GameObject camRoot; // make fov 60
         public GameObject cursorCanvas;
+        public GameObject nongamerUi;
         public EtraAnimationHolder starText;
         public LevelController levelController;
+        AbilityOrItemPickup[] pickups;
+        AnimationTriggerPickup [] animPickups;
         // Start is called before the first frame update
         private void Reset()
         {
@@ -28,26 +32,56 @@ namespace Etra.NonGamerTutorialCreator
             playerSpawn = GameObject.Find("PlayerSpawn");
             camRoot = GameObject.Find("EtraPlayerCameraRoot");
             cursorCanvas = GameObject.Find("CursorCanvas");
+            nongamerUi = GameObject.Find("NonGamerTutorialUI");
             starText = GameObject.Find("StarText").GetComponent<EtraAnimationHolder>();
             levelController = GameObject.Find("Level Controller").GetComponent<LevelController>();
         }
 
         // Update is called once per frame
-    
+        bool openingDone = false;
+        private void Update()
+        {
+            if (starterAssetsInputs.start && !openingDone)
+            {
+                starterAssetsInputs.start = false;
+                skipOpening();
+            }
+        }
+        public void skipOpening()
+        {
+            LeanTween.cancelAll(this.gameObject);
+            LeanTween.cancelAll(camRoot);
+            StopAllCoroutines();
+            playerSetup();
+            starText.gameObject.SetActive(false);
+        }
+
         void Awake()
         {
             cursorCanvas.SetActive(false);
-            EtraCharacterMainController.Instance.disableAllActiveAbilities();
-            EtraCharacterMainController.Instance.etraFPSUsableItemManager.weaponInitHandledElsewhere = true;
-
+            pickups = levelController.chunks[levelController.chunks.Count - 1].gameObject.GetComponentsInChildren<AbilityOrItemPickup>();
+            animPickups = levelController.chunks[levelController.chunks.Count - 1].gameObject.GetComponentsInChildren<AnimationTriggerPickup>();
+            foreach (AbilityOrItemPickup a in pickups)
+            {
+                a.gameObject.SetActive(false);
+            }
+            foreach (AnimationTriggerPickup a in animPickups)
+            {
+                a.gameObject.SetActive(false);
+            }
+            nongamerUi.SetActive(false);
 
         }
         float savedFov;
         GameObject scoutStar;
         GameObject scoutSpawn;
+        StarterAssetsInputs starterAssetsInputs;
         private void Start()
         {
-
+            EtraCharacterMainController.Instance.disableAllActiveAbilities();
+            EtraCharacterMainController.Instance.etraFPSUsableItemManager.weaponInitHandledElsewhere = true;
+            EtraCharacterMainController mainController = EtraCharacterMainController.Instance;
+            starterAssetsInputs = mainController.GetComponent<StarterAssetsInputs>();
             savedFov = EtraCharacterMainController.Instance.getFov();
             EtraCharacterMainController.Instance.setFov(60);
             scoutStar = new GameObject("ScoutStar");
@@ -132,11 +166,43 @@ namespace Etra.NonGamerTutorialCreator
                 Color color = material.color;
                 LeanTween.value(this.gameObject, color.a, 255, 0).setOnUpdate((float alphaValue) => { color.a = alphaValue; material.color = color; });
             }
-
+            playerSetup();
+        }
+        
+        void playerSetup()
+        {
             EtraCharacterMainController.Instance.enableAllActiveAbilities(); //also maybe enable collision boxes for trigger?
+            EtraCharacterMainController.Instance.setFov(savedFov);
+            LeanTween.move(camRoot, EtraCharacterMainController.Instance.transform.position + new Vector3(0, 1.375f, 0), 0);
+            camRoot.transform.localPosition = new Vector3(0, 1.375f, 0);
+            LeanTween.rotate(camRoot, new Vector3(0, 0, 0), 0);
             //GEt base player cam root pos
             cursorCanvas.SetActive(true);
+            foreach (AbilityOrItemPickup a in pickups)
+            {
+                a.gameObject.SetActive(true);
+            }
+            foreach (AnimationTriggerPickup a in animPickups)
+            {
+                a.gameObject.SetActive(true);
+            }
+            nongamerUi.SetActive(true);
+            EtraCharacterMainController.Instance.etraFPSUsableItemManager.weaponInitHandledElsewhere = false;
+
+            if (EtraCharacterMainController.Instance.etraFPSUsableItemManager.usableItems.Length >0)
+            {
+                if (equipAnimForStartingWeapon)
+                {
+                    EtraCharacterMainController.Instance.etraFPSUsableItemManager.equipItem(0);
+                }
+                else
+                {
+                    EtraCharacterMainController.Instance.etraFPSUsableItemManager.instatiateItemAtStart();
+                }
+                
+            }
+            
+            openingDone = true;
         }
-    
     }
 }

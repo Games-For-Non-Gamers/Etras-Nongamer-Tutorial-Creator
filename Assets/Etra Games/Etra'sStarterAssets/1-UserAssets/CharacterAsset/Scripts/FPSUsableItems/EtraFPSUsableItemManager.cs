@@ -269,7 +269,7 @@ namespace Etra.StarterAssets.Items
             {
                 if (activeItemNum != 0 && usableItems.Length > 0)
                 {
-                    StartCoroutine(equipItem(0));
+                    StartCoroutine(equipItemCoroutine(0));
                 }
             }
 
@@ -277,7 +277,7 @@ namespace Etra.StarterAssets.Items
             {
                 if (activeItemNum != 1 && usableItems.Length > 1)
                 {
-                    StartCoroutine(equipItem(1));
+                    StartCoroutine(equipItemCoroutine(1));
                 }
             }
 
@@ -285,7 +285,7 @@ namespace Etra.StarterAssets.Items
             {
                 if (activeItemNum != 2 && usableItems.Length > 2)
                 {
-                    StartCoroutine(equipItem(2));
+                    StartCoroutine(equipItemCoroutine(2));
                 }
             }
 
@@ -293,7 +293,7 @@ namespace Etra.StarterAssets.Items
             {
                 if (activeItemNum != 3 && usableItems.Length > 3)
                 {
-                    StartCoroutine(equipItem(3));
+                    StartCoroutine(equipItemCoroutine(3));
                 }
             }
 
@@ -301,7 +301,7 @@ namespace Etra.StarterAssets.Items
             {
                 if (activeItemNum != 4 && usableItems.Length > 4)
                 {
-                    StartCoroutine(equipItem(4));
+                    StartCoroutine(equipItemCoroutine(4));
                 }
             }
 
@@ -309,7 +309,7 @@ namespace Etra.StarterAssets.Items
             {
                 if (activeItemNum != 5 && usableItems.Length > 5)
                 {
-                    StartCoroutine(equipItem(5));
+                    StartCoroutine(equipItemCoroutine(5));
                 }
             }
 
@@ -317,7 +317,7 @@ namespace Etra.StarterAssets.Items
             {
                 if (activeItemNum != 6 && usableItems.Length > 6)
                 {
-                    StartCoroutine(equipItem(6));
+                    StartCoroutine(equipItemCoroutine(6));
                 }
             }
 
@@ -325,7 +325,7 @@ namespace Etra.StarterAssets.Items
             {
                 if (activeItemNum != 7 && usableItems.Length > 7)
                 {
-                    StartCoroutine(equipItem(7));
+                    StartCoroutine(equipItemCoroutine(7));
                 }
             }
 
@@ -333,7 +333,7 @@ namespace Etra.StarterAssets.Items
             {
                 if (activeItemNum != 8 && usableItems.Length > 8)
                 {
-                    StartCoroutine(equipItem(8));
+                    StartCoroutine(equipItemCoroutine(8));
                 }
             }
 
@@ -341,7 +341,7 @@ namespace Etra.StarterAssets.Items
             {
                 if (activeItemNum != 9 && usableItems.Length > 9)
                 {
-                    StartCoroutine(equipItem(9));
+                    StartCoroutine(equipItemCoroutine(9));
                 }
             }
             #endregion
@@ -360,7 +360,7 @@ namespace Etra.StarterAssets.Items
                 {
                     itemToMoveTo = 0;
                 }
-                StartCoroutine(equipItem(itemToMoveTo));
+                StartCoroutine(equipItemCoroutine(itemToMoveTo));
 
             }
 
@@ -372,21 +372,29 @@ namespace Etra.StarterAssets.Items
                 {
                     itemToMoveTo = usableItems.Length - 1;
                 }
-                StartCoroutine(equipItem(itemToMoveTo));
+                StartCoroutine(equipItemCoroutine(itemToMoveTo));
 
             }
 
+        }
+
+        public void equipItem(int num)
+        {
+            if (usableItems.Length > num)
+            {
+                StartCoroutine(equipItemCoroutine(num));
+            }
         }
 
         public void equipLastItem()
         {
             if (usableItems.Length>0)
             {
-                StartCoroutine(equipItem(usableItems.Length - 1));
+                StartCoroutine(equipItemCoroutine(usableItems.Length - 1));
             }
         }
 
-        IEnumerator equipItem(int newItemNum)
+        IEnumerator equipItemCoroutine(int newItemNum)
         {
 
             isEquipping = true;

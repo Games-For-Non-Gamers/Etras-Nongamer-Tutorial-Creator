@@ -17,6 +17,7 @@ namespace Etra.StarterAssets.Input
         public bool crouch;
         public bool interact;
         public bool dash;
+        public bool start;
 
 
 
@@ -150,6 +151,10 @@ namespace Etra.StarterAssets.Input
             Item9SelectInput(value.isPressed);
         }
 
+        public void OnStart(InputValue value)
+        {
+            StartInput(value.isPressed);
+        }
 
 #else
 	// old input system support
@@ -315,6 +320,11 @@ namespace Etra.StarterAssets.Input
         public void Item9SelectInput(bool newItem9PressedState)
         {
             item9Select = newItem9PressedState;
+        }
+
+        public void StartInput (bool startPressedState)
+        {
+            start = startPressedState;
         }
 
 
