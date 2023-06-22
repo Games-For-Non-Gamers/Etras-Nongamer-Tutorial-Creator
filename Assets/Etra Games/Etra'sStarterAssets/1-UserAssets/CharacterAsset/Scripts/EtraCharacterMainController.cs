@@ -822,6 +822,16 @@ namespace Etra.StarterAssets
 
         }
 
+        public float getFov()
+        {
+            etraFollowCam = GameObject.Find("Etra'sStarterAssetsFollowCamera");
+            return etraFollowCam.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView;
+        }
+
+        public void setFov(float newFov)
+        {
+            etraFollowCam.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView=newFov;
+        }
 
 
     }

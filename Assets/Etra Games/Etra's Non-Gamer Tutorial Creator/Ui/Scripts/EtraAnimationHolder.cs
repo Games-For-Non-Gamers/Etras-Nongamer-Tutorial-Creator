@@ -306,7 +306,7 @@ namespace Etra.NonGamerTutorialCreator
                             LeanTween.colorText(animEvent.rectTransform, new Color(text.color.r, text.color.g, text.color.b, 0), animEvent.fadeOutTime).setEaseInOutSine();
                         }
 
-                        showOrHideUiObject(animEvent.tweenedObject, false);
+                        //showOrHideUiObject(animEvent.tweenedObject, false);
                         break;
 
 
