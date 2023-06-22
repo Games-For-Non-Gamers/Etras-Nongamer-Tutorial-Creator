@@ -43,7 +43,7 @@ namespace Etra.NonGamerTutorialCreator
             scoutStar.transform.parent = star.transform;
             scoutStar.transform.localPosition = Vector3.zero;
             GameObject scoutSpawn = new GameObject("ScoutSpawn");
-            scoutSpawn.transform.parent = star.transform;
+            scoutSpawn.transform.parent = playerSpawn.transform;
             scoutSpawn.transform.localPosition = new Vector3 (0,9,0);
             scoutSpawn.AddComponent<BoxCollider>();
             scoutSpawn.GetComponent<BoxCollider>().isTrigger= true;
