@@ -8,6 +8,14 @@ namespace Etra.NonGamerTutorialCreator
 {
     public class OpeningScene : MonoBehaviour
     {
+        [Header("Does Nothing")]
+        public bool skipMenu;
+        public bool skipCutscene;
+
+
+        [Header("e")]
+        //This is SO messy. Apologies. Will fix it later lmao. ~Etra
+        public bool startCamAtStartPos = true;
         public bool equipAnimForStartingWeapon = true;
         [Header("CutsceneCheckpoints")]
         public Star star;
@@ -58,6 +66,8 @@ namespace Etra.NonGamerTutorialCreator
 
         void Awake()
         {
+            EtraCharacterMainController.Instance.etraFPSUsableItemManager.weaponInitHandledElsewhere = true;
+            initialize();
             cursorCanvas.SetActive(false);
             pickups = levelController.chunks[levelController.chunks.Count - 1].gameObject.GetComponentsInChildren<AbilityOrItemPickup>();
             animPickups = levelController.chunks[levelController.chunks.Count - 1].gameObject.GetComponentsInChildren<AnimationTriggerPickup>();
@@ -70,7 +80,6 @@ namespace Etra.NonGamerTutorialCreator
                 a.gameObject.SetActive(false);
             }
             nongamerUi.SetActive(false);
-
         }
         float savedFov;
         GameObject scoutStar;
@@ -78,8 +87,13 @@ namespace Etra.NonGamerTutorialCreator
         StarterAssetsInputs starterAssetsInputs;
         private void Start()
         {
+            
+            if (startCamAtStartPos)
+            {
+                camRoot.transform.position = star.transform.position + new Vector3(0, 50, -30); //Start
+            }
             EtraCharacterMainController.Instance.disableAllActiveAbilities();
-            EtraCharacterMainController.Instance.etraFPSUsableItemManager.weaponInitHandledElsewhere = true;
+            
             EtraCharacterMainController mainController = EtraCharacterMainController.Instance;
             starterAssetsInputs = mainController.GetComponent<StarterAssetsInputs>();
             savedFov = EtraCharacterMainController.Instance.getFov();
@@ -110,12 +124,11 @@ namespace Etra.NonGamerTutorialCreator
             }
             scoutStar.transform.position = scoutStar.transform.position + new Vector3(0, 3f, 0);
 
-
-            runOpeningScene();
         }
 
         public void runOpeningScene()
         {
+            EtraCharacterMainController.Instance.GetComponent<StarterAssetsInputs>().cursorLocked = true;
             StartCoroutine(openingScene());
         
         }
@@ -171,6 +184,7 @@ namespace Etra.NonGamerTutorialCreator
         
         void playerSetup()
         {
+            EtraCharacterMainController.Instance.GetComponent<StarterAssetsInputs>().cursorLocked = false;
             EtraCharacterMainController.Instance.enableAllActiveAbilities(); //also maybe enable collision boxes for trigger?
             EtraCharacterMainController.Instance.setFov(savedFov);
             LeanTween.move(camRoot, EtraCharacterMainController.Instance.transform.position + new Vector3(0, 1.375f, 0), 0);

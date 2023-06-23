@@ -328,6 +328,12 @@ namespace Etra.StarterAssets.Input
         }
 
 
+        public void SetCursorState(bool newState)
+        {
+            Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+            cursorLocked = newState;
+        }
+
 #if !UNITY_IOS || !UNITY_ANDROID
 
         private void OnApplicationFocus(bool hasFocus)
@@ -335,10 +341,7 @@ namespace Etra.StarterAssets.Input
             SetCursorState(cursorLocked);
         }
 
-        private void SetCursorState(bool newState)
-        {
-            Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
-        }
+
 
 #endif
 

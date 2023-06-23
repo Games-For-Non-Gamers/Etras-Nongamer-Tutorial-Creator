@@ -30,9 +30,16 @@ namespace Etra.NonGamerTutorialCreator
         }
         private void OnValidate()
         {
-            if (sfxPlayer == null && transform.parent.parent.GetComponent<NonGamerTutorialUi>()) //so the controller and keyboard sfx don't play over each other
+            if (sfxPlayer == null && transform.parent) //so the controller and keyboard sfx don't play over each other
             {
-                sfxPlayer = transform.parent.parent.GetComponent<AudioManager>();
+                if (transform.parent.parent)
+                {
+                    if (transform.parent.parent.GetComponent<NonGamerTutorialUi>())
+                    {
+                        sfxPlayer = transform.parent.parent.GetComponent<AudioManager>();
+                    }
+                }
+                
             }
         }
 

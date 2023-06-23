@@ -5,8 +5,11 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Etra Games/Etra'sStarterAssets/1-UserAssets/Scenes/TPSCharacterDemo.unity
     guid: 5d1f0fdab6d8c654aac7690b1d90ec61
+  - enabled: 1
+    path: Assets/Etra Games/Etra's Non-Gamer Tutorial Creator/Scenes/TutorialCreatorTestRoom.unity
+    guid: 730f4cb6268693945ba52e7e343b5112
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}
