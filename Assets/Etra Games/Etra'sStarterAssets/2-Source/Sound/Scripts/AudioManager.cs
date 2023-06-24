@@ -37,7 +37,7 @@ namespace EtrasStarterAssets
                 s.source.pitch = s.basePitch;
                 s.source.loop = s.loop;
                 s.source.spatialBlend = s.spatialBlend;
-
+                s.source.playOnAwake = false;
                 if (s.isMusic)
                 {
                     s.source.outputAudioMixerGroup = music;

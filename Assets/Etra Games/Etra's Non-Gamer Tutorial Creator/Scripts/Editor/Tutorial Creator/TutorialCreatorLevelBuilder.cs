@@ -8,6 +8,8 @@ using Etra.StarterAssets.Source.Editor;
 using Etra.NonGamerTutorialCreator.Level;
 
 using UObject = UnityEngine.Object;
+using Etra.StarterAssets.Source;
+using Codice.Client.BaseCommands;
 
 namespace Etra.NonGamerTutorialCreator.TutorialCreator
 {
@@ -262,12 +264,37 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
             Target.ResetAllChunksPositions();
         }
 
+        GameObject manager;
         public LevelController CreateNewLevelController(bool isPreview = false, string name = "Level Controller")
         {
-            GameObject go = new GameObject(name);
+            LevelController levelController;
+            if (GameObject.Find("NonGamerTutorialManager"))
+            {
+                manager = GameObject.Find("NonGamerTutorialManager");
+            }
+            else
+            {
+                manager = EtrasResourceGrabbingFunctions.addPrefabFromResourcesByName("NonGamerTutorialManager");
+            }
 
-            var levelController = go.AddComponent<LevelController>();
+            if (GameObject.Find("Level Controller"))
+            {
+                levelController = GameObject.Find("Level Controller").gameObject.GetComponent<LevelController>();
+            }
+            else
+            {
+                GameObject controller = new GameObject("Level Controller");
+                controller.transform.parent = manager.transform;
+                controller.transform.SetAsFirstSibling();
+                controller.transform.localPosition = Vector3.zero;
+                controller.transform.localScale = Vector3.one;
+                controller.AddComponent<LevelController>();
+                levelController = controller.GetComponent<LevelController>();
+            }
+
+            levelController.chunks = new List<LevelChunkObject>();
             levelController.isPreview = isPreview;
+
 
             return levelController;
         }

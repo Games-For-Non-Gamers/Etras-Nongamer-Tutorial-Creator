@@ -16,7 +16,7 @@ namespace Etra.NonGamerTutorialCreator.Level
         //Broke again. Spawned object but not saved. Unstable code place.
         public void makePlayerSpawn()
         {
-            if (GameObject.Find("PlayerSpawn"))
+            if (GameObject.Find("PlayerSpawn") || this.gameObject.name == "End Chunk")
             {
                 return;
             }

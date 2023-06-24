@@ -15,6 +15,7 @@ using Etra.StarterAssets.Abilities;
 using Etra.StarterAssets.Items;
 using static Etra.StarterAssets.Items.EtraFPSUsableItemManager;
 using static UnityEditor.Progress;
+using Etra.StarterAssets.Interactables;
 
 namespace Etra.NonGamerTutorialCreator.TutorialCreator
 {
@@ -337,7 +338,11 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
                     {
                         Preferences.LevelCreated = false;
                         Page = 0;
-                        DestroyImmediate(GameObject.FindGameObjectWithTag("Player").transform.parent.gameObject);
+                        if (GameObject.FindGameObjectWithTag("Player"))
+                        {
+                            DestroyImmediate(GameObject.FindGameObjectWithTag("Player").transform.parent.gameObject);
+                        }
+                        
                     }
 
 
