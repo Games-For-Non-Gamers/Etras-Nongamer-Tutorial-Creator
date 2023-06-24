@@ -152,11 +152,13 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
             {
                 menu.AddItem(new GUIContent(string.IsNullOrWhiteSpace(item.chunkName) ? item.name : item.chunkName), false, () =>
                 {
-                    _chunks.Insert(0, item);
-                    
+                    //_chunks is level builder list
+                    _chunks.Insert(1, item); // inser below star
+
+                    //chunks is actual chunk array builder list
                     if (Target != null)
                     {
-                        Target.chunks.Add(CreateChunkObject(item));
+                        Target.chunks.Insert(1, (CreateChunkObject(item)));
                         Target.ResetAllChunksPositions();
                     }
                 });
@@ -188,16 +190,16 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
 
         private void ReorderableList_OnRemoveCallback(ReorderableList list)
         {
+            var targetIndex = Target.chunks.Count - list.index - 1;
             _chunks.RemoveAt(list.index);
 
             if (Target != null)
             {
-                var targetIndex = Target.chunks.Count - list.index - 1;
-
-                var chunkObject = Target.chunks[targetIndex];
+                
+                var chunkObject = Target.chunks[list.index];
                 Vector3 chunkTotalOffset = chunkObject.endConnectionPoint - chunkObject.startConnectionPoint;
 
-                Target.chunks.RemoveAt(targetIndex);
+                Target.chunks.RemoveAt(list.index);
                 UObject.DestroyImmediate(chunkObject.gameObject);
 
                 Target.ResetAllChunksPositions();
@@ -206,29 +208,41 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
 
         private void ReorderableList_OnReorderCallbackWithDetails(ReorderableList list, int oldIndex, int newIndex)
         {
+         //   Debug.Log("Old " + oldIndex + "\nNew " + newIndex);
             if (Target != null)
             {
-                Target.chunks.Reverse();
-                var targetOldIndex = Target.chunks.Count - oldIndex - 1;
-                var targetNewIndex = Target.chunks.Count - newIndex - 1;
+                var targetChunks = Target.chunks;
 
-                var selectedChunk = Target.chunks[targetOldIndex];
-                var toReplaceChunk = Target.chunks[targetNewIndex];
-                Target.chunks[targetOldIndex] = toReplaceChunk;
-                Target.chunks[targetNewIndex] = selectedChunk;
-                Target.chunks.Reverse();
+                // Swap elements within the list
+                var selectedChunk = targetChunks[oldIndex];
+                targetChunks.RemoveAt(oldIndex);
+                targetChunks.Insert(newIndex, selectedChunk);
+
+                // Reset the positions of all chunks
                 Target.ResetAllChunksPositions();
 
-                //Rearrange in the hierarchy if both chunks are children of the target
-                if (selectedChunk.transform.parent == Target.transform &&
-                    toReplaceChunk.transform.parent == Target.transform)
+                // Rearrange in the hierarchy if both chunks are children of the target
+                if (selectedChunk.transform.parent == Target.transform)
                 {
+                    // Get the sibling index of the selected chunk
                     var selectedChunkSiblingIndex = selectedChunk.transform.GetSiblingIndex();
-                    var toReplaceChunkSiblingIndex = toReplaceChunk.transform.GetSiblingIndex();
 
-                    selectedChunk.transform.SetSiblingIndex(toReplaceChunkSiblingIndex);
-                    toReplaceChunk.transform.SetSiblingIndex(selectedChunkSiblingIndex);
+                    // Get the starting index for shifting other chunks
+                    var shiftStartIndex = oldIndex < newIndex ? oldIndex : newIndex;
+
+                    // Shift the sibling indices of the chunks below the moved chunk
+                    for (int i = shiftStartIndex; i < targetChunks.Count; i++)
+                    {
+                        if (i != selectedChunkSiblingIndex)
+                        {
+                            // Determine the new sibling index for each chunk
+                            int newSiblingIndex = i < newIndex ? i + 1 : i - 1;
+                            targetChunks[i].transform.SetSiblingIndex(newSiblingIndex);
+                        }
+                    }
                 }
+
+                // Reset the positions of all chunks again after rearranging hierarchy
                 Target.ResetAllChunksPositions();
             }
 
@@ -238,8 +252,7 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
         {
             if (Target != null && !Target.isPreview)
             {
-                var targetIndex = Target.chunks.Count - list.index - 1;
-                Selection.objects = new UObject[] { Target.chunks[targetIndex].gameObject };
+                Selection.objects = new UObject[] { Target.chunks[list.index].gameObject };
             }
         }
         #endregion
