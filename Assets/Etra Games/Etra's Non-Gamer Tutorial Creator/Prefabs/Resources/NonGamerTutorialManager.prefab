@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a7231e9f37889246b903307f63b55c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skipMenu: 1
+  skipMenu: 0
   openingMenuUi: {fileID: 497471368602194938}
 --- !u!114 &8542397125202644760
 MonoBehaviour:
@@ -64,8 +64,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724c97a53a697334f8391ac3697c736d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skipOpeningScene: 1
+  skipOpeningScene: 0
   startCamAtStartPos: 1
+  openingSceneUi: {fileID: 497471367997606540}
+  nonGamerTutorialUi: {fileID: 7507304745413127475}
 --- !u!114 &497471367174812630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1558,7 +1560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7982650616480194283, guid: f92fbf0cafede1944a1128d04e77b180, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7982650616774079007, guid: f92fbf0cafede1944a1128d04e77b180, type: 3}
       propertyPath: m_Enabled
@@ -1594,12 +1596,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f92fbf0cafede1944a1128d04e77b180, type: 3}
+--- !u!224 &7507304745413127472 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7982650616480194280, guid: f92fbf0cafede1944a1128d04e77b180, type: 3}
+  m_PrefabInstance: {fileID: 497471368337486808}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &497471366809066597 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1799090109, guid: f92fbf0cafede1944a1128d04e77b180, type: 3}
   m_PrefabInstance: {fileID: 497471368337486808}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 7507304745413127475}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d10d9b6d879748499838bb462e075de, type: 3}
@@ -1700,9 +1707,9 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7982650617180905572, guid: f92fbf0cafede1944a1128d04e77b180, type: 3}
   m_PrefabInstance: {fileID: 497471368337486808}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &7507304745413127472 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7982650616480194280, guid: f92fbf0cafede1944a1128d04e77b180, type: 3}
+--- !u!1 &7507304745413127475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7982650616480194283, guid: f92fbf0cafede1944a1128d04e77b180, type: 3}
   m_PrefabInstance: {fileID: 497471368337486808}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &806136994857376839
@@ -1715,6 +1722,10 @@ PrefabInstance:
     - target: {fileID: 993227068607731403, guid: e96bb4f6fdb486c41902c556fdd9eaf2, type: 3}
       propertyPath: m_Name
       value: OpeningSceneUi
+      objectReference: {fileID: 0}
+    - target: {fileID: 993227068607731403, guid: e96bb4f6fdb486c41902c556fdd9eaf2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 993227068607731415, guid: e96bb4f6fdb486c41902c556fdd9eaf2, type: 3}
       propertyPath: m_Pivot.x
@@ -1802,6 +1813,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e96bb4f6fdb486c41902c556fdd9eaf2, type: 3}
+--- !u!1 &497471367997606540 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 993227068607731403, guid: e96bb4f6fdb486c41902c556fdd9eaf2, type: 3}
+  m_PrefabInstance: {fileID: 806136994857376839}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &497471367997606544 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 993227068607731415, guid: e96bb4f6fdb486c41902c556fdd9eaf2, type: 3}
@@ -2139,6 +2155,14 @@ PrefabInstance:
     - target: {fileID: 5124189423661357474, guid: 314b3f769a3cd2e47b81f8fa35768b3b, type: 3}
       propertyPath: m_Name
       value: OpeningMenuUi
+      objectReference: {fileID: 0}
+    - target: {fileID: 5124189423661357474, guid: 314b3f769a3cd2e47b81f8fa35768b3b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5124189423661357478, guid: 314b3f769a3cd2e47b81f8fa35768b3b, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5124189424601714357, guid: 314b3f769a3cd2e47b81f8fa35768b3b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
