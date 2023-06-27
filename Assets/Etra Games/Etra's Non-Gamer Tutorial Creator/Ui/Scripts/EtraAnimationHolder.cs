@@ -262,27 +262,26 @@ namespace Etra.NonGamerTutorialCreator
 
                     case AnimationEvents.FadeIn:
 
-
-                        showOrHideUiObject(animEvent.tweenedObject, true);
                         if (animEvent.tweenedObject.GetComponent<MeshRenderer>())
                         {
                             Material material = animEvent.tweenedObject.GetComponent<MeshRenderer>().material;
                             Color color = material.color;
                             color.a = 0;
                             material.color = color;
-                            LeanTween.value(this.gameObject, 0, 255, animEvent.fadeInTime).setOnUpdate((float alphaValue) => { color.a = alphaValue; material.color = color; });
+                            animEvent.tweenedObject.GetComponent<MeshRenderer>().enabled = true;
+                            LeanTween.value(this.gameObject, 0, animEvent.fadeInOpacity, animEvent.fadeInTime).setEaseInOutSine().setOnUpdate((float alphaValue) => { color.a = alphaValue; material.color = color; });
 
                         }
 
                         if (animEvent.tweenedObject.GetComponent<Image>())
                         {
                             Image image = animEvent.tweenedObject.GetComponent<Image>();
-                            LeanTween.color(animEvent.tweenedObject, new Color(image.color.r, image.color.g, image.color.b, 0), 0);
+                            LeanTween.color(animEvent.rectTransform, new Color(image.color.r, image.color.g, image.color.b, 0), 0);
                             image.enabled = true;
-                            LeanTween.color(animEvent.tweenedObject, new Color(image.color.r, image.color.g, image.color.b, animEvent.fadeInOpacity), animEvent.fadeInTime).setEaseInOutSine();
+                            LeanTween.color(animEvent.rectTransform, new Color(image.color.r, image.color.g, image.color.b, animEvent.fadeInOpacity), animEvent.fadeInTime).setEaseInOutSine();
                         }
 
-                        if (animEvent.tweenedObject.GetComponent<Text>() && animEvent.rectTransform != null)
+                        if (animEvent.tweenedObject.GetComponent<Text>() )
                         {
                             Text text = animEvent.tweenedObject.GetComponent<Text>();
                             LeanTween.colorText(animEvent.rectTransform, new Color(text.color.r, text.color.g, text.color.b, 0), 0);
@@ -304,7 +303,7 @@ namespace Etra.NonGamerTutorialCreator
                         if (animEvent.tweenedObject.GetComponent<Image>())
                         {
                             Image image = animEvent.tweenedObject.GetComponent<Image>();
-                            LeanTween.color(animEvent.tweenedObject, new Color(image.color.r, image.color.g, image.color.b, 0), animEvent.fadeOutTime).setEaseInOutSine();
+                            LeanTween.color(animEvent.rectTransform, new Color(image.color.r, image.color.g, image.color.b, 0), animEvent.fadeOutTime);
                         }
 
                         if (animEvent.tweenedObject.GetComponent<Text>() && animEvent.rectTransform != null)
@@ -423,8 +422,66 @@ namespace Etra.NonGamerTutorialCreator
 
                     case AnimationEvents.RunEtraAnimationActivatedScript:
                         animEvent.etraAnimationActivatedScript.runScript(animEvent.passedString);
-
                         break;
+
+                    case AnimationEvents.BasicUiGrowAndToStartWithUnlock:
+
+                        if (animEvent.tweenedObject.GetComponent<Image>().enabled == false)
+                        {
+                            LeanTween.move(animEvent.rectTransform, Vector3.zero, 0).setEaseInOutSine();
+                            LeanTween.scale(animEvent.rectTransform, Vector3.zero, 0).setEaseInOutSine();
+                            showOrHideUiObject(animEvent.tweenedObject, true);
+                        }
+
+                        LeanTween.move(animEvent.rectTransform, animEvent.basicGrowPos, 1).setEaseInOutSine();
+                        LeanTween.scale(animEvent.rectTransform, animEvent.basicGrowScale, 1).setEaseInOutSine();
+                        yield return new WaitForSeconds(animEvent.basicGrowWait);
+
+                        if (abilityToActivate == null && selectedItem == null)
+                        {
+                            Debug.LogWarning("Please use the non-gamer tutorial pickup to unlock abilities or items.");
+                        }
+                        else
+                        {
+                            if (isAbility)
+                            {
+                                EtraAbilityBaseClass abilityScriptOnCharacter = (EtraAbilityBaseClass)EtraCharacterMainController.Instance.etraAbilityManager.GetComponent(abilityToActivate.script.GetType());
+                                abilityScriptOnCharacter.unlockAbility(abilityToActivate.name);
+                            }
+                            else //is Item
+                            {
+                                //Add the script to the item manager
+                                EtraCharacterMainController.Instance.etraFPSUsableItemManager.gameObject.AddComponent(selectedItem.script.GetType());
+                                //Update the items array
+                                EtraCharacterMainController.Instance.etraFPSUsableItemManager.updateUsableItemsArray();
+                                //Equip the new item
+                                EtraCharacterMainController.Instance.etraFPSUsableItemManager.equipLastItem();
+                            }
+                        }
+
+                        //Find the element
+                        ObjectStarterTransform foundObjectTransform1 = new ObjectStarterTransform();
+
+                        foreach (ObjectStarterTransform objTransform in startPositions)
+                        {
+                            if (objTransform.objectName == animEvent.tweenedObject.name)
+                            {
+                                foundObjectTransform1 = objTransform;
+                            }
+                        }
+
+                        if (isRectTransform)
+                        {
+                            LeanTween.move(animEvent.tweenedObject, foundObjectTransform1.startPosition, 1).setEaseInOutSine();
+                            LeanTween.scale(animEvent.tweenedObject, foundObjectTransform1.startScale, 1).setEaseInOutSine();
+                        }
+                        else
+                        {
+                            LeanTween.move(animEvent.tweenedObject, foundObjectTransform1.startPosition, 1).setEaseInOutSine();
+                            LeanTween.scale(animEvent.tweenedObject, foundObjectTransform1.startScale, 1).setEaseInOutSine();
+                        }
+                        break;
+
                     default:
                         Debug.Log("Invalid Animation Event");
                         break;

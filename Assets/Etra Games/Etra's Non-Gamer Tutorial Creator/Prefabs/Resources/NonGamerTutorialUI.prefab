@@ -86,7 +86,7 @@ MonoBehaviour:
   animatedObjects: []
   hideAllObjectsAtStart: 1
   sfxPlayer: {fileID: 1799090109}
-  separateKeyboardControllerAnimations: 0
+  separateKeyboardControllerAnimations: 1
   standardAnimation: []
   keyboardAnimation: []
   controllerAnimation: []
@@ -212,7 +212,7 @@ MonoBehaviour:
   animatedObjects: []
   hideAllObjectsAtStart: 1
   sfxPlayer: {fileID: 1799090109}
-  separateKeyboardControllerAnimations: 0
+  separateKeyboardControllerAnimations: 1
   standardAnimation: []
   keyboardAnimation: []
   controllerAnimation: []
@@ -410,10 +410,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animatedObjects: []
+  animatedObjects:
+  - {fileID: 7982650617821656009}
+  - {fileID: 7982650617789547478}
+  - {fileID: 7982650616529868976}
+  - {fileID: 7982650617212833575}
+  - {fileID: 7982650617385866961}
+  - {fileID: 7982650617674831870}
+  - {fileID: 7982650618147299965}
+  - {fileID: 7982650616343111007}
   hideAllObjectsAtStart: 1
   sfxPlayer: {fileID: 1799090109}
-  separateKeyboardControllerAnimations: 0
+  separateKeyboardControllerAnimations: 1
   standardAnimation: []
   keyboardAnimation: []
   controllerAnimation: []
@@ -461,10 +469,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animatedObjects: []
+  animatedObjects:
+  - {fileID: 7982650617287644323}
+  - {fileID: 7982650616642587690}
+  - {fileID: 7982650616549487512}
+  - {fileID: 7982650617301509202}
+  - {fileID: 7982650617751051591}
+  - {fileID: 7982650617065824100}
+  - {fileID: 7982650618194304090}
+  - {fileID: 7982650617843489814}
+  - {fileID: 7982650617464984431}
   hideAllObjectsAtStart: 1
   sfxPlayer: {fileID: 1799090109}
-  separateKeyboardControllerAnimations: 0
+  separateKeyboardControllerAnimations: 1
   standardAnimation: []
   keyboardAnimation: []
   controllerAnimation: []
@@ -587,10 +604,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animatedObjects: []
+  animatedObjects:
+  - {fileID: 7982650617821656009}
+  - {fileID: 7982650617789547478}
+  - {fileID: 7982650616321887783}
+  - {fileID: 7982650616817630743}
+  - {fileID: 7982650617385866961}
+  - {fileID: 7982650617674831870}
+  - {fileID: 7982650616132151460}
+  - {fileID: 7982650618040287264}
   hideAllObjectsAtStart: 1
   sfxPlayer: {fileID: 1799090109}
-  separateKeyboardControllerAnimations: 0
+  separateKeyboardControllerAnimations: 1
   standardAnimation: []
   keyboardAnimation: []
   controllerAnimation: []
@@ -716,7 +741,7 @@ MonoBehaviour:
   animatedObjects: []
   hideAllObjectsAtStart: 1
   sfxPlayer: {fileID: 1799090109}
-  separateKeyboardControllerAnimations: 0
+  separateKeyboardControllerAnimations: 1
   standardAnimation: []
   keyboardAnimation: []
   controllerAnimation: []
@@ -927,7 +952,7 @@ MonoBehaviour:
   animatedObjects: []
   hideAllObjectsAtStart: 1
   sfxPlayer: {fileID: 1799090109}
-  separateKeyboardControllerAnimations: 0
+  separateKeyboardControllerAnimations: 1
   standardAnimation: []
   keyboardAnimation: []
   controllerAnimation: []
@@ -978,7 +1003,7 @@ MonoBehaviour:
   animatedObjects: []
   hideAllObjectsAtStart: 1
   sfxPlayer: {fileID: 1799090109}
-  separateKeyboardControllerAnimations: 0
+  separateKeyboardControllerAnimations: 1
   standardAnimation: []
   keyboardAnimation: []
   controllerAnimation: []
@@ -1029,7 +1054,7 @@ MonoBehaviour:
   animatedObjects: []
   hideAllObjectsAtStart: 1
   sfxPlayer: {fileID: 1799090109}
-  separateKeyboardControllerAnimations: 0
+  separateKeyboardControllerAnimations: 1
   standardAnimation: []
   keyboardAnimation: []
   controllerAnimation: []
@@ -1077,12 +1102,106 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animatedObjects: []
+  animatedObjects:
+  - {fileID: 7982650616759646985}
+  - {fileID: 7982650616498887986}
+  - {fileID: 7982650616774079001}
+  - {fileID: 7982650617407039654}
   hideAllObjectsAtStart: 1
   sfxPlayer: {fileID: 1799090109}
   separateKeyboardControllerAnimations: 1
   standardAnimation: []
-  keyboardAnimation: []
+  keyboardAnimation:
+  - tweenedObject: {fileID: 7982650616759646985}
+    rectTransform: {fileID: 0}
+    chosenEvent: 21
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 2, y: 2, z: 2}
+    scaleAndMoveTime: 3
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 2, y: 2, z: 2}
+    basicGrowWait: 3
+  - tweenedObject: {fileID: 7982650616498887986}
+    rectTransform: {fileID: 0}
+    chosenEvent: 3
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 2, y: 2, z: 2}
+    scaleAndMoveTime: 3
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 1
+    toStartTime: 0
+    flashTimes: 3
+    flashDelay: 0.5
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650616498887986}
+    rectTransform: {fileID: 0}
+    chosenEvent: 5
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 2, y: 2, z: 2}
+    scaleAndMoveTime: 3
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 3
+    flashDelay: 0.5
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
   controllerAnimation: []
   objectsHidden: 0
 --- !u!1 &4179155673922359914
@@ -1150,7 +1269,7 @@ MonoBehaviour:
   - {fileID: 7982650616426672652}
   hideAllObjectsAtStart: 1
   sfxPlayer: {fileID: 1799090109}
-  separateKeyboardControllerAnimations: 0
+  separateKeyboardControllerAnimations: 1
   standardAnimation: []
   keyboardAnimation: []
   controllerAnimation: []
@@ -1273,12 +1392,106 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animatedObjects: []
+  animatedObjects:
+  - {fileID: 7982650616551363306}
+  - {fileID: 7982650616976593282}
+  - {fileID: 7982650616774079001}
+  - {fileID: 7982650617135524444}
   hideAllObjectsAtStart: 1
   sfxPlayer: {fileID: 1799090109}
-  separateKeyboardControllerAnimations: 0
+  separateKeyboardControllerAnimations: 1
   standardAnimation: []
-  keyboardAnimation: []
+  keyboardAnimation:
+  - tweenedObject: {fileID: 7982650616551363306}
+    rectTransform: {fileID: 0}
+    chosenEvent: 21
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 2, y: 2, z: 2}
+    scaleAndMoveTime: 3
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 2, y: 2, z: 2}
+    basicGrowWait: 3
+  - tweenedObject: {fileID: 7982650616976593282}
+    rectTransform: {fileID: 0}
+    chosenEvent: 3
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 2, y: 2, z: 2}
+    scaleAndMoveTime: 3
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 1
+    toStartTime: 0
+    flashTimes: 3
+    flashDelay: 0.5
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650616976593282}
+    rectTransform: {fileID: 0}
+    chosenEvent: 5
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 2, y: 2, z: 2}
+    scaleAndMoveTime: 3
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 3
+    flashDelay: 0.5
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
   controllerAnimation: []
   objectsHidden: 0
 --- !u!1 &4937896950618449983
@@ -1324,10 +1537,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animatedObjects: []
+  animatedObjects:
+  - {fileID: 7982650617865052096}
+  - {fileID: 7982650616385025525}
+  - {fileID: 7982650618115618878}
+  - {fileID: 7982650617555851555}
+  - {fileID: 7982650616126453610}
+  - {fileID: 7982650616774079001}
   hideAllObjectsAtStart: 1
   sfxPlayer: {fileID: 1799090109}
-  separateKeyboardControllerAnimations: 0
+  separateKeyboardControllerAnimations: 1
   standardAnimation: []
   keyboardAnimation: []
   controllerAnimation: []
@@ -1459,7 +1678,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6198284333943924998}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1525,12 +1744,259 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animatedObjects: []
+  animatedObjects:
+  - {fileID: 7982650616142340464}
+  - {fileID: 7982650616162316944}
+  - {fileID: 7982650617789547478}
+  - {fileID: 7982650617160501113}
+  - {fileID: 7982650617493286376}
+  - {fileID: 7982650617698123079}
+  - {fileID: 7982650616922495656}
   hideAllObjectsAtStart: 1
   sfxPlayer: {fileID: 1799090109}
-  separateKeyboardControllerAnimations: 0
+  separateKeyboardControllerAnimations: 1
   standardAnimation: []
-  keyboardAnimation: []
+  keyboardAnimation:
+  - tweenedObject: {fileID: 7982650617789547478}
+    rectTransform: {fileID: 0}
+    chosenEvent: 0
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 2, y: 2, z: 2}
+    scaleAndMoveTime: 3
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650616142340464}
+    rectTransform: {fileID: 0}
+    chosenEvent: 6
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 2, y: 2, z: 2}
+    scaleAndMoveTime: 3
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650616162316944}
+    rectTransform: {fileID: 0}
+    chosenEvent: 6
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 2, y: 2, z: 2}
+    scaleAndMoveTime: 3
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650616162316944}
+    rectTransform: {fileID: 0}
+    chosenEvent: 3
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 2, y: 2, z: 2}
+    scaleAndMoveTime: 3
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 1
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650617160501113}
+    rectTransform: {fileID: 0}
+    chosenEvent: 8
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 2, y: 2, z: 2}
+    scaleAndMoveTime: 3
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 1
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650617160501113}
+    rectTransform: {fileID: 0}
+    chosenEvent: 5
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 2, y: 2, z: 2}
+    scaleAndMoveTime: 3
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 1
+    toStartTime: 0
+    flashTimes: 3
+    flashDelay: 0.5
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650617160501113}
+    rectTransform: {fileID: 0}
+    chosenEvent: 3
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 2, y: 2, z: 2}
+    scaleAndMoveTime: 3
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 3
+    toStartTime: 0
+    flashTimes: 3
+    flashDelay: 0.5
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650617160501113}
+    rectTransform: {fileID: 0}
+    chosenEvent: 9
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 2, y: 2, z: 2}
+    scaleAndMoveTime: 3
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 3
+    toStartTime: 0
+    flashTimes: 3
+    flashDelay: 0.5
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
   controllerAnimation: []
   objectsHidden: 0
 --- !u!1 &6389209463139175914
@@ -1594,7 +2060,7 @@ MonoBehaviour:
   keyboardAnimation:
   - tweenedObject: {fileID: 7982650616902458743}
     rectTransform: {fileID: 0}
-    chosenEvent: 12
+    chosenEvent: 21
     scaleAndMovePosition: {x: 0, y: 0, z: 0}
     scaleAndMoveScale: {x: 0, y: 0, z: 0}
     scaleAndMoveTime: 0
@@ -1619,22 +2085,25 @@ MonoBehaviour:
     rotToObjectTime: 0
     etraAnimationActivatedScript: {fileID: 0}
     passedString: 
-  - tweenedObject: {fileID: 7982650616902458743}
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 2, y: 2, z: 2}
+    basicGrowWait: 3
+  - tweenedObject: {fileID: 7982650617367514337}
     rectTransform: {fileID: 0}
-    chosenEvent: 8
+    chosenEvent: 6
     scaleAndMovePosition: {x: 0, y: 0, z: 0}
-    scaleAndMoveScale: {x: 3, y: 3, z: 3}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
     scaleAndMoveTime: 0
     movePosition: {x: 0, y: 0, z: 0}
     moveTime: 0
     scaleScale: {x: 0, y: 0, z: 0}
     scaleTime: 0
     secondsToWait: 3
-    toStartTime: 2
+    toStartTime: 0
     flashTimes: 0
     flashDelay: 0
-    fadeInOpacity: 0
-    fadeInTime: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
     fadeOutTime: 0
     sfxName: 
     rotation: {x: 0, y: 0, z: 0}
@@ -1646,22 +2115,25 @@ MonoBehaviour:
     rotToObjectTime: 0
     etraAnimationActivatedScript: {fileID: 0}
     passedString: 
-  - tweenedObject: {fileID: 7982650616902458743}
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 1, y: 1, z: 1}
+    basicGrowWait: 3
+  - tweenedObject: {fileID: 7982650616247066667}
     rectTransform: {fileID: 0}
-    chosenEvent: 0
+    chosenEvent: 6
     scaleAndMovePosition: {x: 0, y: 0, z: 0}
-    scaleAndMoveScale: {x: 3, y: 3, z: 3}
-    scaleAndMoveTime: 3
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
     movePosition: {x: 0, y: 0, z: 0}
     moveTime: 0
     scaleScale: {x: 0, y: 0, z: 0}
     scaleTime: 0
-    secondsToWait: 0
+    secondsToWait: 3
     toStartTime: 0
     flashTimes: 0
     flashDelay: 0
-    fadeInOpacity: 0
-    fadeInTime: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
     fadeOutTime: 0
     sfxName: 
     rotation: {x: 0, y: 0, z: 0}
@@ -1673,17 +2145,110 @@ MonoBehaviour:
     rotToObjectTime: 0
     etraAnimationActivatedScript: {fileID: 0}
     passedString: 
-  - tweenedObject: {fileID: 7982650616902458743}
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 1, y: 1, z: 1}
+    basicGrowWait: 3
+  - tweenedObject: {fileID: 7982650616077884363}
+    rectTransform: {fileID: 0}
+    chosenEvent: 6
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 3
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 1, y: 1, z: 1}
+    basicGrowWait: 3
+  - tweenedObject: {fileID: 7982650617071535041}
+    rectTransform: {fileID: 0}
+    chosenEvent: 6
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 3
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 1, y: 1, z: 1}
+    basicGrowWait: 3
+  - tweenedObject: {fileID: 7982650616767957064}
+    rectTransform: {fileID: 0}
+    chosenEvent: 6
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 3
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 1, y: 1, z: 1}
+    basicGrowWait: 3
+  - tweenedObject: {fileID: 7982650616767957064}
     rectTransform: {fileID: 0}
     chosenEvent: 3
     scaleAndMovePosition: {x: 0, y: 0, z: 0}
-    scaleAndMoveScale: {x: 3, y: 3, z: 3}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
     scaleAndMoveTime: 0
     movePosition: {x: 0, y: 0, z: 0}
     moveTime: 0
     scaleScale: {x: 0, y: 0, z: 0}
     scaleTime: 0
-    secondsToWait: 3
+    secondsToWait: 1
     toStartTime: 0
     flashTimes: 0
     flashDelay: 0
@@ -1700,20 +2265,23 @@ MonoBehaviour:
     rotToObjectTime: 0
     etraAnimationActivatedScript: {fileID: 0}
     passedString: 
-  - tweenedObject: {fileID: 7982650616902458743}
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 1, y: 1, z: 1}
+    basicGrowWait: 3
+  - tweenedObject: {fileID: 7982650617054229559}
     rectTransform: {fileID: 0}
-    chosenEvent: 14
+    chosenEvent: 8
     scaleAndMovePosition: {x: 0, y: 0, z: 0}
-    scaleAndMoveScale: {x: 3, y: 3, z: 3}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
     scaleAndMoveTime: 0
     movePosition: {x: 0, y: 0, z: 0}
     moveTime: 0
     scaleScale: {x: 0, y: 0, z: 0}
     scaleTime: 0
-    secondsToWait: 3
+    secondsToWait: 1
     toStartTime: 0
-    flashTimes: 0
-    flashDelay: 0
+    flashTimes: 3
+    flashDelay: 0.5
     fadeInOpacity: 0
     fadeInTime: 0
     fadeOutTime: 0
@@ -1727,20 +2295,23 @@ MonoBehaviour:
     rotToObjectTime: 0
     etraAnimationActivatedScript: {fileID: 0}
     passedString: 
-  - tweenedObject: {fileID: 7982650616902458743}
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 1, y: 1, z: 1}
+    basicGrowWait: 3
+  - tweenedObject: {fileID: 7982650617054229559}
     rectTransform: {fileID: 0}
-    chosenEvent: 4
+    chosenEvent: 5
     scaleAndMovePosition: {x: 0, y: 0, z: 0}
-    scaleAndMoveScale: {x: 3, y: 3, z: 3}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
     scaleAndMoveTime: 0
     movePosition: {x: 0, y: 0, z: 0}
     moveTime: 0
     scaleScale: {x: 0, y: 0, z: 0}
     scaleTime: 0
-    secondsToWait: 3
-    toStartTime: 2
-    flashTimes: 0
-    flashDelay: 0
+    secondsToWait: 1
+    toStartTime: 0
+    flashTimes: 3
+    flashDelay: 0.5
     fadeInOpacity: 0
     fadeInTime: 0
     fadeOutTime: 0
@@ -1754,33 +2325,9 @@ MonoBehaviour:
     rotToObjectTime: 0
     etraAnimationActivatedScript: {fileID: 0}
     passedString: 
-  - tweenedObject: {fileID: 7982650616902458743}
-    rectTransform: {fileID: 0}
-    chosenEvent: 13
-    scaleAndMovePosition: {x: 0, y: 0, z: 0}
-    scaleAndMoveScale: {x: 3, y: 3, z: 3}
-    scaleAndMoveTime: 0
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    secondsToWait: 3
-    toStartTime: 2
-    flashTimes: 0
-    flashDelay: 0
-    fadeInOpacity: 0
-    fadeInTime: 0
-    fadeOutTime: 0
-    sfxName: 
-    rotation: {x: 0, y: 0, z: 0}
-    rotateTime: 0
-    moveToObjectGameobject: {fileID: 0}
-    moveToObjectTime: 0
-    addedPosition: {x: 0, y: 0, z: 0}
-    rotToObjectGameobject: {fileID: 0}
-    rotToObjectTime: 0
-    etraAnimationActivatedScript: {fileID: 0}
-    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 1, y: 1, z: 1}
+    basicGrowWait: 3
   controllerAnimation:
   - tweenedObject: {fileID: 7982650616774079001}
     rectTransform: {fileID: 0}
@@ -1809,6 +2356,9 @@ MonoBehaviour:
     rotToObjectTime: 0
     etraAnimationActivatedScript: {fileID: 0}
     passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 3
   - tweenedObject: {fileID: 7982650616774079001}
     rectTransform: {fileID: 0}
     chosenEvent: 8
@@ -1836,6 +2386,9 @@ MonoBehaviour:
     rotToObjectTime: 0
     etraAnimationActivatedScript: {fileID: 0}
     passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 3
   - tweenedObject: {fileID: 7982650616774079001}
     rectTransform: {fileID: 0}
     chosenEvent: 0
@@ -1863,6 +2416,9 @@ MonoBehaviour:
     rotToObjectTime: 0
     etraAnimationActivatedScript: {fileID: 0}
     passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 3
   - tweenedObject: {fileID: 7982650616774079001}
     rectTransform: {fileID: 0}
     chosenEvent: 3
@@ -1890,6 +2446,9 @@ MonoBehaviour:
     rotToObjectTime: 0
     etraAnimationActivatedScript: {fileID: 0}
     passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 3
   - tweenedObject: {fileID: 7982650616774079001}
     rectTransform: {fileID: 0}
     chosenEvent: 14
@@ -1917,6 +2476,9 @@ MonoBehaviour:
     rotToObjectTime: 0
     etraAnimationActivatedScript: {fileID: 0}
     passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 3
   - tweenedObject: {fileID: 7982650616774079001}
     rectTransform: {fileID: 0}
     chosenEvent: 4
@@ -1944,6 +2506,9 @@ MonoBehaviour:
     rotToObjectTime: 0
     etraAnimationActivatedScript: {fileID: 0}
     passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 3
   - tweenedObject: {fileID: 7982650616774079001}
     rectTransform: {fileID: 0}
     chosenEvent: 13
@@ -1971,6 +2536,9 @@ MonoBehaviour:
     rotToObjectTime: 0
     etraAnimationActivatedScript: {fileID: 0}
     passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 3
   objectsHidden: 0
 --- !u!1 &6495758212858959661
 GameObject:
@@ -2018,7 +2586,7 @@ MonoBehaviour:
   animatedObjects: []
   hideAllObjectsAtStart: 1
   sfxPlayer: {fileID: 1799090109}
-  separateKeyboardControllerAnimations: 0
+  separateKeyboardControllerAnimations: 1
   standardAnimation: []
   keyboardAnimation: []
   controllerAnimation: []
@@ -2069,7 +2637,7 @@ MonoBehaviour:
   animatedObjects: []
   hideAllObjectsAtStart: 1
   sfxPlayer: {fileID: 1799090109}
-  separateKeyboardControllerAnimations: 0
+  separateKeyboardControllerAnimations: 1
   standardAnimation: []
   keyboardAnimation: []
   controllerAnimation: []
@@ -2127,7 +2695,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6882534460191842176}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -2212,10 +2780,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animatedObjects: []
+  animatedObjects:
+  - {fileID: 7982650617821656009}
+  - {fileID: 7982650617789547478}
+  - {fileID: 7982650616529868976}
+  - {fileID: 7982650617212833575}
+  - {fileID: 7982650616321887783}
+  - {fileID: 7982650616817630743}
+  - {fileID: 7982650617385866961}
+  - {fileID: 7982650617674831870}
+  - {fileID: 7982650616132151460}
+  - {fileID: 7982650618147299965}
+  - {fileID: 7982650616343111007}
+  - {fileID: 7982650618040287264}
   hideAllObjectsAtStart: 1
   sfxPlayer: {fileID: 1799090109}
-  separateKeyboardControllerAnimations: 0
+  separateKeyboardControllerAnimations: 1
   standardAnimation: []
   keyboardAnimation: []
   controllerAnimation: []
@@ -2263,12 +2843,106 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animatedObjects: []
+  animatedObjects:
+  - {fileID: 7982650617907698445}
+  - {fileID: 7982650616075410095}
+  - {fileID: 7982650616774079001}
+  - {fileID: 7982650617945078245}
   hideAllObjectsAtStart: 1
   sfxPlayer: {fileID: 1799090109}
-  separateKeyboardControllerAnimations: 0
+  separateKeyboardControllerAnimations: 1
   standardAnimation: []
-  keyboardAnimation: []
+  keyboardAnimation:
+  - tweenedObject: {fileID: 7982650617907698445}
+    rectTransform: {fileID: 0}
+    chosenEvent: 21
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 2, y: 2, z: 2}
+    scaleAndMoveTime: 3
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 2, y: 2, z: 2}
+    basicGrowWait: 3
+  - tweenedObject: {fileID: 7982650616075410095}
+    rectTransform: {fileID: 0}
+    chosenEvent: 3
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 2, y: 2, z: 2}
+    scaleAndMoveTime: 3
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 1
+    toStartTime: 0
+    flashTimes: 3
+    flashDelay: 0.5
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650616075410095}
+    rectTransform: {fileID: 0}
+    chosenEvent: 5
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 2, y: 2, z: 2}
+    scaleAndMoveTime: 3
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 3
+    flashDelay: 0.5
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
   controllerAnimation: []
   objectsHidden: 0
 --- !u!1 &7642391999511892057
@@ -2317,7 +2991,7 @@ MonoBehaviour:
   animatedObjects: []
   hideAllObjectsAtStart: 1
   sfxPlayer: {fileID: 1799090109}
-  separateKeyboardControllerAnimations: 0
+  separateKeyboardControllerAnimations: 1
   standardAnimation: []
   keyboardAnimation: []
   controllerAnimation: []
@@ -2374,7 +3048,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650616075410095}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -2449,7 +3123,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650616077884363}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -2619,7 +3293,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650616126453610}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -2694,7 +3368,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650616132151460}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -2770,7 +3444,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650616142340464}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -2901,7 +3575,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650616162316944}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -3071,7 +3745,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650616247066667}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -3241,7 +3915,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650616321887783}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -3448,7 +4122,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650616343111007}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -3524,7 +4198,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650616385025525}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -3713,7 +4387,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650616426672652}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -3961,7 +4635,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650616498887986}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -4077,7 +4751,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650616529868976}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -4153,7 +4827,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650616549487512}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -4247,7 +4921,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650616551363306}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -4323,7 +4997,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650616575389359}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -4417,7 +5091,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650616642587690}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -4591,7 +5265,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650616759646985}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -4666,7 +5340,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650616767957064}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -4820,7 +5494,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650616817630743}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -5045,7 +5719,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650616902458743}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -5120,7 +5794,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650616922495656}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -5195,7 +5869,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650616976593282}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -5270,7 +5944,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650617054229559}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -5383,7 +6057,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650617065824100}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -5458,7 +6132,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650617071535041}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -5533,7 +6207,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650617135524444}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -5608,7 +6282,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650617160501113}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -5684,7 +6358,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650617180905572}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -5826,7 +6500,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650617212833575}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -6015,7 +6689,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650617287644323}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -6109,7 +6783,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650617301509202}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -6185,7 +6859,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650617367514337}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -6355,7 +7029,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650617385866961}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -6449,7 +7123,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650617407039654}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -6599,7 +7273,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650617464984431}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -6674,7 +7348,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650617490587594}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -6750,7 +7424,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650617493286376}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -6845,7 +7519,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650617555851555}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -6945,7 +7619,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650617674831870}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -7020,7 +7694,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650617698123079}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -7259,7 +7933,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650617751051591}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -7338,7 +8012,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650617789547478}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -7414,7 +8088,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650617821656009}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -7508,7 +8182,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650617843489814}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -7659,7 +8333,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650617865052096}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -7798,7 +8472,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650617907698445}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -7873,7 +8547,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650617945078245}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -7986,7 +8660,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650618040287264}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -8061,7 +8735,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650618115618878}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -8211,7 +8885,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650618146454361}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -8286,7 +8960,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650618147299965}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -8362,7 +9036,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650618179535701}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -8456,7 +9130,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650618194304090}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -8522,10 +9196,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animatedObjects: []
+  animatedObjects:
+  - {fileID: 7982650618146454361}
+  - {fileID: 7982650618179535701}
+  - {fileID: 7982650616575389359}
+  - {fileID: 6882534460191842176}
+  - {fileID: 6198284333943924998}
+  - {fileID: 7982650617490587594}
   hideAllObjectsAtStart: 1
   sfxPlayer: {fileID: 1799090109}
-  separateKeyboardControllerAnimations: 0
+  separateKeyboardControllerAnimations: 1
   standardAnimation: []
   keyboardAnimation: []
   controllerAnimation: []

@@ -1745,7 +1745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4699087773536787261, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
       propertyPath: showTutorialAnimation
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4699087773536787261, guid: c72f0a9868fc6f647ab7eb6c28afda40, type: 3}
       propertyPath: AbilityOrItem_To_Activate

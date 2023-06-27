@@ -29,7 +29,8 @@ namespace Etra.NonGamerTutorialCreator
             Rotate,
             MoveToGameObject,
             RotateToGameObject,
-            RunEtraAnimationActivatedScript
+            RunEtraAnimationActivatedScript,
+            BasicUiGrowAndToStartWithUnlock
         }
 
         public AnimationEvents chosenEvent;
@@ -54,11 +55,11 @@ namespace Etra.NonGamerTutorialCreator
         public float toStartTime;
 
         //Flash
-        public float flashTimes;
-        public float flashDelay;
+        public float flashTimes = 3;
+        public float flashDelay = 0.5f;
 
         //FadeIn
-        public float fadeInOpacity = 255;
+        public float fadeInOpacity = 1;
         public float fadeInTime;
 
         //FadeOut
@@ -83,6 +84,14 @@ namespace Etra.NonGamerTutorialCreator
         //EtraAnimationActivatedScript
         public EtraAnimationActivatedScript etraAnimationActivatedScript;
         public string passedString;
+
+        //BasicUiGrowAndToStart
+        public Vector3 basicGrowPos = Vector3.zero;
+        public Vector3 basicGrowScale = new Vector3(2, 2, 2);
+        public float basicGrowWait = 3f;
+
+
+
     }
 }
 

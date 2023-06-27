@@ -2692,7 +2692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: deb1ad12b65bdf54f9d8e1891afa774f, type: 2}
+  sharedProfile: {fileID: 11400000, guid: ca3a951864d3c4c46a1dd80e10234e52, type: 2}
   isGlobal: 1
   blendDistance: 0
   weight: 1
@@ -46944,7 +46944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 6f8f8ac37a1b2b94fad176c62a642a79, type: 2}
+  sharedProfile: {fileID: 11400000, guid: ab61e94574b933a4f9350a6a4770bb68, type: 2}
   isGlobal: 0
   blendDistance: 0.3
   weight: 1

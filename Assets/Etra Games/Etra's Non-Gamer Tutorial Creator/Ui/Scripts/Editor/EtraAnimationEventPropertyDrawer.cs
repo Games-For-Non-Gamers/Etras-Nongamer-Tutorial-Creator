@@ -132,6 +132,15 @@ namespace Etra.NonGamerTutorialCreator
                     EditorGUI.PropertyField(new Rect(pos.x, pos.y + 70, pos.width, 20), passedString);
                     break;
 
+                case EtraAnimationEvent.AnimationEvents.BasicUiGrowAndToStartWithUnlock:
+                    SerializedProperty basicGrowPos = prop.FindPropertyRelative("basicGrowPos");
+                    EditorGUI.PropertyField(new Rect(pos.x, pos.y + 50, pos.width, 20), basicGrowPos);
+                    SerializedProperty basicGrowScale = prop.FindPropertyRelative("basicGrowScale");
+                    EditorGUI.PropertyField(new Rect(pos.x, pos.y + 70, pos.width, 20), basicGrowScale);
+                    SerializedProperty basicGrowWait = prop.FindPropertyRelative("basicGrowWait");
+                    EditorGUI.PropertyField(new Rect(pos.x, pos.y + 90, pos.width, 20), basicGrowWait);
+                    break;
+
                 default:
                     break;
             }
