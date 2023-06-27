@@ -30,7 +30,9 @@ namespace Etra.NonGamerTutorialCreator
             MoveToGameObject,
             RotateToGameObject,
             RunEtraAnimationActivatedScript,
-            BasicUiGrowAndToStartWithUnlock
+            BasicUiGrowAndToStartWithMidUnlock,
+            BasicUiGrowAndToStartWithInstantUnlock,
+            BasicUiGrowAndToStartWithNoUnlock
         }
 
         public AnimationEvents chosenEvent;

@@ -38,9 +38,7 @@ namespace Etra.NonGamerTutorialCreator{
         }
 
 
-        [Header("Current UI")]
-        public ActiveUi activeUi;
-        public bool allowAutoSwitchToKeyboard = true;
+
 
         [Header("General References")]
         public GameObject keyboardUi;
@@ -73,12 +71,8 @@ namespace Etra.NonGamerTutorialCreator{
 
         public ControllerUIImages[] controllerImages;
 
-        private void OnValidate()
-        {
-            switchFromActiveUi();
-        }
 
-        void switchFromActiveUi()
+        public void switchFromActiveUi(ActiveUi activeUi)
         {
             UiTypes translatedNum = (UiTypes)(int)activeUi - 1;
             if ((int)translatedNum != -1)
@@ -152,139 +146,6 @@ namespace Etra.NonGamerTutorialCreator{
 
         }
 
-
-        private bool isUsingKeyboard = false;
-        private bool isUsingGamepad = false;
-        private string currentDeviceName = "";
-        private string previousDevice = "";
-        private string previousGamepad = "";
-
-        private void OnEnable()
-        {
-            // Subscribe to input events
-            Keyboard.current.onTextInput += OnTextInput;
-        }
-
-        private void OnDisable()
-        {
-            // Unsubscribe from input events
-            Keyboard.current.onTextInput -= OnTextInput;
-        }
-
-        private void Update()
-        {
-            // Update for auto and controller swap
-            if (Keyboard.current != null && (Keyboard.current.anyKey.isPressed || Mouse.current.delta.ReadValue().magnitude > 0 || Mouse.current.leftButton.isPressed))
-            {
-                if (!isUsingKeyboard)
-                {
-                    isUsingKeyboard = true;
-                    isUsingGamepad = false;
-                    currentDeviceName = "Keyboard";
-                }
-            }
-            else if (Gamepad.current != null && IsAnyGamepadButtonPressed())
-            {
-                if (previousGamepad != Gamepad.current.name)
-                {
-                    previousGamepad = Gamepad.current.name;
-                    currentDeviceName = Gamepad.current.name;
-                }
-
-                if (!isUsingGamepad)
-                {
-                    isUsingGamepad = true;
-                    isUsingKeyboard = false;
-                    currentDeviceName = Gamepad.current.name;
-                }
-            }
-
-
-            if (previousDevice != currentDeviceName)
-            {
-                previousDevice = currentDeviceName;
-                //Run change events
-                if (activeUi == ActiveUi.AutoSwitch)
-                {
-                    if (currentDeviceName == "Keyboard")
-                    {
-                        switchUi(UiTypes.Keyboard);
-                    }
-                    else if (currentDeviceName.Contains("XInput"))
-                    {
-                        switchUi(UiTypes.XboxOne);
-                    }
-                    else if (currentDeviceName.Contains("Ouya"))
-                    {
-                        switchUi(UiTypes.Ouya);
-                    }
-                    else if (currentDeviceName.Contains("DualShock4"))
-                    {
-                        switchUi(UiTypes.Ps4);
-                    }
-                    else if (currentDeviceName.Contains("DualShock5")) //untested
-                    {
-                        switchUi(UiTypes.Ps5);
-                    }
-                    else if (currentDeviceName.Contains("Pro"))
-                    {
-                        switchUi(UiTypes.SwitchPro);
-                    }
-                    else
-                    {
-                        switchUi(UiTypes.XboxOne);
-                    }
-                }
-                else if (allowAutoSwitchToKeyboard)
-                {
-                    if (currentDeviceName == "Keyboard")
-                    {
-                        switchUi(UiTypes.Keyboard);
-                    }
-                    else
-                    {
-                        switchFromActiveUi();
-                    }
-                }
-                else
-                {
-                    switchFromActiveUi();
-                }
-            }
-        }
-
-        private void OnTextInput(char character)
-        {
-            if (!isUsingKeyboard && Keyboard.current.anyKey.isPressed)
-            {
-                // If not using the keyboard UI and a key is pressed, switch to the keyboard UI
-                isUsingKeyboard = true;
-                isUsingGamepad = false;
-                currentDeviceName = "Keyboard";
-            }
-            else if (!isUsingGamepad && Gamepad.current != null)
-            {
-                if (!isUsingKeyboard && IsAnyGamepadButtonPressed())
-                {
-                    // If not using the gamepad UI and any button on the gamepad is pressed, switch to the gamepad UI
-                    isUsingGamepad = true;
-                    isUsingKeyboard = false;
-                    currentDeviceName = Gamepad.current.displayName;
-                }
-            }
-        }
-
-        private bool IsAnyGamepadButtonPressed()
-        {
-            foreach (var button in Gamepad.current.allControls)
-            {
-                if (button is ButtonControl buttonControl && buttonControl.isPressed)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
 
 
 

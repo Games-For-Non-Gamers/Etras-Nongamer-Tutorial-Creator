@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 497471367174812631}
   - component: {fileID: 6634678572134199787}
   - component: {fileID: 8542397125202644760}
+  - component: {fileID: 3278506619923786935}
   - component: {fileID: 497471367174812630}
   m_Layer: 0
   m_Name: NonGamerTutorialManager
@@ -68,6 +69,21 @@ MonoBehaviour:
   startCamAtStartPos: 1
   openingSceneUi: {fileID: 497471367997606540}
   nonGamerTutorialUi: {fileID: 7507304745413127475}
+--- !u!114 &3278506619923786935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497471367174812624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c6fff1fd338ab4596ca7666c16bb25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeUi: 0
+  allowAutoSwitchToKeyboard: 1
+  nonGamerTutorialUi: {fileID: 1670716313167272202}
 --- !u!114 &497471367174812630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1601,6 +1617,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7982650616480194280, guid: f92fbf0cafede1944a1128d04e77b180, type: 3}
   m_PrefabInstance: {fileID: 497471368337486808}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1670716313167272202 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1281498602352929490, guid: f92fbf0cafede1944a1128d04e77b180, type: 3}
+  m_PrefabInstance: {fileID: 497471368337486808}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7507304745413127475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96ad8b792aeafb94382acf6997ca61d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &497471366809066597 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1799090109, guid: f92fbf0cafede1944a1128d04e77b180, type: 3}

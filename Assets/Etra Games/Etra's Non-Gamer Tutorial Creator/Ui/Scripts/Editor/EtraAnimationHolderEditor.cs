@@ -18,7 +18,13 @@ using UnityEngine;
             SerializedProperty sfxPlayer = serializedObject.FindProperty("sfxPlayer");
             EditorGUILayout.PropertyField(sfxPlayer);
 
-            EditorGUI.BeginChangeCheck();
+            SerializedProperty duplicateStartIndex = serializedObject.FindProperty("duplicateStartIndex");
+            EditorGUILayout.PropertyField(duplicateStartIndex);
+
+            SerializedProperty duplicateEndIndex = serializedObject.FindProperty("duplicateEndIndex");
+            EditorGUILayout.PropertyField(duplicateEndIndex);
+
+        EditorGUI.BeginChangeCheck();
             EditorGUILayout.PropertyField(serializedObject.FindProperty("separateKeyboardControllerAnimations"));
             if (EditorGUI.EndChangeCheck())
                 serializedObject.ApplyModifiedProperties();

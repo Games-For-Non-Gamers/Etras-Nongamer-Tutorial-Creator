@@ -3,6 +3,7 @@ using Etra.StarterAssets.Abilities;
 using EtrasStarterAssets;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,6 +25,41 @@ namespace Etra.NonGamerTutorialCreator
         public bool objectsHidden = false;
         List<ObjectStarterTransform> startPositions = new List<ObjectStarterTransform>();
         EtraCharacterMainController etraCharacterMainController;
+
+        [Header("Duplication Ranges")]
+        public int duplicateStartIndex;
+        public int duplicateEndIndex;
+        [ContextMenu("Duplicate range Standard")]
+        void duplicateRangeStandard()
+        {
+            duplicateRange(standardAnimation);
+        }
+        [ContextMenu("Duplicate range Keyboard")]
+        void duplicateRangeKeyboard()
+        {
+            duplicateRange(keyboardAnimation);
+        }
+        [ContextMenu("Duplicate range Controller")]
+        void duplicateRangeController()
+        {
+            duplicateRange(controllerAnimation);
+        }
+
+
+        void duplicateRange(List<EtraAnimationEvent> l)
+        {
+            for (int i = duplicateStartIndex; i < duplicateEndIndex +1; i++)
+            {
+                EtraAnimationEvent elementToDuplicate = l[i];
+                EtraAnimationEvent duplicatedElement = new EtraAnimationEvent();
+                duplicatedElement = elementToDuplicate;
+
+                // Insert the duplicated element at the next index in the list
+                l.Add(duplicatedElement);
+            }
+ 
+        }
+
         private void Reset()
         {
             OnValidate();
@@ -249,15 +285,9 @@ namespace Etra.NonGamerTutorialCreator
                         break;
 
                     case AnimationEvents.Flash:
-                        //Shouldn't need an "isRectTransform", I think...
-                        for (int i = 0; i < animEvent.flashTimes; i++)
-                        {
-                            showOrHideUiObject(animEvent.tweenedObject, true);
-                            yield return new WaitForSeconds(animEvent.flashDelay);
-                            showOrHideUiObject(animEvent.tweenedObject, false);
-                            yield return new WaitForSeconds(animEvent.flashDelay);
-                        }
-                        showOrHideUiObject(animEvent.tweenedObject, true);
+
+                        //(GameObject obj, float flashTimes, float delay)
+                        StartCoroutine(flashCoroutine(animEvent.tweenedObject, animEvent.flashTimes, animEvent.flashDelay));
                         break;
 
                     case AnimationEvents.FadeIn:
@@ -367,29 +397,7 @@ namespace Etra.NonGamerTutorialCreator
                         break;
 
                     case AnimationEvents.UnlockAbilityOrItem:
-
-
-                        if (abilityToActivate == null &&  selectedItem == null)
-                        {
-                            Debug.LogWarning("Please use the non-gamer tutorial pickup to unlock abilities or items.");
-                        }
-                        else
-                        {
-                            if (isAbility)
-                            {
-                                EtraAbilityBaseClass abilityScriptOnCharacter = (EtraAbilityBaseClass)EtraCharacterMainController.Instance.etraAbilityManager.GetComponent(abilityToActivate.script.GetType());
-                                abilityScriptOnCharacter.unlockAbility(abilityToActivate.name);
-                            }
-                            else //is Item
-                            {
-                                //Add the script to the item manager
-                                EtraCharacterMainController.Instance.etraFPSUsableItemManager.gameObject.AddComponent(selectedItem.script.GetType());
-                                //Update the items array
-                                EtraCharacterMainController.Instance.etraFPSUsableItemManager.updateUsableItemsArray();
-                                //Equip the new item
-                                EtraCharacterMainController.Instance.etraFPSUsableItemManager.equipLastItem();
-                            }
-                        }
+                        unlockAbility(abilityToActivate, selectedItem, isAbility);
                         break;
 
                     case AnimationEvents.UnlockPlayer:
@@ -424,63 +432,17 @@ namespace Etra.NonGamerTutorialCreator
                         animEvent.etraAnimationActivatedScript.runScript(animEvent.passedString);
                         break;
 
-                    case AnimationEvents.BasicUiGrowAndToStartWithUnlock:
-
-                        if (animEvent.tweenedObject.GetComponent<Image>().enabled == false)
-                        {
-                            LeanTween.move(animEvent.rectTransform, Vector3.zero, 0).setEaseInOutSine();
-                            LeanTween.scale(animEvent.rectTransform, Vector3.zero, 0).setEaseInOutSine();
-                            showOrHideUiObject(animEvent.tweenedObject, true);
-                        }
-
-                        LeanTween.move(animEvent.rectTransform, animEvent.basicGrowPos, 1).setEaseInOutSine();
-                        LeanTween.scale(animEvent.rectTransform, animEvent.basicGrowScale, 1).setEaseInOutSine();
-                        yield return new WaitForSeconds(animEvent.basicGrowWait);
-
-                        if (abilityToActivate == null && selectedItem == null)
-                        {
-                            Debug.LogWarning("Please use the non-gamer tutorial pickup to unlock abilities or items.");
-                        }
-                        else
-                        {
-                            if (isAbility)
-                            {
-                                EtraAbilityBaseClass abilityScriptOnCharacter = (EtraAbilityBaseClass)EtraCharacterMainController.Instance.etraAbilityManager.GetComponent(abilityToActivate.script.GetType());
-                                abilityScriptOnCharacter.unlockAbility(abilityToActivate.name);
-                            }
-                            else //is Item
-                            {
-                                //Add the script to the item manager
-                                EtraCharacterMainController.Instance.etraFPSUsableItemManager.gameObject.AddComponent(selectedItem.script.GetType());
-                                //Update the items array
-                                EtraCharacterMainController.Instance.etraFPSUsableItemManager.updateUsableItemsArray();
-                                //Equip the new item
-                                EtraCharacterMainController.Instance.etraFPSUsableItemManager.equipLastItem();
-                            }
-                        }
-
-                        //Find the element
-                        ObjectStarterTransform foundObjectTransform1 = new ObjectStarterTransform();
-
-                        foreach (ObjectStarterTransform objTransform in startPositions)
-                        {
-                            if (objTransform.objectName == animEvent.tweenedObject.name)
-                            {
-                                foundObjectTransform1 = objTransform;
-                            }
-                        }
-
-                        if (isRectTransform)
-                        {
-                            LeanTween.move(animEvent.tweenedObject, foundObjectTransform1.startPosition, 1).setEaseInOutSine();
-                            LeanTween.scale(animEvent.tweenedObject, foundObjectTransform1.startScale, 1).setEaseInOutSine();
-                        }
-                        else
-                        {
-                            LeanTween.move(animEvent.tweenedObject, foundObjectTransform1.startPosition, 1).setEaseInOutSine();
-                            LeanTween.scale(animEvent.tweenedObject, foundObjectTransform1.startScale, 1).setEaseInOutSine();
-                        }
+                    case AnimationEvents.BasicUiGrowAndToStartWithMidUnlock:
+                        StartCoroutine(basicUiGrowAndToStartCoroutine(animEvent.tweenedObject, animEvent.basicGrowPos, animEvent.basicGrowScale, animEvent.basicGrowWait, abilityToActivate, selectedItem, isAbility, true));
                         break;
+                    case AnimationEvents.BasicUiGrowAndToStartWithInstantUnlock:
+                        unlockAbility(abilityToActivate, selectedItem, isAbility);
+                        StartCoroutine(basicUiGrowAndToStartCoroutine(animEvent.tweenedObject, animEvent.basicGrowPos, animEvent.basicGrowScale, animEvent.basicGrowWait, abilityToActivate, selectedItem, isAbility, false));
+                        break;
+                    case AnimationEvents.BasicUiGrowAndToStartWithNoUnlock:
+                        StartCoroutine(basicUiGrowAndToStartCoroutine(animEvent.tweenedObject, animEvent.basicGrowPos, animEvent.basicGrowScale, animEvent.basicGrowWait, abilityToActivate, selectedItem, isAbility, false));
+                        break;
+
 
                     default:
                         Debug.Log("Invalid Animation Event");
@@ -490,6 +452,94 @@ namespace Etra.NonGamerTutorialCreator
 
             }
         }
+
+        IEnumerator flashCoroutine(GameObject obj, float flashTimes, float delay)
+        {
+            //Shouldn't need an "isRectTransform", I think...
+            for (int i = 0; i < flashTimes; i++)
+            {
+                showOrHideUiObject(obj, true);
+                yield return new WaitForSeconds(delay);
+                showOrHideUiObject(obj, false);
+                yield return new WaitForSeconds(delay);
+            }
+            showOrHideUiObject(obj, true);
+        }
+
+        IEnumerator basicUiGrowAndToStartCoroutine(GameObject obj, Vector3 basicGrowPos, Vector3 basicGrowScale, float basicGrowWait, AbilityScriptAndNameHolder abilityToActivate, ItemScriptAndNameHolder selectedItem, bool isAbility, bool unlockAbilityBool)
+        {
+            if (basicGrowWait < 2)
+            {
+                Debug.LogError("basicUiGrowAndToStart's wait must be above 2 seconds");
+                yield break;
+            }
+
+            RectTransform rect = obj.GetComponent<RectTransform>();
+            if (obj.GetComponent<Image>().enabled == false)
+            {
+                
+                LeanTween.move(rect, basicGrowPos, 0).setEaseInOutSine();
+                LeanTween.scale(rect, Vector3.zero, 0).setEaseInOutSine();
+                showOrHideUiObject(obj, true);
+            }
+
+            LeanTween.move(rect, basicGrowPos, 1).setEaseInOutSine();
+            LeanTween.scale(rect, basicGrowScale, 1).setEaseInOutSine();
+            yield return new WaitForSeconds(basicGrowWait-2);
+
+            if (unlockAbilityBool)
+            {
+                unlockAbility(abilityToActivate, selectedItem, isAbility);
+            }
+
+            if (sfxPlayer != null)
+            {
+                sfxPlayer.Play("UiElementMove");
+            }
+
+            //Find the element
+            ObjectStarterTransform foundObjectTransform1 = new ObjectStarterTransform();
+
+            foreach (ObjectStarterTransform objTransform in startPositions)
+            {
+                if (objTransform.objectName == obj.name)
+                {
+                    foundObjectTransform1 = objTransform;
+                }
+            }
+
+
+            LeanTween.move(obj, foundObjectTransform1.startPosition, 1).setEaseInOutSine();
+            LeanTween.scale(obj, foundObjectTransform1.startScale, 1).setEaseInOutSine();
+
+
+        }
+
+        void unlockAbility(AbilityScriptAndNameHolder abilityToActivate, ItemScriptAndNameHolder selectedItem, bool isAbility)
+        {
+            if (abilityToActivate == null && selectedItem == null)
+            {
+                Debug.LogWarning("Please use the non-gamer tutorial pickup to unlock abilities or items.");
+            }
+            else
+            {
+                if (isAbility)
+                {
+                    EtraAbilityBaseClass abilityScriptOnCharacter = (EtraAbilityBaseClass)EtraCharacterMainController.Instance.etraAbilityManager.GetComponent(abilityToActivate.script.GetType());
+                    abilityScriptOnCharacter.unlockAbility(abilityToActivate.name);
+                }
+                else //is Item
+                {
+                    //Add the script to the item manager
+                    EtraCharacterMainController.Instance.etraFPSUsableItemManager.gameObject.AddComponent(selectedItem.script.GetType());
+                    //Update the items array
+                    EtraCharacterMainController.Instance.etraFPSUsableItemManager.updateUsableItemsArray();
+                    //Equip the new item
+                    EtraCharacterMainController.Instance.etraFPSUsableItemManager.equipLastItem();
+                }
+            }
+        }
+
 
         private List<int> keyIndexes = new List<int>();
         private List<int> contIndexes = new List<int>();

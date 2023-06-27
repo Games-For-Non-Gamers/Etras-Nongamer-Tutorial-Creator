@@ -22,10 +22,25 @@ public class AnimationTriggerPickup : MonoBehaviour
         {
             hideRenderers();
         }
+        GameObject hostObject ;
 
-        if (GameObject.Find(nameOfObjectWithAnimationHolder).GetComponent<EtraAnimationHolder>() !=null)
+        GameObject tutorialUi = GameObject.Find("NonGamerTutorialManager");
+
+
+        if (tutorialUi.transform.Find("NonGamerTutorialUI/UiRectTransforms/AdditionalEvents/" + nameOfObjectWithAnimationHolder))
         {
-            objectWithEtraAnimationScript = GameObject.Find(nameOfObjectWithAnimationHolder).GetComponent<EtraAnimationHolder>();
+            hostObject = tutorialUi.gameObject.transform.Find("NonGamerTutorialUI/UiRectTransforms/AdditionalEvents/" + nameOfObjectWithAnimationHolder).gameObject;
+
+        }
+        else
+        {
+            Debug.LogWarning(nameOfObjectWithAnimationHolder + " not found");
+            return;
+        }
+
+        if (hostObject.GetComponent<EtraAnimationHolder>() !=null)
+        {
+            objectWithEtraAnimationScript = hostObject.GetComponent<EtraAnimationHolder>();
         }
         else
         {
