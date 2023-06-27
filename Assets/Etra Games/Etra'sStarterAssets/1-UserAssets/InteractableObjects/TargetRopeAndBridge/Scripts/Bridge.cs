@@ -11,7 +11,7 @@ namespace Etra.StarterAssets.Interactables
         public float startRotation = -70;
         public float loweredRotation = 0;
 
-        public float delayBeforeLower = 1;
+        public float delayBeforeLower = 0.5f;
         public float timeToLower = 1;
         private bool bridgeLowered = false;
         EtrasStarterAssets.AudioManager audioManager;

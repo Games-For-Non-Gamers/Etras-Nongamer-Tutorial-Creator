@@ -13,7 +13,7 @@ namespace Etra.StarterAssets.Abilities
     {
         [Header("Basics")]
         [Tooltip("Move speed of the character in m/s")]
-        public float moveSpeed = 2.0f;
+        public float moveSpeed = 3.0f;
         [Tooltip("Acceleration and deceleration")]
         public float SpeedChangeRate = 10.0f;
         public bool rotateTowardMoveDirection = false;

@@ -66,7 +66,7 @@ namespace Etra.NonGamerTutorialCreator
 
         private void Start()
         {
-            character.disableAllActiveAbilitiesAndSubAblities();
+            character.disableAllActiveAbilities();
             savedFov = character.getFov();
             if (skipOpeningScene)
             {
@@ -174,10 +174,11 @@ namespace Etra.NonGamerTutorialCreator
 
         private void PlayerSetup()
         {
-            character.disableAllActiveAbilitiesAndSubAblities();
+            
             character.enableAllActiveAbilities();
             character.setFov(savedFov);
             LeanTween.move(camRoot, character.transform.position + new Vector3(0, 1.375f, 0), 0).setEaseInOutSine();
+
             cursorCanvas.SetActive(true);
             foreach (AbilityOrItemPickup a in pickups)
             {

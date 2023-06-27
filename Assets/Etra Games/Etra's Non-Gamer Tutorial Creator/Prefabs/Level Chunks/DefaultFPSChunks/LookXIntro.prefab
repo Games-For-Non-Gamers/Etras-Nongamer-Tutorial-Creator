@@ -7636,6 +7636,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6146171278605876830}
     - target: {fileID: 6937236507718372379, guid: b335e71c34f55a44fbfb7ec6e32929c2, type: 3}
+      propertyPath: timeToShrinkRope
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937236507718372379, guid: b335e71c34f55a44fbfb7ec6e32929c2, type: 3}
       propertyPath: ropePoints.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -8027,6 +8031,10 @@ PrefabInstance:
       value: -28
       objectReference: {fileID: 0}
     - target: {fileID: 455319389, guid: d6370c51f5bd4a34ab26e39bd64388a8, type: 3}
+      propertyPath: delayBeforeLower
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 455319389, guid: d6370c51f5bd4a34ab26e39bd64388a8, type: 3}
       propertyPath: targets.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -8352,6 +8360,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6146171278605876830}
     - target: {fileID: 6937236507718372379, guid: b335e71c34f55a44fbfb7ec6e32929c2, type: 3}
+      propertyPath: timeToShrinkRope
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937236507718372379, guid: b335e71c34f55a44fbfb7ec6e32929c2, type: 3}
       propertyPath: ropePoints.Array.size
       value: 6
       objectReference: {fileID: 0}
@@ -8564,6 +8576,14 @@ PrefabInstance:
       propertyPath: bridge
       value: 
       objectReference: {fileID: 6146171278605876830}
+    - target: {fileID: 6937236507718372379, guid: b335e71c34f55a44fbfb7ec6e32929c2, type: 3}
+      propertyPath: timeToShrinkRope
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937236507718372379, guid: b335e71c34f55a44fbfb7ec6e32929c2, type: 3}
+      propertyPath: moveToLocationsTime
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6937236507718372379, guid: b335e71c34f55a44fbfb7ec6e32929c2, type: 3}
       propertyPath: ropePoints.Array.size
       value: 4

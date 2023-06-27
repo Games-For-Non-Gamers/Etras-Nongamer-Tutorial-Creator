@@ -96,7 +96,7 @@ namespace Etra.NonGamerTutorialCreator
         }
 
         //If the player collides with the pickup...
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerStay(Collider other) //in case the player spawns in the collider
         {
             if (other.gameObject.tag == "Player")
             {

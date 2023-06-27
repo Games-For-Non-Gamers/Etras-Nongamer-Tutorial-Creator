@@ -423,7 +423,127 @@ MonoBehaviour:
   sfxPlayer: {fileID: 1799090109}
   separateKeyboardControllerAnimations: 1
   standardAnimation: []
-  keyboardAnimation: []
+  keyboardAnimation:
+  - tweenedObject: {fileID: 7982650616529868976}
+    rectTransform: {fileID: 0}
+    chosenEvent: 5
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 3
+    flashDelay: 0.5
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: -50, y: -50, z: 0}
+    basicGrowScale: {x: 1.5, y: 1.5, z: 0}
+    basicGrowWait: 3
+  - tweenedObject: {fileID: 7982650617212833575}
+    rectTransform: {fileID: 0}
+    chosenEvent: 5
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 3
+    flashDelay: 0.5
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: -50, y: -50, z: 0}
+    basicGrowScale: {x: 1.5, y: 1.5, z: 0}
+    basicGrowWait: 3
+  - tweenedObject: {fileID: 7982650617789547478}
+    rectTransform: {fileID: 0}
+    chosenEvent: 21
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: -50, y: -50, z: 0}
+    basicGrowScale: {x: 1.5, y: 1.5, z: 0}
+    basicGrowWait: 3
+  - tweenedObject: {fileID: 7982650617821656009}
+    rectTransform: {fileID: 0}
+    chosenEvent: 6
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: -50, y: -50, z: 0}
+    basicGrowScale: {x: 1.5, y: 1.5, z: 0}
+    basicGrowWait: 3
   controllerAnimation: []
   objectsHidden: 0
 --- !u!1 &1431290976386266276
@@ -483,7 +603,67 @@ MonoBehaviour:
   sfxPlayer: {fileID: 1799090109}
   separateKeyboardControllerAnimations: 1
   standardAnimation: []
-  keyboardAnimation: []
+  keyboardAnimation:
+  - tweenedObject: {fileID: 7982650616642587690}
+    rectTransform: {fileID: 0}
+    chosenEvent: 21
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 2, y: 2, z: 2}
+    basicGrowWait: 3
+  - tweenedObject: {fileID: 7982650617287644323}
+    rectTransform: {fileID: 0}
+    chosenEvent: 6
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 2, y: 2, z: 2}
+    basicGrowWait: 3
   controllerAnimation: []
   objectsHidden: 0
 --- !u!1 &1433586438314815683
@@ -617,7 +797,157 @@ MonoBehaviour:
   sfxPlayer: {fileID: 1799090109}
   separateKeyboardControllerAnimations: 1
   standardAnimation: []
-  keyboardAnimation: []
+  keyboardAnimation:
+  - tweenedObject: {fileID: 7982650616817630743}
+    rectTransform: {fileID: 0}
+    chosenEvent: 5
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 3
+    flashDelay: 0.5
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: -50, y: -50, z: 0}
+    basicGrowScale: {x: 1.5, y: 1.5, z: 0}
+    basicGrowWait: 3
+  - tweenedObject: {fileID: 7982650616321887783}
+    rectTransform: {fileID: 0}
+    chosenEvent: 5
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 3
+    flashDelay: 0.5
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: -50, y: -50, z: 0}
+    basicGrowScale: {x: 1.5, y: 1.5, z: 0}
+    basicGrowWait: 3
+  - tweenedObject: {fileID: 7982650617789547478}
+    rectTransform: {fileID: 0}
+    chosenEvent: 21
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: -50, y: -50, z: 0}
+    basicGrowScale: {x: 1.5, y: 1.5, z: 0}
+    basicGrowWait: 3
+  - tweenedObject: {fileID: 7982650617789547478}
+    rectTransform: {fileID: 0}
+    chosenEvent: 3
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 1
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: -50, y: -50, z: 0}
+    basicGrowScale: {x: 1.5, y: 1.5, z: 0}
+    basicGrowWait: 3
+  - tweenedObject: {fileID: 7982650617821656009}
+    rectTransform: {fileID: 0}
+    chosenEvent: 8
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 1
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: -50, y: -50, z: 0}
+    basicGrowScale: {x: 1.5, y: 1.5, z: 0}
+    basicGrowWait: 3
   controllerAnimation: []
   objectsHidden: 0
 --- !u!1 &1973847569400339571
@@ -1548,7 +1878,97 @@ MonoBehaviour:
   sfxPlayer: {fileID: 1799090109}
   separateKeyboardControllerAnimations: 1
   standardAnimation: []
-  keyboardAnimation: []
+  keyboardAnimation:
+  - tweenedObject: {fileID: 7982650618115618878}
+    rectTransform: {fileID: 0}
+    chosenEvent: 21
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 2, y: 2, z: 2}
+    basicGrowWait: 3
+  - tweenedObject: {fileID: 7982650617865052096}
+    rectTransform: {fileID: 0}
+    chosenEvent: 6
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 2, y: 2, z: 2}
+    basicGrowWait: 3
+  - tweenedObject: {fileID: 7982650616385025525}
+    rectTransform: {fileID: 0}
+    chosenEvent: 6
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 2, y: 2, z: 2}
+    basicGrowWait: 3
   controllerAnimation: []
   objectsHidden: 0
 --- !u!1 &5387914669303897851
@@ -1759,7 +2179,7 @@ MonoBehaviour:
   keyboardAnimation:
   - tweenedObject: {fileID: 7982650617789547478}
     rectTransform: {fileID: 0}
-    chosenEvent: 0
+    chosenEvent: 21
     scaleAndMovePosition: {x: 0, y: 0, z: 0}
     scaleAndMoveScale: {x: 2, y: 2, z: 2}
     scaleAndMoveTime: 3
@@ -1784,9 +2204,9 @@ MonoBehaviour:
     rotToObjectTime: 0
     etraAnimationActivatedScript: {fileID: 0}
     passedString: 
-    basicGrowPos: {x: 0, y: 0, z: 0}
-    basicGrowScale: {x: 0, y: 0, z: 0}
-    basicGrowWait: 0
+    basicGrowPos: {x: -50, y: -50, z: 0}
+    basicGrowScale: {x: 1.5, y: 1.5, z: 1.5}
+    basicGrowWait: 3
   - tweenedObject: {fileID: 7982650616142340464}
     rectTransform: {fileID: 0}
     chosenEvent: 6
@@ -1947,7 +2367,7 @@ MonoBehaviour:
     moveTime: 0
     scaleScale: {x: 0, y: 0, z: 0}
     scaleTime: 0
-    secondsToWait: 3
+    secondsToWait: 2
     toStartTime: 0
     flashTimes: 3
     flashDelay: 0.5
@@ -9207,7 +9627,97 @@ MonoBehaviour:
   sfxPlayer: {fileID: 1799090109}
   separateKeyboardControllerAnimations: 1
   standardAnimation: []
-  keyboardAnimation: []
+  keyboardAnimation:
+  - tweenedObject: {fileID: 7982650618146454361}
+    rectTransform: {fileID: 0}
+    chosenEvent: 21
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 2, y: 2, z: 2}
+    basicGrowWait: 3
+  - tweenedObject: {fileID: 7982650618179535701}
+    rectTransform: {fileID: 0}
+    chosenEvent: 6
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 2, y: 2, z: 2}
+    basicGrowWait: 3
+  - tweenedObject: {fileID: 7982650616575389359}
+    rectTransform: {fileID: 0}
+    chosenEvent: 6
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 2, y: 2, z: 2}
+    basicGrowWait: 3
   controllerAnimation: []
   objectsHidden: 0
 --- !u!1 &8156415713121706219

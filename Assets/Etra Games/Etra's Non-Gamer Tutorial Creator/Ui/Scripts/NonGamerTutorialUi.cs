@@ -174,7 +174,7 @@ namespace Etra.NonGamerTutorialCreator{
         private void Update()
         {
             // Update for auto and controller swap
-            if (Keyboard.current != null && Keyboard.current.anyKey.isPressed)
+            if (Keyboard.current != null && (Keyboard.current.anyKey.isPressed || Mouse.current.delta.ReadValue().magnitude > 0 || Mouse.current.leftButton.isPressed))
             {
                 if (!isUsingKeyboard)
                 {
