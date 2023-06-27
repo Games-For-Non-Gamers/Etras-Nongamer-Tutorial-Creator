@@ -262,26 +262,23 @@ namespace Etra.NonGamerTutorialCreator
                     case AnimationEvents.ToStartTransform:
 
                         //Find the element
-                        ObjectStarterTransform foundObjectTransform = new ObjectStarterTransform();
+
+                        ObjectStarterTransform foundObjectTransform1 = new ObjectStarterTransform();
 
                         foreach (ObjectStarterTransform objTransform in startPositions)
                         {
                             if (objTransform.objectName == animEvent.tweenedObject.name)
                             {
-                                foundObjectTransform = objTransform;
+                                foundObjectTransform1 = objTransform;
                             }
                         }
 
-                        if (isRectTransform)
-                        {
-                            LeanTween.move(animEvent.tweenedObject, foundObjectTransform.startPosition, animEvent.toStartTime).setEaseInOutSine();
-                            LeanTween.scale(animEvent.tweenedObject, foundObjectTransform.startScale, animEvent.toStartTime).setEaseInOutSine();
-                        }
-                        else
-                        {
-                            LeanTween.move(animEvent.tweenedObject, foundObjectTransform.startPosition, animEvent.toStartTime).setEaseInOutSine();
-                            LeanTween.scale(animEvent.tweenedObject, foundObjectTransform.startScale, animEvent.toStartTime).setEaseInOutSine();
-                        }
+
+                        LeanTween.move(animEvent.tweenedObject, foundObjectTransform1.startPosition, 1).setEaseInOutSine();
+                        LeanTween.scale(animEvent.tweenedObject, foundObjectTransform1.startScale, 1).setEaseInOutSine();
+
+
+
                         break;
 
                     case AnimationEvents.Flash:
