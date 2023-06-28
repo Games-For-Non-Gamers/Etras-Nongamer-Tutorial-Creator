@@ -1,5 +1,323 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &250887542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 250887543}
+  - component: {fileID: 250887547}
+  - component: {fileID: 250887546}
+  m_Layer: 5
+  m_Name: CreditsKeyboard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &250887543
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250887542}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children:
+  - {fileID: 655318616}
+  - {fileID: 1742898708}
+  m_Father: {fileID: 7982650617207755539}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 749.99994, y: -399.99997}
+  m_SizeDelta: {x: 150, y: 60}
+  m_Pivot: {x: 1, y: 0}
+--- !u!222 &250887547
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250887542}
+  m_CullTransparentMesh: 1
+--- !u!114 &250887546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250887542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.72156864}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &469996148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 469996149}
+  - component: {fileID: 469996151}
+  - component: {fileID: 469996150}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &469996149
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469996148}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1100948216}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -48.2, y: 0}
+  m_SizeDelta: {x: 58.267, y: 58.267}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &469996151
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469996148}
+  m_CullTransparentMesh: 1
+--- !u!114 &469996150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469996148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 956be9668f5c56241b03955ea9523f3d, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &655318615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 655318616}
+  - component: {fileID: 655318618}
+  - component: {fileID: 655318617}
+  m_Layer: 5
+  m_Name: Image (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &655318616
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655318615}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 250887543}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 44.6, y: 0.86650085}
+  m_SizeDelta: {x: 58.267, y: 58.267}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &655318618
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655318615}
+  m_CullTransparentMesh: 1
+--- !u!114 &655318617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655318615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 5f4582e15fd93694a8bfeae8bae2a743, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1100948215
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1100948216}
+  - component: {fileID: 1100948221}
+  - component: {fileID: 1100948220}
+  - component: {fileID: 1100948218}
+  m_Layer: 5
+  m_Name: BackKeyboard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1100948216
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100948215}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children:
+  - {fileID: 469996149}
+  - {fileID: 1631735799}
+  m_Father: {fileID: 7982650617207755539}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -749.99994, y: -399.99997}
+  m_SizeDelta: {x: 150, y: 60}
+  m_Pivot: {x: 0, y: 0}
+--- !u!222 &1100948221
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100948215}
+  m_CullTransparentMesh: 1
+--- !u!114 &1100948220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100948215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.72156864}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1100948218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100948215}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
 --- !u!1 &1585780461
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,6 +329,7 @@ GameObject:
   - component: {fileID: 1585780462}
   - component: {fileID: 1585780464}
   - component: {fileID: 1585780463}
+  - component: {fileID: 620498833}
   m_Layer: 5
   m_Name: MouseImpactLinesRight
   m_TagString: Untagged
@@ -52,7 +371,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1585780461}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -65,7 +384,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 677caf9afe2ac6a468fedf7503b7d56b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f8f48ead65f46304f880353f3a26da7c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -75,6 +394,289 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &620498833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585780461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
+--- !u!1 &1631735798
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1631735799}
+  - component: {fileID: 1631735801}
+  - component: {fileID: 1631735800}
+  m_Layer: 5
+  m_Name: Text (TMP) (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1631735799
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631735798}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.2102872, y: 1.2102872, z: 1.2102872}
+  m_Children: []
+  m_Father: {fileID: 1100948216}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 25.9, y: 2.0603}
+  m_SizeDelta: {x: 73.974, y: 39.1985}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1631735801
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631735798}
+  m_CullTransparentMesh: 1
+--- !u!114 &1631735800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631735798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Back To Menu
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 21d5b7af12250d44e9b725d200fa4c4d, type: 2}
+  m_sharedMaterial: {fileID: 7162862059672822945, guid: 21d5b7af12250d44e9b725d200fa4c4d, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 15
+  m_fontSizeBase: 15
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &1742898707
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1742898708}
+  - component: {fileID: 1742898710}
+  - component: {fileID: 1742898709}
+  m_Layer: 5
+  m_Name: Text (TMP) (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1742898708
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742898707}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.2102872, y: 1.2102872, z: 1.2102872}
+  m_Children: []
+  m_Father: {fileID: 250887543}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -28.7, y: 0}
+  m_SizeDelta: {x: 73.974, y: 39.1985}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1742898710
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742898707}
+  m_CullTransparentMesh: 1
+--- !u!114 &1742898709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742898707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Credits and Info
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 21d5b7af12250d44e9b725d200fa4c4d, type: 2}
+  m_sharedMaterial: {fileID: 7162862059672822945, guid: 21d5b7af12250d44e9b725d200fa4c4d, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 15
+  m_fontSizeBase: 15
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1832917002
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,6 +688,7 @@ GameObject:
   - component: {fileID: 1832917003}
   - component: {fileID: 1832917005}
   - component: {fileID: 1832917004}
+  - component: {fileID: 389611896}
   m_Layer: 5
   m_Name: MouseImpactLinesLeft
   m_TagString: Untagged
@@ -127,7 +730,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1832917002}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -140,7 +743,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7058c3d50897b5049829fae2ac83e771, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d671638bc4004a347b9048ee24961247, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -150,6 +753,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &389611896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832917002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: -2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &22608131473539855
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,7 +861,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119584167026761267}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -271,7 +889,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'To turn further, Pick Up
 
-    and Re-center the mouse.'
+    and Re-Center the mouse.'
 --- !u!114 &2054756738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1923,7 +2541,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3208301938626982580}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1957,7 +2575,7 @@ GameObject:
   - component: {fileID: 6346290670355695494}
   - component: {fileID: 6745535291246392304}
   - component: {fileID: 3224531911935817343}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: MouseRecenterEvent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2008,6 +2626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animatedObjects:
+  - {fileID: 7982650617789547478}
   - {fileID: 3208301938626982580}
   - {fileID: 119584167026761267}
   - {fileID: 1832917002}
@@ -2020,7 +2639,7 @@ MonoBehaviour:
   - tweenedObject: {fileID: 7982650617789547478}
     rectTransform: {fileID: 0}
     chosenEvent: 0
-    scaleAndMovePosition: {x: -50, y: -50, z: 0}
+    scaleAndMovePosition: {x: -50, y: 0, z: 0}
     scaleAndMoveScale: {x: 1, y: 1, z: 1}
     scaleAndMoveTime: 1
     movePosition: {x: 0, y: 0, z: 0}
@@ -2109,12 +2728,12 @@ MonoBehaviour:
     basicGrowWait: 0
   - tweenedObject: {fileID: 3208301938626982580}
     rectTransform: {fileID: 0}
-    chosenEvent: 0
+    chosenEvent: 1
     scaleAndMovePosition: {x: -50, y: -50, z: 0}
     scaleAndMoveScale: {x: 1, y: 1, z: 1}
     scaleAndMoveTime: 0
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
+    movePosition: {x: -50, y: -50, z: 0}
+    moveTime: 1
     scaleScale: {x: 0, y: 0, z: 0}
     scaleTime: 0
     secondsToWait: 2
@@ -2169,12 +2788,12 @@ MonoBehaviour:
     basicGrowWait: 0
   - tweenedObject: {fileID: 3208301938626982580}
     rectTransform: {fileID: 0}
-    chosenEvent: 0
+    chosenEvent: 1
     scaleAndMovePosition: {x: -350, y: -50, z: 0}
     scaleAndMoveScale: {x: 1, y: 1, z: 1}
     scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
+    movePosition: {x: -350, y: -50, z: 0}
+    moveTime: 1
     scaleScale: {x: 0, y: 0, z: 0}
     scaleTime: 0
     secondsToWait: 2
@@ -2199,12 +2818,12 @@ MonoBehaviour:
     basicGrowWait: 0
   - tweenedObject: {fileID: 7982650617789547478}
     rectTransform: {fileID: 0}
-    chosenEvent: 0
-    scaleAndMovePosition: {x: -350, y: -50, z: 0}
+    chosenEvent: 1
+    scaleAndMovePosition: {x: -350, y: 0, z: 0}
     scaleAndMoveScale: {x: 1, y: 1, z: 1}
     scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
+    movePosition: {x: -350, y: 0, z: 0}
+    moveTime: 1
     scaleScale: {x: 0, y: 0, z: 0}
     scaleTime: 0
     secondsToWait: 2
@@ -2259,12 +2878,12 @@ MonoBehaviour:
     basicGrowWait: 0
   - tweenedObject: {fileID: 7982650617789547478}
     rectTransform: {fileID: 0}
-    chosenEvent: 0
-    scaleAndMovePosition: {x: -350, y: 50, z: 0}
+    chosenEvent: 1
+    scaleAndMovePosition: {x: -350, y: 100, z: 0}
     scaleAndMoveScale: {x: 1, y: 1, z: 1}
     scaleAndMoveTime: 0.5
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
+    movePosition: {x: -350, y: 100, z: 0}
+    moveTime: 0.5
     scaleScale: {x: 0, y: 0, z: 0}
     scaleTime: 0
     secondsToWait: 2
@@ -2319,12 +2938,12 @@ MonoBehaviour:
     basicGrowWait: 0
   - tweenedObject: {fileID: 7982650617789547478}
     rectTransform: {fileID: 0}
-    chosenEvent: 0
-    scaleAndMovePosition: {x: -50, y: 50, z: 0}
+    chosenEvent: 1
+    scaleAndMovePosition: {x: -50, y: 100, z: 0}
     scaleAndMoveScale: {x: 1, y: 1, z: 1}
     scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
+    movePosition: {x: -50, y: 100, z: 0}
+    moveTime: 1
     scaleScale: {x: 0, y: 0, z: 0}
     scaleTime: 0
     secondsToWait: 0.5
@@ -2349,12 +2968,12 @@ MonoBehaviour:
     basicGrowWait: 0
   - tweenedObject: {fileID: 3208301938626982580}
     rectTransform: {fileID: 0}
-    chosenEvent: 0
+    chosenEvent: 1
     scaleAndMovePosition: {x: -50, y: -50, z: 0}
     scaleAndMoveScale: {x: 1, y: 1, z: 1}
     scaleAndMoveTime: 1
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
+    movePosition: {x: -50, y: -50, z: 0}
+    moveTime: 1
     scaleScale: {x: 0, y: 0, z: 0}
     scaleTime: 0
     secondsToWait: 0.5
@@ -2409,12 +3028,12 @@ MonoBehaviour:
     basicGrowWait: 0
   - tweenedObject: {fileID: 7982650617789547478}
     rectTransform: {fileID: 0}
-    chosenEvent: 0
-    scaleAndMovePosition: {x: -50, y: -50, z: 0}
+    chosenEvent: 1
+    scaleAndMovePosition: {x: -50, y: 0, z: 0}
     scaleAndMoveScale: {x: 1, y: 1, z: 1}
     scaleAndMoveTime: 0.2
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
+    movePosition: {x: -50, y: 0, z: 0}
+    moveTime: 0.2
     scaleScale: {x: 0, y: 0, z: 0}
     scaleTime: 0
     secondsToWait: 1
@@ -2469,12 +3088,72 @@ MonoBehaviour:
     basicGrowWait: 0
   - tweenedObject: {fileID: 1832917002}
     rectTransform: {fileID: 0}
-    chosenEvent: 0
+    chosenEvent: 6
+    scaleAndMovePosition: {x: 120, y: 0, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 0.2
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.2
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 0
+    fadeOutTime: 0.8
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 1585780461}
+    rectTransform: {fileID: 0}
+    chosenEvent: 6
+    scaleAndMovePosition: {x: 120, y: 0, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 0.2
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.2
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 0
+    fadeOutTime: 0.8
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 1832917002}
+    rectTransform: {fileID: 0}
+    chosenEvent: 1
     scaleAndMovePosition: {x: -120, y: 0, z: 0}
-    scaleAndMoveScale: {x: 1, y: 1, z: 1}
-    scaleAndMoveTime: 0.2
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
+    scaleAndMoveScale: {x: 2, y: 2, z: 2}
+    scaleAndMoveTime: 0.5
+    movePosition: {x: -120, y: 0, z: 0}
+    moveTime: 0.5
     scaleScale: {x: 0, y: 0, z: 0}
     scaleTime: 0
     secondsToWait: 0.2
@@ -2499,12 +3178,12 @@ MonoBehaviour:
     basicGrowWait: 0
   - tweenedObject: {fileID: 1585780461}
     rectTransform: {fileID: 0}
-    chosenEvent: 0
+    chosenEvent: 1
     scaleAndMovePosition: {x: 120, y: 0, z: 0}
-    scaleAndMoveScale: {x: 1, y: 1, z: 1}
-    scaleAndMoveTime: 0.2
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
+    scaleAndMoveScale: {x: 2, y: 2, z: 2}
+    scaleAndMoveTime: 0.5
+    movePosition: {x: 120, y: 0, z: 0}
+    moveTime: 0.5
     scaleScale: {x: 0, y: 0, z: 0}
     scaleTime: 0
     secondsToWait: 0.2
@@ -2514,36 +3193,6 @@ MonoBehaviour:
     fadeInOpacity: 1
     fadeInTime: 1
     fadeOutTime: 0
-    sfxName: 
-    rotation: {x: 0, y: 0, z: 0}
-    rotateTime: 0
-    moveToObjectGameobject: {fileID: 0}
-    moveToObjectTime: 0
-    addedPosition: {x: 0, y: 0, z: 0}
-    rotToObjectGameobject: {fileID: 0}
-    rotToObjectTime: 0
-    etraAnimationActivatedScript: {fileID: 0}
-    passedString: 
-    basicGrowPos: {x: 0, y: 0, z: 0}
-    basicGrowScale: {x: 0, y: 0, z: 0}
-    basicGrowWait: 0
-  - tweenedObject: {fileID: 1585780461}
-    rectTransform: {fileID: 0}
-    chosenEvent: 3
-    scaleAndMovePosition: {x: 120, y: 0, z: 0}
-    scaleAndMoveScale: {x: 1, y: 1, z: 1}
-    scaleAndMoveTime: 0.2
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    secondsToWait: 0.2
-    toStartTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    fadeInOpacity: 1
-    fadeInTime: 1
-    fadeOutTime: 0.8
     sfxName: 
     rotation: {x: 0, y: 0, z: 0}
     rotateTime: 0
@@ -2573,7 +3222,7 @@ MonoBehaviour:
     flashDelay: 0
     fadeInOpacity: 1
     fadeInTime: 1
-    fadeOutTime: 0.8
+    fadeOutTime: 0.5
     sfxName: 
     rotation: {x: 0, y: 0, z: 0}
     rotateTime: 0
@@ -2603,7 +3252,1207 @@ MonoBehaviour:
     flashDelay: 0
     fadeInOpacity: 1
     fadeInTime: 1
+    fadeOutTime: 0.5
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 1585780461}
+    rectTransform: {fileID: 0}
+    chosenEvent: 3
+    scaleAndMovePosition: {x: 120, y: 0, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 0.2
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.5
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0.5
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 3208301938626982580}
+    rectTransform: {fileID: 0}
+    chosenEvent: 1
+    scaleAndMovePosition: {x: -350, y: -50, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 1
+    movePosition: {x: -350, y: -50, z: 0}
+    moveTime: 1
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 2
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650617789547478}
+    rectTransform: {fileID: 0}
+    chosenEvent: 1
+    scaleAndMovePosition: {x: -350, y: 0, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 1
+    movePosition: {x: -350, y: 0, z: 0}
+    moveTime: 1
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 2
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650617789547478}
+    rectTransform: {fileID: 0}
+    chosenEvent: 3
+    scaleAndMovePosition: {x: -350, y: 50, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 0.5
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 1
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650617789547478}
+    rectTransform: {fileID: 0}
+    chosenEvent: 1
+    scaleAndMovePosition: {x: -350, y: 100, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 0.5
+    movePosition: {x: -350, y: 100, z: 0}
+    moveTime: 0.5
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 2
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650617789547478}
+    rectTransform: {fileID: 0}
+    chosenEvent: 3
+    scaleAndMovePosition: {x: -350, y: 50, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 0.5
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.5
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650617789547478}
+    rectTransform: {fileID: 0}
+    chosenEvent: 1
+    scaleAndMovePosition: {x: -50, y: 100, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 1
+    movePosition: {x: -50, y: 100, z: 0}
+    moveTime: 1
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.5
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 3208301938626982580}
+    rectTransform: {fileID: 0}
+    chosenEvent: 1
+    scaleAndMovePosition: {x: -50, y: -50, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 1
+    movePosition: {x: -50, y: -50, z: 0}
+    moveTime: 1
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.5
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 3208301938626982580}
+    rectTransform: {fileID: 0}
+    chosenEvent: 3
+    scaleAndMovePosition: {x: -50, y: -50, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 1
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 1
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650617789547478}
+    rectTransform: {fileID: 0}
+    chosenEvent: 1
+    scaleAndMovePosition: {x: -50, y: 0, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 0.2
+    movePosition: {x: -50, y: 0, z: 0}
+    moveTime: 0.2
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 1
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650617789547478}
+    rectTransform: {fileID: 0}
+    chosenEvent: 3
+    scaleAndMovePosition: {x: -50, y: -50, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 0.2
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.2
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 1832917002}
+    rectTransform: {fileID: 0}
+    chosenEvent: 6
+    scaleAndMovePosition: {x: 120, y: 0, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 0.2
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.2
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 0
     fadeOutTime: 0.8
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 1585780461}
+    rectTransform: {fileID: 0}
+    chosenEvent: 6
+    scaleAndMovePosition: {x: 120, y: 0, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 0.2
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.2
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 0
+    fadeOutTime: 0.8
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 1832917002}
+    rectTransform: {fileID: 0}
+    chosenEvent: 1
+    scaleAndMovePosition: {x: -120, y: 0, z: 0}
+    scaleAndMoveScale: {x: 2, y: 2, z: 2}
+    scaleAndMoveTime: 0.5
+    movePosition: {x: -120, y: 0, z: 0}
+    moveTime: 0.5
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.2
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 1585780461}
+    rectTransform: {fileID: 0}
+    chosenEvent: 1
+    scaleAndMovePosition: {x: 120, y: 0, z: 0}
+    scaleAndMoveScale: {x: 2, y: 2, z: 2}
+    scaleAndMoveTime: 0.5
+    movePosition: {x: 120, y: 0, z: 0}
+    moveTime: 0.5
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.2
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 1832917002}
+    rectTransform: {fileID: 0}
+    chosenEvent: 7
+    scaleAndMovePosition: {x: 120, y: 0, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 0.2
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.2
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0.5
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 1585780461}
+    rectTransform: {fileID: 0}
+    chosenEvent: 7
+    scaleAndMovePosition: {x: 120, y: 0, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 0.2
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.2
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0.5
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 1585780461}
+    rectTransform: {fileID: 0}
+    chosenEvent: 3
+    scaleAndMovePosition: {x: 120, y: 0, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 0.2
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.5
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0.5
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 3208301938626982580}
+    rectTransform: {fileID: 0}
+    chosenEvent: 1
+    scaleAndMovePosition: {x: -350, y: -50, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 1
+    movePosition: {x: -350, y: -50, z: 0}
+    moveTime: 1
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 2
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650617789547478}
+    rectTransform: {fileID: 0}
+    chosenEvent: 1
+    scaleAndMovePosition: {x: -350, y: 0, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 1
+    movePosition: {x: -350, y: 0, z: 0}
+    moveTime: 1
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 2
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650617789547478}
+    rectTransform: {fileID: 0}
+    chosenEvent: 3
+    scaleAndMovePosition: {x: -350, y: 50, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 0.5
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 1
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650617789547478}
+    rectTransform: {fileID: 0}
+    chosenEvent: 1
+    scaleAndMovePosition: {x: -350, y: 100, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 0.5
+    movePosition: {x: -350, y: 100, z: 0}
+    moveTime: 0.5
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 2
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650617789547478}
+    rectTransform: {fileID: 0}
+    chosenEvent: 3
+    scaleAndMovePosition: {x: -350, y: 50, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 0.5
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.5
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650617789547478}
+    rectTransform: {fileID: 0}
+    chosenEvent: 1
+    scaleAndMovePosition: {x: -50, y: 100, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 1
+    movePosition: {x: -50, y: 100, z: 0}
+    moveTime: 1
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.5
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 3208301938626982580}
+    rectTransform: {fileID: 0}
+    chosenEvent: 1
+    scaleAndMovePosition: {x: -50, y: -50, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 1
+    movePosition: {x: -50, y: -50, z: 0}
+    moveTime: 1
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.5
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 3208301938626982580}
+    rectTransform: {fileID: 0}
+    chosenEvent: 3
+    scaleAndMovePosition: {x: -50, y: -50, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 1
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 1
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650617789547478}
+    rectTransform: {fileID: 0}
+    chosenEvent: 1
+    scaleAndMovePosition: {x: -50, y: 0, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 0.2
+    movePosition: {x: -50, y: 0, z: 0}
+    moveTime: 0.2
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 1
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650617789547478}
+    rectTransform: {fileID: 0}
+    chosenEvent: 3
+    scaleAndMovePosition: {x: -50, y: -50, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 0.2
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.2
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 1832917002}
+    rectTransform: {fileID: 0}
+    chosenEvent: 6
+    scaleAndMovePosition: {x: 120, y: 0, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 0.2
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.2
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 0
+    fadeOutTime: 0.8
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 1585780461}
+    rectTransform: {fileID: 0}
+    chosenEvent: 6
+    scaleAndMovePosition: {x: 120, y: 0, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 0.2
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.2
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 0
+    fadeOutTime: 0.8
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 1832917002}
+    rectTransform: {fileID: 0}
+    chosenEvent: 1
+    scaleAndMovePosition: {x: -120, y: 0, z: 0}
+    scaleAndMoveScale: {x: 2, y: 2, z: 2}
+    scaleAndMoveTime: 0.5
+    movePosition: {x: -120, y: 0, z: 0}
+    moveTime: 0.5
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.2
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 1585780461}
+    rectTransform: {fileID: 0}
+    chosenEvent: 1
+    scaleAndMovePosition: {x: 120, y: 0, z: 0}
+    scaleAndMoveScale: {x: 2, y: 2, z: 2}
+    scaleAndMoveTime: 0.5
+    movePosition: {x: 120, y: 0, z: 0}
+    moveTime: 0.5
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.2
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 1832917002}
+    rectTransform: {fileID: 0}
+    chosenEvent: 7
+    scaleAndMovePosition: {x: 120, y: 0, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 0.2
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.2
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0.5
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 1585780461}
+    rectTransform: {fileID: 0}
+    chosenEvent: 7
+    scaleAndMovePosition: {x: 120, y: 0, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 0.2
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.2
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0.5
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 1585780461}
+    rectTransform: {fileID: 0}
+    chosenEvent: 3
+    scaleAndMovePosition: {x: 120, y: 0, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 0.2
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.5
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0.5
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 1832917002}
+    rectTransform: {fileID: 0}
+    chosenEvent: 9
+    scaleAndMovePosition: {x: 120, y: 0, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 0.2
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.5
+    toStartTime: 1
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0.5
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 3208301938626982580}
+    rectTransform: {fileID: 0}
+    chosenEvent: 9
+    scaleAndMovePosition: {x: 120, y: 0, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 0.2
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.5
+    toStartTime: 1
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 1
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 1585780461}
+    rectTransform: {fileID: 0}
+    chosenEvent: 7
+    scaleAndMovePosition: {x: 120, y: 0, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 0.2
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.5
+    toStartTime: 1
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 1
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650617789547478}
+    rectTransform: {fileID: 0}
+    chosenEvent: 4
+    scaleAndMovePosition: {x: 120, y: 0, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 0.2
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.5
+    toStartTime: 1
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0.5
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 0}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 119584167026761267}
+    rectTransform: {fileID: 0}
+    chosenEvent: 7
+    scaleAndMovePosition: {x: 120, y: 0, z: 0}
+    scaleAndMoveScale: {x: 1, y: 1, z: 1}
+    scaleAndMoveTime: 0.2
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0.5
+    toStartTime: 1
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 1
     sfxName: 
     rotation: {x: 0, y: 0, z: 0}
     rotateTime: 0
@@ -2619,8 +4468,8 @@ MonoBehaviour:
     basicGrowWait: 0
   controllerAnimation: []
   objectsHidden: 0
-  duplicateStartIndex: 0
-  duplicateEndIndex: 0
+  duplicateStartIndex: 5
+  duplicateEndIndex: 22
 --- !u!1 &3373624961069037381
 GameObject:
   m_ObjectHideFlags: 0
@@ -3454,6 +5303,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2558301720076048258}
   - component: {fileID: 2243257926873358744}
+  - component: {fileID: 6266064390233967266}
+  - component: {fileID: 2841836360284725877}
   m_Layer: 5
   m_Name: EndChunkEvent
   m_TagString: Untagged
@@ -3494,16 +5345,639 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animatedObjects: []
+  animatedObjects:
+  - {fileID: 7982650616387025940}
+  - {fileID: 7982650616746555893}
+  - {fileID: 1100948215}
+  - {fileID: 469996148}
+  - {fileID: 1631735798}
+  - {fileID: 250887542}
+  - {fileID: 655318615}
+  - {fileID: 1742898707}
   hideAllObjectsAtStart: 1
-  sfxPlayer: {fileID: 0}
-  separateKeyboardControllerAnimations: 0
+  sfxPlayer: {fileID: 2841836360284725877}
+  separateKeyboardControllerAnimations: 1
   standardAnimation: []
-  keyboardAnimation: []
+  keyboardAnimation:
+  - tweenedObject: {fileID: 7982650616387025940}
+    rectTransform: {fileID: 0}
+    chosenEvent: 2
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 6266064390233967266}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650616387025940}
+    rectTransform: {fileID: 0}
+    chosenEvent: 8
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 1, y: 1, z: 1}
+    scaleTime: 1
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 6266064390233967266}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650616387025940}
+    rectTransform: {fileID: 0}
+    chosenEvent: 2
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 1, y: 1, z: 1}
+    scaleTime: 1
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 6266064390233967266}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650616387025940}
+    rectTransform: {fileID: 0}
+    chosenEvent: 13
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: AbilityGet
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 6266064390233967266}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650616387025940}
+    rectTransform: {fileID: 0}
+    chosenEvent: 3
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 2
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 6266064390233967266}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650616746555893}
+    rectTransform: {fileID: 0}
+    chosenEvent: 6
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 1
+    fadeInTime: 1
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 6266064390233967266}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650616387025940}
+    rectTransform: {fileID: 0}
+    chosenEvent: 3
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 2
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 6266064390233967266}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650616387025940}
+    rectTransform: {fileID: 0}
+    chosenEvent: 13
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: Whoosh
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 6266064390233967266}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 1100948215}
+    rectTransform: {fileID: 0}
+    chosenEvent: 1
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: -1100, y: -400, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 6266064390233967266}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 250887542}
+    rectTransform: {fileID: 0}
+    chosenEvent: 1
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 1100, y: -400, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 6266064390233967266}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 1100948215}
+    rectTransform: {fileID: 0}
+    chosenEvent: 8
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 6266064390233967266}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 469996148}
+    rectTransform: {fileID: 0}
+    chosenEvent: 8
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 6266064390233967266}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 1631735798}
+    rectTransform: {fileID: 0}
+    chosenEvent: 8
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 6266064390233967266}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 250887542}
+    rectTransform: {fileID: 0}
+    chosenEvent: 8
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 6266064390233967266}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 655318615}
+    rectTransform: {fileID: 0}
+    chosenEvent: 8
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 6266064390233967266}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 1742898707}
+    rectTransform: {fileID: 0}
+    chosenEvent: 8
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 6266064390233967266}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 1100948215}
+    rectTransform: {fileID: 0}
+    chosenEvent: 4
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0.25
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 6266064390233967266}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 250887542}
+    rectTransform: {fileID: 0}
+    chosenEvent: 4
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0.25
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 6266064390233967266}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
+  - tweenedObject: {fileID: 7982650616387025940}
+    rectTransform: {fileID: 0}
+    chosenEvent: 20
+    scaleAndMovePosition: {x: 0, y: 0, z: 0}
+    scaleAndMoveScale: {x: 0, y: 0, z: 0}
+    scaleAndMoveTime: 0
+    movePosition: {x: 0, y: 0, z: 0}
+    moveTime: 0
+    scaleScale: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    secondsToWait: 0
+    toStartTime: 0
+    flashTimes: 0
+    flashDelay: 0
+    fadeInOpacity: 0
+    fadeInTime: 0
+    fadeOutTime: 0
+    sfxName: 
+    rotation: {x: 0, y: 0, z: 0}
+    rotateTime: 0
+    moveToObjectGameobject: {fileID: 0}
+    moveToObjectTime: 0
+    addedPosition: {x: 0, y: 0, z: 0}
+    rotToObjectGameobject: {fileID: 0}
+    rotToObjectTime: 0
+    etraAnimationActivatedScript: {fileID: 6266064390233967266}
+    passedString: 
+    basicGrowPos: {x: 0, y: 0, z: 0}
+    basicGrowScale: {x: 0, y: 0, z: 0}
+    basicGrowWait: 0
   controllerAnimation: []
   objectsHidden: 0
   duplicateStartIndex: 0
   duplicateEndIndex: 0
+--- !u!114 &6266064390233967266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6266064391144723420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b3c795191db3a43bdbd3eb78076525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2841836360284725877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6266064391144723420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d10d9b6d879748499838bb462e075de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Whoosh
+    clip: {fileID: 8300000, guid: a6f8fde56418abe45b36a9c5d05a3adf, type: 3}
+    volume: 1
+    basePitch: 0.9
+    spatialBlend: 0
+    randomizePitch: 0
+    randomPitchRange: {x: 0.95, y: 1.05}
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: AbilityGet
+    clip: {fileID: 8300000, guid: 768c803bfce5b174dbb353dba03a8c1c, type: 3}
+    volume: 1
+    basePitch: 1
+    spatialBlend: 0
+    randomizePitch: 0
+    randomPitchRange: {x: 0.95, y: 1.05}
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &6278801336733291458
 GameObject:
   m_ObjectHideFlags: 0
@@ -6140,7 +8614,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650616387025940}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -6401,7 +8875,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -6971,6 +9445,7 @@ GameObject:
   - component: {fileID: 7982650616746555881}
   - component: {fileID: 7982650616746555880}
   - component: {fileID: 7982650616746555883}
+  - component: {fileID: 7982650617451651209}
   m_Layer: 5
   m_Name: Thanks_Text
   m_TagString: Untagged
@@ -6994,8 +9469,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 8, y: 263.45}
-  m_SizeDelta: {x: 535, y: 119.7}
+  m_AnchoredPosition: {x: 8, y: 273.62515}
+  m_SizeDelta: {x: 535, y: 99.349}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7982650616746555881
 CanvasRenderer:
@@ -7012,7 +9487,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7982650616746555893}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -7027,9 +9502,9 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ee802440267c37a4198938899eef7242, type: 3}
-    m_FontSize: 50
+    m_FontSize: 35
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 90
     m_Alignment: 1
@@ -7038,7 +9513,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'You completed the course
+  m_Text: 'You completed the level
 
     Thanks for Playing!
 
@@ -7058,6 +9533,28 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 4, y: -4}
   m_UseGraphicAlpha: 1
+--- !u!114 &7982650617451651209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7982650616746555893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fddaf0efb7e89a2438ac6f87416539d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animatedObjects: []
+  hideAllObjectsAtStart: 1
+  sfxPlayer: {fileID: 0}
+  separateKeyboardControllerAnimations: 0
+  standardAnimation: []
+  keyboardAnimation: []
+  controllerAnimation: []
+  objectsHidden: 0
+  duplicateStartIndex: 0
+  duplicateEndIndex: 0
 --- !u!1 &7982650616759646985
 GameObject:
   m_ObjectHideFlags: 0
@@ -8285,6 +10782,8 @@ RectTransform:
   - {fileID: 7982650616162316945}
   - {fileID: 7982650616094681476}
   - {fileID: 7982650617846678299}
+  - {fileID: 1100948216}
+  - {fileID: 250887543}
   m_Father: {fileID: 7982650616151969381}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

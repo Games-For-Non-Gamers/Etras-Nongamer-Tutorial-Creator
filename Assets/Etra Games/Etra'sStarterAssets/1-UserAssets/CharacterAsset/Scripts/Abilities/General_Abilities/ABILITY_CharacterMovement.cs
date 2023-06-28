@@ -194,7 +194,7 @@ namespace Etra.StarterAssets.Abilities
                     }
 
                     stepTime += Time.deltaTime;
-                    if (stepTime > nextStepThreshold * Mathf.Max(Mathf.Abs(passedMovementInput.x), Mathf.Abs(passedMovementInput.y)))
+                    if (stepTime  > nextStepThreshold ) 
                     {
                         PlayFootstepFps();
                         stepTime = 0.0f;

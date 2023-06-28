@@ -158,7 +158,7 @@ namespace Etra.StarterAssets.Input
         }
         public void OnSelect(InputValue value)
         {
-            StartInput(value.isPressed);
+            SelectInput(value.isPressed);
         }
 
 #else
@@ -334,7 +334,7 @@ namespace Etra.StarterAssets.Input
 
         public void SelectInput(bool selectPressedState)
         {
-            start = selectPressedState;
+            select = selectPressedState;
         }
 
 

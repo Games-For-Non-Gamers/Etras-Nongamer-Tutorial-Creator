@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Xml.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static Etra.NonGamerTutorialCreator.EtraAnimationEvent;
@@ -164,6 +165,17 @@ namespace Etra.NonGamerTutorialCreator
             {
                 uiObject.GetComponent<Text>().enabled = visibility;
             }
+
+            if (uiObject.GetComponent<TextMeshPro>())
+            {
+                uiObject.GetComponent<TextMeshPro>().enabled = visibility;
+            }
+
+            if (uiObject.GetComponent<TextMeshProUGUI>())
+            {
+                uiObject.GetComponent<TextMeshProUGUI>().enabled = visibility;
+            }
+
         }
 
 

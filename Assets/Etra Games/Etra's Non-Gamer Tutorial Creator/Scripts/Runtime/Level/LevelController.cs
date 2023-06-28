@@ -71,15 +71,30 @@ namespace Etra.NonGamerTutorialCreator.Level
         {
             List<LevelChunkObject> returnedChunksPlusBridges = new List<LevelChunkObject>();
 
+
+
             for (int i = 0; i < initialChunks.Count; i++)
             {
                 GameObject loadedBridge = Resources.Load<GameObject>(bridgeName);
+                GameObject bridgesRoot;
+                if (GameObject.Find("Bridges"))
+                {
+                    bridgesRoot = GameObject.Find("Bridges");
+                }
+                else
+                {
+                    bridgesRoot = new GameObject("Bridges"); 
+                }
+                bridgesRoot.transform.parent = this.transform;
+                bridgesRoot.transform.SetAsLastSibling();
+
 
                 returnedChunksPlusBridges.Add(initialChunks[i]); // add initial chunk
                 if (i != chunks.Count - 1)
                 {
                     GameObject prefab = (GameObject)PrefabUtility.InstantiatePrefab(loadedBridge, this.transform);
                     prefab.name = bridgeName;
+                    prefab.transform.parent = bridgesRoot.transform;
                     returnedChunksPlusBridges.Add(prefab.GetComponent<LevelChunkObject>());
                 }
             }

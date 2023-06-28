@@ -226,13 +226,9 @@ namespace Etra.StarterAssets.Items
         private void Start()
         {
             fpsItemAudioManager = GameObject.FindGameObjectWithTag("MainCamera").transform.Find("FPSItemSfx").GetComponent<AudioManager>();
-            if (usableItems.Length >0)
+            if (!weaponInitHandledElsewhere)
             {
-                if (!weaponInitHandledElsewhere)
-                {
-                    instatiateItemAtStart();
-                }
-                
+                instatiateItemAtStart();
             }
 
         }
@@ -240,12 +236,16 @@ namespace Etra.StarterAssets.Items
 
         public void instatiateItemAtStart()
         {
-            var newItem = Instantiate(usableItems[activeItemNum].prefab);
-            newItem.transform.SetParent(cameraRoot.transform);
-            newItem.transform.localPosition = Vector3.zero;
-            newItem.transform.localRotation = Quaternion.identity;
-            activeItemPrefab = newItem;
-            usableItems[activeItemNum].script.enabled = true;
+
+            if (usableItems.Length > 0)
+            {
+                var newItem = Instantiate(usableItems[activeItemNum].prefab);
+                newItem.transform.SetParent(cameraRoot.transform);
+                newItem.transform.localPosition = Vector3.zero;
+                newItem.transform.localRotation = Quaternion.identity;
+                activeItemPrefab = newItem;
+                usableItems[activeItemNum].script.enabled = true;
+            }
         }
 
         // Update is called once per frame

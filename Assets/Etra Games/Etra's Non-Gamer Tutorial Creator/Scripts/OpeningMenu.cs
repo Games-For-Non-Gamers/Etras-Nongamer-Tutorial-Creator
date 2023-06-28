@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using Etra.NonGamerTutorialCreator;
+using EtrasStarterAssets;
 
 public class OpeningMenu : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class OpeningMenu : MonoBehaviour
     private OpeningScene opening;
     private Button[] allButtons;
     private RectTransform[] allRectTransforms;
-
+    AudioManager audioManager;
     private void Start()
     {
         // Find the OpeningMenuUi script in the scene
@@ -23,7 +24,9 @@ public class OpeningMenu : MonoBehaviour
         openingMenuUi.gameObject.SetActive(true);
         allButtons = openingMenuUi.GetComponentsInChildren<Button>();
         allRectTransforms = openingMenuUi.GetComponentsInChildren<RectTransform>();
-        
+
+        audioManager = GetComponent<AudioManager>();
+        audioManager.Play("BackgroundMusic");
 
         if (skipMenu)
         {
@@ -36,6 +39,7 @@ public class OpeningMenu : MonoBehaviour
         
         // Unlock Cursor
         EtraCharacterMainController.Instance.GetComponent<StarterAssetsInputs>().SetCursorState(false);
+
     }
 
     public void startPressed()

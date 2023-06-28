@@ -190,6 +190,11 @@ namespace Etra.NonGamerTutorialCreator
             }
             openingSceneUi.SetActive(true);
             nonGamerTutorialUi.gameObject.SetActive(true);
+
+            if (character.etraFPSUsableItemManager)
+            {
+                character.etraFPSUsableItemManager.instatiateItemAtStart();
+            }
         }
     }
 }

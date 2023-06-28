@@ -18,7 +18,11 @@ Wave Harmonic
     Copyright (c) 2019 Wave Harmonic and contributors
     The MIT License
 
-
+Diphylleia Google Font
+    Etra Games/Etra'sStarterAssets/2-Source/ThirdParty/GoogleFonts
+    https://github.com/JAMO-TYPEFACE/Diphylleia
+    Copyright (c) 2022 The Diphylleia Project Authors
+    OFL License
 
 ~~THIRD PARTY Models:~~
 Akshat

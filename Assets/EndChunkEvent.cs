@@ -22,12 +22,13 @@ public class EndChunkEvent : EtraAnimationActivatedScript
     bool startedLeave = false;
     private void Update()
     {
-        if (!gameEnded)
+        if (gameEnded)
         {
             if (_inputs.select)
             {
-                if (startedLeave)
+                if (!startedLeave)
                 {
+                    startedLeave = true;
                     StartCoroutine(toMainMenu());
                     return;
                 }
