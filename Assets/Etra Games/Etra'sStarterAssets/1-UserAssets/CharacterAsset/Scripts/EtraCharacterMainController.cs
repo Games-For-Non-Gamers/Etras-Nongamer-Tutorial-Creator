@@ -189,6 +189,7 @@ namespace Etra.StarterAssets
                     newCamComponent.CameraSide = 0.6f;
                     newCamComponent.ShoulderOffset = new Vector3(0, 0, 0);
                     newCamComponent.Damping = new Vector3(0.0f, 0.0f, 0.0f);
+                    etraFollowCam.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = 75;
 
                     //FPS Ability Variable Default adjustment
                     if (GetComponentInChildren<ABILITY_CameraMovement>())
@@ -207,6 +208,7 @@ namespace Etra.StarterAssets
                     newCamComponent.CameraSide = 1f;
                     newCamComponent.ShoulderOffset = new Vector3(0.7f, 0.25f, 0);
                     newCamComponent.Damping = new Vector3(0.1f, 0.25f, 0.3f);
+                    etraFollowCam.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = 60;
 
                     //TPS Ability Variable Default adjustment
                     if (GetComponentInChildren<ABILITY_CameraMovement>())

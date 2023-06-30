@@ -445,6 +445,14 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
                 }
             }
 
+            //Also activate the camera movement for a 3pa bug. If locked the x and y look should fix things anyway.
+            if (character.etraAbilityManager.GetComponent<ABILITY_CameraMovement>())
+            {
+                character.etraAbilityManager.GetComponent<ABILITY_CameraMovement>().enabled = true;
+            }
+
+
+
             //Remove taught weapons
             if (character.GetComponentInChildren<EtraFPSUsableItemManager>())
             {
