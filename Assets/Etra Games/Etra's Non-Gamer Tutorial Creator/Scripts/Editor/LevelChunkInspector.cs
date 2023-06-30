@@ -46,6 +46,7 @@ namespace Etra.NonGamerTutorialCreator.Editor
             EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.useSingle)));
             EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.recommended)));
             EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.orderPriority)));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.teachingPriority)));
 
             EditorGUILayout.Space();
 

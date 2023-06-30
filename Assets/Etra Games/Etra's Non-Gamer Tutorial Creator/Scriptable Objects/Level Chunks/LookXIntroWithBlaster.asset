@@ -10,20 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4bc135820d99004a873a2b3c3e39a8b, type: 3}
-  m_Name: LookYIntro
+  m_Name: LookXIntroWithBlaster
   m_EditorClassIdentifier: 
-  chunkName: Look Y Intro
-  icon: {fileID: 21300000, guid: 8a45d77578e318343b985dad39ac899a, type: 3}
+  chunkName: Look X Intro With Blaster
+  icon: {fileID: 21300000, guid: d7caabd0ab0d8b14da94aa43c259b1f8, type: 3}
   required: 0
   useSingle: 0
   recommended: 0
   tempRecommended: 0
-  orderPriority: 100
-  teachingPriority: 0
-  testedAbilities: []
+  orderPriority: 301
+  teachingPriority: 3
+  testedAbilities:
+  - Etra.StarterAssets.Items.USABLEITEM_FPS_Blaster
   taughtAbilities:
   - Etra.StarterAssets.Abilities.ABILITY_CameraMovement
-  testedAbilityOne: 
+  testedAbilityOne: Etra.StarterAssets.Items.USABLEITEM_FPS_Blaster
   testedAbilityTwo: 
   testedAbilityThree: 
   testedAbilityFour: 
@@ -31,4 +32,4 @@ MonoBehaviour:
   taughtAbilityOne: Etra.StarterAssets.Abilities.ABILITY_CameraMovement
   taughtAbilityTwo: 
   taughtAbilityThree: 
-  chunkObject: {fileID: 4509226543046020639, guid: 4d1402776e8c146448105d3f337e74df, type: 3}
+  chunkObject: {fileID: 4509226543046020639, guid: 61f1f7354162d514d898dd4a619cf80d, type: 3}

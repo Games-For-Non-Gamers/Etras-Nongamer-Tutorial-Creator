@@ -75,7 +75,7 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
         public void Reload()
         {
             RebuildAvaliableChunksCache();
-            CheckChunksList();
+            LoadRecommendedChunksList();
             VerifyTargetLevelChunks();
             CheckForTarget();
             Target.ResetAllChunksPositions();
@@ -93,15 +93,25 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
             using (new GUILayout.VerticalScope(Styles.List))
                 reorderableList.DoLayoutList();
 
+
+            using (new GUILayout.VerticalScope(EditorStyles.helpBox))
+            {
+                GUILayout.Label("Options", EditorStyles.boldLabel);
+                if (Target != null && GUILayout.Button("Return to recommended layout"))
+                    LoadRecommendedChunksList();
+                if (Target != null && GUILayout.Button("Add ALL possible chunks"))
+                    LoadAllPossibleChunks();
+            }
+            /*
             using (new GUILayout.VerticalScope(EditorStyles.helpBox))
             {
                 GUILayout.Label("Debug", EditorStyles.boldLabel);
                 if (GUILayout.Button("Verify Target Chunks"))
                     VerifyTargetLevelChunks();
-
                 if (Target != null && GUILayout.Button("Reset Chunks Positions"))
                     Target.ResetAllChunksPositions();
             }
+            */
         }
 
         private void ReorderableList_DrawHeaderCallback(Rect rect)
@@ -378,8 +388,10 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
         List<LevelChunk> _chunks = new List<LevelChunk>();
 
         /// <summary>Rebuilds the cache of <see cref="AvaliableChunks"/></summary>
+        /// 
         public void RebuildAvaliableChunksCache()
         {
+            Debug.Log("loaded");
             var testedAbilitiesPaths = TestedAbilities
                 .Select(x => x.FullName)
                 .ToList();
@@ -394,31 +406,151 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
                 .Where(x => !x.testedAbilities.Except(testedAbilitiesPaths).Except(taughtAbilitiesPaths).Any()) //If all chunks taught abilities have been selected
                 .Where(x => !x.taughtAbilities.Except(taughtAbilitiesPaths).Any()) //If all chunks new abilities have been selected as new or taught
                 .ToList();
+
+            //Set the temporary reccomended state for teaching priority below
+            foreach (LevelChunk lc in _avaliableChunks)
+            {
+                if (lc.recommended)
+                {
+                    lc.tempRecommended = true;
+                }
+            }
+
         }
 
-        public void CheckChunksList()
+        public void LoadRecommendedChunksList()
         {
-            _chunks = _chunks
-                .Intersect(AvaliableChunks)
+            InitializeChunks();
+            ProcessRequiredChunks();
+            ProcessTaughtAbilities();
+            ApplyRecommendations();
+            SortChunks();
+            UpdateUI();
+            ResetTargetChunks();
+        }
+
+        private void InitializeChunks()
+        {
+            _chunks = AvaliableChunks.Intersect(_chunks).ToList();
+        }
+
+        private void ProcessRequiredChunks()
+        {
+            var requiredChunks = AvaliableChunks.Where(x => x.required);
+            _chunks.AddRange(requiredChunks.Except(_chunks));
+        }
+
+        private void ProcessTaughtAbilities()
+        {
+            var taughtAbilitiesPaths = TaughtAbilities.Select(x => x.FullName).ToList();
+
+            foreach (string taughtAbility in taughtAbilitiesPaths)
+            {
+                if (taughtAbility != "Etra.StarterAssets.Abilities.ABILITY_CameraMovement")
+                {
+                    ProcessTaughtAbilityChunks(taughtAbility);
+                }
+                else
+                {
+                    ProcessCameraMovementChunks();
+                }
+            }
+        }
+
+        private void ProcessTaughtAbilityChunks(string taughtAbility)
+        {
+            List<LevelChunk> chunksToCompare = AvaliableChunks
+                .Where(l => l.taughtAbilities.Contains(taughtAbility))
                 .ToList();
+
+            if (chunksToCompare.Count > 1)
+            {
+                chunksToCompare.Sort((a, b) => b.teachingPriority.CompareTo(a.teachingPriority));
+                chunksToCompare.Skip(1).ToList().ForEach(chunk =>
+                {
+                    chunk.tempRecommended = false;
+                });
+            }
+        }
+
+        private void ProcessCameraMovementChunks()
+        {
+            List<LevelChunk> chunksToCompare = AvaliableChunks
+                .Where(l => l.taughtAbilities.Contains("Etra.StarterAssets.Abilities.ABILITY_CameraMovement"))
+                .ToList();
+
+            ProcessCameraAxisChunks(chunksToCompare, "LookX");
+            ProcessCameraAxisChunks(chunksToCompare, "LookY");
+        }
+
+        private void ProcessCameraAxisChunks(List<LevelChunk> chunksToCompare, string axis)
+        {
+            List<LevelChunk> axisChunks = chunksToCompare.Where(l => l.name.Contains(axis)).ToList();
+
+            if (axisChunks.Count > 1)
+            {
+                axisChunks.Sort((a, b) => b.teachingPriority.CompareTo(a.teachingPriority));
+
+                axisChunks.Skip(1).ToList().ForEach(chunk =>
+                {
+                    chunk.tempRecommended = false;
+                });
+            }
+        }
+
+        private void ApplyRecommendations()
+        {
+            var recommendedChunks = AvaliableChunks.Where(x => x.tempRecommended);
+            _chunks.AddRange(recommendedChunks.Except(_chunks));
+        }
+
+        private void SortChunks()
+        {
+            _chunks = _chunks.OrderByDescending(chunk => chunk.orderPriority).ToList();
+        }
+
+        private void UpdateUI()
+        {
+            reorderableList.list = _chunks;
+            VerifyTargetLevelChunks();
+        }
+
+        private void ResetTargetChunks()
+        {
+            if (Target != null)
+            {
+                Target.ResetAllChunksPositions();
+            }
+        }
+
+
+        public void LoadAllPossibleChunks()
+        {
+            _chunks = new List<LevelChunk>();
+            _chunks = _chunks
+    .Intersect(AvaliableChunks)
+    .ToList();
 
             var requiredChunks = AvaliableChunks
                 .Where(x => x.required);
 
-            _chunks.AddRange(requiredChunks.Except(_chunks));
+            _chunks.AddRange(AvaliableChunks);
 
             //put recommended here
-
+            /*
             var recommendedChunks = AvaliableChunks
-            .Where(x => x.recommended);
+            .Where(x => x.fpsRecommended);
 
             _chunks.AddRange(recommendedChunks.Except(_chunks));
-
+            */
             _chunks = _chunks.OrderByDescending(chunk => chunk.orderPriority).ToList();
 
 
             reorderableList.list = _chunks;
-           
+
+            VerifyTargetLevelChunks();
+            Target.ResetAllChunksPositions();
+
         }
 
         public LevelChunkObject CreateChunkObject(LevelChunk chunk)
