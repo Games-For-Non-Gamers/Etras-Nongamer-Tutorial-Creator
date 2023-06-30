@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace EtrasStarterAssets
 {
-    public class PhysicsBox : MonoBehaviour
+    public class PhysicsBoxAudio : MonoBehaviour
     {
         private void OnCollisionEnter(Collision collision)
         {

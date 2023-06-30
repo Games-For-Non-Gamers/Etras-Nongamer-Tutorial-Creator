@@ -742,7 +742,8 @@ namespace Etra.StarterAssets
         {
             if (impact.magnitude > 0.2f)
             {
-                _controller.Move(impact * Time.deltaTime);
+               // _controller.Move(impact * Time.deltaTime);
+                addConstantForceToEtraCharacter(impact * Time.deltaTime);
             }
 
             impact = Vector3.Lerp(impact, Vector3.zero, 5 * Time.deltaTime);

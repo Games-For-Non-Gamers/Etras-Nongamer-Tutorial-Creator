@@ -178,6 +178,51 @@ namespace Etra.NonGamerTutorialCreator
 
         }
 
+        bool getVisibility(GameObject uiObject)
+        {
+            if (uiObject.GetComponent<Image>())
+            {
+                if (!uiObject.GetComponent<Image>().enabled)
+                {
+                    return false;
+                }
+            }
+
+            if (uiObject.GetComponent<MeshRenderer>())
+            {
+                if (!uiObject.GetComponent<MeshRenderer>().enabled)
+                {
+                    return false;
+                }
+            }
+
+            if (uiObject.GetComponent<Text>())
+            {
+                if (!uiObject.GetComponent<Text>().enabled)
+                {
+                    return false;
+                }
+            }
+
+            if (uiObject.GetComponent<TextMeshPro>())
+            {
+                if (!uiObject.GetComponent<TextMeshPro>().enabled)
+                {
+                    return false;
+                }
+            }
+
+            if (uiObject.GetComponent<TextMeshProUGUI>())
+            {
+                if (!uiObject.GetComponent<TextMeshProUGUI>().enabled)
+                {
+                    return false;
+                }
+            }
+            return true;
+
+        }
+
 
 
 
@@ -300,34 +345,7 @@ namespace Etra.NonGamerTutorialCreator
                         break;
 
                     case AnimationEvents.FadeIn:
-
-                        if (animEvent.tweenedObject.GetComponent<MeshRenderer>())
-                        {
-                            Material material = animEvent.tweenedObject.GetComponent<MeshRenderer>().material;
-                            Color color = material.color;
-                            color.a = 0;
-                            material.color = color;
-                            animEvent.tweenedObject.GetComponent<MeshRenderer>().enabled = true;
-                            LeanTween.value(this.gameObject, 0, animEvent.fadeInOpacity, animEvent.fadeInTime).setEaseInOutSine().setOnUpdate((float alphaValue) => { color.a = alphaValue; material.color = color; });
-
-                        }
-
-                        if (animEvent.tweenedObject.GetComponent<Image>())
-                        {
-                            Image image = animEvent.tweenedObject.GetComponent<Image>();
-                            LeanTween.color(animEvent.rectTransform, new Color(image.color.r, image.color.g, image.color.b, 0), 0);
-                            image.enabled = true;
-                            LeanTween.color(animEvent.rectTransform, new Color(image.color.r, image.color.g, image.color.b, animEvent.fadeInOpacity), animEvent.fadeInTime).setEaseInOutSine();
-                        }
-
-                        if (animEvent.tweenedObject.GetComponent<Text>() )
-                        {
-                            Text text = animEvent.tweenedObject.GetComponent<Text>();
-                            LeanTween.colorText(animEvent.rectTransform, new Color(text.color.r, text.color.g, text.color.b, 0), 0);
-                            text.enabled = true;
-                            LeanTween.colorText(animEvent.rectTransform, new Color(text.color.r, text.color.g, text.color.b, animEvent.fadeInOpacity), animEvent.fadeInTime).setEaseInOutSine();
-                        }
-
+                        fadeInObject(animEvent.tweenedObject, animEvent.fadeInOpacity, animEvent.fadeInTime);
                         break;
 
                     case AnimationEvents.FadeOut:
@@ -452,6 +470,39 @@ namespace Etra.NonGamerTutorialCreator
                         StartCoroutine(basicUiGrowAndToStartCoroutine(animEvent.tweenedObject, animEvent.basicGrowPos, animEvent.basicGrowScale, animEvent.basicGrowWait, abilityToActivate, selectedItem, isAbility, false));
                         break;
 
+                    case AnimationEvents.FadeInIfNotVisible:
+
+                        if (getVisibility(animEvent.tweenedObject) == false)
+                        {
+                            fadeInObject(animEvent.tweenedObject, animEvent.fadeInOpacity, animEvent.fadeInTime);
+                        }
+                        break;
+
+                    case AnimationEvents.FadeInSelfAndChildren:
+                        fadeInObject(animEvent.tweenedObject, animEvent.fadeInOpacity, animEvent.fadeInTime);
+                        foreach (Transform child in animEvent.tweenedObject.transform)
+                        {
+                            fadeInObject(child.gameObject, animEvent.fadeInOpacity, animEvent.fadeInTime);
+                        }
+                        break;
+
+                    case AnimationEvents.FadeInSelfAndChildrenIfNotVisible:
+
+                        if (getVisibility(animEvent.tweenedObject) == false)
+                        {
+                            fadeInObject(animEvent.tweenedObject, animEvent.fadeInOpacity, animEvent.fadeInTime);
+                        }
+
+                        foreach (Transform child in animEvent.tweenedObject.transform)
+                        {
+                            if (getVisibility(child.gameObject) == false)
+                            {
+                                fadeInObject(child.gameObject, animEvent.fadeInOpacity, animEvent.fadeInTime);
+                            }
+
+
+                        }
+                        break;
 
                     default:
                         Debug.Log("Invalid Animation Event");
@@ -459,6 +510,36 @@ namespace Etra.NonGamerTutorialCreator
                 }
                 indexTracker++;
 
+            }
+        }
+
+        void fadeInObject(GameObject tweenedObject, float fadeInOpacity, float fadeInTime)
+        {
+            if (tweenedObject.GetComponent<MeshRenderer>())
+            {
+                Material material = tweenedObject.GetComponent<MeshRenderer>().material;
+                Color color = material.color;
+                color.a = 0;
+                material.color = color;
+                tweenedObject.GetComponent<MeshRenderer>().enabled = true;
+                LeanTween.value(this.gameObject, 0, fadeInOpacity, fadeInTime).setEaseInOutSine().setOnUpdate((float alphaValue) => { color.a = alphaValue; material.color = color; });
+
+            }
+
+            if (tweenedObject.GetComponent<Image>())
+            {
+                Image image = tweenedObject.GetComponent<Image>();
+                LeanTween.color(tweenedObject.GetComponent<RectTransform>(), new Color(image.color.r, image.color.g, image.color.b, 0), 0);
+                image.enabled = true;
+                LeanTween.color(tweenedObject.GetComponent<RectTransform>(), new Color(image.color.r, image.color.g, image.color.b, fadeInOpacity), fadeInTime).setEaseInOutSine();
+            }
+
+            if (tweenedObject.GetComponent<Text>())
+            {
+                Text text = tweenedObject.GetComponent<Text>();
+                LeanTween.colorText(tweenedObject.GetComponent<RectTransform>(), new Color(text.color.r, text.color.g, text.color.b, 0), 0);
+                text.enabled = true;
+                LeanTween.colorText(tweenedObject.GetComponent<RectTransform>(), new Color(text.color.r, text.color.g, text.color.b, fadeInOpacity), fadeInTime).setEaseInOutSine();
             }
         }
 

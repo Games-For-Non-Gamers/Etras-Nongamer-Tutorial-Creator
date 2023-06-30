@@ -32,7 +32,10 @@ namespace Etra.NonGamerTutorialCreator
             RunEtraAnimationActivatedScript,
             BasicUiGrowAndToStartWithMidUnlock,
             BasicUiGrowAndToStartWithInstantUnlock,
-            BasicUiGrowAndToStartWithNoUnlock
+            BasicUiGrowAndToStartWithNoUnlock,
+            FadeInSelfAndChildren,
+            FadeInIfNotVisible,
+            FadeInSelfAndChildrenIfNotVisible
         }
 
         public AnimationEvents chosenEvent;

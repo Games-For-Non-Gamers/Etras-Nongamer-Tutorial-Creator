@@ -27,9 +27,9 @@ public class AnimationTriggerPickup : MonoBehaviour
         GameObject tutorialUi = GameObject.Find("NonGamerTutorialManager");
 
 
-        if (tutorialUi.transform.Find("NonGamerTutorialUI/UiRectTransforms/AdditionalEvents/" + nameOfObjectWithAnimationHolder))
+        if (tutorialUi.transform.Find("NonGamerTutorialUI/UiRectTransforms/AdditionalGeneralEvents/" + nameOfObjectWithAnimationHolder))
         {
-            hostObject = tutorialUi.gameObject.transform.Find("NonGamerTutorialUI/UiRectTransforms/AdditionalEvents/" + nameOfObjectWithAnimationHolder).gameObject;
+            hostObject = tutorialUi.gameObject.transform.Find("NonGamerTutorialUI/UiRectTransforms/AdditionalGeneralEvents/" + nameOfObjectWithAnimationHolder).gameObject;
 
         }
         else

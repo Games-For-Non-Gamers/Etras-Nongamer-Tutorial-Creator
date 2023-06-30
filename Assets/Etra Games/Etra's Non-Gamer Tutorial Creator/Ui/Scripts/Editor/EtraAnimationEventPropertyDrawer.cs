@@ -85,6 +85,9 @@ namespace Etra.NonGamerTutorialCreator
                     break;
 
                 case EtraAnimationEvent.AnimationEvents.FadeIn:
+                case EtraAnimationEvent.AnimationEvents.FadeInSelfAndChildren:
+                case EtraAnimationEvent.AnimationEvents.FadeInIfNotVisible:
+                case EtraAnimationEvent.AnimationEvents.FadeInSelfAndChildrenIfNotVisible:
                     SerializedProperty opacity = prop.FindPropertyRelative("fadeInOpacity");
                     EditorGUI.PropertyField(new Rect(pos.x, pos.y + 50, pos.width, 20), opacity);
 
@@ -150,6 +153,7 @@ namespace Etra.NonGamerTutorialCreator
 
 
         }
+
 
 
     }
