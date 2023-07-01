@@ -14,6 +14,10 @@ namespace Etra.StarterAssets.Interactables.Enemies
         public GameObject armSpin;
 
 
+        [Header("Particles")]
+        public GameObject impactParticle;
+        public GameObject explosionParticle;
+
         //References set by code
         private Animator turretAnimator;
         private GameObject target;
@@ -161,6 +165,7 @@ namespace Etra.StarterAssets.Interactables.Enemies
         {
             turretAnimator.SetBool("Damaged", true);
             audioManager.Play("RobotHit");
+            Instantiate(impactParticle, armSpin.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(0.01f);
             isCooling = false;
             turretAnimator.SetBool("Damaged", false);
@@ -175,7 +180,7 @@ namespace Etra.StarterAssets.Interactables.Enemies
             turretAnimator.SetBool("Die", true);
             yield return new WaitForSeconds(0.33f);
             transform.GetChild(0).gameObject.SetActive(false);  //Hide model
-            //Play particle here in the future
+            Instantiate(explosionParticle, transform.position, Quaternion.identity);
             yield return new WaitForSeconds(1.6f);
             Destroy(gameObject);
 

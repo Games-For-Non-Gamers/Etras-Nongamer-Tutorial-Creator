@@ -34,7 +34,7 @@ public class StyleSettings : MonoBehaviour
 
     [Header("Ocean")]
     public NonGamerTutorialOcean.OceanType oceanType = NonGamerTutorialOcean.OceanType.LightOcean;
-    public bool underwaterPostProcess = true;
+    public bool underwaterPostProcessAndSplashParticle = true;
 
     public void changeStyle()
     {
@@ -107,7 +107,7 @@ public class StyleSettings : MonoBehaviour
             AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(material));
         }
 
-        transform.Find("NongamerTutorialOcean").GetComponent<NonGamerTutorialOcean>().changeOcean(oceanType, underwaterPostProcess);
+        transform.Find("EnvironmentalObjects").Find("NongamerTutorialOcean").GetComponent<NonGamerTutorialOcean>().changeOcean(oceanType, underwaterPostProcessAndSplashParticle);
 
 
     }

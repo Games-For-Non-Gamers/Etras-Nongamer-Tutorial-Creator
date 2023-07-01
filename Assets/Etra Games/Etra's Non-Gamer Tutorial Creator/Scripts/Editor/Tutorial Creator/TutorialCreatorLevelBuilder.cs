@@ -391,7 +391,6 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
         /// 
         public void RebuildAvaliableChunksCache()
         {
-            Debug.Log("loaded");
             var testedAbilitiesPaths = TestedAbilities
                 .Select(x => x.FullName)
                 .ToList();

@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class NonGamerTutorialOcean : MonoBehaviour
 {
@@ -39,16 +40,10 @@ public class NonGamerTutorialOcean : MonoBehaviour
             DestroyImmediate(transform.Find("CrestOcean").gameObject);
 
         }
-        if (transform.Find("PostProcessUnderwater"))
+        if (transform.Find("PostProcessAndSplash"))
         {
-            GameObject postProcess = transform.Find("PostProcessUnderwater").gameObject;
-            PrefabAssetType prefabAssetType = PrefabUtility.GetPrefabAssetType(postProcess);
-
-            if (prefabAssetType == PrefabAssetType.Regular || prefabAssetType == PrefabAssetType.Variant)
-            {
-                PrefabUtility.UnpackPrefabInstance(this.transform.gameObject, PrefabUnpackMode.OutermostRoot, InteractionMode.AutomatedAction);
-            }
-            DestroyImmediate(transform.Find("PostProcessUnderwater").gameObject);
+            GameObject postProcess = transform.Find("PostProcessAndSplash").gameObject;
+            postProcess.GetComponent<PostProcessVolume>().enabled = false;
         }
     }
 
@@ -59,7 +54,8 @@ public class NonGamerTutorialOcean : MonoBehaviour
 
         if (postProcessOn)
         {
-            EtrasResourceGrabbingFunctions.addPrefabFromAssetsByName("PostProcessUnderwater", this.transform, false, new Vector3 (0f, -9.4f,248f), Quaternion.identity, new Vector3(46f, 15.23f, 600));
+            GameObject postProcess = transform.Find("PostProcessAndSplash").gameObject;
+            postProcess.GetComponent<PostProcessVolume>().enabled = true;
         }
 
         switch (oceanType)

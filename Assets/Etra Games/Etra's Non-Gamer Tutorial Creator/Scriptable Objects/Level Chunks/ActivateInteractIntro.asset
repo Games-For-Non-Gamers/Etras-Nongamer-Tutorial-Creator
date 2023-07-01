@@ -16,8 +16,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 4d4096ce0a321de4c818b787969572e1, type: 3}
   required: 0
   useSingle: 0
-  fpsRecommended: 1
-  tpsRecommended: 0
+  recommended: 1
+  tempRecommended: 1
   orderPriority: 35
   teachingPriority: 0
   testedAbilities: []

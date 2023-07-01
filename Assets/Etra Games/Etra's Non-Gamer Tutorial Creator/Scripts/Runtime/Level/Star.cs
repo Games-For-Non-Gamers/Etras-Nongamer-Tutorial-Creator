@@ -6,6 +6,7 @@ namespace Etra.NonGamerTutorialCreator
 {
     public class Star : MonoBehaviour, IDamageable<int>
     {
+        public GameObject fireworks;
 
         private float speed = 50;
 

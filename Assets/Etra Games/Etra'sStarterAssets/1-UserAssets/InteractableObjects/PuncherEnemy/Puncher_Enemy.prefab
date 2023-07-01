@@ -1982,6 +1982,8 @@ MonoBehaviour:
   spinSpeed: 0.5
   baseSpin: {fileID: 1319638065765575292}
   armSpin: {fileID: 7905628096494423086}
+  impactParticle: {fileID: 7931940020800785856, guid: 508e544bf8e6f36448388603e68092fd, type: 3}
+  explosionParticle: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
 --- !u!95 &2334018785757661370
 Animator:
   serializedVersion: 5

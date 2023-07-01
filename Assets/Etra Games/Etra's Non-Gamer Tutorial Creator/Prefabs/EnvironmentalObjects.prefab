@@ -46849,8 +46849,9 @@ GameObject:
   - component: {fileID: 2152677484877589270}
   - component: {fileID: 2152677484877589271}
   - component: {fileID: 2152677484877589267}
+  - component: {fileID: 2455749604673661081}
   m_Layer: 8
-  m_Name: PostProcessUnderwater
+  m_Name: PostProcessAndSplash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46864,8 +46865,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2152677484877589269}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -9.4, z: 248}
-  m_LocalScale: {x: 46, y: 15.23, z: 600}
+  m_LocalPosition: {x: 0, y: -2.1, z: 0}
+  m_LocalScale: {x: 100, y: 1, z: 100}
   m_Children: []
   m_Father: {fileID: 408639048204361335}
   m_RootOrder: 3
@@ -46930,8 +46931,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 10, y: 19.85603, z: 10}
+  m_Center: {x: 0, y: -9.878014, z: 0}
 --- !u!114 &2152677484877589271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46961,6 +46962,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c1c038b68bb604a9cd0d65b0b7c8d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2455749604673661081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2152677484877589269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af34ebb347c20a6449dff08925b2bc98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splashParticle: {fileID: 1722726733478836, guid: c1c88308ebb5d2541a282905b854ee4c, type: 3}
 --- !u!1 &2152677484904212845
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,8 +16,10 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: f50f288f8d8909348bea874086156076, type: 3}
   required: 0
   useSingle: 0
-  recommended: 1
+  recommended: 0
+  tempRecommended: 1
   orderPriority: 130
+  teachingPriority: 0
   testedAbilities:
   - Etra.StarterAssets.Abilities.ABILITY_Jump
   taughtAbilities: []
