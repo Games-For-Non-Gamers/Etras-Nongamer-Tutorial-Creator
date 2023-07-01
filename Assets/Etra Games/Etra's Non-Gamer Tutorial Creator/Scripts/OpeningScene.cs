@@ -128,7 +128,7 @@ namespace Etra.NonGamerTutorialCreator
             yield return wait4Seconds;
             openingSceneUi.GetComponent<OpeningSceneUi>().starText.runAnimation();
             yield return wait0p4Seconds;
-            star.TakeDamage(0);
+            star.starSpin();
             yield return wait3p2Seconds;
             LeanTween.move(camRoot, scoutStar.transform.position + new Vector3(0, 0, -30f), 3f).setEaseInOutSine(); //Behind scout
             LeanTween.rotate(camRoot, new Vector3(20, 0, 0), 2f).setEaseInOutSine(); //Behind scout

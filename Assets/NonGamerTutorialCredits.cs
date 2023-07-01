@@ -18,6 +18,7 @@ public class NonGamerTutorialCredits : MonoBehaviour
         StartCoroutine(LerpPosition(howLongToScroll));
         audioManager = GetComponent<AudioManager>();
         audioManager.Play("Music");
+        Cursor.lockState =  CursorLockMode.None;
     }
 
 

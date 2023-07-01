@@ -29,12 +29,18 @@ namespace Etra.NonGamerTutorialCreator
 
         public void TakeDamage(int damage)
         {
+            starSpin();
+            StartCoroutine(fireworks());
+            Instantiate(impactParticle, transform.position, Quaternion.identity);
+        }
+
+
+        public void starSpin()
+        {
             this.GetComponent<AudioManager>().Stop("HitStar");
             this.GetComponent<AudioManager>().Play("HitStar");
             speed = 500;
             speedSpin(500, 50);
-            StartCoroutine(fireworks());
-            Instantiate(impactParticle, transform.position, Quaternion.identity);
         }
 
         public void endCelebration()

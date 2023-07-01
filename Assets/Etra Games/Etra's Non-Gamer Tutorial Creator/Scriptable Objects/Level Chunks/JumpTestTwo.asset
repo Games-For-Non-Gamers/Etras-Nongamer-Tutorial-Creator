@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: JumpTestTwo
   m_EditorClassIdentifier: 
   chunkName: Jump Test Two
-  icon: {fileID: 21300000, guid: f50f288f8d8909348bea874086156076, type: 3}
+  icon: {fileID: 21300000, guid: 9adc1f7fcdae42e49b0fd0a1492002c6, type: 3}
   required: 0
   useSingle: 0
   recommended: 0

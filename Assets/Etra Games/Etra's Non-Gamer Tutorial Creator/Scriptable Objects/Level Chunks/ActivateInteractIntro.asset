@@ -18,7 +18,7 @@ MonoBehaviour:
   useSingle: 0
   recommended: 1
   tempRecommended: 1
-  orderPriority: 35
+  orderPriority: 132
   teachingPriority: 0
   testedAbilities: []
   taughtAbilities:

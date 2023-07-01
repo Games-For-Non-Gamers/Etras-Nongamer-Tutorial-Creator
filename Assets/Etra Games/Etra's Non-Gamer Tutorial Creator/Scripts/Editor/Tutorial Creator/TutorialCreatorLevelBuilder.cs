@@ -426,10 +426,17 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
             SortChunks();
             UpdateUI();
             ResetTargetChunks();
+            VerifyTargetLevelChunks();
+            if (Target != null)
+            {
+                Target.ResetAllChunksPositions();
+            }
+
         }
 
         private void InitializeChunks()
         {
+            _chunks = new List<LevelChunk>();
             _chunks = AvaliableChunks.Intersect(_chunks).ToList();
         }
 
