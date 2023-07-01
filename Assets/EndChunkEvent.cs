@@ -1,3 +1,4 @@
+using Etra.NonGamerTutorialCreator;
 using Etra.StarterAssets;
 using Etra.StarterAssets.Input;
 using System.Collections;
@@ -9,14 +10,25 @@ public class EndChunkEvent : EtraAnimationActivatedScript
 {
     bool gameEnded = false;
     StarterAssetsInputs _inputs;
+    Star star;
     public override void runScript(string passedString)
     {
+        StartCoroutine(end());
+
+    }
+
+    IEnumerator end()
+    {
+        star.endCelebration();
+        yield return new WaitForSeconds(5);
         gameEnded = true;
     }
+
 
     private void Start()
     {
         _inputs = EtraCharacterMainController.Instance.GetComponent<StarterAssetsInputs>();
+        star = GameObject.Find("Star").GetComponent<Star>();
     }
 
     bool startedLeave = false;

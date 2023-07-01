@@ -1203,6 +1203,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef28acbdf206f4d4a91267f59f2b0dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  impactParticle: {fileID: 7931940020800785856, guid: 508e544bf8e6f36448388603e68092fd, type: 3}
+  firework1: {fileID: 0}
+  firework2: {fileID: 0}
+  firework3: {fileID: 0}
+  light1: {fileID: 0}
+  light2: {fileID: 0}
 --- !u!114 &8617752109996466327
 MonoBehaviour:
   m_ObjectHideFlags: 0
