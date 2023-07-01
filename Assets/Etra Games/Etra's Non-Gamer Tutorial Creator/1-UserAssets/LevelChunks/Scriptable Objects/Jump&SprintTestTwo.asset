@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4bc135820d99004a873a2b3c3e39a8b, type: 3}
+  m_Name: Jump&SprintTestTwo
+  m_EditorClassIdentifier: 
+  chunkName: Jump and Sprint Test Two
+  icon: {fileID: 21300000, guid: 722d8302b04192c49be4d8c2685bc209, type: 3}
+  required: 0
+  useSingle: 0
+  recommended: 0
+  tempRecommended: 1
+  orderPriority: 220
+  teachingPriority: 0
+  testedAbilities:
+  - Etra.StarterAssets.Abilities.ABILITY_Jump
+  - Etra.StarterAssets.Abilities.ABILITY_Sprint
+  taughtAbilities: []
+  testedAbilityOne: Etra.StarterAssets.Abilities.ABILITY_Jump
+  testedAbilityTwo: Etra.StarterAssets.Abilities.ABILITY_Sprint
+  testedAbilityThree: 
+  testedAbilityFour: 
+  testedAbilityFive: 
+  taughtAbilityOne: 
+  taughtAbilityTwo: 
+  taughtAbilityThree: 
+  chunkObject: {fileID: 4509226543046020639, guid: 5cb9b3f8887bdfd409ea993829afd10b, type: 3}
