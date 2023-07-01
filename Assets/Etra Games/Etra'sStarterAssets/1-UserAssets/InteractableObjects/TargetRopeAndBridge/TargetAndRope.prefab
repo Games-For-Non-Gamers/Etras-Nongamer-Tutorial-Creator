@@ -5649,6 +5649,7 @@ MonoBehaviour:
     isMusic: 0
     loop: 0
     source: {fileID: 0}
+  stopPlayingSounds: 0
 --- !u!1 &8133933756354979718
 GameObject:
   m_ObjectHideFlags: 0
