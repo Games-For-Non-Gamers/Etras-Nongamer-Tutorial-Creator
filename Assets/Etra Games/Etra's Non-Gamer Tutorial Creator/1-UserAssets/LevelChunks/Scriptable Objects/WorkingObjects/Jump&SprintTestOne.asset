@@ -23,14 +23,13 @@ MonoBehaviour:
   testedAbilities:
   - Etra.StarterAssets.Abilities.ABILITY_Jump
   - Etra.StarterAssets.Abilities.ABILITY_Sprint
-  taughtAbilities:
-  - Etra.StarterAssets.Abilities.ABILITY_ActivateInteract
+  taughtAbilities: []
   testedAbilityOne: Etra.StarterAssets.Abilities.ABILITY_Jump
   testedAbilityTwo: Etra.StarterAssets.Abilities.ABILITY_Sprint
   testedAbilityThree: 
   testedAbilityFour: 
   testedAbilityFive: 
-  taughtAbilityOne: Etra.StarterAssets.Abilities.ABILITY_ActivateInteract
+  taughtAbilityOne: 
   taughtAbilityTwo: 
   taughtAbilityThree: 
   chunkObject: {fileID: 4509226543046020639, guid: 39367f6620d9ea74294d1bfecff273c5, type: 3}
