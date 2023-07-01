@@ -5,13 +5,14 @@ using Unity.Plastic.Newtonsoft.Json.Linq;
 //e
 namespace Etra.NonGamerTutorialCreator.Level
 {
+    [System.Serializable]
     [CreateAssetMenu(fileName = "New Level Chunk", menuName = "Etra/Non Gamer Tutorial/Level Chunk")]
     public class LevelChunk : ScriptableObject
     {
         public static event Action<LevelChunk> OnAssetValidation;
 
         public string chunkName;
-        public Sprite icon;
+        [SerializeField]public Sprite icon;
         public bool required;
 
         [Tooltip("Determines if the level can have duplicate chunks")] public bool useSingle;

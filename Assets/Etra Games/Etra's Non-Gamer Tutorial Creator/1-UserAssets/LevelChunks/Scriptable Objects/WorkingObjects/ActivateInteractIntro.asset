@@ -10,25 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4bc135820d99004a873a2b3c3e39a8b, type: 3}
-  m_Name: JumpTestTwo
+  m_Name: ActivateInteractIntro
   m_EditorClassIdentifier: 
-  chunkName: Jump Test Two
-  icon: {fileID: 21300000, guid: 9adc1f7fcdae42e49b0fd0a1492002c6, type: 3}
+  chunkName: Activate Interact Intro
+  icon: {fileID: 21300000, guid: b61c099d8c0381143a472bbd33caebd1, type: 3}
   required: 0
   useSingle: 0
-  recommended: 0
+  recommended: 1
   tempRecommended: 1
-  orderPriority: 130
+  orderPriority: 132
   teachingPriority: 0
-  testedAbilities:
-  - Etra.StarterAssets.Abilities.ABILITY_Jump
-  taughtAbilities: []
-  testedAbilityOne: Etra.StarterAssets.Abilities.ABILITY_Jump
+  testedAbilities: []
+  taughtAbilities:
+  - Etra.StarterAssets.Abilities.ABILITY_ActivateInteract
+  testedAbilityOne: 
   testedAbilityTwo: 
   testedAbilityThree: 
   testedAbilityFour: 
   testedAbilityFive: 
-  taughtAbilityOne: 
+  taughtAbilityOne: Etra.StarterAssets.Abilities.ABILITY_ActivateInteract
   taughtAbilityTwo: 
   taughtAbilityThree: 
-  chunkObject: {fileID: 4509226543046020639, guid: 36e968ef76c13a34bb97faa8cd023675, type: 3}
+  chunkObject: {fileID: 4509226543046020639, guid: 2fe8fcb6668a62649afe33d5bd6b7407, type: 3}
