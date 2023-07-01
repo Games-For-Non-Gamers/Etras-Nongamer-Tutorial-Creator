@@ -183,8 +183,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: Jump
-    clip: {fileID: 8300000, guid: 071308dc9a5118c468cffe05d1eb60af, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: 521eb8054c663cf4c877da86247a3270, type: 3}
+    volume: 0.8
     basePitch: 1
     spatialBlend: 0
     randomizePitch: 1
@@ -193,9 +193,9 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Land
-    clip: {fileID: 8300000, guid: 521eb8054c663cf4c877da86247a3270, type: 3}
-    volume: 1
-    basePitch: 1
+    clip: {fileID: 8300000, guid: 071308dc9a5118c468cffe05d1eb60af, type: 3}
+    volume: 0.8
+    basePitch: 0.9
     spatialBlend: 0
     randomizePitch: 1
     randomPitchRange: {x: 0.95, y: 1.05}
@@ -308,7 +308,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: BlasterShoot
     clip: {fileID: 8300000, guid: 64a30d31cae4c774f812f13908a9fea0, type: 3}
-    volume: 1
+    volume: 0.8
     basePitch: 1
     spatialBlend: 0
     randomizePitch: 1

@@ -12,6 +12,7 @@ namespace EtrasStarterAssets
         public List<Sound> sounds = new List<Sound>();
         private AudioMixerGroup sfx;
         private AudioMixerGroup music;
+        [HideInInspector]public bool stopPlayingSounds = false;
 
         //If script added or reset click
         private void Reset()
@@ -52,6 +53,11 @@ namespace EtrasStarterAssets
 
         public void Play(string name)
         {
+            if (stopPlayingSounds)
+            {
+                return;
+            }
+
             if (sounds == null)
             {
                 Debug.LogWarning("Sound " + name + " not found!");
@@ -132,7 +138,13 @@ namespace EtrasStarterAssets
             s.source.Stop();
         }
 
-
+        public void stopAllSounds()
+        {
+            foreach (Sound s in sounds)
+            {
+                s.source.Stop();
+            }
+        }
     }
 }
 

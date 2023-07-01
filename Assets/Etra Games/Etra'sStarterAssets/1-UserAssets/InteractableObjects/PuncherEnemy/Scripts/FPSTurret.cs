@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using EtrasStarterAssets;
+using System.Collections;
 using UnityEngine;
 
 namespace Etra.StarterAssets.Interactables.Enemies
@@ -175,9 +176,12 @@ namespace Etra.StarterAssets.Interactables.Enemies
         IEnumerator die()
         {
             playerSpotted = false;
+            audioManager.stopAllSounds();
             audioManager.Play("RobotExplode");
+            audioManager.stopPlayingSounds = true;
             turretAnimator.SetBool("Attack", false);
             turretAnimator.SetBool("Die", true);
+
             yield return new WaitForSeconds(0.33f);
             transform.GetChild(0).gameObject.SetActive(false);  //Hide model
             Instantiate(explosionParticle, transform.position, Quaternion.identity);
