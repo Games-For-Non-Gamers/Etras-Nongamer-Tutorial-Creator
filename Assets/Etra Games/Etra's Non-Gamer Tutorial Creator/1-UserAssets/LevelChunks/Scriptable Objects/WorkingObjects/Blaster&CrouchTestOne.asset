@@ -12,25 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4bc135820d99004a873a2b3c3e39a8b, type: 3}
   m_Name: Blaster&CrouchTestOne
   m_EditorClassIdentifier: 
-  chunkName: Movement Intro Chunk
-  icon: {fileID: 21300000, guid: b46c26d73458dbf448fd9e97362b1a74, type: 3}
+  chunkName: Blaster and Crouch Test One
+  icon: {fileID: 21300000, guid: b13eb006c15ed4640877fa1e6314eaf0, type: 3}
   required: 0
   useSingle: 0
-  recommended: 0
+  recommended: 1
   tempRecommended: 1
-  orderPriority: 0
+  orderPriority: 30
   teachingPriority: 0
-  testedAbilities: []
-  taughtAbilities:
-  - Etra.StarterAssets.Abilities.ABILITY_CharacterMovement
-  - Etra.StarterAssets.Abilities.ABILITY_CheckpointRespawn
-  - Etra.StarterAssets.Abilities.ABILITY_RigidbodyPush
-  testedAbilityOne: 
-  testedAbilityTwo: 
+  testedAbilities:
+  - Etra.StarterAssets.Items.USABLEITEM_FPS_Blaster
+  - Etra.StarterAssets.Abilities.FirstPerson.ABILITY_FPS_Crouch
+  taughtAbilities: []
+  testedAbilityOne: Etra.StarterAssets.Items.USABLEITEM_FPS_Blaster
+  testedAbilityTwo: Etra.StarterAssets.Abilities.FirstPerson.ABILITY_FPS_Crouch
   testedAbilityThree: 
   testedAbilityFour: 
   testedAbilityFive: 
-  taughtAbilityOne: Etra.StarterAssets.Abilities.ABILITY_CharacterMovement
-  taughtAbilityTwo: Etra.StarterAssets.Abilities.ABILITY_CheckpointRespawn
-  taughtAbilityThree: Etra.StarterAssets.Abilities.ABILITY_RigidbodyPush
-  chunkObject: {fileID: 4509226543046020639, guid: ca49f91b1c84341449b0925167f4a720, type: 3}
+  taughtAbilityOne: 
+  taughtAbilityTwo: 
+  taughtAbilityThree: 
+  chunkObject: {fileID: 4509226543046020639, guid: b5064381b07abf94994cc44649acda6e, type: 3}

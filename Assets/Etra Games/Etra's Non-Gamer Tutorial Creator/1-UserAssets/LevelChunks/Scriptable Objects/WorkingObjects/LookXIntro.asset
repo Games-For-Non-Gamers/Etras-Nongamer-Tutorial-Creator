@@ -10,23 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4bc135820d99004a873a2b3c3e39a8b, type: 3}
-  m_Name: DashIntro
+  m_Name: LookXIntro
   m_EditorClassIdentifier: 
-  chunkName: Dash Intro
-  icon: {fileID: 21300000, guid: 4d4096ce0a321de4c818b787969572e1, type: 3}
+  chunkName: Look X Intro
+  icon: {fileID: 21300000, guid: d224d837b6c90cf418adfb20c8c39363, type: 3}
   required: 0
   useSingle: 0
   recommended: 1
-  orderPriority: 150
+  tempRecommended: 1
+  orderPriority: 301
+  teachingPriority: 0
   testedAbilities: []
   taughtAbilities:
-  - Etra.StarterAssets.Abilities.FirstPerson.ABILITY_Dash
+  - Etra.StarterAssets.Abilities.ABILITY_CameraMovement
   testedAbilityOne: 
   testedAbilityTwo: 
   testedAbilityThree: 
   testedAbilityFour: 
   testedAbilityFive: 
-  taughtAbilityOne: Etra.StarterAssets.Abilities.FirstPerson.ABILITY_Dash
+  taughtAbilityOne: Etra.StarterAssets.Abilities.ABILITY_CameraMovement
   taughtAbilityTwo: 
   taughtAbilityThree: 
-  chunkObject: {fileID: 4509226543046020639, guid: 82c68e61181f13e4590e3f0c2c2c87b6, type: 3}
+  chunkObject: {fileID: 4509226543046020639, guid: e447a3793547c444a82044961a608192, type: 3}

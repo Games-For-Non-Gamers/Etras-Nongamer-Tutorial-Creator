@@ -10,23 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4bc135820d99004a873a2b3c3e39a8b, type: 3}
-  m_Name: BlasterTestOne
+  m_Name: JumpIntro
   m_EditorClassIdentifier: 
-  chunkName: Blaster Test One
-  icon: {fileID: 21300000, guid: cb0a021a93d74ba4ab264c127e1e0002, type: 3}
+  chunkName: Jump Intro
+  icon: {fileID: 21300000, guid: 441689719a2297c4ba0c13a9bd2827ae, type: 3}
   required: 0
   useSingle: 0
   recommended: 1
-  orderPriority: 410
-  testedAbilities:
-  - Etra.StarterAssets.Items.USABLEITEM_FPS_Blaster
-  taughtAbilities: []
-  testedAbilityOne: Etra.StarterAssets.Items.USABLEITEM_FPS_Blaster
+  tempRecommended: 1
+  orderPriority: 110
+  teachingPriority: 0
+  testedAbilities: []
+  taughtAbilities:
+  - Etra.StarterAssets.Abilities.ABILITY_Jump
+  testedAbilityOne: 
   testedAbilityTwo: 
   testedAbilityThree: 
   testedAbilityFour: 
   testedAbilityFive: 
-  taughtAbilityOne: 
+  taughtAbilityOne: Etra.StarterAssets.Abilities.ABILITY_Jump
   taughtAbilityTwo: 
   taughtAbilityThree: 
-  chunkObject: {fileID: 4509226543046020639, guid: 0a60b87d72d70914f90bd264d05100e4, type: 3}
+  chunkObject: {fileID: 4509226543046020639, guid: 947703e5486a08c4bb5c70cde818a0f4, type: 3}

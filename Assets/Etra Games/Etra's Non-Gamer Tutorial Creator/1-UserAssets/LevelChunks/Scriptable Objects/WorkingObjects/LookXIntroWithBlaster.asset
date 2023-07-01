@@ -10,24 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4bc135820d99004a873a2b3c3e39a8b, type: 3}
-  m_Name: GrabInteractIntro
+  m_Name: LookXIntroWithBlaster
   m_EditorClassIdentifier: 
-  chunkName: Grab Interact Intro
-  icon: {fileID: 21300000, guid: 4d4096ce0a321de4c818b787969572e1, type: 3}
+  chunkName: Look X Intro With Blaster
+  icon: {fileID: 21300000, guid: d224d837b6c90cf418adfb20c8c39363, type: 3}
   required: 0
   useSingle: 0
   recommended: 1
-  orderPriority: 305
+  tempRecommended: 1
+  orderPriority: 302
+  teachingPriority: 0
   testedAbilities:
-  - Etra.StarterAssets.Abilities.ABILITY_CameraMovement
+  - Etra.StarterAssets.Items.USABLEITEM_FPS_Blaster
   taughtAbilities:
-  - Etra.StarterAssets.Abilities.ABILITY_GrabInteract
-  testedAbilityOne: Etra.StarterAssets.Abilities.ABILITY_CameraMovement
+  - Etra.StarterAssets.Abilities.ABILITY_CameraMovement
+  testedAbilityOne: Etra.StarterAssets.Items.USABLEITEM_FPS_Blaster
   testedAbilityTwo: 
   testedAbilityThree: 
   testedAbilityFour: 
   testedAbilityFive: 
-  taughtAbilityOne: Etra.StarterAssets.Abilities.ABILITY_GrabInteract
+  taughtAbilityOne: Etra.StarterAssets.Abilities.ABILITY_CameraMovement
   taughtAbilityTwo: 
   taughtAbilityThree: 
-  chunkObject: {fileID: 4509226543046020639, guid: 9cf37e68bc83e9747bf3c0aeafb91877, type: 3}
+  chunkObject: {fileID: 4509226543046020639, guid: 61f1f7354162d514d898dd4a619cf80d, type: 3}

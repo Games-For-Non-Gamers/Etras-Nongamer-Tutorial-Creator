@@ -10,23 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4bc135820d99004a873a2b3c3e39a8b, type: 3}
-  m_Name: SprintIntro
+  m_Name: GrabInteractIntro
   m_EditorClassIdentifier: 
-  chunkName: Sprint Intro
-  icon: {fileID: 21300000, guid: 8b9325f8f1c979745b1c01d76be77989, type: 3}
+  chunkName: Grab Interact Intro
+  icon: {fileID: 21300000, guid: 61a55511a652faa4695fff5ab01a772e, type: 3}
   required: 0
   useSingle: 0
   recommended: 1
-  orderPriority: 200
-  testedAbilities: []
+  tempRecommended: 1
+  orderPriority: 305
+  teachingPriority: 0
+  testedAbilities:
+  - Etra.StarterAssets.Abilities.ABILITY_CharacterMovement
   taughtAbilities:
-  - Etra.StarterAssets.Abilities.ABILITY_Sprint
-  testedAbilityOne: 
+  - Etra.StarterAssets.Abilities.ABILITY_GrabInteract
+  testedAbilityOne: Etra.StarterAssets.Abilities.ABILITY_CharacterMovement
   testedAbilityTwo: 
   testedAbilityThree: 
   testedAbilityFour: 
   testedAbilityFive: 
-  taughtAbilityOne: Etra.StarterAssets.Abilities.ABILITY_Sprint
+  taughtAbilityOne: Etra.StarterAssets.Abilities.ABILITY_GrabInteract
   taughtAbilityTwo: 
   taughtAbilityThree: 
-  chunkObject: {fileID: 4509226543046020639, guid: 16663c839d0e8d644a5a1283e71f0f7f, type: 3}
+  chunkObject: {fileID: 4509226543046020639, guid: 9cf37e68bc83e9747bf3c0aeafb91877, type: 3}

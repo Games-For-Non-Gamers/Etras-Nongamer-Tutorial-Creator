@@ -10,23 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4bc135820d99004a873a2b3c3e39a8b, type: 3}
-  m_Name: JumpIntro
+  m_Name: SprintIntro
   m_EditorClassIdentifier: 
-  chunkName: Jump Intro
-  icon: {fileID: 21300000, guid: 33506b047fbc0bf44bddd80fe8e4fcf4, type: 3}
+  chunkName: Sprint Intro
+  icon: {fileID: 21300000, guid: f582bdd164aaba0498ad7deb21b62a4a, type: 3}
   required: 0
   useSingle: 0
   recommended: 1
-  orderPriority: 110
+  tempRecommended: 1
+  orderPriority: 200
+  teachingPriority: 0
   testedAbilities: []
   taughtAbilities:
-  - Etra.StarterAssets.Abilities.ABILITY_Jump
+  - Etra.StarterAssets.Abilities.ABILITY_Sprint
   testedAbilityOne: 
   testedAbilityTwo: 
   testedAbilityThree: 
   testedAbilityFour: 
   testedAbilityFive: 
-  taughtAbilityOne: Etra.StarterAssets.Abilities.ABILITY_Jump
+  taughtAbilityOne: Etra.StarterAssets.Abilities.ABILITY_Sprint
   taughtAbilityTwo: 
   taughtAbilityThree: 
-  chunkObject: {fileID: 4509226543046020639, guid: 947703e5486a08c4bb5c70cde818a0f4, type: 3}
+  chunkObject: {fileID: 4509226543046020639, guid: 16663c839d0e8d644a5a1283e71f0f7f, type: 3}

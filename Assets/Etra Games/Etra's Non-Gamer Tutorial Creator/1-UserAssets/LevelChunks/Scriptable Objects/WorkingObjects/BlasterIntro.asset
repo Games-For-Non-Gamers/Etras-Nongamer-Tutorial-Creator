@@ -10,23 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4bc135820d99004a873a2b3c3e39a8b, type: 3}
-  m_Name: CrouchIntro
+  m_Name: BlasterIntro
   m_EditorClassIdentifier: 
-  chunkName: Crouch Intro
-  icon: {fileID: 21300000, guid: 4d4096ce0a321de4c818b787969572e1, type: 3}
+  chunkName: Blaster Intro
+  icon: {fileID: 21300000, guid: fdbe7bd217d52064484cbe707e1a7494, type: 3}
   required: 0
   useSingle: 0
   recommended: 1
-  orderPriority: 20
+  tempRecommended: 1
+  orderPriority: 10
+  teachingPriority: 0
   testedAbilities: []
   taughtAbilities:
-  - Etra.StarterAssets.Abilities.FirstPerson.ABILITY_FPS_Crouch
+  - Etra.StarterAssets.Items.USABLEITEM_FPS_Blaster
   testedAbilityOne: 
   testedAbilityTwo: 
   testedAbilityThree: 
   testedAbilityFour: 
   testedAbilityFive: 
-  taughtAbilityOne: Etra.StarterAssets.Abilities.FirstPerson.ABILITY_FPS_Crouch
+  taughtAbilityOne: Etra.StarterAssets.Items.USABLEITEM_FPS_Blaster
   taughtAbilityTwo: 
   taughtAbilityThree: 
-  chunkObject: {fileID: 4509226543046020639, guid: 3680767b0884af14c8f753aedaf246a4, type: 3}
+  chunkObject: {fileID: 4509226543046020639, guid: 6b5b9cbccbd47d14db67f702dccd548a, type: 3}
