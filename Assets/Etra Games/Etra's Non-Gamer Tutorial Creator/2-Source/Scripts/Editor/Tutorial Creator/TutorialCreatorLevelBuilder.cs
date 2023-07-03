@@ -59,6 +59,7 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
             set
             {
                 _autoReload = value;
+                /*
                 switch (value)
                 {
                     case true:
@@ -68,6 +69,7 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
                         LevelChunk.OnAssetValidation -= _ => Reload();
                         break;
                 }
+                */
             }
         }
 

@@ -23,6 +23,7 @@ public class NonGamerTutorialOcean : MonoBehaviour
         PixelOnly
     }
 
+#if UNITY_EDITOR
     private void disableAll()
     {
         upperLayer.GetComponent<Renderer>().enabled = false;
@@ -98,6 +99,7 @@ public class NonGamerTutorialOcean : MonoBehaviour
         }
 
     }
+#endif
 
 
 }

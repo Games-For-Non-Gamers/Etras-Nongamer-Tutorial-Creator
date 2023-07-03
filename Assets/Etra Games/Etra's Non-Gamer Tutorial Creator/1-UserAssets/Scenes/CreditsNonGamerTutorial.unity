@@ -922,6 +922,7 @@ MonoBehaviour:
     isMusic: 1
     loop: 1
     source: {fileID: 0}
+  stopPlayingSounds: 0
 --- !u!1 &475590860
 GameObject:
   m_ObjectHideFlags: 0
@@ -4504,7 +4505,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 03210f682768f9e42957f1b2a6e454d0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: efb59fb5e3bbb5c4692f00a734c760c0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

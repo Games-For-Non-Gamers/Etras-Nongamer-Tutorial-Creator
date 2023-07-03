@@ -9,7 +9,8 @@ namespace Etra.NonGamerTutorialCreator
 
     public class AbilityOrItemUIGenerator : MonoBehaviour
     {
-       //  [ContextMenu("Re-Generate Ability And Item Ui Objects")]
+#if UNITY_EDITOR
+        //  [ContextMenu("Re-Generate Ability And Item Ui Objects")]
         public void generateAbilityAndItemUiObjects()
         {
             generateAbilityUiObjects();
@@ -28,7 +29,7 @@ namespace Etra.NonGamerTutorialCreator
             string prefabPath = PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(this.transform.parent.gameObject);
             PrefabUtility.SaveAsPrefabAssetAndConnect(this.transform.parent.gameObject, prefabPath, InteractionMode.AutomatedAction);
         }
-
+#endif
         private List<AbilityScriptAndNameHolder> abilityAndSubAbilities;
         public void generateAbilityUiObjects()
         {

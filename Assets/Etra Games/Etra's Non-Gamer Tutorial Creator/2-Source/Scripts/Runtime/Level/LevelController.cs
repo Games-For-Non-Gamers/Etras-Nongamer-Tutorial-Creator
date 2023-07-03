@@ -88,15 +88,17 @@ namespace Etra.NonGamerTutorialCreator.Level
                 bridgesRoot.transform.parent = this.transform;
                 bridgesRoot.transform.SetAsLastSibling();
 
-
+#if UNITY_EDITOR
                 returnedChunksPlusBridges.Add(initialChunks[i]); // add initial chunk
                 if (i != chunks.Count - 1)
                 {
+
                     GameObject prefab = (GameObject)PrefabUtility.InstantiatePrefab(loadedBridge, this.transform);
                     prefab.name = bridgeName;
                     prefab.transform.parent = bridgesRoot.transform;
                     returnedChunksPlusBridges.Add(prefab.GetComponent<LevelChunkObject>());
                 }
+#endif
             }
 
             return returnedChunksPlusBridges;

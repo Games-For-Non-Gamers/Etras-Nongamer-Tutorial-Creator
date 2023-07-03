@@ -887,7 +887,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -943,6 +943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65d608e7c9648a44a849ce9bee8eb3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backToMenuText: {fileID: 5124189423864144406}
 --- !u!1 &5124189423864144400
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,7 +956,7 @@ GameObject:
   - component: {fileID: 5124189423864144405}
   - component: {fileID: 5124189423864144406}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: BackText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1588,7 +1589,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5124189423972419837}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6895952900689699191}
+        m_TargetAssemblyTypeName: OpeningMenuUi, Assembly-CSharp
+        m_MethodName: goToCredits
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &5124189423972419826
 Animator:
   serializedVersion: 5

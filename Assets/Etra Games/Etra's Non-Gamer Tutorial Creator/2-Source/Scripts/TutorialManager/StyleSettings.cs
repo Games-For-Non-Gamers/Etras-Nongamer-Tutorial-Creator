@@ -36,6 +36,7 @@ public class StyleSettings : MonoBehaviour
     public NonGamerTutorialOcean.OceanType oceanType = NonGamerTutorialOcean.OceanType.LightOcean;
     public bool underwaterPostProcessAndSplashParticle = true;
 
+#if UNITY_EDITOR
     public void changeStyle()
     {
         string addedString;
@@ -111,7 +112,7 @@ public class StyleSettings : MonoBehaviour
 
 
     }
-
+#endif
     internal class textureSwapData
     {
         public string textureName = "";

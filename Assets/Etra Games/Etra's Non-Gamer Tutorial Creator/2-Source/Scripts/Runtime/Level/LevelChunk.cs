@@ -1,15 +1,14 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
-using Unity.Plastic.Newtonsoft.Json.Linq;
-//e
+
 namespace Etra.NonGamerTutorialCreator.Level
 {
     [System.Serializable]
     [CreateAssetMenu(fileName = "New Level Chunk", menuName = "Etra/Non Gamer Tutorial/Level Chunk")]
     public class LevelChunk : ScriptableObject
     {
-        public static event Action<LevelChunk> OnAssetValidation;
+       // public static event Action<LevelChunk> OnAssetValidation;
 
         public string chunkName;
         [SerializeField]public Sprite icon;
@@ -101,7 +100,7 @@ namespace Etra.NonGamerTutorialCreator.Level
 
 
 
-            OnAssetValidation?.Invoke(this);
+         //   OnAssetValidation?.Invoke(this);
         }
 #endif
     }
