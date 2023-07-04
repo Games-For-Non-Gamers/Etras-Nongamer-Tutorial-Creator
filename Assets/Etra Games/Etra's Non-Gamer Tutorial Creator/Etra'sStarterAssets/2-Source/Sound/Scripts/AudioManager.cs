@@ -9,6 +9,7 @@ namespace EtrasStarterAssets
 {
     public class AudioManager : MonoBehaviour
     {
+        public bool silenceSoundsUntilTutorialBegins = true;
         public List<Sound> sounds = new List<Sound>();
         private AudioMixerGroup sfx;
         private AudioMixerGroup music;
@@ -48,6 +49,13 @@ namespace EtrasStarterAssets
                     s.source.outputAudioMixerGroup = sfx;
                 }
 
+            }
+            if (GameObject.Find("NonGamerTutorialManager"))
+            {
+                if (silenceSoundsUntilTutorialBegins)
+                {
+                    stopPlayingSounds = true;
+                }
             }
         }
 

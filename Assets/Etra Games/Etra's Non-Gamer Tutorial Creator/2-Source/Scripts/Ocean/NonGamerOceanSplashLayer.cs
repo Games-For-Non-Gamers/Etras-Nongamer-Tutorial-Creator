@@ -7,12 +7,11 @@ public class NonGamerOceanSplashLayer : MonoBehaviour
 
     public GameObject splashParticle;
 
-    //if needed
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            standardSplash(other, new Vector2(1.7f, 2f));
+            standardSplash(other, new Vector2(1.0f, 1.2f));
         }
 
         if (other.gameObject.GetComponent<BulletProjectile>())

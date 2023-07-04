@@ -5608,6 +5608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d10d9b6d879748499838bb462e075de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  silenceSoundsUntilTutorialBegins: 1
   sounds:
   - name: TargetPop
     clip: {fileID: 8300000, guid: 0e36d892e5e0fad4d9468f8dec4fe676, type: 3}

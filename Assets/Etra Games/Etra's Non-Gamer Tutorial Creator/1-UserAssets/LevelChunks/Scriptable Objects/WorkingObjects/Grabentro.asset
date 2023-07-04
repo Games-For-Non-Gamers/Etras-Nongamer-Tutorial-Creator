@@ -16,10 +16,10 @@ MonoBehaviour:
   icon: {fileID: 0}
   required: 0
   useSingle: 0
-  recommended: 0
-  tempRecommended: 0
+  recommended: 1
+  tempRecommended: 1
   orderPriority: 0
-  teachingPriority: 0
+  teachingPriority: 1
   testedAbilities: []
   taughtAbilities: []
   testedAbilityOne: 
@@ -30,4 +30,4 @@ MonoBehaviour:
   taughtAbilityOne: 
   taughtAbilityTwo: 
   taughtAbilityThree: 
-  chunkObject: {fileID: 0}
+  chunkObject: {fileID: 4509226543046020639, guid: 75667ebb98cb2134b90118e7a9d23833, type: 3}

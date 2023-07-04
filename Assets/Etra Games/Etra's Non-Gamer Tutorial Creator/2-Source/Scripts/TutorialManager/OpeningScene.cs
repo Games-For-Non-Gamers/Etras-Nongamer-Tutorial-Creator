@@ -1,6 +1,7 @@
 using Etra.NonGamerTutorialCreator.Level;
 using Etra.StarterAssets;
 using Etra.StarterAssets.Input;
+using EtrasStarterAssets;
 using System.Collections;
 using UnityEngine;
 
@@ -195,6 +196,18 @@ namespace Etra.NonGamerTutorialCreator
             {
                 character.etraFPSUsableItemManager.instatiateItemAtStart();
             }
+
+            AudioManager[] managers = FindObjectsOfType<AudioManager>();
+
+            foreach (AudioManager manager in managers)
+            {
+                if (manager.silenceSoundsUntilTutorialBegins)
+                {
+                    manager.stopPlayingSounds = false;
+                }
+
+            }
+
         }
     }
 }

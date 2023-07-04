@@ -1221,6 +1221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d10d9b6d879748499838bb462e075de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  silenceSoundsUntilTutorialBegins: 0
   sounds:
   - name: HitStar
     clip: {fileID: 8300000, guid: f762b437243350a458b7785b39bb1f51, type: 3}
@@ -1232,6 +1233,7 @@ MonoBehaviour:
     isMusic: 0
     loop: 0
     source: {fileID: 0}
+  stopPlayingSounds: 0
 --- !u!65 &2250978718719273887
 BoxCollider:
   m_ObjectHideFlags: 0
