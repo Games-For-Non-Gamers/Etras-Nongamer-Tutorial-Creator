@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Readme
   m_EditorClassIdentifier: 
   icon: {fileID: 2800000, guid: 44a17a5b205fcd349a24700e6f5615bd, type: 3}
-  title: Etra's Non-Gamer Tutorial Creator
+  title: Etra's Starter Assets
   sections:
   - heading: <b>Etra's Games For Non-Gamers:</b>
     text: 
     linkText: Youtube Channel
-    url: https://www.youtube.com/@Games4NonGamers
+    url: https://www.youtube.com/@GamesForNon-Gamers
   - heading: 
     text: 
     linkText: Patreon
-    url: https://www.patreon.com/Games4Nongamers
+    url: https://www.patreon.com/GamesForNongamers
   - heading: 
     text: 
     linkText: Discord

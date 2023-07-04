@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿#if UNITY_EDITOR
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -124,6 +125,7 @@ public class ReadmeEditor : Editor {
 		m_BodyStyle = new GUIStyle(EditorStyles.label);
 		m_BodyStyle.wordWrap = true;
 		m_BodyStyle.fontSize = 14;
+		m_BodyStyle.richText = true;
 		
 		m_TitleStyle = new GUIStyle(m_BodyStyle);
 		m_TitleStyle.fontSize = 26;
@@ -155,4 +157,4 @@ public class ReadmeEditor : Editor {
 		return GUI.Button (position, label, LinkStyle);
 	}
 }
-
+#endif
