@@ -1,8 +1,8 @@
-using System.Collections;
+using Etra.NonGamerTutorialCreator.Level;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEditor;
 using UnityEngine;
+
 
 public class StyleSettings : MonoBehaviour
 {
@@ -124,6 +124,8 @@ public class StyleSettings : MonoBehaviour
             normalSwapped = s;
         }
     }
+
+
 
     // Add the following method to display the inspector button and custom string field
 #if UNITY_EDITOR

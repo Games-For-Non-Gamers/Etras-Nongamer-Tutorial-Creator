@@ -1,17 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
-public class SetFpsPostProcess : MonoBehaviour
+namespace Etra.NonGamerTutorialCreator
 {
-    //Switch the active post process layer
-    private void Start()
+    public class SetFpsPostProcess : MonoBehaviour
     {
-        if (Camera.main.GetComponent<PostProcessLayer>())
+        //Switch the active post process layer
+        private void Start()
         {
-            Camera.main.GetComponent<PostProcessLayer>().enabled = false;
-            this.GetComponent<PostProcessLayer>().enabled = true;
+            if (Camera.main.GetComponent<PostProcessLayer>())
+            {
+                Camera.main.GetComponent<PostProcessLayer>().enabled = false;
+                this.GetComponent<PostProcessLayer>().enabled = true;
+            }
         }
     }
 }

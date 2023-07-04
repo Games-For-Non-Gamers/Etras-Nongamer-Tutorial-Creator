@@ -7,15 +7,9 @@ using Etra.StarterAssets.Items;
 using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using Unity.Plastic.Newtonsoft.Json.Linq;
-using UnityEngine.PlayerLoop;
-using UnityEngine.Rendering.VirtualTexturing;
-using Etra.NonGamerTutorialCreator.Level;
 
 namespace Etra.NonGamerTutorialCreator.Attributes.Editor
 {
-
-
     [CustomPropertyDrawer(typeof(AbilitySelectorAttribute))]
     public class AbilitySelectorAttributeDrawer : PropertyDrawer
     {

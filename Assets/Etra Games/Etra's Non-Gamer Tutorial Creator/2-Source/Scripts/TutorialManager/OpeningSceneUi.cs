@@ -1,9 +1,9 @@
-using Etra.NonGamerTutorialCreator;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class OpeningSceneUi : MonoBehaviour
+namespace Etra.NonGamerTutorialCreator
 {
-    public EtraAnimationHolder starText;
+    public class OpeningSceneUi : MonoBehaviour
+    {
+        public EtraAnimationHolder starText;
+    }
 }

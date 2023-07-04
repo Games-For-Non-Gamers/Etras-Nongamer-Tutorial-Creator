@@ -1,22 +1,14 @@
 ﻿using UnityEditor;
 using UnityEngine;
-using UnityEditorInternal;
 using UnityEditor.IMGUI.Controls;
 using System;
 using System.Collections.Generic;
-
 using Etra.StarterAssets.Source.Editor;
 using Etra.NonGamerTutorialCreator.Level;
-
 using static Etra.StarterAssets.EtraCharacterMainController;
-using System.Linq;
 using Etra.StarterAssets;
 using Etra.StarterAssets.Abilities;
 using Etra.StarterAssets.Items;
-using static Etra.StarterAssets.Items.EtraFPSUsableItemManager;
-using static UnityEditor.Progress;
-using Etra.StarterAssets.Interactables;
-
 namespace Etra.NonGamerTutorialCreator.TutorialCreator
 {
     public class TutorialCreatorWindow : EditorWindow, IHasCustomMenu

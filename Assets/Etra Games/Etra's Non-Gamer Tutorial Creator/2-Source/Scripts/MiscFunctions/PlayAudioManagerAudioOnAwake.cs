@@ -1,12 +1,15 @@
 using EtrasStarterAssets;
 using UnityEngine;
 
-public class PlayAudioManagerAudioOnAwake : MonoBehaviour
+namespace Etra.NonGamerTutorialCreator
 {
-    // Play first sound
-    void Start()
+    public class PlayAudioManagerAudioOnAwake : MonoBehaviour
     {
-        GetComponent<AudioManager>().Play(GetComponent<AudioManager>().sounds[0]);    
-    }
+        // Play first sound
+        void Start()
+        {
+            GetComponent<AudioManager>().Play(GetComponent<AudioManager>().sounds[0]);
+        }
 
+    }
 }

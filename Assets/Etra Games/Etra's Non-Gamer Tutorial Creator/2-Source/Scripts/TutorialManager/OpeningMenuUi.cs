@@ -2,46 +2,49 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class OpeningMenuUi : MonoBehaviour
+namespace Etra.NonGamerTutorialCreator.Level
 {
-    public void backToMenu()
+    public class OpeningMenuUi : MonoBehaviour
     {
-        if (buttonIsQuit)
+        public void backToMenu()
         {
-            Quit();
+            if (buttonIsQuit)
+            {
+                Quit();
+            }
+            else
+            {
+                //Enter Main Menu name here
+                SceneManager.LoadScene(0); //<----- EDIT THIS LINE
+            }
         }
-        else
+
+        ///~~~~~~~~~~~~Ignore~~~~~~~~~~~~~~~~~~~~~
+        public TextMeshProUGUI backToMenuText;
+        bool buttonIsQuit = false;
+        public void goToCredits()
         {
-            //Enter Main Menu name here
-            SceneManager.LoadScene(0); //<----- EDIT THIS LINE
+            SceneManager.LoadScene("CreditsNonGamerTutorial");
         }
-    }
 
-///~~~~~~~~~~~~Ignore~~~~~~~~~~~~~~~~~~~~~
-    public TextMeshProUGUI backToMenuText;
-    bool buttonIsQuit = false;
-    public void goToCredits()
-    {
-        SceneManager.LoadScene("CreditsNonGamerTutorial");
-    }
-
-    private void Start()
-    {
-        if (SceneManager.GetActiveScene().buildIndex == 0) //If this is loaded as the first scene adjust the text
+        private void Start()
         {
-            backToMenuText.text = "Quit Game";
-            buttonIsQuit = true;
+            if (SceneManager.GetActiveScene().buildIndex == 0) //If this is loaded as the first scene adjust the text
+            {
+                backToMenuText.text = "Quit Game";
+                buttonIsQuit = true;
+            }
         }
-    }
 
-    public void Quit()
-    {
-        // Quit the application
-        #if UNITY_EDITOR
-              UnityEditor.EditorApplication.isPlaying = false;
-        #else
+        public void Quit()
+        {
+            // Quit the application
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
               Application.Quit();
-        #endif
-    }
+#endif
+        }
 
+    }
 }

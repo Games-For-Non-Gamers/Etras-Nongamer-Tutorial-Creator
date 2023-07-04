@@ -1,9 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using static Etra.NonGamerTutorialCreator.Level.LevelController;
 
 namespace Etra.NonGamerTutorialCreator.Level.Editor
 {

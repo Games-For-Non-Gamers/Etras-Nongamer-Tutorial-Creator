@@ -5,11 +5,9 @@ using UnityEditor;
 using System.Text.RegularExpressions;
 using System;
 using System.Linq;
-
 using Etra.StarterAssets.Abilities;
 using Etra.StarterAssets.Items;
 using Etra.StarterAssets.Source.Editor;
-
 using static Etra.StarterAssets.EtraCharacterMainController;
 using Etra.NonGamerTutorialCreator.Level;
 

@@ -1,11 +1,10 @@
-using Etra.NonGamerTutorialCreator.Level;
 using Etra.StarterAssets;
 using Etra.StarterAssets.Input;
 using EtrasStarterAssets;
 using System.Collections;
 using UnityEngine;
 
-namespace Etra.NonGamerTutorialCreator
+namespace Etra.NonGamerTutorialCreator.Level
 {
     public class OpeningScene : MonoBehaviour
     {

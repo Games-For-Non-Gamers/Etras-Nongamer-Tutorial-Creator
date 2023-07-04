@@ -1,65 +1,66 @@
-using Etra.NonGamerTutorialCreator;
 using Etra.StarterAssets;
 using Etra.StarterAssets.Input;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EndChunkEvent : EtraAnimationActivatedScript
+namespace Etra.NonGamerTutorialCreator
 {
-    bool gameEnded = false;
-    StarterAssetsInputs _inputs;
-    Star star;
-    public override void runScript(string passedString)
+    public class EndChunkEvent : EtraAnimationActivatedScript
     {
-        StartCoroutine(end());
-
-    }
-
-    IEnumerator end()
-    {
-        star.endCelebration();
-        yield return new WaitForSeconds(5);
-        gameEnded = true;
-    }
-
-
-    private void Start()
-    {
-        _inputs = EtraCharacterMainController.Instance.GetComponent<StarterAssetsInputs>();
-        star = GameObject.Find("Star").GetComponent<Star>();
-    }
-
-    bool startedLeave = false;
-    private void Update()
-    {
-        if (gameEnded)
+        bool gameEnded = false;
+        StarterAssetsInputs _inputs;
+        Star star;
+        public override void runScript(string passedString)
         {
-            if (_inputs.select)
-            {
-                if (!startedLeave)
-                {
-                    startedLeave = true;
-                    StartCoroutine(toMainMenu());
-                    return;
-                }
-
-
-            }
-
-            if (_inputs.start)
-            {
-                SceneManager.LoadScene("CreditsNonGamerTutorial");
-            }
+            StartCoroutine(end());
 
         }
-    }
 
-    IEnumerator toMainMenu()
-    {
-        Debug.LogWarning("Click me for the code that should load back to the main menu. After a few seconds this will just go to scene zero. This code is in the EndChunkEvent.cs script.");
-        yield return new WaitForSeconds(3);
-        SceneManager.LoadScene(0); //
+        IEnumerator end()
+        {
+            star.endCelebration();
+            yield return new WaitForSeconds(5);
+            gameEnded = true;
+        }
+
+
+        private void Start()
+        {
+            _inputs = EtraCharacterMainController.Instance.GetComponent<StarterAssetsInputs>();
+            star = GameObject.Find("Star").GetComponent<Star>();
+        }
+
+        bool startedLeave = false;
+        private void Update()
+        {
+            if (gameEnded)
+            {
+                if (_inputs.select)
+                {
+                    if (!startedLeave)
+                    {
+                        startedLeave = true;
+                        StartCoroutine(toMainMenu());
+                        return;
+                    }
+
+
+                }
+
+                if (_inputs.start)
+                {
+                    SceneManager.LoadScene("CreditsNonGamerTutorial");
+                }
+
+            }
+        }
+
+        IEnumerator toMainMenu()
+        {
+            Debug.LogWarning("Click me for the code that should load back to the main menu. After a few seconds this will just go to scene zero. This code is in the EndChunkEvent.cs script.");
+            yield return new WaitForSeconds(3);
+            SceneManager.LoadScene(0); //
+        }
     }
 }

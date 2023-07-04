@@ -1,4 +1,3 @@
-using Etra.StarterAssets;
 using Etra.StarterAssets.Source;
 using UnityEngine;
 

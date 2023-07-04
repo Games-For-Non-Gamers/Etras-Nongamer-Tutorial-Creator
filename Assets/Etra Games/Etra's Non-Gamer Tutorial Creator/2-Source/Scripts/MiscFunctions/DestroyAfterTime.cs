@@ -1,18 +1,20 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyAfterTime : MonoBehaviour
+namespace Etra.NonGamerTutorialCreator
 {
-    public float secondsTillDestroy = 2;
-    void Start()
+    public class DestroyAfterTime : MonoBehaviour
     {
-        StartCoroutine(waitToDestroy());
-    }
+        public float secondsTillDestroy = 2;
+        void Start()
+        {
+            StartCoroutine(waitToDestroy());
+        }
 
-    IEnumerator waitToDestroy()
-    {
-        yield return new WaitForSeconds(secondsTillDestroy);
-        Destroy(this.gameObject);
+        IEnumerator waitToDestroy()
+        {
+            yield return new WaitForSeconds(secondsTillDestroy);
+            Destroy(this.gameObject);
+        }
     }
 }

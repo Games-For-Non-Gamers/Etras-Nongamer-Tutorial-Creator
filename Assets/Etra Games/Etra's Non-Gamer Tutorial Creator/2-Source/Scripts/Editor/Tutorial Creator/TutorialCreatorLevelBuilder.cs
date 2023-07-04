@@ -6,10 +6,8 @@ using UnityEditor;
 using UnityEditorInternal;
 using Etra.StarterAssets.Source.Editor;
 using Etra.NonGamerTutorialCreator.Level;
-
 using UObject = UnityEngine.Object;
 using Etra.StarterAssets.Source;
-using Codice.Client.BaseCommands;
 
 namespace Etra.NonGamerTutorialCreator.TutorialCreator
 {

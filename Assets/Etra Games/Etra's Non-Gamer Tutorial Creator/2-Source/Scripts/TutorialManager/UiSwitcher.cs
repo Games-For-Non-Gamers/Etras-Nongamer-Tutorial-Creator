@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using static Etra.NonGamerTutorialCreator.NonGamerTutorialUi;
 using UnityEngine.InputSystem.Controls;
