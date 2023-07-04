@@ -19,7 +19,7 @@ MonoBehaviour:
   recommended: 1
   tempRecommended: 1
   orderPriority: 302
-  teachingPriority: 0
+  teachingPriority: 1
   testedAbilities:
   - Etra.StarterAssets.Items.USABLEITEM_FPS_Blaster
   taughtAbilities:
