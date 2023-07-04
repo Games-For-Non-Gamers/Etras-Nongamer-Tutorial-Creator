@@ -2203,7 +2203,7 @@ MonoBehaviour:
   _simSettingsAnimatedWaves: {fileID: 11400000, guid: 62a7ebcba67387043b90226c6ee957b7, type: 2}
   _createSeaFloorDepthData: 0
   _simSettingsSeaFloorDepth: {fileID: 0}
-  _createFoamSim: 0
+  _createFoamSim: 1
   _simSettingsFoam: {fileID: 11400000, guid: b699a3b46fff8d340aeb6110c75cf178, type: 2}
   _createDynamicWaveSim: 0
   _simSettingsDynamicWaves: {fileID: 0}
@@ -2211,8 +2211,8 @@ MonoBehaviour:
   _simSettingsFlow: {fileID: 0}
   _createShadowData: 0
   _simSettingsShadow: {fileID: 0}
-  _createClipSurfaceData: 0
-  _simSettingsClipSurface: {fileID: 0}
+  _createClipSurfaceData: 1
+  _simSettingsClipSurface: {fileID: 11400000, guid: 0dd6ed13a808e4e71bba19b046e4d242, type: 2}
   _defaultClippingState: 0
   _createAlbedoData: 0
   _settingsAlbedo: {fileID: 0}

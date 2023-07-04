@@ -706,7 +706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startConnectionPoint: {x: 0, y: 0, z: -5}
   endConnectionPoint: {x: 0, y: 0, z: 17}
-  playerSpawnPosition: {x: 0, y: 1, z: -4.5}
+  playerSpawnPosition: {x: 0, y: 1.5, z: -4.5}
 --- !u!1 &5401200741048093931
 GameObject:
   m_ObjectHideFlags: 0
