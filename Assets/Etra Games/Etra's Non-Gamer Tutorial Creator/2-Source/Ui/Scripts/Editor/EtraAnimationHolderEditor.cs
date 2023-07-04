@@ -1,6 +1,5 @@
 using Etra.NonGamerTutorialCreator;
 using UnityEditor;
-using UnityEngine;
 
     [CustomEditor(typeof(EtraAnimationHolder))]
     public class EtraAnimationHolderEditor : Editor
@@ -24,7 +23,7 @@ using UnityEngine;
             SerializedProperty duplicateEndIndex = serializedObject.FindProperty("duplicateEndIndex");
             EditorGUILayout.PropertyField(duplicateEndIndex);
 
-        EditorGUI.BeginChangeCheck();
+            EditorGUI.BeginChangeCheck();
             EditorGUILayout.PropertyField(serializedObject.FindProperty("separateKeyboardControllerAnimations"));
             if (EditorGUI.EndChangeCheck())
                 serializedObject.ApplyModifiedProperties();

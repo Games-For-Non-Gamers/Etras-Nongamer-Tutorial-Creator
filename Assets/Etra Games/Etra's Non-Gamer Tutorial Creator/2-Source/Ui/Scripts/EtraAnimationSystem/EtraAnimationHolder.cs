@@ -3,13 +3,10 @@ using Etra.StarterAssets.Abilities;
 using EtrasStarterAssets;
 using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
-using System.Xml.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static Etra.NonGamerTutorialCreator.EtraAnimationEvent;
-using static UnityEngine.ProBuilder.AutoUnwrapSettings;
 
 namespace Etra.NonGamerTutorialCreator
 {

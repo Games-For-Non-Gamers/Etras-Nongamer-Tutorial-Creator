@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-public class EtraAnimationActivatedScript : MonoBehaviour
+namespace Etra.NonGamerTutorialCreator
 {
-    public virtual void runScript(string passedString)
+    public class EtraAnimationActivatedScript : MonoBehaviour
     {
+        public virtual void runScript(string passedString)
+        {
 
+        }
     }
 }

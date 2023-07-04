@@ -1,10 +1,4 @@
-using Etra.StarterAssets.Source;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
-using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.UI;
 
 namespace Etra.NonGamerTutorialCreator{

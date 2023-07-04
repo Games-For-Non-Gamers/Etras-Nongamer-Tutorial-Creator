@@ -1,6 +1,5 @@
 using UnityEditor;
 using UnityEngine;
-using Etra.NonGamerTutorialCreator;
 
 namespace Etra.NonGamerTutorialCreator
 {

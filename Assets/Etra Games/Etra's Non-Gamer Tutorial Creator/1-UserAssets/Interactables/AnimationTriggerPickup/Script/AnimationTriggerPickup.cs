@@ -1,96 +1,98 @@
-using Etra.NonGamerTutorialCreator;
 using UnityEngine;
 
-public class AnimationTriggerPickup : MonoBehaviour
+namespace Etra.NonGamerTutorialCreator.Level
 {
-    public string nameOfObjectWithAnimationHolder = "";
-    public bool runAnimation = true;
-    EtraAnimationHolder objectWithEtraAnimationScript;
-
-    [Header("Rendering")]
-    public bool showInEditor = true;
-    public bool showInGame = false;
-
-    //Set the correct selected ability
-    private void Start()
+    public class AnimationTriggerPickup : MonoBehaviour
     {
-        if (showInGame)
+        public string nameOfObjectWithAnimationHolder = "";
+        public bool runAnimation = true;
+        EtraAnimationHolder objectWithEtraAnimationScript;
+
+        [Header("Rendering")]
+        public bool showInEditor = true;
+        public bool showInGame = false;
+
+        //Set the correct selected ability
+        private void Start()
         {
-            showRenderers();
-        }
-        else
-        {
-            hideRenderers();
-        }
-        GameObject hostObject ;
-
-        GameObject tutorialUi = GameObject.Find("NonGamerTutorialManager");
-
-
-        if (tutorialUi.transform.Find("NonGamerTutorialUI/UiRectTransforms/AdditionalGeneralEvents/" + nameOfObjectWithAnimationHolder))
-        {
-            hostObject = tutorialUi.gameObject.transform.Find("NonGamerTutorialUI/UiRectTransforms/AdditionalGeneralEvents/" + nameOfObjectWithAnimationHolder).gameObject;
-
-        }
-        else
-        {
-            Debug.LogWarning(nameOfObjectWithAnimationHolder + " not found");
-            return;
-        }
-
-        if (hostObject.GetComponent<EtraAnimationHolder>() !=null)
-        {
-            objectWithEtraAnimationScript = hostObject.GetComponent<EtraAnimationHolder>();
-        }
-        else
-        {
-            Debug.LogWarning("Text label:" + nameOfObjectWithAnimationHolder + " not found or " + nameOfObjectWithAnimationHolder + " does not have a EtraAnimationHolder script attatched.");
-        }
-
-    }
-
-
-    //If the player collides with the pickup...
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player" && objectWithEtraAnimationScript != null)
-        {
-            if (runAnimation)
+            if (showInGame)
             {
-                objectWithEtraAnimationScript.runAnimation();
+                showRenderers();
             }
             else
             {
-                objectWithEtraAnimationScript.showAllAnimatedObjects();
+                hideRenderers();
             }
-           
-            Destroy(gameObject);
+            GameObject hostObject;
+
+            GameObject tutorialUi = GameObject.Find("NonGamerTutorialManager");
+
+
+            if (tutorialUi.transform.Find("NonGamerTutorialUI/UiRectTransforms/AdditionalGeneralEvents/" + nameOfObjectWithAnimationHolder))
+            {
+                hostObject = tutorialUi.gameObject.transform.Find("NonGamerTutorialUI/UiRectTransforms/AdditionalGeneralEvents/" + nameOfObjectWithAnimationHolder).gameObject;
+
+            }
+            else
+            {
+                Debug.LogWarning(nameOfObjectWithAnimationHolder + " not found");
+                return;
+            }
+
+            if (hostObject.GetComponent<EtraAnimationHolder>() != null)
+            {
+                objectWithEtraAnimationScript = hostObject.GetComponent<EtraAnimationHolder>();
+            }
+            else
+            {
+                Debug.LogWarning("Text label:" + nameOfObjectWithAnimationHolder + " not found or " + nameOfObjectWithAnimationHolder + " does not have a EtraAnimationHolder script attatched.");
+            }
+
         }
 
-    }
 
-
-    private void OnValidate()
-    {
-        if (showInEditor)
+        //If the player collides with the pickup...
+        private void OnTriggerEnter(Collider other)
         {
-            showRenderers();
+            if (other.gameObject.tag == "Player" && objectWithEtraAnimationScript != null)
+            {
+                if (runAnimation)
+                {
+                    objectWithEtraAnimationScript.runAnimation();
+                }
+                else
+                {
+                    objectWithEtraAnimationScript.showAllAnimatedObjects();
+                }
+
+                Destroy(gameObject);
+            }
+
         }
-        else
+
+
+        private void OnValidate()
         {
-            hideRenderers();
+            if (showInEditor)
+            {
+                showRenderers();
+            }
+            else
+            {
+                hideRenderers();
+            }
+
+        }
+
+        void showRenderers()
+        {
+            this.GetComponent<MeshRenderer>().enabled = true;
+        }
+
+        void hideRenderers()
+        {
+            this.GetComponent<MeshRenderer>().enabled = false;
         }
 
     }
-
-    void showRenderers()
-    {
-        this.GetComponent<MeshRenderer>().enabled = true;
-    }
-
-    void hideRenderers()
-    {
-        this.GetComponent<MeshRenderer>().enabled = false;
-    }
-
 }

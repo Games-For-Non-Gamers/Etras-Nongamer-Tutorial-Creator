@@ -6,7 +6,6 @@ using UnityEngine;
 
 namespace Etra.NonGamerTutorialCreator
 {
-
     public class AbilityOrItemUIGenerator : MonoBehaviour
     {
 #if UNITY_EDITOR

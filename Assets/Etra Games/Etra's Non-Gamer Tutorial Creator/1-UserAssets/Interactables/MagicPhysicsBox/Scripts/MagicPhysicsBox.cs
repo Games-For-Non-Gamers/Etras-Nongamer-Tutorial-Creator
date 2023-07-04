@@ -1,11 +1,8 @@
 using Etra.StarterAssets.Interactables;
-using Etra.StarterAssets.Source.Combat;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace Etra.NonGamerTutorialCreator
+namespace Etra.NonGamerTutorialCreator.Level
 {
     public class MagicPhysicsBox : MonoBehaviour
     {
