@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Etra Games/Etra's Non-Gamer Tutorial Creator/1-UserAssets/Scenes/NonGamerTutorialBaseRoomWithPrefabs.unity
-    guid: f38f409a30c470243bcbfecaabb6e9e5
+    path: Assets/Etra Games/Etra's Non-Gamer Tutorial Creator/1-UserAssets/Scenes/TpsExample_NonGamerTutorial.unity
+    guid: 9265424004972de4eb852aeba2f2186e
+  - enabled: 1
+    path: Assets/Etra Games/Etra's Non-Gamer Tutorial Creator/1-UserAssets/Scenes/FpsExample_NonGamerTutorial.unity
+    guid: a38870f88295cb7459b344efc7ac1413
   - enabled: 1
     path: Assets/Etra Games/Etra's Non-Gamer Tutorial Creator/1-UserAssets/Scenes/CreditsNonGamerTutorial.unity
     guid: 106ce9939db633d46a19d5a483b4c780

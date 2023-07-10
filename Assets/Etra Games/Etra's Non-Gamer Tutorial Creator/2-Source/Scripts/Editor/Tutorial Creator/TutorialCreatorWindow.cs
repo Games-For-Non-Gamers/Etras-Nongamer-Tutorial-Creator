@@ -230,13 +230,13 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
                         switch (linkIndex)
                         {
                             case 0:
-                                Application.OpenURL("Assets\\Etra Games\\Etra'sStarterAssets\\1-UserAssets\\Etra'sStarterAssets_Documentation.pdf");
+                                Application.OpenURL("Assets\\Etra Games\\Etra's Non-Gamer Tutorial Creator\\1-UserAssets\\Etra'sNon-GamerTutorialCreator_Documentation.pdf");
                                 break;
                             case 1:
                                 Application.OpenURL("https://discord.gg/d3AzQDGj4C");
                                 break;
                             case 2:
-                                Application.OpenURL("https://www.youtube.com/playlist?list=PLvmCfejZtwhO7w1sI0DAMHWqrr6JMABpD");
+                                Application.OpenURL("https://www.youtube.com/playlist?list=PLvmCfejZtwhPMvFeFfJ0-sEu5gPwITd2f");
                                 break;
                         }
                     }
@@ -244,7 +244,7 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
                     EditorGUILayout.Space(2f);
 
                     using (new GUILayout.VerticalScope(Styles.DescriptionBackground))
-                        GUILayout.Label("Welcome to the Etra's Starter Assets: Character Creator! \n\nThis setup wizard will allow you to create and modify the character controller, along with its different abilities. \n\nEvery setting is dynamically generated, so your own abilities and items will also show up here. \n\nIf you feel stuck at any point, you can ask for help on our discord server (link above).", Styles.WrappedLabel);
+                        GUILayout.Label("Etra's Non-Gamer Tutorial Creator: Tutorial Creator! \n\nThis setup wizard will allow you to create your own customized Non-Gamer Tutorial,. \n\nEvery setting is dynamically generated, so your own custom level chunks, abilities, and items will show up here. \n\nIf you feel stuck at any point, you can ask for help on our discord server (link above).", Styles.WrappedLabel);
 
                     break;
                 case 1: //Gameplay type selection

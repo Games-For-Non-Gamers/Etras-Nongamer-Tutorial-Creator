@@ -911,6 +911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d10d9b6d879748499838bb462e075de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  silenceSoundsUntilTutorialBegins: 1
   sounds:
   - name: Music
     clip: {fileID: 8300000, guid: e0042aeb89a628345b0f0ebabb4db95f, type: 3}
@@ -2615,8 +2616,6 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Vertex Studio:
 
-    harrietniamh:
-
     Brsjak:
 
     qubodup:
@@ -2663,9 +2662,6 @@ MonoBehaviour:
 
     Pablobd:
 
-
-
-    jorickhoofd:
 
 
     newagesoup:
@@ -3654,13 +3650,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "-\"Absolutely Free Music\"\n-\"Footsteps on Concrete\"\n-\"Swoosh.wav\"\n-\"whoosh\"\n-\"equip.wav\"\n-\"Generic
+  m_text: "-\"Absolutely Free Music\"\n-\"Swoosh.wav\"\n-\"whoosh\"\n-\"equip.wav\"\n-\"Generic
     Rifle Cock\"\n-\"unsheath.wav.wav\"\n-\"Arming a Sci-Fi Gun\"\n-\"Upgrade 2\"\n-\"Basketball
     bounce.WAV\"\n-\"Metal Impact - \nCeramic Piece in Sink\"\n-\"Gunshot.ogg\"\n-\"Single
     nerf shot.wav\"\n-\"Sword sound 2.wav\"\n-\"Flicking a Switch\"\n-\"Suck.mp3\"\n-\"Baloon
     Pop One.mp3\"\n-\"Laser Shot 1.1\"\n-\"Magic spell buff bell sparkle reverb.wav\"\n-\"twoSparklers.flac\"\n-\"Success
     Jingle\"\n-\"Creaky Door Closing \nSlowly\"\n-\"Treadmill\"\n-\"Sci-Fi sliding
-    door (height adjustable chair\n sounds).wav\"\n-\"Metal hit with metal bar \nresonance\"\n-\"FUN-EXPLOSION09.wav\"\n-\"Click_Electronic_12.wav\"\n-\"Click_Electronic_04.wav\"\n-\"Click_Electronic_13.wav\"
+    door (height adjustable chair\n sounds).wav\"\n-\"FUN-EXPLOSION09.wav\"\n-\"Click_Electronic_12.wav\"\n-\"Click_Electronic_04.wav\"\n-\"Click_Electronic_13.wav\"
     \n-\"Small servo (arduino)\""
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 70eade65403fbae4b9dd6dd28d5bdbd8, type: 2}
