@@ -239,6 +239,7 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
                                 Application.OpenURL("https://www.youtube.com/playlist?list=PLvmCfejZtwhPMvFeFfJ0-sEu5gPwITd2f");
                                 break;
                         }
+
                     }
 
                     EditorGUILayout.Space(2f);

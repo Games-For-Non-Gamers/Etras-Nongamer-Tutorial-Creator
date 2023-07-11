@@ -12,7 +12,13 @@ namespace Etra.NonGamerTutorialCreator.Level
         public Vector3 playerSpawnPosition = new Vector3(0f, 0f, 1f);
 
 
-        //Broke again. Spawned object but not saved. Unstable code place.
+        public void deletePlayerSpawn()
+        {
+            if (GameObject.Find("PlayerSpawn"))
+            {
+                DestroyImmediate(GameObject.Find("PlayerSpawn"));
+            }
+        }
         public void makePlayerSpawn()
         {
             if (GameObject.Find("PlayerSpawn") || this.gameObject.name == "End Chunk")

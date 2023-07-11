@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using static Etra.NonGamerTutorialCreator.EtraAnimationEvent;
 
@@ -457,14 +458,14 @@ namespace Etra.NonGamerTutorialCreator
                         break;
 
                     case AnimationEvents.BasicUiGrowAndToStartWithMidUnlock:
-                        StartCoroutine(basicUiGrowAndToStartCoroutine(animEvent.tweenedObject, animEvent.basicGrowPos, animEvent.basicGrowScale, animEvent.basicGrowWait, abilityToActivate, selectedItem, isAbility, true));
+                        StartCoroutine(basicUiGrowAndToStartCoroutine(animEvent.tweenedObject, animEvent.basicGrowPos, animEvent.basicGrowScale, animEvent.basicGrowWait, abilityToActivate, selectedItem, isAbility, true, isKeyboard, indexTracker, animEvent.sfxName));
                         break;
                     case AnimationEvents.BasicUiGrowAndToStartWithInstantUnlock:
                         unlockAbility(abilityToActivate, selectedItem, isAbility);
-                        StartCoroutine(basicUiGrowAndToStartCoroutine(animEvent.tweenedObject, animEvent.basicGrowPos, animEvent.basicGrowScale, animEvent.basicGrowWait, abilityToActivate, selectedItem, isAbility, false));
+                        StartCoroutine(basicUiGrowAndToStartCoroutine(animEvent.tweenedObject, animEvent.basicGrowPos, animEvent.basicGrowScale, animEvent.basicGrowWait, abilityToActivate, selectedItem, isAbility, false, isKeyboard, indexTracker, animEvent.sfxName));
                         break;
                     case AnimationEvents.BasicUiGrowAndToStartWithNoUnlock:
-                        StartCoroutine(basicUiGrowAndToStartCoroutine(animEvent.tweenedObject, animEvent.basicGrowPos, animEvent.basicGrowScale, animEvent.basicGrowWait, abilityToActivate, selectedItem, isAbility, false));
+                        StartCoroutine(basicUiGrowAndToStartCoroutine(animEvent.tweenedObject, animEvent.basicGrowPos, animEvent.basicGrowScale, animEvent.basicGrowWait, abilityToActivate, selectedItem, isAbility, false, isKeyboard, indexTracker, animEvent.sfxName));
                         break;
 
                     case AnimationEvents.FadeInIfNotVisible:
@@ -553,7 +554,7 @@ namespace Etra.NonGamerTutorialCreator
             showOrHideUiObject(obj, true);
         }
 
-        IEnumerator basicUiGrowAndToStartCoroutine(GameObject obj, Vector3 basicGrowPos, Vector3 basicGrowScale, float basicGrowWait, AbilityScriptAndNameHolder abilityToActivate, ItemScriptAndNameHolder selectedItem, bool isAbility, bool unlockAbilityBool)
+        IEnumerator basicUiGrowAndToStartCoroutine(GameObject obj, Vector3 basicGrowPos, Vector3 basicGrowScale, float basicGrowWait, AbilityScriptAndNameHolder abilityToActivate, ItemScriptAndNameHolder selectedItem, bool isAbility, bool unlockAbilityBool, bool isKeyboard, int indexTracker, string sfxName)
         {
             if (basicGrowWait < 2)
             {
@@ -579,9 +580,21 @@ namespace Etra.NonGamerTutorialCreator
                 unlockAbility(abilityToActivate, selectedItem, isAbility);
             }
 
-            if (sfxPlayer != null)
+            if (separateKeyboardControllerAnimations)
             {
-                sfxPlayer.Play("UiElementMove");
+                keyOrContSfx(isKeyboard, indexTracker, sfxName);
+            }
+            else
+            {
+                if (sfxPlayer != null)
+                {
+                    sfxPlayer.Play(sfxName);
+                }
+                else
+                {
+                    Debug.LogWarning("You must set the sfx player variable to play sfx");
+                }
+
             }
 
             //Find the element

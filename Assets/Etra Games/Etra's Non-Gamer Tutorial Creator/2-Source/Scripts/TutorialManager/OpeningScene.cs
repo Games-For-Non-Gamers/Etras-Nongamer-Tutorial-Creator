@@ -1,8 +1,10 @@
+using Cinemachine;
 using Etra.StarterAssets;
 using Etra.StarterAssets.Input;
 using EtrasStarterAssets;
 using System.Collections;
 using UnityEngine;
+using static Etra.StarterAssets.EtraCharacterMainController;
 
 namespace Etra.NonGamerTutorialCreator.Level
 {
@@ -38,7 +40,7 @@ namespace Etra.NonGamerTutorialCreator.Level
         private WaitForSecondsRealtime wait1Second = new WaitForSecondsRealtime(1f);
 
         //In code variables
-        private float savedFov;
+        private EtraCameraSettings savedCameraSettings;
         private GameObject scoutStar;
         private GameObject scoutSpawn;
 
@@ -67,7 +69,7 @@ namespace Etra.NonGamerTutorialCreator.Level
         private void Start()
         {
             character.disableAllActiveAbilities();
-            savedFov = character.getFov();
+            savedCameraSettings = character.getCameraSettings();
             if (skipOpeningScene)
             {
                 return;
@@ -77,7 +79,13 @@ namespace Etra.NonGamerTutorialCreator.Level
                 camRoot.transform.position = star.transform.position + new Vector3(0, 50, -30); //Start
             }
 
-            character.setFov(60);
+
+            //float fov, float cameraDistance, float cameraSide, Vector3 shoulderOffset, Vector3 damping
+            EtraCameraSettings tempCamSettings = new EtraCameraSettings(60f, 0f, 0.6f, Vector3.zero, Vector3.zero);
+            character.setCameraSettings(tempCamSettings);
+
+            //Camera settings save 
+
             scoutStar = new GameObject("ScoutStar");
             scoutStar.transform.parent = star.transform;
             scoutStar.transform.localPosition = Vector3.zero;
@@ -141,7 +149,13 @@ namespace Etra.NonGamerTutorialCreator.Level
             LeanTween.rotate(camRoot, new Vector3(0, 0, 0), 2f).setEaseInOutSine(); //Behind scout
             yield return wait3p2Seconds;
             LeanTween.move(camRoot, character.transform.position + new Vector3(0, 1.375f, 0), 3).setEaseInOutSine();
-            LeanTween.value(this.gameObject, character.getFov(), savedFov, 3).setOnUpdate((float fovValue) => { character.setFov(fovValue); });
+
+            //CUSTSCENE MOVE CAM SETTINGS
+            character.setCameraSettingsOverTime(savedCameraSettings, 3);
+            //LeanTween.value(this.gameObject, character.getCameraSettings(), savedFov, 3).setOnUpdate((float fovValue) => { character.setCameraSettings(fovValue); });
+
+
+
             yield return wait2Seconds;
 
             if (character.GetComponentInChildren<MeshRenderer>())
@@ -176,7 +190,7 @@ namespace Etra.NonGamerTutorialCreator.Level
         {
             
             character.enableAllActiveAbilities();
-            character.setFov(savedFov);
+            character.setCameraSettings(savedCameraSettings);
             LeanTween.move(camRoot, character.transform.position + new Vector3(0, 1.375f, 0), 0).setEaseInOutSine();
 
             cursorCanvas.SetActive(true);
