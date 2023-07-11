@@ -10098,36 +10098,6 @@ MonoBehaviour:
     basicGrowWait: 0
   - tweenedObject: {fileID: 7982650616387025940}
     rectTransform: {fileID: 0}
-    chosenEvent: 13
-    scaleAndMovePosition: {x: 0, y: 0, z: 0}
-    scaleAndMoveScale: {x: 0, y: 0, z: 0}
-    scaleAndMoveTime: 0
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    secondsToWait: 0
-    toStartTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    fadeInOpacity: 0
-    fadeInTime: 0
-    fadeOutTime: 0
-    sfxName: AbilityGet
-    rotation: {x: 0, y: 0, z: 0}
-    rotateTime: 0
-    moveToObjectGameobject: {fileID: 0}
-    moveToObjectTime: 0
-    addedPosition: {x: 0, y: 0, z: 0}
-    rotToObjectGameobject: {fileID: 0}
-    rotToObjectTime: 0
-    etraAnimationActivatedScript: {fileID: 6266064390233967266}
-    passedString: 
-    basicGrowPos: {x: 0, y: 0, z: 0}
-    basicGrowScale: {x: 0, y: 0, z: 0}
-    basicGrowWait: 0
-  - tweenedObject: {fileID: 7982650616387025940}
-    rectTransform: {fileID: 0}
     chosenEvent: 3
     scaleAndMovePosition: {x: 0, y: 0, z: 0}
     scaleAndMoveScale: {x: 0, y: 0, z: 0}
@@ -10625,36 +10595,6 @@ MonoBehaviour:
     fadeInTime: 0
     fadeOutTime: 0
     sfxName: 
-    rotation: {x: 0, y: 0, z: 0}
-    rotateTime: 0
-    moveToObjectGameobject: {fileID: 0}
-    moveToObjectTime: 0
-    addedPosition: {x: 0, y: 0, z: 0}
-    rotToObjectGameobject: {fileID: 0}
-    rotToObjectTime: 0
-    etraAnimationActivatedScript: {fileID: 6266064390233967266}
-    passedString: 
-    basicGrowPos: {x: 0, y: 0, z: 0}
-    basicGrowScale: {x: 0, y: 0, z: 0}
-    basicGrowWait: 0
-  - tweenedObject: {fileID: 7982650616387025940}
-    rectTransform: {fileID: 0}
-    chosenEvent: 13
-    scaleAndMovePosition: {x: 0, y: 0, z: 0}
-    scaleAndMoveScale: {x: 0, y: 0, z: 0}
-    scaleAndMoveTime: 0
-    movePosition: {x: 0, y: 0, z: 0}
-    moveTime: 0
-    scaleScale: {x: 0, y: 0, z: 0}
-    scaleTime: 0
-    secondsToWait: 0
-    toStartTime: 0
-    flashTimes: 0
-    flashDelay: 0
-    fadeInOpacity: 0
-    fadeInTime: 0
-    fadeOutTime: 0
-    sfxName: AbilityGet
     rotation: {x: 0, y: 0, z: 0}
     rotateTime: 0
     moveToObjectGameobject: {fileID: 0}

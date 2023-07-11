@@ -104,7 +104,7 @@ namespace Etra.NonGamerTutorialCreator{
                 fadedUpFace.GetComponent<Image>().sprite = controllerImages[enumValue].upFace;
                 fadedDownFace.GetComponent<Image>().sprite = controllerImages[enumValue].downFace;
                 fadedLeftFace.GetComponent<Image>().sprite = controllerImages[enumValue].leftFace;
-                fadedRightFace.GetComponent<Image>().sprite = controllerImages[enumValue].leftFace;
+                fadedRightFace.GetComponent<Image>().sprite = controllerImages[enumValue].rightFace;
                 upDpad.GetComponent<Image>().sprite = controllerImages[enumValue].upDpad;
                 downDpad.GetComponent<Image>().sprite = controllerImages[enumValue].downDpad;
                 leftDpad.GetComponent<Image>().sprite = controllerImages[enumValue].leftDpad;

@@ -887,7 +887,7 @@ namespace Etra.StarterAssets
             public void applySettingsToCamOverTime(CinemachineVirtualCamera cam, float time)
             {
                 EtraCameraSettings currentCamSettings = new EtraCameraSettings(cam);
-                LeanTween.value(cam.gameObject, currentCamSettings.fov, fov, time).setOnUpdate((float fovValue) => { cam.m_Lens.FieldOfView = fov; }).setEaseInOutSine();
+                LeanTween.value(cam.gameObject, currentCamSettings.fov, fov, time).setOnUpdate((float fovValue) => { cam.m_Lens.FieldOfView = fovValue; }).setEaseInOutSine();
                 Cinemachine3rdPersonFollow thirdPerson = cam.GetCinemachineComponent<Cinemachine3rdPersonFollow>();
                 LeanTween.value(cam.gameObject, currentCamSettings.cameraDistance, cameraDistance, time).setOnUpdate((float cameraDistance) => { thirdPerson.CameraDistance = cameraDistance; ; }).setEaseInOutSine();
                 LeanTween.value(cam.gameObject, currentCamSettings.cameraSide, cameraSide, time / 3).setOnUpdate((float cameraSide) => { thirdPerson.CameraSide = cameraSide;  }).setEaseInOutSine();
