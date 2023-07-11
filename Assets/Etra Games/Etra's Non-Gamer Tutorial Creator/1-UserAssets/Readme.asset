@@ -36,6 +36,40 @@ MonoBehaviour:
     text: 
     linkText: 'Etra''s Non-Gamer Tutorial Creator: Level Chunks and Custom UI Events '
     url: https://youtu.be/HvJzkzIIy_Q
+  - heading: About Etra's Non-Gamer Tutorial Creator
+    text: With this add-on, add a Non-Gamer Tutorial to your 3D Unity game to make
+      your project more accessible to Non-Gaming loved ones!
+    linkText: 
+    url: 
+  - heading: Getting Started
+    text: 'To create a Non-Gamer Tutorial go to the <i>Empty_NonGamerTutorial.unity</i>
+      scene. Then select: Window>Etra''sTutorialCreator>TutorialCreator. '
+    linkText: 
+    url: 
+  - heading: 
+    text: 'Then Select your Gameplay Type, Abilities, and Level Chunks to construct
+      your Non-Gamer Tutorial! '
+    linkText: 
+    url: 
+  - heading: Dependencies
+    text: "The Etra\u2019s Non-Gamer Tutorial Creator package requires the Cinemachine,
+      TextMeshPro, PostProcessing, and ProBuilder packages to work. "
+    linkText: 
+    url: 
+  - heading: Input System
+    text: "The New Unity Input System is what this package fully supports, however,
+      there is partial support for Unity\u2019s built in input system. Expanding
+      the built in input system support or supporting plugins like rewired should
+      be an easy enough task, since all input is handled through the StarterAssetsInputs.cs
+      script and one event system. More details are in the video tutorials linked
+      above."
+    linkText: 
+    url: 
+  - heading: Render Pipeline
+    text: Currently, Etra's Non-Gamer Tutorial Creator supports the Unity Standard
+      and Universal Render Pipeline.
+    linkText: 
+    url: 
   - heading: Documentation
     text: See the full documentation (1-UserAssets/Etra'sNon-GamerTutorialCreator_Documentation.pdf)
       for more information.

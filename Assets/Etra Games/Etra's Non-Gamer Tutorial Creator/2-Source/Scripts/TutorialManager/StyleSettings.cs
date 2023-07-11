@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-
 public class StyleSettings : MonoBehaviour
 {
     private string materialPath = "SwappableMaterials"; // The folder path where the textures are located

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8542397125202644760}
   - component: {fileID: 3278506619923786935}
   - component: {fileID: 497471367174812630}
+  - component: {fileID: 8192805018529489740}
   m_Layer: 0
   m_Name: NonGamerTutorialManager
   m_TagString: Untagged
@@ -100,7 +101,32 @@ MonoBehaviour:
   normalMapsEnabled: 1
   filterMode: 1
   oceanType: 0
-  underwaterPostProcess: 1
+  underwaterPostProcessAndSplashParticle: 1
+--- !u!114 &8192805018529489740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497471367174812624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d10d9b6d879748499838bb462e075de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  silenceSoundsUntilTutorialBegins: 0
+  sounds:
+  - name: BackgroundMusic
+    clip: {fileID: 8300000, guid: dea0652dd8ae24d49ad18d6534728959, type: 3}
+    volume: 1
+    basePitch: 1
+    spatialBlend: 0
+    randomizePitch: 0
+    randomPitchRange: {x: 0.95, y: 1.05}
+    isMusic: 1
+    loop: 1
+    source: {fileID: 0}
+  stopPlayingSounds: 0
 --- !u!1 &5027346226985666182
 GameObject:
   m_ObjectHideFlags: 0
@@ -1639,6 +1665,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d10d9b6d879748499838bb462e075de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &7507304744114765625 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7982650617367514337, guid: f92fbf0cafede1944a1128d04e77b180, type: 3}
+  m_PrefabInstance: {fileID: 497471368337486808}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7507304745109509107 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7982650616247066667, guid: f92fbf0cafede1944a1128d04e77b180, type: 3}
@@ -1699,16 +1730,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7982650616976593282, guid: f92fbf0cafede1944a1128d04e77b180, type: 3}
   m_PrefabInstance: {fileID: 497471368337486808}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &7507304744114765625 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7982650617367514337, guid: f92fbf0cafede1944a1128d04e77b180, type: 3}
-  m_PrefabInstance: {fileID: 497471368337486808}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7507304744582496705 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7982650616774079001, guid: f92fbf0cafede1944a1128d04e77b180, type: 3}
-  m_PrefabInstance: {fileID: 497471368337486808}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7507304743950391684 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7982650617135524444, guid: f92fbf0cafede1944a1128d04e77b180, type: 3}
@@ -1727,6 +1748,11 @@ GameObject:
 --- !u!1 &7507304745321939412 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7982650616426672652, guid: f92fbf0cafede1944a1128d04e77b180, type: 3}
+  m_PrefabInstance: {fileID: 497471368337486808}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7507304744582496705 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7982650616774079001, guid: f92fbf0cafede1944a1128d04e77b180, type: 3}
   m_PrefabInstance: {fileID: 497471368337486808}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &7507304743898715068 stripped

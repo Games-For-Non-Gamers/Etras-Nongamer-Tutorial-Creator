@@ -6,7 +6,10 @@ namespace Etra.NonGamerTutorialCreator.Level
     {
         public void teleportPlayerInitial()
         {
-            GameObject.FindGameObjectWithTag("Player").transform.position = this.transform.position;
+            if (GameObject.FindGameObjectWithTag("Player"))
+            {
+                GameObject.FindGameObjectWithTag("Player").transform.position = this.transform.position;
+            }
         }
         void Awake()
         {

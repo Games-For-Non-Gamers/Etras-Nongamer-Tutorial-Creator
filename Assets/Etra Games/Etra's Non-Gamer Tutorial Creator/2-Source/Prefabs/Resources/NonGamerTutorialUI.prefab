@@ -3196,7 +3196,7 @@ MonoBehaviour:
   - {fileID: 6377633133240902898}
   - {fileID: 5914494475674142413}
   hideAllObjectsAtStart: 1
-  sfxPlayer: {fileID: 0}
+  sfxPlayer: {fileID: 1799090109}
   separateKeyboardControllerAnimations: 1
   standardAnimation: []
   keyboardAnimation:
