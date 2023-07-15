@@ -1,37 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
+using static Etra.NonGamerTutorialCreator.UiSwitcher;
 
 namespace Etra.NonGamerTutorialCreator{
     public class NonGamerTutorialUi : MonoBehaviour
     {
-        public enum ActiveUi
-        {
-            AutoSwitch,
-            Xbox360,
-            XboxOne,
-            XboxSeries,
-            Ps4,
-            Ps5,
-            SwitchPro,
-            Steam,
-            Ouya,
-            Keyboard
-        }
-
-        public enum UiTypes
-        {
-            Xbox360,
-            XboxOne,
-            XboxSeries,
-            Ps4,
-            Ps5,
-            SwitchPro,
-            Steam,
-            Ouya,
-            Keyboard
-        }
-
-
 
 
         [Header("General References")]

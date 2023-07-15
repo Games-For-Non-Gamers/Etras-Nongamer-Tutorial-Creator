@@ -7,6 +7,34 @@ namespace Etra.NonGamerTutorialCreator
 {
     public class UiSwitcher : MonoBehaviour
     {
+        public enum UiTypes
+        {
+            Xbox360,
+            XboxOne,
+            XboxSeries,
+            Ps4,
+            Ps5,
+            SwitchPro,
+            Steam,
+            Ouya,
+            Keyboard
+        }
+
+        public enum ActiveUi
+        {
+            AutoSwitch,
+            Xbox360,
+            XboxOne,
+            XboxSeries,
+            Ps4,
+            Ps5,
+            SwitchPro,
+            Steam,
+            Ouya,
+            Keyboard
+        }
+
+
         [Header("Current UI")]
         public ActiveUi activeUi;
         public bool allowAutoSwitchToKeyboard = true;
