@@ -1,11 +1,15 @@
+using Etra.StandardMenus;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 namespace Etra.NonGamerTutorialCreator.Level
 {
     public class OpeningMenuUi : MonoBehaviour
     {
+
+
         public void backToMenu()
         {
             if (buttonIsQuit)
@@ -27,8 +31,15 @@ namespace Etra.NonGamerTutorialCreator.Level
             SceneManager.LoadScene("CreditsNonGamerTutorial");
         }
 
+        public GameObject firstSelectedButton;
         private void Start()
         {
+            EventSystem playerSystem = FindObjectOfType<EventSystem>();
+            playerSystem.firstSelectedGameObject = firstSelectedButton;
+
+            EtraStandardMenusManager menusManager = FindObjectOfType<EtraStandardMenusManager>();
+            menusManager.canFreeze = false;
+
             if (SceneManager.GetActiveScene().buildIndex == 0) //If this is loaded as the first scene adjust the text
             {
                 backToMenuText.text = "Quit Game";

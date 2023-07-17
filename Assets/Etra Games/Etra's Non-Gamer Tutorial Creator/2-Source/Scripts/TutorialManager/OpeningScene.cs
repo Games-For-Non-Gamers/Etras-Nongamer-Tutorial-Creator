@@ -1,4 +1,5 @@
 using Cinemachine;
+using Etra.StandardMenus;
 using Etra.StarterAssets;
 using Etra.StarterAssets.Input;
 using EtrasStarterAssets;
@@ -68,6 +69,9 @@ namespace Etra.NonGamerTutorialCreator.Level
 
         private void Start()
         {
+            EtraStandardMenusManager menusManager = FindObjectOfType<EtraStandardMenusManager>();
+            menusManager.canFreeze = false;
+
             character.disableAllActiveAbilities();
             savedCameraSettings = character.getCameraSettings();
             if (skipOpeningScene)
@@ -188,7 +192,8 @@ namespace Etra.NonGamerTutorialCreator.Level
 
         private void PlayerSetup()
         {
-            
+            EtraStandardMenusManager menusManager = FindObjectOfType<EtraStandardMenusManager>();
+            menusManager.canFreeze = true;
             character.enableAllActiveAbilities();
             character.setCameraSettings(savedCameraSettings);
             LeanTween.move(camRoot, character.transform.position + new Vector3(0, 1.375f, 0), 0).setEaseInOutSine();

@@ -4119,6 +4119,7 @@ GameObject:
   - component: {fileID: 1873089499}
   - component: {fileID: 1873089503}
   - component: {fileID: 1873089504}
+  - component: {fileID: 1873089505}
   m_Layer: 0
   m_Name: NonGamerTutorialManager
   m_TagString: Untagged
@@ -4232,6 +4233,18 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   stopPlayingSounds: 0
+--- !u!114 &1873089505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873089498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c768e12ba5e5d3f4c9320124b4b13b26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1917358512
 Mesh:
   m_ObjectHideFlags: 0

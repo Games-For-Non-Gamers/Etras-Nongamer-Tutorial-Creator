@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using EtrasStarterAssets;
+using UnityEngine.EventSystems;
+using Etra.StandardMenus;
 
 namespace Etra.NonGamerTutorialCreator.Level
 {

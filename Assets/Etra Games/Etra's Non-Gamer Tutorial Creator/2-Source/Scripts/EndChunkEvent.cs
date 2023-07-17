@@ -1,3 +1,4 @@
+using Etra.StandardMenus;
 using Etra.StarterAssets;
 using Etra.StarterAssets.Input;
 using System.Collections;
@@ -22,6 +23,8 @@ namespace Etra.NonGamerTutorialCreator
             star.endCelebration();
             yield return new WaitForSeconds(5);
             gameEnded = true;
+            EtraStandardMenusManager menusManager = FindObjectOfType<EtraStandardMenusManager>();
+            menusManager.canFreeze = false;
         }
 
 

@@ -13,7 +13,11 @@ namespace Etra.StarterAssets.Abilities
 
         [Header("Basics")]
         //Camera sensitivity
-        public float cameraSensitivity = 1;
+        [Range(0,3)]
+        public float mouseSensitivity = 1;
+        [Range(0, 3)]
+        public float joystickSensitivity = 1;
+        public bool invertY;
         [HideInInspector] public float usedCameraSensitivity;
         [HideInInspector] public float aimSensitivity = 1;
         [SerializeField] public bool setForwardToPlayerLookDirection = true;
@@ -83,6 +87,7 @@ namespace Etra.StarterAssets.Abilities
         //Set defaults of gameplay variables 
         private void Reset()
         {
+            setEtraMenuPlayerPrefs();
             if (this.gameObject.name == "Tempcube") { return; }
             if (GetComponentInParent<EtraCharacterMainController>().appliedGameplayType == EtraCharacterMainController.GameplayType.FirstPerson)
             {
@@ -97,6 +102,12 @@ namespace Etra.StarterAssets.Abilities
             playerCameraRoot = GameObject.Find("EtraPlayerCameraRoot");
             OnValidate();
         }
+
+        void setEtraMenuPlayerPrefs()
+        {
+            //LoadSavedEtraStandardGameplayMenuSettings.SetGameplayPlayerPrefs();
+        }
+
 
         public override void abilityStart()
         {
@@ -115,6 +126,14 @@ namespace Etra.StarterAssets.Abilities
         public override void abilityUpdate()
         {
 
+            if (invertY)
+            {
+                camModY =  Mathf.Abs(camModY) *-1;
+            }
+            else
+            {
+                camModY = Mathf.Abs(camModY);
+            }
 
             //Shoot a ray towards the center of the screen
             Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
@@ -165,6 +184,8 @@ namespace Etra.StarterAssets.Abilities
                 return;
             }
 
+            updateUsedCameraSensitivity();
+
             //Set camera rotation from controller or mouse input
             if (_input.look.sqrMagnitude >= _threshold)
             {
@@ -185,6 +206,24 @@ namespace Etra.StarterAssets.Abilities
         }
 
 
+        public float updateUsedCameraSensitivity()
+        {
+            # if ENABLE_INPUT_SYSTEM
+            if (_playerInput.currentControlScheme.Contains("KeyboardMouse"))
+            {
+                usedCameraSensitivity = mouseSensitivity;
+                return mouseSensitivity;
+            } else 
+            {
+                usedCameraSensitivity = joystickSensitivity;
+                return joystickSensitivity;
+            }
+            #else
+            usedCameraSensitivity = mouseSensitivity;
+            return mouseSensitivity;
+            #endif
+        }
+
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
         {
             if (lfAngle < -360f) lfAngle += 360f;
@@ -194,13 +233,15 @@ namespace Etra.StarterAssets.Abilities
 
         private void OnValidate()
         {
+            setEtraMenuPlayerPrefs();
             abilityCheckSubAbilityLocks();
         }
 
         private void abilityCheckSubAbilityLocks()
         {
             //Set the used variable to whatever the new camera sensitivity variable is.
-            usedCameraSensitivity = cameraSensitivity;
+
+            usedCameraSensitivity = mouseSensitivity;
 
             //If the locks are selected, then lock a certain direction
             if (lockLookX)
