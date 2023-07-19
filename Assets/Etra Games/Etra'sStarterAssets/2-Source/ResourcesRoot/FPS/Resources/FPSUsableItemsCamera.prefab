@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6071041891734423032}
   - component: {fileID: 6071041891734423033}
   - component: {fileID: 3871181462797436969}
-  - component: {fileID: 8123448354761816147}
-  - component: {fileID: 3723062241622665959}
+  - component: {fileID: 8816969621466512333}
+  - component: {fileID: 6346691784712322859}
   m_Layer: 8
   m_Name: FPSUsableItemsCamera
   m_TagString: Untagged
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0281ce71be5440b40a02e87ee40ba57d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8123448354761816147
+--- !u!114 &8816969621466512333
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
---- !u!114 &3723062241622665959
+--- !u!114 &6346691784712322859
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

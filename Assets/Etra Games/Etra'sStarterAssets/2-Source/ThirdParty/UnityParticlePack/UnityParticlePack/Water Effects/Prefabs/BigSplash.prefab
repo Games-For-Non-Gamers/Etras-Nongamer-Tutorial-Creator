@@ -14705,7 +14705,6 @@ GameObject:
   - component: {fileID: -9188334145838267959}
   - component: {fileID: -7781462009087932404}
   - component: {fileID: 3026360204901838463}
-  - component: {fileID: 8670546610940396329}
   m_Layer: 0
   m_Name: BigSplash
   m_TagString: Untagged
@@ -19655,17 +19654,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72c819615f44c6e4f95630b0f4278e65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8670546610940396329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1722726733478836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7d87eeb0546ab44f808ffa09c239cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

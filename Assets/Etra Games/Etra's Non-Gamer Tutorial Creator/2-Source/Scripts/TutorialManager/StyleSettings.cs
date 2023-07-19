@@ -39,8 +39,8 @@ public class StyleSettings : MonoBehaviour
     public void changeStyle()
     {
         string addedString;
-        if (selectedTexturePack == TexturePack.Custom && !string.IsNullOrEmpty(customTexturePackName))
-        {
+        if (selectedTexturePack == TexturePack.Custom && !string.IsNullOrEmpty(customTexturePackName)) { 
+      
             addedString = customTexturePackName;
         }
         else
@@ -109,8 +109,8 @@ public class StyleSettings : MonoBehaviour
 
         transform.Find("EnvironmentalObjects").Find("NongamerTutorialOcean").GetComponent<NonGamerTutorialOcean>().changeOcean(oceanType, underwaterPostProcessAndSplashParticle);
 
-
     }
+
 #endif
     internal class textureSwapData
     {
