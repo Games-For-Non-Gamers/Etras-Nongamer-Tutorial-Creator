@@ -1,5 +1,4 @@
 using Etra.StarterAssets.Source;
-using UnityEditor;
 using UnityEngine;
 
 namespace Etra.NonGamerTutorialCreator.Level
@@ -11,11 +10,6 @@ namespace Etra.NonGamerTutorialCreator.Level
         public Vector3 startConnectionPoint = new Vector3(-5f, 0f, 0f);
         public Vector3 endConnectionPoint = new Vector3(5f, 0f, 0f);
         public Vector3 playerSpawnPosition = new Vector3(0f, 0f, 1f);
-
-        private void Awake()
-        {
-            PrefabUtility.UnpackPrefabInstance(this.gameObject, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
-        }
 
         public void deletePlayerSpawn()
         {
