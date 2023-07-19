@@ -11,6 +11,8 @@ namespace Etra.StandardMenus
         [Header("Options")]
         public bool canFreeze = true;
         public bool showBackground = true;
+        public bool editCursor = true;
+
 
         [Header("References")]
         public GameObject background;
@@ -21,6 +23,7 @@ namespace Etra.StandardMenus
 
         bool gameFrozen = false;
         GameObject currentlyActiveMenu;
+
 
         // Private references
         EventSystem eventSystem;
@@ -110,11 +113,19 @@ namespace Etra.StandardMenus
                     }
 
                     eventSystem.SetSelectedGameObject(null);
-                    Cursor.visible = true;
+                    if (editCursor)
+                    {
+                        Cursor.visible = true;
+                    }
+                    
                 }
                 else
                 {
-                    Cursor.visible = false;
+                    if (editCursor)
+                    {
+                        Cursor.visible = false;
+                    }
+                    
 
                     if (savedSelectedObject != null && savedSelectedObject.gameObject.activeInHierarchy)
                     {
@@ -181,12 +192,20 @@ namespace Etra.StandardMenus
             if (_playerInput.currentControlScheme.Contains("Keyboard"))
             {
                 eventSystem.SetSelectedGameObject(null);
-                Cursor.visible = true;
+                if (editCursor)
+                {
+                    Cursor.visible = true;
+                }
+
             }
             else
             {
                 eventSystem.SetSelectedGameObject(gameplayMenu.firstSelectedObject.gameObject);
-                Cursor.visible = false;
+                if (editCursor)
+                {
+                    Cursor.visible = false;
+
+                }
             }
 #endif
         }
@@ -218,7 +237,10 @@ namespace Etra.StandardMenus
         void FreezeGame()
         {
             EnableBackground();
-            Cursor.lockState = CursorLockMode.None;
+            if (editCursor)
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
             Time.timeScale = 0;
             gameFrozen = true;
             #if ENABLE_INPUT_SYSTEM
@@ -239,8 +261,10 @@ namespace Etra.StandardMenus
             {
                 CloseMenu(pauseMenu);
             }
-
-            Cursor.lockState = CursorLockMode.Locked;
+            if (editCursor)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
             Time.timeScale = 1;
             gameFrozen = false;
             #if ENABLE_INPUT_SYSTEM
