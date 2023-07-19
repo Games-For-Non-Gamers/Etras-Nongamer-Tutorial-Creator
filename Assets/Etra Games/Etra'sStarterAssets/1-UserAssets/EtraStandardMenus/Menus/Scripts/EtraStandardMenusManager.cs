@@ -12,6 +12,7 @@ namespace Etra.StandardMenus
         public bool canFreeze = true;
         public bool showBackground = true;
         public bool editCursor = true;
+        public bool inGame = true;
 
 
         [Header("References")]
@@ -142,7 +143,7 @@ namespace Etra.StandardMenus
 
         void Update()
         {
-            if (canFreeze)
+            if (canFreeze && inGame)
             {
         #if ENABLE_INPUT_SYSTEM
                 if (keyboardEscape.triggered || gamepadStart.triggered)
@@ -158,7 +159,7 @@ namespace Etra.StandardMenus
             }
         }
 
-        void PauseInputResults()
+        public void PauseInputResults()
         {
             eventSystem.SetSelectedGameObject(null);
             FreezeOrUnfreeze();
@@ -171,108 +172,115 @@ namespace Etra.StandardMenus
 
 #endregion
 
-#region General Menu Functions
-        void OpenMenu(GameObject menu)
-        {
-            EtraStandardMenu gameplayMenu = menu.GetComponent<EtraStandardMenu>();
-
-            if (currentlyActiveMenu != null)
-            {
-                CloseMenu(currentlyActiveMenu);
-            }
-            else
-            {
-                CloseMenu(pauseMenu);
-            }
-
-            menu.SetActive(true);
-            currentlyActiveMenu = menu;
-
-#if ENABLE_INPUT_SYSTEM
-            if (_playerInput.currentControlScheme.Contains("Keyboard"))
-            {
-                eventSystem.SetSelectedGameObject(null);
-                if (editCursor)
+        #region General Menu Functions
+                void OpenMenu(GameObject menu)
                 {
-                    Cursor.visible = true;
+                    EtraStandardMenu gameplayMenu = menu.GetComponent<EtraStandardMenu>();
+
+                    if (currentlyActiveMenu != null)
+                    {
+                        CloseMenu(currentlyActiveMenu);
+                    }
+                    else
+                    {
+                        CloseMenu(pauseMenu);
+                    }
+
+                    menu.SetActive(true);
+                    currentlyActiveMenu = menu;
+
+        #if ENABLE_INPUT_SYSTEM
+                    if (_playerInput.currentControlScheme.Contains("Keyboard"))
+                    {
+                        eventSystem.SetSelectedGameObject(null);
+                        if (editCursor)
+                        {
+                            Cursor.visible = true;
+                        }
+
+                    }
+                    else
+                    {
+                        eventSystem.SetSelectedGameObject(gameplayMenu.firstSelectedObject.gameObject);
+                        if (editCursor)
+                        {
+                            Cursor.visible = false;
+
+                        }
+                    }
+        #endif
                 }
 
-            }
-            else
-            {
-                eventSystem.SetSelectedGameObject(gameplayMenu.firstSelectedObject.gameObject);
-                if (editCursor)
+                void CloseMenu(GameObject menu)
                 {
-                    Cursor.visible = false;
-
+                    menu.gameObject.SetActive(false);
                 }
-            }
-#endif
-        }
-
-        void CloseMenu(GameObject menu)
-        {
-            menu.gameObject.SetActive(false);
-        }
-#endregion
-
-#region Freeze and Unfreeze
-        void FreezeOrUnfreeze()
-        {
-            if (!canFreeze)
-            {
-                return;
-            }
-
-            if (!gameFrozen)
-            {
-                FreezeGame();
-            }
-            else if (gameFrozen)
-            {
-                UnfreezeGame();
-            }
-        }
-
-        void FreezeGame()
-        {
-            EnableBackground();
-            if (editCursor)
-            {
-                Cursor.lockState = CursorLockMode.None;
-            }
-            Time.timeScale = 0;
-            gameFrozen = true;
-            #if ENABLE_INPUT_SYSTEM
-            _playerInput.SwitchCurrentActionMap("UI");
-            InputSystem.settings.updateMode = InputSettings.UpdateMode.ProcessEventsInDynamicUpdate;
-            #endif
-        }
-
-        public void UnfreezeGame()
-        {
-            DisableBackground();
-
-            if (currentlyActiveMenu != null)
-            {
-                CloseMenu(currentlyActiveMenu);
-            }
-            else
-            {
-                CloseMenu(pauseMenu);
-            }
-            if (editCursor)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-            }
-            Time.timeScale = 1;
-            gameFrozen = false;
-            #if ENABLE_INPUT_SYSTEM
-            _playerInput.SwitchCurrentActionMap("Player");
-            InputSystem.settings.updateMode = InputSettings.UpdateMode.ProcessEventsInFixedUpdate;
-            #endif
-        }
         #endregion
+
+        #region Freeze and Unfreeze
+                void FreezeOrUnfreeze()
+                {
+                    if (!canFreeze)
+                    {
+                        return;
+                    }
+
+                    if (!gameFrozen)
+                    {
+                        FreezeGame();
+                    }
+                    else if (gameFrozen)
+                    {
+                        UnfreezeGame();
+                    }
+                }
+
+                void FreezeGame()
+                {
+                    EnableBackground();
+                    if (editCursor)
+                    {
+                        Cursor.lockState = CursorLockMode.None;
+                    }
+                    gameFrozen = true;
+                    #if ENABLE_INPUT_SYSTEM
+                    if (inGame)
+                    {
+                        Time.timeScale = 0;
+                        _playerInput.SwitchCurrentActionMap("UI");
+
+                        InputSystem.settings.updateMode = InputSettings.UpdateMode.ProcessEventsInDynamicUpdate;
+                    }
+                    #endif
+                }
+
+                public void UnfreezeGame()
+                {
+                    eventSystem.SetSelectedGameObject(null);
+                    DisableBackground();
+
+                    if (currentlyActiveMenu != null)
+                    {
+                        CloseMenu(currentlyActiveMenu);
+                    }
+                    else
+                    {
+                        CloseMenu(pauseMenu);
+                    }
+                    if (editCursor)
+                    {
+                        Cursor.lockState = CursorLockMode.Locked;
+                    }
+
+                    gameFrozen = false;
+                    #if ENABLE_INPUT_SYSTEM
+                    if (inGame) {
+                Time.timeScale = 1;
+                _playerInput.SwitchCurrentActionMap("Player"); 
+                    InputSystem.settings.updateMode = InputSettings.UpdateMode.ProcessEventsInFixedUpdate;}
+                    #endif
+                }
+                #endregion
 
         #region Background Image
         void EnableBackground()
