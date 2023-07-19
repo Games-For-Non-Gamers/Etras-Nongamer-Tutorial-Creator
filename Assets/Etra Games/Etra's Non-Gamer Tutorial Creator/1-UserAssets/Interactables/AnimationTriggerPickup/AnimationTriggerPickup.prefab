@@ -30,6 +30,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.894322, y: -3.759715, z: 10.6211605}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -53,6 +54,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -95,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ef6eff24ba350540b46db6a22b1c80e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textLabelToShow: Congatulations_Text
-  showPopupAnimation: 0
+  nameOfObjectWithAnimationHolder: 
+  runAnimation: 1
   showInEditor: 1
   showInGame: 0
 --- !u!65 &4533838913880790676

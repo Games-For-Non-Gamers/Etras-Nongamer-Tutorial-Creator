@@ -908,6 +908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backToMenuText: {fileID: 5124189423864144406}
+  firstSelectedButton: {fileID: 0}
 --- !u!1 &5124189423864144400
 GameObject:
   m_ObjectHideFlags: 0
