@@ -9,22 +9,21 @@ public class ExecutableAbilitySelection : MonoBehaviour
     public GameObject entryParent;
 
 
-    public List<string> standardAbilities = new List<string>();
-    public List<string> allFpsAbilities = new List<string>();
-    public List<string> allFpsItems = new List<string>();
-    public List<string> allTpsAbilities = new List<string>();
+    [HideInInspector]public List<string> standardAbilities = new List<string>();
+    [HideInInspector] public List<string> allFpsAbilities = new List<string>();
+    [HideInInspector] public List<string> allFpsItems = new List<string>();
+    [HideInInspector] public List<string> allTpsAbilities = new List<string>();
 
     private ExecutableNewLevelDataHolder dataHolder;
-
-    public List<string> abilitiesToTeach = new List<string>();
-    public List<string> abilitiesToActivate = new List<string>();
 
     private List<ToggleStringHolder> allToggles = new List<ToggleStringHolder>();
     private Etra.StarterAssets.EtraCharacterMainController.GameplayType savedGameplayType = Etra.StarterAssets.EtraCharacterMainController.GameplayType.FirstPerson;
 
     // Start is called before the first frame update
+
     void OnEnable()
     {
+        dataHolder = GetComponentInParent<ExecutableNewLevelDataHolder>();
         //Conditions where not to rebuild the list
         if (savedGameplayType == dataHolder.gameplayType && allToggles.Count > 0)
         {
@@ -42,11 +41,10 @@ public class ExecutableAbilitySelection : MonoBehaviour
 
         foreach (string str in standardAbilities)
         {
-            GameObject entry = Instantiate(prefabToDuplicate);
-            entry.transform.parent = entryParent.transform;
+            GameObject entry = Instantiate(prefabToDuplicate, entryParent.transform, false);
             Toggle t = entry.GetComponentInChildren<Toggle>();
             t.onValueChanged.AddListener(OnToggleChange);
-            GetComponentInChildren<TextMeshProUGUI>().text = "ABILITY: " + str;
+            entry.GetComponentInChildren<TextMeshProUGUI>().text = "ABILITY: " + str;
             allToggles.Add(new ToggleStringHolder(str, t));
         }
 
@@ -56,21 +54,19 @@ public class ExecutableAbilitySelection : MonoBehaviour
         {
             foreach (string str in allFpsAbilities)
             {
-                GameObject entry = Instantiate(prefabToDuplicate);
-                entry.transform.parent = entryParent.transform;
+                GameObject entry = Instantiate(prefabToDuplicate, entryParent.transform, false);
                 Toggle t = entry.GetComponentInChildren<Toggle>();
                 t.onValueChanged.AddListener(OnToggleChange);
-                GetComponentInChildren<TextMeshProUGUI>().text = "ABILITY: " + str;
+                entry.GetComponentInChildren<TextMeshProUGUI>().text = "ABILITY: " + str;
                 allToggles.Add(new ToggleStringHolder(str, t));
             }
 
             foreach (string str in allFpsItems)
             {
-                GameObject entry = Instantiate(prefabToDuplicate);
-                entry.transform.parent = entryParent.transform;
+                GameObject entry = Instantiate(prefabToDuplicate, entryParent.transform, false);
                 Toggle t = entry.GetComponentInChildren<Toggle>();
                 t.onValueChanged.AddListener(OnToggleChange);
-                GetComponentInChildren<TextMeshProUGUI>().text = "ITEM: " + str;
+                entry.GetComponentInChildren<TextMeshProUGUI>().text = "ITEM: " + str;
                 allToggles.Add(new ToggleStringHolder(str, t));
             }
         }
@@ -80,11 +76,10 @@ public class ExecutableAbilitySelection : MonoBehaviour
         {
             foreach (string str in allTpsAbilities)
             {
-                GameObject entry = Instantiate(prefabToDuplicate);
-                entry.transform.parent = entryParent.transform;
+                GameObject entry = Instantiate(prefabToDuplicate, entryParent.transform, false);
                 Toggle t = entry.GetComponentInChildren<Toggle>();
                 t.onValueChanged.AddListener(OnToggleChange);
-                GetComponentInChildren<TextMeshProUGUI>().text = "ABILITY: " + str;
+                entry.GetComponentInChildren<TextMeshProUGUI>().text = "ABILITY: " + str;
                 allToggles.Add(new ToggleStringHolder(str, t));
             }
         }
@@ -106,6 +101,26 @@ public class ExecutableAbilitySelection : MonoBehaviour
         }
 
         dataHolder.tempSelectedAbilities = activatedAbilities;
+    }
+
+    public void AllOn()
+    {
+        foreach (ToggleStringHolder t in allToggles)
+        {
+            t.toggle.isOn = true;
+        }
+
+        OnToggleChange(true);
+    }
+
+    public void AllOff()
+    {
+        foreach (ToggleStringHolder t in allToggles)
+        {
+            t.toggle.isOn = false;
+        }
+
+        OnToggleChange(true);
     }
 
 
