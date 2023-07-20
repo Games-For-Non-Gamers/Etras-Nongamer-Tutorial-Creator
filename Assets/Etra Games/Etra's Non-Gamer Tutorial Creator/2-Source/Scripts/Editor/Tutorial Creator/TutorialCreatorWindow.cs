@@ -444,8 +444,6 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
                 character.etraAbilityManager.GetComponent<ABILITY_CameraMovement>().abilityEnabled = true;
             }
 
-
-
             //Remove taught weapons
             if (character.GetComponentInChildren<EtraFPSUsableItemManager>())
             {

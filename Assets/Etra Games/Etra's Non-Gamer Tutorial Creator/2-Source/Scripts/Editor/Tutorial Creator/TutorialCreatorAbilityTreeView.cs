@@ -95,7 +95,66 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
         private List<string> abilitiesOrItemsThatHaveTeachingChunks;
 
 
-        List<string> GetAbilitiesWithTeachingChunks()
+        public List<string> GetAllFpsAbilities()
+        {
+            List<Ability> allAbilities = EtraGUIUtility.FindAllTypes<EtraAbilityBaseClass>().Select(x => new Ability(x)).ToList();
+            List<Ability> fpsAbilities = allAbilities.Where(x => EtraGUIUtility.CheckForUsage(x.type, GameplayTypeFlags.FirstPerson)).ToList();
+
+
+
+            List<Ability> tempList = new List<Ability>();
+
+
+            tempList.AddRange(fpsAbilities);
+
+            List<string> returnedList = new List<string>();
+
+            foreach (var ability in allAbilities)
+            {
+                returnedList.Add(ability.name);
+            }
+            return returnedList;
+        }
+
+        public List<string> GetAllFpsItems()
+        {
+            List<Ability> fpsItems = EtraGUIUtility.FindAllTypes<EtraFPSUsableItemBaseClass>().Select(x => new ItemAbility(x) as Ability).ToList();
+
+            List<Ability> tempList = new List<Ability>();
+
+            tempList.AddRange(fpsItems);
+
+            List<string> returnedList = new List<string>();
+
+            foreach (var ability in tempList)
+            {
+                returnedList.Add(ability.name);
+            }
+            return returnedList;
+        }
+
+        public List<string> GetAllTpsAbilities()
+        {
+            List<Ability> allAbilities = EtraGUIUtility.FindAllTypes<EtraAbilityBaseClass>().Select(x => new Ability(x)).ToList();
+            List<Ability> tpsAbilities = allAbilities.Where(x => EtraGUIUtility.CheckForUsage(x.type, GameplayTypeFlags.ThirdPerson)).ToList();
+
+
+            List<Ability> tempList = new List<Ability>();
+
+
+            tempList.AddRange(tpsAbilities);
+
+
+            List<string> returnedList = new List<string>();
+
+            foreach (var ability in tempList)
+            {
+                returnedList.Add(ability.name);
+            }
+            return returnedList;
+        }
+
+        public List<string> GetAbilitiesWithTeachingChunks()
         {
             List<string> tempStringList = new List<string>();
 
