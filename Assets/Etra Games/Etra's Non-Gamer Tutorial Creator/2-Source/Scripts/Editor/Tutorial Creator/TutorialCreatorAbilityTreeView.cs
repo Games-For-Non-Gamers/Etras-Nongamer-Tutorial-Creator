@@ -93,11 +93,12 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
 
         private List<LevelChunk> _avaliableChunks = null;
         private List<string> abilitiesOrItemsThatHaveTeachingChunks;
-        public void GenerateAbilitiesAndItems()
-        {
 
+
+        List<string> GetAbilitiesWithTeachingChunks()
+        {
             List<string> tempStringList = new List<string>();
-            
+
             //Load All level chunks
             _avaliableChunks = AssetDatabase.FindAssets($"t:{typeof(LevelChunk).Name}").Select(x => AssetDatabase.GUIDToAssetPath(x)).Select(x => AssetDatabase.LoadAssetAtPath<LevelChunk>(x)).ToList();
 
@@ -121,12 +122,14 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
                 nameTemp = Regex.Replace(nameTemp, "([a-z])([A-Z])", "$1 $2");
                 abilitiesOrItemsThatHaveTeachingChunks.Add(nameTemp);
             }
+            return abilitiesOrItemsThatHaveTeachingChunks;
+        }
 
-
-
+        private List<string> GetAllAbilities(GameplayType gameplayType)
+        {
             var allAbilities = EtraGUIUtility.FindAllTypes<EtraAbilityBaseClass>()
-                .Select(x => new Ability(x))
-                .ToList();
+    .Select(x => new Ability(x))
+    .ToList();
 
             var fpAbilities = allAbilities
                 .Where(x => EtraGUIUtility.CheckForUsage(x.type, GameplayTypeFlags.FirstPerson))
@@ -139,7 +142,7 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
             abilities = allAbilities
                 .Except(fpAbilities)
                 .Except(tpAbilities)
-                .Concat(TutorialGameplayType switch
+                .Concat(gameplayType switch
                 {
                     GameplayType.ThirdPerson => tpAbilities,
                     GameplayType.FirstPerson => fpAbilities,
@@ -147,7 +150,7 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
                 })
                 .ToDictionary(x => x.type.GetHashCode());
 
-            if (TutorialGameplayType == GameplayType.FirstPerson)
+            if (gameplayType == GameplayType.FirstPerson)
             {
                 var items = EtraGUIUtility.FindAllTypes<EtraFPSUsableItemBaseClass>()
                     .Select(x => new ItemAbility(x) as Ability)
@@ -157,6 +160,20 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
                     .Concat(items)
                     .ToDictionary(x => x.Key, x => x.Value);
             }
+
+            List<string> tempStringList = new List<string>();
+
+            foreach (var a in abilities)
+            {
+                tempStringList.Add(a.Value.ToString());
+            }
+            return tempStringList;
+        }
+
+        public void GenerateAbilitiesAndItems()
+        {
+            GetAbilitiesWithTeachingChunks();
+            GetAllAbilities(TutorialGameplayType);
         }
 
         Ability GetAbility(int key) =>
