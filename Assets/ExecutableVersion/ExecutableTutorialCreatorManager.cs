@@ -58,7 +58,7 @@ public class ExecutableTutorialCreatorManager : MonoBehaviour
         creatorPages[0].SetActive(true);
         currentPageIndex = 0;
         EnableMenuInteractables(creatorPages[currentPageIndex]);
-        LeanTween.move(creatorPages[0], Vector3.zero, 0);
+        LeanTween.moveLocal(creatorPages[0], Vector3.zero, 0);
     }
 
     public void ToMainMenu()
@@ -89,20 +89,20 @@ public class ExecutableTutorialCreatorManager : MonoBehaviour
         DisableMenuInteractables(creatorPages[pageNum]);
         if (currentPageIndex < pageNum)
         {
-            LeanTween.move(creatorPages[pageNum], new Vector3(2000, 0, 0), 0);
-            LeanTween.move(creatorPages[pageNum], Vector3.zero, slideTransitionTime).setEaseInOutSine();
-            LeanTween.move(creatorPages[currentPageIndex], new Vector3(-2000, 0, 0), slideTransitionTime);
+            LeanTween.moveLocal(creatorPages[pageNum], new Vector3(2000, 0, 0), 0);
+            LeanTween.moveLocal(creatorPages[pageNum], Vector3.zero, slideTransitionTime).setEaseInOutSine();
+            LeanTween.moveLocal(creatorPages[currentPageIndex], new Vector3(-2000, 0, 0), slideTransitionTime);
         }
 
         if (currentPageIndex > pageNum)
         {
-            LeanTween.move(creatorPages[pageNum], new Vector3(-2000, 0, 0), 0);
-            LeanTween.move(creatorPages[pageNum], Vector3.zero, slideTransitionTime).setEaseInOutSine();
-            LeanTween.move(creatorPages[currentPageIndex], new Vector3(2000, 0, 0), slideTransitionTime);
+            LeanTween.moveLocal(creatorPages[pageNum], new Vector3(-2000, 0, 0), 0);
+            LeanTween.moveLocal(creatorPages[pageNum], Vector3.zero, slideTransitionTime).setEaseInOutSine();
+            LeanTween.moveLocal(creatorPages[currentPageIndex], new Vector3(2000, 0, 0), slideTransitionTime);
         }
 
         yield return new WaitForSeconds(slideTransitionTime);
-        LeanTween.move(creatorPages[currentPageIndex], Vector3.zero, 0);
+        LeanTween.moveLocal(creatorPages[currentPageIndex], Vector3.zero, 0);
         EnableMenuInteractables(creatorPages[currentPageIndex]);
         creatorPages[currentPageIndex].SetActive(false);
         EnableMenuInteractables(creatorPages[pageNum]);

@@ -54,7 +54,7 @@ namespace Etra.StandardMenus
 
         void SetPlayerInputReferenceVariables()
         {
-            eventSystem = GetComponentInChildren<EventSystem>();
+            eventSystem = FindObjectOfType<EventSystem>();
 
             if (_playerInput == null)
             {
