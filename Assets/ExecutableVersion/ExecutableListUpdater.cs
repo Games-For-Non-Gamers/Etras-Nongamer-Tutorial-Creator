@@ -15,9 +15,9 @@ using static Etra.NonGamerTutorialCreator.TutorialCreator.TutorialCreatorAbility
 //Editor
 public class ExecutableListUpdater : MonoBehaviour
 {
-
+    //e
     public ExecutableAbilitySelection abilitySelection;
-
+    public Executable_TeachSelection teachSelection;
 
     private List<string> abilitiesOrItemsThatHaveTeachingChunks;
 
@@ -28,7 +28,7 @@ public class ExecutableListUpdater : MonoBehaviour
         abilitySelection.allFpsAbilities = GetAllFpsAbilities();
         abilitySelection.allFpsItems = GetAllFpsItems();
         abilitySelection.allTpsAbilities = GetAllTpsAbilities();
-    //    abilitySelection.abilitiesToTeach = GetAbilitiesWithTeachingChunks();
+        teachSelection.abilitiesWithTeachingBlocks = GetAbilitiesWithTeachingChunks();
     }
 
 

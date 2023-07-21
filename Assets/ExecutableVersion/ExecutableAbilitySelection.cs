@@ -7,7 +7,7 @@ public class ExecutableAbilitySelection : MonoBehaviour
 {
     public GameObject prefabToDuplicate;
     public GameObject entryParent;
-
+    public Executable_TeachSelection teachSelection;
 
     [HideInInspector]public List<string> standardAbilities = new List<string>();
     [HideInInspector] public List<string> allFpsAbilities = new List<string>();
@@ -67,7 +67,7 @@ public class ExecutableAbilitySelection : MonoBehaviour
                 Toggle t = entry.GetComponentInChildren<Toggle>();
                 t.onValueChanged.AddListener(OnToggleChange);
                 entry.GetComponentInChildren<TextMeshProUGUI>().text = "ITEM: " + str;
-                allToggles.Add(new ToggleStringHolder(str, t));
+                allToggles.Add(new ToggleStringHolder(str, t, true));
             }
         }
 
@@ -91,16 +91,28 @@ public class ExecutableAbilitySelection : MonoBehaviour
     void OnToggleChange(bool value)
     {
 
-        List<string> activatedAbilities = new List<string>(); 
+        List<string> activatedAbilities = new List<string>();
+        List<string> activatedItems = new List<string>();
         foreach (ToggleStringHolder t in allToggles)
         {
             if (t.toggle.isOn)
             {
-                activatedAbilities.Add(t.abilityName);
+                if (!t.isItem)
+                {
+                    activatedAbilities.Add(t.abilityName);
+                }
+                else
+                {
+                    activatedItems.Add(t.abilityName);
+                }
+
+
             }
         }
 
         dataHolder.tempSelectedAbilities = activatedAbilities;
+        dataHolder.tempSelectedItems = activatedItems;
+        teachSelection.abilityChoicesChanged = true;
     }
 
     public void AllOn()
@@ -128,11 +140,20 @@ public class ExecutableAbilitySelection : MonoBehaviour
     {
         public string abilityName;
         public Toggle toggle;
+        public bool isItem;
 
-        public ToggleStringHolder(string n , Toggle t)
+        public ToggleStringHolder(string n, Toggle t )
         {
             abilityName = n;
             toggle = t;
+            isItem = false;
+        }
+
+        public ToggleStringHolder(string n , Toggle t, bool b)
+        {
+            abilityName = n;
+            toggle = t;
+            isItem = b;
         }
     }
 }

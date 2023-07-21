@@ -7,10 +7,11 @@ using static Etra.StarterAssets.EtraCharacterMainController;
 
 public class ExecutableNewLevelDataHolder : MonoBehaviour
 {
-     public List<string> tempSelectedAbilities;
+    [HideInInspector] public List<string> tempSelectedAbilities;
+    [HideInInspector] public List<string> tempSelectedItems;
 
     [Header("Current Values")]
     public GameplayType gameplayType = GameplayType.FirstPerson; //Set by toggle
     public Model characterModel; //Set by dropdown
-    public List<string> abilitiesToActivate;
+    public List<string> abilitiesToActivate; //Set by Teach Selection
 }
