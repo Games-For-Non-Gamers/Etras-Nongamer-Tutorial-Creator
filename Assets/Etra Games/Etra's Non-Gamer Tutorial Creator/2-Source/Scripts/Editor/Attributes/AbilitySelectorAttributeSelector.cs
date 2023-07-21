@@ -47,7 +47,6 @@ namespace Etra.NonGamerTutorialCreator.Attributes.Editor
             }
         }
 
-        int _abilityIndex = -1;
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
@@ -65,15 +64,10 @@ namespace Etra.NonGamerTutorialCreator.Attributes.Editor
                 .Prepend(string.Empty)
                 .ToList();
 
-            //Get the current ability index
-            
-            if (_abilityIndex == -1)
-            {
-                _abilityIndex = 0;
-                if (abilityPaths.Contains(property.stringValue))
-                    _abilityIndex = abilityPaths.IndexOf(property.stringValue);
-            }
-            
+            //Get the ability index
+            int abilityIndex = 0;
+            if (abilityPaths.Contains(property.stringValue))
+                abilityIndex = abilityPaths.IndexOf(property.stringValue);
 
             position = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Keyboard), label);
 
@@ -87,22 +81,16 @@ namespace Etra.NonGamerTutorialCreator.Attributes.Editor
                 .Prepend(new GUIContent("None"))
                 .ToArray();
 
-            
             using (var changeCheck = new EditorGUI.ChangeCheckScope())
             {
-                _abilityIndex = EditorGUI.Popup(position, _abilityIndex, abilityNames);
+                abilityIndex = EditorGUI.Popup(position, abilityIndex, abilityNames);
 
                 if (changeCheck.changed)
                 {
-                    property.stringValue = abilityPaths[_abilityIndex];
+                    property.stringValue = abilityPaths[abilityIndex];
                     property.serializedObject.ApplyModifiedProperties();
                 }
             }
-            
         }
     }
-
-
-
-
 }

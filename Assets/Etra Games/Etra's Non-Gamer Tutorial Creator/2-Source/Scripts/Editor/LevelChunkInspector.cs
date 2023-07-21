@@ -40,15 +40,8 @@ namespace Etra.NonGamerTutorialCreator.Editor
             EditorGUILayout.Space();
 
             EditorGUILayout.LabelField("Abilities", EditorStyles.boldLabel);
-            EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.testedAbilityOne)));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.testedAbilityTwo)));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.testedAbilityThree)));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.testedAbilityFour)));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.testedAbilityFive)));
-            EditorGUILayout.Space();
-            EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.taughtAbilityOne)));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.taughtAbilityTwo)));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.taughtAbilityThree)));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.testedAbilities)));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.taughtAbilities)));
 
             EditorGUILayout.LabelField("Object", EditorStyles.boldLabel);
             EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(LevelChunk.chunkObject)));
