@@ -116,20 +116,25 @@ public class Executable_TeachSelection : MonoBehaviour
     {
 
         List<string> abilitiesToEnable = new List<string>();
+        List<string> abilitiesInLevel = new List<string>();
+
         foreach (ToggleStringHolder t in allToggles)
         {
             if (t.toggle.isOn == false)
             {
                 abilitiesToEnable.Add(t.abilityName);
             }
+            abilitiesInLevel.Add(t.abilityName);
         }
 
         foreach (string s in nonToggleAbilities)
         {
             abilitiesToEnable.Add(s);
+            abilitiesInLevel.Add(s);
         }
 
         dataHolder.abilitiesToActivate = abilitiesToEnable;
+        dataHolder.abilitiesInLevel= abilitiesInLevel;
     }
 
     public void AllOn()

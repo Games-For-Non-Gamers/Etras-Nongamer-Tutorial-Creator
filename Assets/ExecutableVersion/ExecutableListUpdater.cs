@@ -18,6 +18,7 @@ public class ExecutableListUpdater : MonoBehaviour
     //e
     public ExecutableAbilitySelection abilitySelection;
     public Executable_TeachSelection teachSelection;
+    public Executable_LevelBuilder levelBuilder;
 
     private List<string> abilitiesOrItemsThatHaveTeachingChunks;
 
@@ -29,6 +30,8 @@ public class ExecutableListUpdater : MonoBehaviour
         abilitySelection.allFpsItems = GetAllFpsItems();
         abilitySelection.allTpsAbilities = GetAllTpsAbilities();
         teachSelection.abilitiesWithTeachingBlocks = GetAbilitiesWithTeachingChunks();
+        levelBuilder.allLevelChunks = AssetDatabase.FindAssets($"t:{typeof(LevelChunk).Name}").Select(x => AssetDatabase.GUIDToAssetPath(x)) .Select(x => AssetDatabase.LoadAssetAtPath<LevelChunk>(x)).ToList();
+
     }
 
 

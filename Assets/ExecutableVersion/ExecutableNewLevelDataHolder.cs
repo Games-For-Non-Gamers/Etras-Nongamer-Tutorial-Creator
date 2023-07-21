@@ -13,5 +13,6 @@ public class ExecutableNewLevelDataHolder : MonoBehaviour
     [Header("Current Values")]
     public GameplayType gameplayType = GameplayType.FirstPerson; //Set by toggle
     public Model characterModel; //Set by dropdown
+    public List<string> abilitiesInLevel; //Set by Teach Selection
     public List<string> abilitiesToActivate; //Set by Teach Selection
 }
