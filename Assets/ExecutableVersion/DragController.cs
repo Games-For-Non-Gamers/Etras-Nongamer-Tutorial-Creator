@@ -1,25 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
+using UnityEngine.UI;
 
 public class DragController : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
-    public RectTransform currentTransform;
+    RectTransform currentTransform;
     private GameObject mainContent;
-    private Vector3 currentPossition;
+    private Vector3 currentPosition;
+    Executable_LevelBuilder levelbuilder;
+
+    public Image icon;
+    public TextMeshProUGUI text;
+    public GameObject trashButton;
 
     private int totalChild;
 
     private void Start()
     {
         currentTransform = this.GetComponent<RectTransform>();
+        levelbuilder = GetComponentInParent<Executable_LevelBuilder>();
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        currentPossition = currentTransform.position;
+        currentPosition = currentTransform.position;
         mainContent = currentTransform.parent.gameObject;
         totalChild = mainContent.transform.childCount;
     }
@@ -39,12 +46,14 @@ public class DragController : MonoBehaviour, IPointerDownHandler, IDragHandler, 
                 if (distance <= 10)
                 {
                     Vector3 otherTransformOldPosition = otherTransform.position;
-                    otherTransform.position = new Vector3(otherTransform.position.x, currentPossition.y,
+                    otherTransform.position = new Vector3(otherTransform.position.x, currentPosition.y,
                         otherTransform.position.z);
                     currentTransform.position = new Vector3(currentTransform.position.x, otherTransformOldPosition.y,
                         currentTransform.position.z);
                     currentTransform.SetSiblingIndex(otherTransform.GetSiblingIndex());
-                    currentPossition = currentTransform.position;
+                    currentPosition = currentTransform.position;
+
+                    levelbuilder.UpdateListDataFromChildrenPosition();
                 }
             }
         }
@@ -52,6 +61,14 @@ public class DragController : MonoBehaviour, IPointerDownHandler, IDragHandler, 
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        currentTransform.position = currentPossition;
+        currentTransform.position = currentPosition;
     }
+
+
+    public void TrashPressed()
+    {
+        levelbuilder.SaveGameObjectForUndo(this.gameObject, this.transform.GetSiblingIndex());
+
+    }
+
 }

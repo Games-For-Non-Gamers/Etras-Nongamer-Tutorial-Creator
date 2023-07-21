@@ -1,8 +1,10 @@
 using Etra.NonGamerTutorialCreator.Level;
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using TMPro;
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
@@ -18,7 +20,6 @@ public class Executable_LevelBuilder : MonoBehaviour
 
     private ExecutableNewLevelDataHolder dataHolder;
 
-    [ContextMenu ("TextRun")]
     private void OnEnable()
     {
         if (possibleLevelChunks.Count > 0) // Make a check for changes in previous pages, if so reload
@@ -27,7 +28,7 @@ public class Executable_LevelBuilder : MonoBehaviour
         }
 
         dataHolder = GetComponentInParent<ExecutableNewLevelDataHolder>();
-        RebuildAvaliableChunksCache();
+        LoadChunks(true);
     }
 
     public string GenerateName(string fileName)
@@ -36,12 +37,13 @@ public class Executable_LevelBuilder : MonoBehaviour
         toReturn = toReturn.Split('_').Last();
 
         toReturn = Regex.Replace(toReturn, "([a-z])([A-Z])", "$1 $2");
-        Debug.Log(toReturn);
         return toReturn;
     }
 
-    public void RebuildAvaliableChunksCache()
+    public bool applyReccomendationsState = true;
+    public void LoadChunks(bool applyReccomendations )
     {
+        applyReccomendationsState = applyReccomendations;
         possibleLevelChunks = new List<LevelChunk>();
 
         List<string> taughtAbilities = dataHolder.abilitiesInLevel.Except(dataHolder.abilitiesToActivate).ToList();
@@ -68,18 +70,29 @@ public class Executable_LevelBuilder : MonoBehaviour
         }
 
 
-        //Set the temporary reccomended state for teaching priority below
-        foreach (LevelChunk lc in possibleLevelChunks)
+        if (applyReccomendations)
         {
-            if (lc.recommended)
+            //Set the temporary reccomended state for teaching priority below
+            foreach (LevelChunk lc in possibleLevelChunks)
+            {
+                if (lc.recommended)
+                {
+                    lc.tempRecommended = true;
+                }
+                else
+                {
+                    lc.tempRecommended = false;
+                }
+            }
+        }
+        else
+        {
+            foreach (LevelChunk lc in possibleLevelChunks)
             {
                 lc.tempRecommended = true;
             }
-            else
-            {
-                lc.tempRecommended = false;
-            }
         }
+
 
         LoadRecommendedChunksList();
     }
@@ -129,7 +142,10 @@ public class Executable_LevelBuilder : MonoBehaviour
             chunksToCompare.Sort((a, b) => b.teachingPriority.CompareTo(a.teachingPriority));
             chunksToCompare.Skip(1).ToList().ForEach(chunk =>
             {
-                chunk.tempRecommended = false;
+                if (applyReccomendationsState)
+                {
+                    chunk.tempRecommended = false;
+                }
             });
         }
     }
@@ -137,7 +153,7 @@ public class Executable_LevelBuilder : MonoBehaviour
     private void ProcessCameraMovementChunks()
     {
         List<LevelChunk> chunksToCompare = possibleLevelChunks
-            .Where(l => l.taughtAbilities.Contains("Camera Movement"))
+            .Where(l => l.taughtAbilities.Contains("Etra.StarterAssets.Abilities.ABILITY_CameraMovement"))
             .ToList();
 
         ProcessCameraAxisChunks(chunksToCompare, "LookX");
@@ -151,7 +167,6 @@ public class Executable_LevelBuilder : MonoBehaviour
         if (axisChunks.Count > 1)
         {
             axisChunks.Sort((a, b) => b.teachingPriority.CompareTo(a.teachingPriority));
-
             axisChunks.Skip(1).ToList().ForEach(chunk =>
             {
                 chunk.tempRecommended = false;
@@ -170,8 +185,83 @@ public class Executable_LevelBuilder : MonoBehaviour
         reccomendedLevelChunks = reccomendedLevelChunks.OrderByDescending(chunk => chunk.orderPriority).ToList();
     }
 
+
+
+    public GameObject prefabToDuplicate;
+    public GameObject entryParent;
+    public bool abilityChoicesChanged;
     private void CreateUiChunks()
     {
+        int childCount = entryParent.transform.childCount;
+        for (int i = childCount - 1; i >= 0; i--)
+        {
+            Transform child = entryParent.transform.GetChild(i);
+            Destroy(child.gameObject);
+        }
+
+
+        foreach (LevelChunk lc in reccomendedLevelChunks)
+        {
+            CreateUiChunk(lc);
+        }
+    }
+
+    void CreateUiChunk(LevelChunk lc)
+    {
+        GameObject entry = Instantiate(prefabToDuplicate, entryParent.transform, false);
+        entry.name = lc.name;
+        DragController script = entry.GetComponent<DragController>();
+        script.text.text = lc.chunkName;
+        script.icon.sprite = lc.icon;
+        if (lc.required)
+        {
+            script.trashButton.SetActive(false);
+        }
 
     }
+
+    GameObject savedUndoBackup;
+    int undoIndex;
+    public void SaveGameObjectForUndo(GameObject deletedBlock, int index)
+    {
+        if (savedUndoBackup != null)
+        {
+            Destroy(savedUndoBackup); savedUndoBackup = null;
+        }
+
+        savedUndoBackup = deletedBlock;
+        savedUndoBackup.SetActive(false);
+        UpdateListDataFromChildrenPosition();
+    }
+    
+
+    public void UndoDelete()
+    {
+        if (savedUndoBackup!= null)
+        {
+            savedUndoBackup.SetActive(true);
+            savedUndoBackup = null;
+        }
+
+    }
+
+    public void UpdateListDataFromChildrenPosition()
+    {
+
+        dataHolder.levelChunks = new List<string>();
+
+
+        int childCount = entryParent.transform.childCount;
+
+        for (int i = 0; i < childCount; i++)
+        {
+            if (entryParent.transform.GetChild(i).gameObject.activeInHierarchy)
+            {
+                dataHolder.levelChunks.Add(entryParent.transform.GetChild(i).name);
+            }
+        }
+
+        //list of chunks casual names in order
+    }
+
 }

@@ -15,4 +15,5 @@ public class ExecutableNewLevelDataHolder : MonoBehaviour
     public Model characterModel; //Set by dropdown
     public List<string> abilitiesInLevel; //Set by Teach Selection
     public List<string> abilitiesToActivate; //Set by Teach Selection
+    public List<string> levelChunks; //Set by Level builder
 }
