@@ -29,6 +29,8 @@ public class ExecutableAbilitySelection : MonoBehaviour
         {
             return;
         }
+        allToggles = new List<ToggleStringHolder>();
+        savedGameplayType = dataHolder.gameplayType;
 
         //Destory all initial children
         int childCount = entryParent.transform.childCount;
@@ -109,7 +111,8 @@ public class ExecutableAbilitySelection : MonoBehaviour
 
             }
         }
-
+        dataHolder.tempSelectedAbilities = new List<string>();
+        dataHolder.tempSelectedItems = new List<string>();
         dataHolder.tempSelectedAbilities = activatedAbilities;
         dataHolder.tempSelectedItems = activatedItems;
         teachSelection.abilityChoicesChanged = true;

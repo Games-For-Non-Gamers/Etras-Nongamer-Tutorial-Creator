@@ -7,10 +7,11 @@ using UnityEngine.UI;
 
 public class Executable_TeachSelection : MonoBehaviour
 {
+   
     public GameObject prefabToDuplicateStandard;
     public GameObject prefabToDuplicateOffOnly;
     public GameObject entryParent;
-    [HideInInspector]public bool abilityChoicesChanged;
+   public bool abilityChoicesChanged;
 
     public List<string> abilitiesWithTeachingBlocks = new List<string>();
 
@@ -23,25 +24,28 @@ public class Executable_TeachSelection : MonoBehaviour
     private ExecutableNewLevelDataHolder dataHolder;
 
     private List<ToggleStringHolder> allToggles = new List<ToggleStringHolder>();
+    List<string> nonToggleAbilities = new List<string>();
+
 
     // Start is called before the first frame update
 
     void OnEnable()
     {
+        if (abilityChoicesChanged)
+        {
 
-        //Conditions where not to rebuild the list
-        if (allToggles.Count > 0 && abilityChoicesChanged == false)
+        } else if (allToggles.Count > 0)
         {
             return;
         }
         //e
         abilityChoicesChanged = false;
-
+        allToggles = new List<ToggleStringHolder>();
         selectedAbilities = new List<string>();
         selectedItems = new List<string>();
         taughtAbilities = new List<string>();
         taughtItems = new List<string>();
-
+        nonToggleAbilities = new List<string>();
 
         dataHolder = GetComponentInParent<ExecutableNewLevelDataHolder>();
         selectedAbilities = dataHolder.tempSelectedAbilities;
@@ -89,6 +93,7 @@ public class Executable_TeachSelection : MonoBehaviour
             {
                 GameObject entry = Instantiate(prefabToDuplicateOffOnly, entryParent.transform, false);
                 entry.GetComponentInChildren<TextMeshProUGUI>().text = "ABILITY: " + str;
+                nonToggleAbilities.Add(str);
             }
         }
 
@@ -98,6 +103,7 @@ public class Executable_TeachSelection : MonoBehaviour
             {
                 GameObject entry = Instantiate(prefabToDuplicateOffOnly, entryParent.transform, false);
                 entry.GetComponentInChildren<TextMeshProUGUI>().text = "ITEM: " + str;
+                nonToggleAbilities.Add(str);
             }
         }
 
@@ -109,16 +115,21 @@ public class Executable_TeachSelection : MonoBehaviour
     void OnToggleChange(bool value)
     {
 
-        List<string> AbilitiesToEnable = new List<string>();
+        List<string> abilitiesToEnable = new List<string>();
         foreach (ToggleStringHolder t in allToggles)
         {
             if (t.toggle.isOn == false)
             {
-                AbilitiesToEnable.Add(t.abilityName);
+                abilitiesToEnable.Add(t.abilityName);
             }
         }
 
-        dataHolder.abilitiesToActivate = AbilitiesToEnable;
+        foreach (string s in nonToggleAbilities)
+        {
+            abilitiesToEnable.Add(s);
+        }
+
+        dataHolder.abilitiesToActivate = abilitiesToEnable;
     }
 
     public void AllOn()
