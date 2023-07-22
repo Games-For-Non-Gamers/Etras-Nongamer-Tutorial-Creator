@@ -19,6 +19,7 @@ namespace Etra.NonGamerTutorialCreator.Level
         private Button[] allButtons;
         private RectTransform[] allRectTransforms;
         AudioManager audioManager;
+        [HideInInspector]public bool canBeginGame = true;
         private void Start()
         {
             // Find the OpeningMenuUi script in the scene
@@ -47,6 +48,7 @@ namespace Etra.NonGamerTutorialCreator.Level
 
         public void startPressed()
         {
+            if (!canBeginGame){return;}
             // Lock cursor
             EtraCharacterMainController.Instance.GetComponent<StarterAssetsInputs>().SetCursorState(true);
             // Disable all the buttons in the menu

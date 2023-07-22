@@ -25,6 +25,12 @@ namespace Etra.NonGamerTutorialCreator.Level
 
 
         /// <summary>Forces all chunks to connect properly</summary>
+        public void ResetAllChunksPositions(List<LevelChunkObject> passedChunks)
+        {
+            chunks = passedChunks;
+            ResetAllChunksPositions();
+        }
+
         public void ResetAllChunksPositions()
         {
             destroyBridgesImmediate();

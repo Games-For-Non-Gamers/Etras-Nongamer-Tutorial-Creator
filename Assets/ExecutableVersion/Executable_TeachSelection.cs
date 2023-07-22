@@ -11,7 +11,8 @@ public class Executable_TeachSelection : MonoBehaviour
     public GameObject prefabToDuplicateStandard;
     public GameObject prefabToDuplicateOffOnly;
     public GameObject entryParent;
-   public bool abilityChoicesChanged;
+    public Executable_LevelBuilder levelBuilder;
+    public bool abilityChoicesChanged;
 
     public List<string> abilitiesWithTeachingBlocks = new List<string>();
 
@@ -47,7 +48,7 @@ public class Executable_TeachSelection : MonoBehaviour
         taughtItems = new List<string>();
         nonToggleAbilities = new List<string>();
 
-        dataHolder = GetComponentInParent<ExecutableNewLevelDataHolder>();
+        dataHolder = FindObjectOfType<ExecutableNewLevelDataHolder>();
         selectedAbilities = dataHolder.tempSelectedAbilities;
         selectedItems = dataHolder.tempSelectedItems;
         taughtAbilities = selectedAbilities.Intersect(abilitiesWithTeachingBlocks).ToList();
@@ -135,6 +136,7 @@ public class Executable_TeachSelection : MonoBehaviour
 
         dataHolder.abilitiesToActivate = abilitiesToEnable;
         dataHolder.abilitiesInLevel= abilitiesInLevel;
+        levelBuilder.resetBuilder = true;
     }
 
     public void AllOn()

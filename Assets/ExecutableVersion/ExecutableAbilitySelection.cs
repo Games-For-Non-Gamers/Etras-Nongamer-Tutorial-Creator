@@ -8,6 +8,7 @@ public class ExecutableAbilitySelection : MonoBehaviour
     public GameObject prefabToDuplicate;
     public GameObject entryParent;
     public Executable_TeachSelection teachSelection;
+    public Executable_LevelBuilder levelBuilder;
 
     [HideInInspector]public List<string> standardAbilities = new List<string>();
     [HideInInspector] public List<string> allFpsAbilities = new List<string>();
@@ -23,7 +24,7 @@ public class ExecutableAbilitySelection : MonoBehaviour
 
     void OnEnable()
     {
-        dataHolder = GetComponentInParent<ExecutableNewLevelDataHolder>();
+        dataHolder = FindObjectOfType<ExecutableNewLevelDataHolder>();
         //Conditions where not to rebuild the list
         if (savedGameplayType == dataHolder.gameplayType && allToggles.Count > 0)
         {
@@ -116,6 +117,7 @@ public class ExecutableAbilitySelection : MonoBehaviour
         dataHolder.tempSelectedAbilities = activatedAbilities;
         dataHolder.tempSelectedItems = activatedItems;
         teachSelection.abilityChoicesChanged = true;
+        levelBuilder.resetBuilder = true;
     }
 
     public void AllOn()

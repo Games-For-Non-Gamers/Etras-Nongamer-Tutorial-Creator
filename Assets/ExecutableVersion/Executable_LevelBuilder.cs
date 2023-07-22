@@ -20,14 +20,21 @@ public class Executable_LevelBuilder : MonoBehaviour
 
     private ExecutableNewLevelDataHolder dataHolder;
 
+    public bool resetBuilder = true;
+
+
     private void OnEnable()
     {
-        if (possibleLevelChunks.Count > 0) // Make a check for changes in previous pages, if so reload
+        if (resetBuilder)
+        {
+
+        }
+        else if (possibleLevelChunks.Count > 0)
         {
             return;
         }
 
-        dataHolder = GetComponentInParent<ExecutableNewLevelDataHolder>();
+        dataHolder = FindObjectOfType<ExecutableNewLevelDataHolder>();
         LoadChunks(true);
     }
 

@@ -169,6 +169,20 @@ namespace Etra.StarterAssets
             gameplayType = appliedGameplayType;
             characterModel = appliedCharacterModel;
 
+            //Check for animator 
+            _hasAnimator = TryGetComponent(out _animator);
+
+            if (characterModel == Model.DefaultArmature)
+            {
+                _hasAnimator = EtrasResourceGrabbingFunctions.TryGetComponentInChildren<Animator>(modelParent);
+                if (_hasAnimator) { _animator = modelParent.GetComponentInChildren<Animator>(); }
+            }
+            else
+            {
+                _hasAnimator = false;
+            }
+
+
             //Destroy the current Cinemachine Virtual Camera
             etraFollowCam = GameObject.Find("Etra'sStarterAssetsFollowCamera");
             DestroyImmediate(etraFollowCam.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<Cinemachine3rdPersonFollow>());

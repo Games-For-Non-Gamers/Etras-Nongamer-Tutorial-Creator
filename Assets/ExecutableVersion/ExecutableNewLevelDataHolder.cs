@@ -16,4 +16,10 @@ public class ExecutableNewLevelDataHolder : MonoBehaviour
     public List<string> abilitiesInLevel; //Set by Teach Selection
     public List<string> abilitiesToActivate; //Set by Teach Selection
     public List<string> levelChunks; //Set by Level builder
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
 }
