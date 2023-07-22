@@ -180,7 +180,7 @@ namespace Etra.NonGamerTutorialCreator.Level
             PlayerSetup();
         }
 
-        private void GetReferenceVariables()
+        public void GetReferenceVariables()
         {
             star = GameObject.Find("Star").GetComponent<Star>();
             playerSpawn = GameObject.Find("PlayerSpawn");

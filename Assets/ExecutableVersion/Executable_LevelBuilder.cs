@@ -8,6 +8,7 @@ using TMPro;
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Executable_LevelBuilder : MonoBehaviour
 {
@@ -269,6 +270,12 @@ public class Executable_LevelBuilder : MonoBehaviour
         }
 
         //list of chunks casual names in order
+    }
+
+    public void GoToCustonLevel()
+    {
+        UpdateListDataFromChildrenPosition();
+        SceneManager.LoadScene("ExecutableMegaNonGamerTutorial");
     }
 
 }

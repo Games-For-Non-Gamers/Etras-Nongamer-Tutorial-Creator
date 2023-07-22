@@ -110,7 +110,7 @@ namespace Etra.StarterAssets.Abilities
         {
             if (enabled)
             {
-                _hasAnimator = EtrasResourceGrabbingFunctions.TryGetComponentInChildren<Animator>(EtraCharacterMainController.Instance.modelParent);
+                _hasAnimator = EtrasResourceGrabbingFunctions.TryGetComponentInChildren<Animator>(FindObjectOfType<EtraCharacterMainController>().modelParent);
                 if (_hasAnimator) { _animator = EtraCharacterMainController.Instance.modelParent.GetComponentInChildren<Animator>(); }
             }
             else

@@ -243,8 +243,6 @@ namespace Etra.StarterAssets.Abilities
         {
             foreach (EtraAbilityBaseClass ability in characterAbilityUpdateOrder)
             {
-                ability.GetType().ToString();
-                GenerateShortenedName(ability.GetType().ToString());
                 if (abilitiesShortenedName.Contains(GenerateShortenedName(ability.GetType().ToString())))
                 {
                     ability.abilityEnabled = true;

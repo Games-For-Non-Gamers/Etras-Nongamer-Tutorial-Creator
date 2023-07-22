@@ -172,32 +172,36 @@ namespace Etra.StarterAssets
             //Check for animator 
             _hasAnimator = TryGetComponent(out _animator);
 
-            if (characterModel == Model.DefaultArmature)
+            if (!Application.isEditor)
             {
-                _hasAnimator = EtrasResourceGrabbingFunctions.TryGetComponentInChildren<Animator>(modelParent);
-                if (_hasAnimator) { _animator = modelParent.GetComponentInChildren<Animator>(); }
-                if (etraAbilityManager.GetComponent<ABILITY_CharacterMovement>())
+                if (characterModel == Model.DefaultArmature)
                 {
-                    etraAbilityManager.GetComponent<ABILITY_CharacterMovement>().setAnimator(true);
-                }
-                if (etraAbilityManager.GetComponent<ABILITY_Jump>())
-                {
-                    etraAbilityManager.GetComponent<ABILITY_Jump>().setAnimator(true);
-                }
+                    _hasAnimator = EtrasResourceGrabbingFunctions.TryGetComponentInChildren<Animator>(modelParent);
+                    if (_hasAnimator) { _animator = modelParent.GetComponentInChildren<Animator>(); }
+                    if (etraAbilityManager.GetComponent<ABILITY_CharacterMovement>())
+                    {
+                        etraAbilityManager.GetComponent<ABILITY_CharacterMovement>().setAnimator(true);
+                    }
+                    if (etraAbilityManager.GetComponent<ABILITY_Jump>())
+                    {
+                        etraAbilityManager.GetComponent<ABILITY_Jump>().setAnimator(true);
+                    }
 
-            }
-            else
-            {
-                _hasAnimator = false;
-                if (etraAbilityManager.GetComponent<ABILITY_CharacterMovement>())
-                {
-                    etraAbilityManager.GetComponent<ABILITY_CharacterMovement>().setAnimator(false);
                 }
-                if (etraAbilityManager.GetComponent<ABILITY_Jump>())
+                else
                 {
-                    etraAbilityManager.GetComponent<ABILITY_Jump>().setAnimator(false);
+                    _hasAnimator = false;
+                    if (etraAbilityManager.GetComponent<ABILITY_CharacterMovement>())
+                    {
+                        etraAbilityManager.GetComponent<ABILITY_CharacterMovement>().setAnimator(false);
+                    }
+                    if (etraAbilityManager.GetComponent<ABILITY_Jump>())
+                    {
+                        etraAbilityManager.GetComponent<ABILITY_Jump>().setAnimator(false);
+                    }
                 }
             }
+
 
 
             //Destroy the current Cinemachine Virtual Camera
