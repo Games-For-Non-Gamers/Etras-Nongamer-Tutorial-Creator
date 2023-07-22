@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using UnityEditor.IMGUI.Controls;
 using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
 using System.Text.RegularExpressions;
 using System.Linq;
@@ -9,12 +9,12 @@ using Etra.StarterAssets.Items;
 using Etra.StarterAssets.Source.Editor;
 using static Etra.StarterAssets.EtraCharacterMainController;
 using Etra.NonGamerTutorialCreator.Level;
-using Etra.NonGamerTutorialCreator.TutorialCreator;
 using static Etra.NonGamerTutorialCreator.TutorialCreator.TutorialCreatorAbilityTreeView;
-
+#endif
 //Editor
 public class ExecutableListUpdater : MonoBehaviour
 {
+#if UNITY_EDITOR
     //e
     public ExecutableAbilitySelection abilitySelection;
     public Executable_TeachSelection teachSelection;
@@ -146,6 +146,7 @@ public class ExecutableListUpdater : MonoBehaviour
         return abilitiesOrItemsThatHaveTeachingChunks;
     }
 
+#endif
 
 
 }

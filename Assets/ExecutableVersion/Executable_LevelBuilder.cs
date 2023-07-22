@@ -1,12 +1,7 @@
 using Etra.NonGamerTutorialCreator.Level;
-using JetBrains.Annotations;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using TMPro;
-using UnityEditor;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -56,18 +51,74 @@ public class Executable_LevelBuilder : MonoBehaviour
 
         List<string> taughtAbilities = dataHolder.abilitiesInLevel.Except(dataHolder.abilitiesToActivate).ToList();
         //type to english for all tested abilities. Put in same filter.
+        /*
+        possibleLevelChunks = allLevelChunks.Where(lc =>
+        {
+            bool allTestedAbilitiesInChunk = lc.testedAbilities.All(chunkAbility => dataHolder.abilitiesInLevel.Contains(GenerateName(chunkAbility)));
+            bool allTaughtAbilitiesInChunk = lc.taughtAbilities.All(chunkAbility => taughtAbilities.Contains(GenerateName(chunkAbility)));
+
+            return (allTestedAbilitiesInChunk || allTaughtAbilitiesInChunk);
+        }).ToList();
+        */
+
+
+
+        possibleLevelChunks = allLevelChunks.Where(lc =>
+        {
+            List<string> newNameAbilities = new List<string>();
+            foreach (string s in lc.testedAbilities)
+            {
+                newNameAbilities.Add(GenerateName(s));
+            }
+            bool allTestedAbilitiesInChunk = !newNameAbilities.Except(dataHolder.abilitiesInLevel).Except(taughtAbilities).Any();
+
+             newNameAbilities = new List<string>();
+            foreach (string s in lc.taughtAbilities)
+            {
+                newNameAbilities.Add(GenerateName(s));
+            }
+
+            bool allTaughtAbilitiesInChunk = !newNameAbilities.Except(taughtAbilities).Any();
+
+            return (allTestedAbilitiesInChunk && allTaughtAbilitiesInChunk);
+        }).ToList();
+
+       
+        /*
 
         foreach (LevelChunk lc in allLevelChunks)
         {
-            if (lc.testedAbilities.Any(chunkAbility => dataHolder.abilitiesInLevel.Contains(GenerateName(chunkAbility))))//May need to rework to differentiate for checking for full word vs part
+
+            bool allAbilitiesMatch = true;
+            bool addChunk = false;
+            foreach (string tested in lc.testedAbilities)
             {
-                if (!possibleLevelChunks.Contains(lc))
+                if (dataHolder.abilitiesInLevel.Contains(GenerateName(tested)))
                 {
-                    possibleLevelChunks.Add(lc);
+                    addChunk = true;
+                }
+                else
+                {
+                    allAbilitiesMatch = false;
                 }
             }
 
-            if (lc.taughtAbilities.Any(chunkAbility => taughtAbilities.Contains(GenerateName(chunkAbility)))) //May need to rework to differentiate for checking for full word vs part
+
+            foreach (string tested in taughtAbilities)
+            {
+                if (dataHolder.abilitiesInLevel.Contains(GenerateName(tested)))
+                {
+                    addChunk = true;
+                }
+                else
+                {
+                    allAbilitiesMatch = false;
+                }
+            }
+
+
+
+            if (allAbilitiesMatch && addChunk)
             {
                 if (!possibleLevelChunks.Contains(lc))
                 {
@@ -77,7 +128,7 @@ public class Executable_LevelBuilder : MonoBehaviour
 
         }
 
-
+        */
         if (applyReccomendations)
         {
             //Set the temporary reccomended state for teaching priority below

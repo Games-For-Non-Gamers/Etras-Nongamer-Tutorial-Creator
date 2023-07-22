@@ -1,0 +1,17 @@
+{
+    "name": "Etra.NonGamerTutorialCreator.Level",
+    "rootNamespace": "Etra.NonGamerTutorialCreator",
+    "references": [
+        "GUID:6114067bce50cac4a98522882dcb33ae",
+        "GUID:a82ee7efe58c3bc4585c743050ac014c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

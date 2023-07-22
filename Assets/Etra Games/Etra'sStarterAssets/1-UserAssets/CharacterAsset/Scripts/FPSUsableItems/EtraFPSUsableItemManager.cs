@@ -105,7 +105,6 @@ namespace Etra.StarterAssets.Items
         private void removeElementFromArray(int elementToSkip)
         {
             usableItemScriptAndPrefab[] shortenedArray = new usableItemScriptAndPrefab[usableItems.Length - 1];
-            Debug.Log(shortenedArray.Length);
             int iterator = 0;
             for (int i = 0; i < usableItems.Length; i++)
             {

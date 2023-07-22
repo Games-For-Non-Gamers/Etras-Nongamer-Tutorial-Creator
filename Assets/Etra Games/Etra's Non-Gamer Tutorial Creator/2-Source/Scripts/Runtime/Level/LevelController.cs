@@ -6,6 +6,11 @@ namespace Etra.NonGamerTutorialCreator.Level
 {
     public class LevelController : MonoBehaviour
     {
+        public GameObject flatBridge;
+        public GameObject angledBridge;
+
+
+
         string flatBridgeName = "FlatBridgeChunk";
         string angledBridgeName = "AngledBridgeChunk";
         public enum BridgeOptions
@@ -36,6 +41,23 @@ namespace Etra.NonGamerTutorialCreator.Level
             destroyBridgesImmediate();
             chooseBridgeOption();
             resetPlayerSpawn();
+        }
+
+        private void Reset()
+        {
+            BridgeReferenceSetup();
+        }
+
+        private void OnValidate()
+        {
+            BridgeReferenceSetup();
+
+        }
+
+        void BridgeReferenceSetup()
+        {
+            angledBridge = Resources.Load<GameObject>(angledBridgeName);
+            flatBridge = Resources.Load<GameObject>(flatBridgeName);
         }
 
         void chooseBridgeOption()
@@ -79,9 +101,22 @@ namespace Etra.NonGamerTutorialCreator.Level
             for (int i = 0; i < initialChunks.Count; i++)
             {
                 GameObject loadedBridge = null;
+
+
                 if (addBridges)
                 {
-                    loadedBridge = Resources.Load<GameObject>(bridgeName);
+                    if (bridgeName == flatBridgeName)
+                    {
+                        loadedBridge = flatBridge;
+                    }
+
+                    if (bridgeName == angledBridgeName)
+                    {
+                        loadedBridge = angledBridge;
+                    }
+
+
+
                 }
 
                 GameObject bridgesRoot;
@@ -97,21 +132,27 @@ namespace Etra.NonGamerTutorialCreator.Level
                 bridgesRoot.transform.SetAsLastSibling();
 
 
-#if UNITY_EDITOR
+
                 returnedChunksPlusBridges.Add(initialChunks[i]); // add initial chunk
 
                 if (addBridges)
                 {
                     if (i != chunks.Count - 1)
                     {
-
+                    #if UNITY_EDITOR
                         GameObject prefab = (GameObject)PrefabUtility.InstantiatePrefab(loadedBridge, this.transform);
+
+#else
+ GameObject prefab = Instantiate(loadedBridge, this.transform);
+#endif
+
+
                         prefab.name = bridgeName;
                         prefab.transform.parent = bridgesRoot.transform;
                         returnedChunksPlusBridges.Add(prefab.GetComponent<LevelChunkObject>());
                     }
                 }
-#endif
+
             }
 
             return returnedChunksPlusBridges;

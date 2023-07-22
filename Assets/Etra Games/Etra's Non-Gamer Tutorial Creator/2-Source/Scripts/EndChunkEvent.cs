@@ -4,6 +4,7 @@ using Etra.StarterAssets.Input;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Windows;
 
 namespace Etra.NonGamerTutorialCreator
 {
@@ -22,6 +23,8 @@ namespace Etra.NonGamerTutorialCreator
         {
             star.endCelebration();
             yield return new WaitForSeconds(5);
+            _inputs.select = false;
+            _inputs.start= false;
             gameEnded = true;
             EtraStandardMenusManager menusManager = FindObjectOfType<EtraStandardMenusManager>();
             menusManager.canFreeze = false;

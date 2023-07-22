@@ -59,7 +59,7 @@ namespace Etra.StarterAssets.Abilities
                 _hasAnimator = EtrasResourceGrabbingFunctions.TryGetComponentInChildren<Animator>(FindObjectOfType<EtraCharacterMainController>().modelParent);
                 if (_hasAnimator)
                 {
-                    _animator = EtraCharacterMainController.Instance.modelParent.GetComponentInChildren<Animator>();
+                    _animator = FindObjectOfType<EtraCharacterMainController>().modelParent.GetComponentInChildren<Animator>();
                     _animIDJump = Animator.StringToHash("Jump");
                     _animIDFreeFall = Animator.StringToHash("FreeFall");
                 }
@@ -68,7 +68,11 @@ namespace Etra.StarterAssets.Abilities
             {
                 _hasAnimator = false;
             }
+
+
         }
+   
+
         [HideInInspector]
         public bool lockJump = false;
         public override void abilityUpdate()

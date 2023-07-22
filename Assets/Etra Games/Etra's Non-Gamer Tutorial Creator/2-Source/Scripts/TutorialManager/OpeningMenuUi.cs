@@ -9,7 +9,6 @@ namespace Etra.NonGamerTutorialCreator.Level
     public class OpeningMenuUi : MonoBehaviour
     {
 
-
         public void backToMenu()
         {
             if (buttonIsQuit)
