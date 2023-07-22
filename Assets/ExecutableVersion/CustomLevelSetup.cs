@@ -23,32 +23,35 @@ public class CustomLevelSetup : MonoBehaviour
         //Set proper settings
         UpdateCharacter();
         UpdateLevel();
+        openingMenu.canBeginGame = true;
     }
 
     void UpdateCharacter()
     {
         character.applyGameplayChanges(levelData.gameplayType, levelData.characterModel);
-
-
-
+        character.etraAbilityManager.activateAbilities(levelData.abilitiesToActivate);
     }
 
+
+    //Maybe different approach of loading in non vital chunks from resources.load in the future?
     void UpdateLevel()
     {
+        List<LevelChunkObject> newChunks = new List<LevelChunkObject>();
 
+        foreach (string chunkName in levelData.levelChunks)
+        {
+            foreach (LevelChunkObject lc in levelController.chunks)
+            {
+                if (chunkName == lc.gameObject.name) {
+                    newChunks.Add(lc);
+                }
+            }
+
+        }
+        newChunks.Reverse();
+
+       levelController.ResetAllChunksPositions(newChunks);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    [Header("Current Values")]
-    public GameplayType gameplayType = GameplayType.FirstPerson; //Set by toggle
-    public Model characterModel; //Set by dropdown
-    public List<string> abilitiesInLevel; //Set by Teach Selection <--- Don't need this in data
-    public List<string> abilitiesToActivate; //Set by Teach Selection
-    public List<string> levelChunks; //Set by Level builder
 
 }

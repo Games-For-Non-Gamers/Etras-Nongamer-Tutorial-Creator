@@ -216,7 +216,7 @@ public class Executable_LevelBuilder : MonoBehaviour
     void CreateUiChunk(LevelChunk lc)
     {
         GameObject entry = Instantiate(prefabToDuplicate, entryParent.transform, false);
-        entry.name = lc.name;
+        entry.name = lc.chunkName;
         DragController script = entry.GetComponent<DragController>();
         script.text.text = lc.chunkName;
         script.icon.sprite = lc.icon;

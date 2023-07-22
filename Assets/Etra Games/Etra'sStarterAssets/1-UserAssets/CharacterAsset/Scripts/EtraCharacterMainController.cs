@@ -176,10 +176,27 @@ namespace Etra.StarterAssets
             {
                 _hasAnimator = EtrasResourceGrabbingFunctions.TryGetComponentInChildren<Animator>(modelParent);
                 if (_hasAnimator) { _animator = modelParent.GetComponentInChildren<Animator>(); }
+                if (etraAbilityManager.GetComponent<ABILITY_CharacterMovement>())
+                {
+                    etraAbilityManager.GetComponent<ABILITY_CharacterMovement>().setAnimator(true);
+                }
+                if (etraAbilityManager.GetComponent<ABILITY_Jump>())
+                {
+                    etraAbilityManager.GetComponent<ABILITY_Jump>().setAnimator(true);
+                }
+
             }
             else
             {
                 _hasAnimator = false;
+                if (etraAbilityManager.GetComponent<ABILITY_CharacterMovement>())
+                {
+                    etraAbilityManager.GetComponent<ABILITY_CharacterMovement>().setAnimator(false);
+                }
+                if (etraAbilityManager.GetComponent<ABILITY_Jump>())
+                {
+                    etraAbilityManager.GetComponent<ABILITY_Jump>().setAnimator(false);
+                }
             }
 
 

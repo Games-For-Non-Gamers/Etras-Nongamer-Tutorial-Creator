@@ -4,6 +4,7 @@ using Etra.StarterAssets.Source;
 using Etra.StarterAssets.Source.Camera;
 using EtrasStarterAssets;
 using UnityEngine;
+using static Etra.StarterAssets.EtraCharacterMainController;
 
 namespace Etra.StarterAssets.Abilities
 {
@@ -27,7 +28,7 @@ namespace Etra.StarterAssets.Abilities
         //References
         private Animator _animator;
         private StarterAssetsInputs _input;
-         bool _hasAnimator;
+        [HideInInspector] public bool _hasAnimator; 
         private int _animIDJump;
         private int _animIDFreeFall;
         private GameObject _mainCamera;
@@ -51,6 +52,23 @@ namespace Etra.StarterAssets.Abilities
             }
         }
 
+        public void setAnimator(bool enabled)
+        {
+            if (enabled)
+            {
+                _hasAnimator = EtrasResourceGrabbingFunctions.TryGetComponentInChildren<Animator>(EtraCharacterMainController.Instance.modelParent);
+                if (_hasAnimator)
+                {
+                    _animator = EtraCharacterMainController.Instance.modelParent.GetComponentInChildren<Animator>();
+                    _animIDJump = Animator.StringToHash("Jump");
+                    _animIDFreeFall = Animator.StringToHash("FreeFall");
+                }
+            }
+            else
+            {
+                _hasAnimator = false;
+            }
+        }
         [HideInInspector]
         public bool lockJump = false;
         public override void abilityUpdate()
