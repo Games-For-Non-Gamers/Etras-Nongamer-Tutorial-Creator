@@ -223,7 +223,6 @@ namespace Etra.NonGamerTutorialCreator
 
 
 
-
         //Ran by most scripts
         public void runAnimation()
         {
