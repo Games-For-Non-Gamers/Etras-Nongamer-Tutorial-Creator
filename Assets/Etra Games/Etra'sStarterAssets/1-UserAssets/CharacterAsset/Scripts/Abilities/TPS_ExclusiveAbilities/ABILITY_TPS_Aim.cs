@@ -6,7 +6,6 @@ using UnityEngine;
 
 namespace Etra.StarterAssets.Abilities.ThirdPerson
 {
-    [RequireComponent(typeof(ABILITY_CameraMovement))]
 
     [AbilityUsageAttribute(EtraCharacterMainController.GameplayTypeFlags.ThirdPerson)]
     public class ABILITY_TPS_Aim : EtraAbilityBaseClass
@@ -25,6 +24,12 @@ namespace Etra.StarterAssets.Abilities.ThirdPerson
         public void Reset()
         {
             if (this.gameObject.name == "Tempcube") { return; }
+
+            if (GameObject.Find("Etra'sStarterAssetsThirdPersonAimCamera"))
+            {
+                DestroyImmediate(GameObject.Find("Etra'sStarterAssetsThirdPersonAimCamera"));
+            }
+
             var aimCam = EtrasResourceGrabbingFunctions.addPrefabFromAssetsByName("Etra'sStarterAssetsThirdPersonAimCamera", GameObject.FindGameObjectWithTag("Player").transform.parent);
             aimVirtualCamera = aimCam.GetComponent<CinemachineVirtualCamera>();
             aimCam.AddComponent<EtraCharacterAssetCamera>();

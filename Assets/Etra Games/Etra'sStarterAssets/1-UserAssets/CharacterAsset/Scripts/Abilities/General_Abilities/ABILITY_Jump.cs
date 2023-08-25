@@ -11,19 +11,19 @@ namespace Etra.StarterAssets.Abilities
     [AbilityUsageAttribute(EtraCharacterMainController.GameplayTypeFlags.All)]
     public class ABILITY_Jump : EtraAbilityBaseClass
     {
+
         [Header("Basics")]
         [Tooltip("The height the player can jump")]
         public float JumpHeight = 1.2f;
         [Tooltip("Time required to pass before being able to jump again. Set to 0f to instantly jump again")]
         public float JumpTimeout = 0.05f;
         private float _jumpTimeoutDelta;
-        private bool alteredJumpInput;
+        public bool jumpInput;
 
         [Header("Cam Shake")]
         public bool jumpShakeEnabled = true;
         //The variables here are (intensity, time)
         public Vector2 jumpingShake = new Vector2(1f, 0.1f);
-
 
         //References
         private Animator _animator;
@@ -71,42 +71,27 @@ namespace Etra.StarterAssets.Abilities
 
 
         }
-   
+
 
         [HideInInspector]
         public bool lockJump = false;
         public override void abilityUpdate()
         {
-            alteredJumpInput = _input.jump;
+            jumpInput = _input.jump;
 
-            //If ability is disabled do not take jump input
+            // If ability is disabled do not take jump input
             if (!abilityEnabled)
             {
                 _input.jump = false;
-                alteredJumpInput = false;
+                jumpInput = false;
             }
 
-            if (mainController.Grounded)
+            if (mainController.Grounded && mainController.gravityActive)
             {
 
-                if (alteredJumpInput && _jumpTimeoutDelta <= 0.0f && lockJump == false)
+                if (jumpInput && _jumpTimeoutDelta <= 0.0f)
                 {
-                    lockJump = true;
-                    if (jumpShakeEnabled) { CinemachineShake.Instance.ShakeCamera(jumpingShake); }
-                    
-                    // the square root of H * -2 * G = how much velocity needed to reach desired height
-                    mainController._verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * mainController.Gravity);
-                    // update animator if using character
-                   
-
-                    if (_hasAnimator)
-                    {
-                        _animator.SetBool(_animIDJump, true);
-                    }
-                    else
-                    {
-                        abilitySoundManager.Play("Jump");
-                    }
+                    jump();
                 }
 
                 // jump timeout
@@ -115,17 +100,95 @@ namespace Etra.StarterAssets.Abilities
                     _jumpTimeoutDelta -= Time.deltaTime;
                 }
             }
+            else if (!mainController.gravityActive)
+            {
+                // Keep the jump input at its value to be used by other scripts if gravity is being messed with
+                // reset the jump timeout timer
+                _jumpTimeoutDelta = JumpTimeout;
+            }
             else
             {
-
                 // reset the jump timeout timer
                 _jumpTimeoutDelta = JumpTimeout;
 
+                // fall timeout
+                if (mainController._fallTimeoutDelta >= 0.0f)
+                {
+                    mainController._fallTimeoutDelta -= Time.deltaTime;
+                }
+                else
+                {
+                    // update animator if using character
+                    if (_hasAnimator)
+                    {
+                        _animator.SetBool(_animIDFreeFall, true);
+                    }
+                }
+
                 // if we are not grounded, do not jump
-                alteredJumpInput = false;
+                jumpInput = false;
                 _input.jump = false;
+            }
+        }
+
+        public void jump()
+        {
+            jump(JumpHeight);
+        }
+
+        public void jump(float height)
+        {
+            if (_hasAnimator)
+            {
+                _animator.SetBool(_animIDJump, true);
+            }
+
+            if (lockJump) // Only allow jumping if lockJump is false
+            {
+                return;
+            }
+            lockJump = true;
+            if (jumpShakeEnabled) { CinemachineShake.Instance.ShakeCamera(jumpingShake); }
+            // the square root of H * -2 * G = how much velocity needed to reach desired height
+            mainController._verticalVelocity = Mathf.Sqrt(height * -2f * mainController.Gravity);
+            // update animator if using character
+            if (!_hasAnimator)
+            {
+                abilitySoundManager.Play("Jump");
             }
 
         }
+
+        public void jumpLaunch(Vector3 direction, float force)
+        {
+            jumpLaunch(direction, force, true);
+        }
+
+        public void jumpLaunch(Vector3 direction, float force, bool playEffects)
+        {
+            if (lockJump)
+            {
+                return;
+            }
+            lockJump = true;
+
+            if (playEffects)
+            {
+                if (jumpShakeEnabled) { CinemachineShake.Instance.ShakeCamera(jumpingShake); }
+                if (_hasAnimator)
+                {
+                    Debug.Log("e");
+                    _animator.SetBool(_animIDJump, true);
+                }
+                else
+                {
+                    abilitySoundManager.Play("Jump");
+                }
+            }
+
+            EtraCharacterMainController.Instance.addImpulseForceToEtraCharacter(direction, force);
+        }
+
+
     }
 }

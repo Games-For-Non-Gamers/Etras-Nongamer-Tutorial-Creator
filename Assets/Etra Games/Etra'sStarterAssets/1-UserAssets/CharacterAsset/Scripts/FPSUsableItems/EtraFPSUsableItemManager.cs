@@ -4,7 +4,6 @@ using UnityEditor;
 using Etra.StarterAssets.Input;
 using Etra.StarterAssets.Source;
 using EtrasStarterAssets;
-using Etra.StarterAssets.Abilities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -196,6 +195,12 @@ namespace Etra.StarterAssets.Items
         {
             updateUsableItemsArray();
             //Add usable FPS item camera if it does not exist
+            if (GameObject.Find("FPSUsableItemsCamera"))
+            {
+                DestroyImmediate(GameObject.Find("FPSUsableItemsCamera"));
+            }
+
+
             var FPSUsableItemsCamera = EtrasResourceGrabbingFunctions.addPrefabFromAssetsByName("FPSUsableItemsCamera", GameObject.Find("EtraPlayerCameraRoot").transform, false, Vector3.zero);
             //Add usable FPS item camera script to the camera to check for the FPSUsableItem Layer
             if (FPSUsableItemsCamera != null && FPSUsableItemsCamera.GetComponent<FPS_Item_Cam_Checks>() == null) { FPSUsableItemsCamera.AddComponent<FPS_Item_Cam_Checks>(); }

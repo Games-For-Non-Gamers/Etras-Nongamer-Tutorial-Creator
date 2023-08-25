@@ -18,7 +18,7 @@ namespace Etra.StarterAssets.Source.Editor
     public class EtraCharacterCreatorCreateOrModify : MonoBehaviour
     {
 
-        public static EtraCharacterMainController CreateOrModify(GameplayType _gameplayType, Model _fpModel, Model _tpModel, List<Type> abilitiesPlayerHas,  List<Type>abilitiesPlayerIsTaught)
+        public static EtraCharacterMainController CreateOrModify(GameplayType _gameplayType, Model _fpModel, Model _tpModel, List<Type> abilitiesPlayerHas, List<Type> abilitiesPlayerIsTaught)
         {
 
             //Combine the Ability lists and get their names
@@ -37,31 +37,31 @@ namespace Etra.StarterAssets.Source.Editor
 
             //just the generateAbilitiesAndItems() function from char controller
             //**************************************************************
-                List<Ability> generalAbilities = new List<Ability>();
-                List<Ability> fpAbilities = new List<Ability>();
-                List<Ability> tpAbilities = new List<Ability>();
-                List<Ability> fpsItems = new List<Ability>();
-                //Initialize abilities
-                generalAbilities = EtraGUIUtility.FindAllTypes<EtraAbilityBaseClass>()
-                    .Select(x => new Ability(x))
+            List<Ability> generalAbilities = new List<Ability>();
+            List<Ability> fpAbilities = new List<Ability>();
+            List<Ability> tpAbilities = new List<Ability>();
+            List<Ability> fpsItems = new List<Ability>();
+            //Initialize abilities
+            generalAbilities = EtraGUIUtility.FindAllTypes<EtraAbilityBaseClass>()
+                .Select(x => new Ability(x))
+            .ToList();
+
+            fpAbilities = generalAbilities
+                .Where(x => EtraGUIUtility.CheckForUsage(x.type, GameplayTypeFlags.FirstPerson))
+            .ToList();
+
+            tpAbilities = generalAbilities
+                .Where(x => EtraGUIUtility.CheckForUsage(x.type, GameplayTypeFlags.ThirdPerson))
                 .ToList();
 
-                fpAbilities = generalAbilities
-                    .Where(x => EtraGUIUtility.CheckForUsage(x.type, GameplayTypeFlags.FirstPerson))
+            generalAbilities = generalAbilities
+            .Except(fpAbilities)
+                .Except(tpAbilities)
                 .ToList();
-
-                tpAbilities = generalAbilities
-                    .Where(x => EtraGUIUtility.CheckForUsage(x.type, GameplayTypeFlags.ThirdPerson))
-                    .ToList();
-
-                generalAbilities = generalAbilities
-                .Except(fpAbilities)
-                    .Except(tpAbilities)
-                    .ToList();
-                //Initialize items
-                fpsItems = EtraGUIUtility.FindAllTypes<EtraFPSUsableItemBaseClass>()
-                    .Select(x => new Ability(x))
-                    .ToList();
+            //Initialize items
+            fpsItems = EtraGUIUtility.FindAllTypes<EtraFPSUsableItemBaseClass>()
+                .Select(x => new Ability(x))
+                .ToList();
             //**************************************************************
 
             //Go through each list and enable the abilities if they are in abilitiesToAdd
@@ -107,12 +107,17 @@ namespace Etra.StarterAssets.Source.Editor
                     GameplayType.ThirdPerson => tpAbilities,
                     _ => new List<Ability>(),
                 })
-                .Select(x => x.type)
+                .Select(x => x.type.GetType())
                 .ToList();
 
             foreach (var item in abilityManager.characterAbilityUpdateOrder)
+            {
                 if (item != null && !selectAbilityScriptTypes.Contains(item.GetType()))
+                {
                     DestroyImmediate(item, true);
+                }
+            }
+                    
 
             abilityManager.characterAbilityUpdateOrder = new EtraAbilityBaseClass[0];
 
@@ -133,6 +138,12 @@ namespace Etra.StarterAssets.Source.Editor
                     {
                         case true:
                             //TODO: don't
+
+                            if (GameObject.Find("EtraFPSUsableItemManagerPrefab"))
+                            {
+                                DestroyImmediate(GameObject.Find("EtraFPSUsableItemManagerPrefab"));
+                            }
+
                             var itemManager = FindObjectOfType<EtraFPSUsableItemManager>() ??
                                 EtrasResourceGrabbingFunctions.addPrefabFromAssetsByName("EtraFPSUsableItemManagerPrefab", _target.transform)
                                 .GetComponent<EtraFPSUsableItemManager>();
@@ -152,7 +163,7 @@ namespace Etra.StarterAssets.Source.Editor
                                     .Concat(new usableItemScriptAndPrefab[] { new usableItemScriptAndPrefab(component) })
                                     .ToArray();
 
-                              //  DebugLog($"Adding item '{item.name}'");
+                                //  DebugLog($"Adding item '{item.name}'");
                             }
 
                             break;
@@ -176,6 +187,8 @@ namespace Etra.StarterAssets.Source.Editor
                     if (usableItemManager != null)
                         DestroyImmediate(usableItemManager.gameObject, true);
 
+
+
                     var itemCamera = GameObject.Find("FPSUsableItemsCamera");
                     if (itemCamera != null)
                         DestroyImmediate(itemCamera.gameObject, true);
@@ -198,6 +211,13 @@ namespace Etra.StarterAssets.Source.Editor
                 if (!item.state || abilityManager.gameObject.GetComponent(item.type)) continue;
 
                 abilityManager.gameObject.AddComponent(item.type);
+
+                var componentHolder = abilityManager.transform.Find("EtraComponentHolder")!;
+                foreach (var component in EtraGUIUtility.GetRequiredComponents(item.type))
+                {
+                    if (componentHolder.GetComponent(component) == null)
+                        componentHolder.gameObject.AddComponent(component);
+                }
 
                 //DebugLog($"{log} '{item.name}'");
             }

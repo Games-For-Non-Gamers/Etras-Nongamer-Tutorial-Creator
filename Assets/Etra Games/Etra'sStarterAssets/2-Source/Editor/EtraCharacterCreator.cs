@@ -27,6 +27,7 @@ namespace Etra.StarterAssets.Source.Editor
 {
     public class EtraCharacterCreator : EditorWindow, IHasCustomMenu
     {
+        const string PACKAGE_VERSION = "Version 1.4.0 - August 2023";
         const int PAGE_LIMIT = 4;
         const string PAGE_SESSION_KEY = "etra_character_creator_page";
         const float DEFAULT_WINDOW_WIDTH = 400f;
@@ -226,17 +227,18 @@ namespace Etra.StarterAssets.Source.Editor
                                 //If there is no character, set the default menu player prefs
                                 if (_target == null)
                                 {
-                                    PlayerPrefs.SetInt("etraReticleToggle",1);
+                                    PlayerPrefs.SetInt("etraReticleToggle", 1);
                                     PlayerPrefs.SetInt("etraScreenShakeToggle", 1);
                                 }
 
 
-                                _target = EtraCharacterCreatorCreateOrModify.
-                                    CreateOrModify(_target, _gameplayType, _fpModel, _tpModel, generalAbilities, fpAbilities, tpAbilities, fpsItems);
+                                _target = EtraCharacterCreatorCreateOrModify
+                                    .CreateOrModify(_target, _gameplayType, _fpModel, _tpModel, generalAbilities, fpAbilities, tpAbilities, fpsItems);
+
+                                if (!Preferences.KeepOpened)
+                                    CloseWindow();
                             }
-                                
-                            if (!Preferences.KeepOpened)
-                                CloseWindow();
+
                         break;
                 }
             }
@@ -258,25 +260,45 @@ namespace Etra.StarterAssets.Source.Editor
             switch (Page)
             {
                 case 0: //"Etra's Character Creator" PAGE
-                    GUILayout.Label("Etra's Character Creator", s_title);
 
-                    int linkIndex = GUILayout.SelectionGrid(-1, new string[] { "Documentation", "Discord", "Tutorials" }, 3);
+                    GUIStyle boldLabelStyle;
+                    boldLabelStyle = new GUIStyle(GUI.skin.label);
+                    boldLabelStyle.fontStyle = FontStyle.Bold;
+                    boldLabelStyle.alignment = TextAnchor.MiddleCenter;
 
-                    //This will definetely not work on Unity 2019
+                    GUILayout.Label("(Etra's Character Creator)", s_title);
+
+
+                    int linkIndex = GUILayout.SelectionGrid(-1, new string[] { "Discord", "-> Free PATREON Tier <-", "Tutorials" }, 3);
+
                     if (linkIndex != -1)
                         Application.OpenURL(linkIndex switch
                         {
-                            0 => "Assets\\Etra Games\\Etra'sStarterAssets\\1-UserAssets\\Etra'sStarterAssets_Documentation.pdf",
-                            1 => "https://discord.gg/d3AzQDGj4C",
+                            0 => "https://discord.gg/d3AzQDGj4C",
+                            1 => "https://www.patreon.com/Games4NonGamers/shop",
                             2 => "https://www.youtube.com/playlist?list=PLvmCfejZtwhO7w1sI0DAMHWqrr6JMABpD",
                             _ => string.Empty,
                         });
 
+
                     EditorGUILayout.Space(2f);
 
                     using (new GUILayout.VerticalScope(s_descriptionBackground))
-                        GUILayout.Label("Welcome to the Etra's Starter Assets: Character Creator! \n\nThis setup wizard will allow you to create and modify the character controller, along with its different abilities. \n\nEvery setting is dynamically generated, so your own abilities and items will also show up here. \n\nIf you feel stuck at any point, you can ask for help on our discord server (link above).", s_wrappedLabel);
+                        GUILayout.Label("Welcome to the Etra's Starter Assets: Character Creator! \n\nThis setup wizard will allow you to create and modify the character controller, along with its different abilities. Every setting is dynamically generated, so your own abilities and items will also show up here.\n\nIf you have ability or item requests you can commision them or get paid support on the Patreon. \n\nIf you feel stuck at any point, check out the tutorials videos and ask for help on our discord server. You can also contribute your own abilities and items in the discord server!(links above)\n\nHope you enjoy! \n~Luke (Etra) Bender", s_wrappedLabel);
 
+                    int linkIndex1 = GUILayout.SelectionGrid(-1, new string[] { "Credits and Wonderful Contributors :]" }, 1);
+
+                    if (linkIndex1 != -1)
+                        Application.OpenURL(linkIndex1 switch
+                        {
+                            0 => "Assets\\Etra Games\\Etra'sStarterAssets\\1-UserAssets\\ThirdPartyNotices.txt",
+                            _ => string.Empty,
+                        });
+
+
+                    GUILayout.BeginArea(new Rect(0, position.height - 70, position.width, 20));
+                    GUILayout.Label(PACKAGE_VERSION);
+                    GUILayout.EndArea();
                     break;
                 case 1: //"Character Type" PAGE
 
@@ -299,9 +321,31 @@ namespace Etra.StarterAssets.Source.Editor
 
                     break;
                 case 2: //"General Abilities" PAGE
-                    GUILayout.Label("General Abilities", s_header);
+
+                    using (new GUILayout.HorizontalScope())
+                    {
+                        GUILayout.Label("General Abilities", s_header);
+
+                        using (var change = new EditorGUI.ChangeCheckScope())
+                        {
+                            if (GUILayout.Button("All\nOff", GUILayout.Width(40f), GUILayout.Height(40f)))
+                            {
+                                foreach (var item in generalAbilities)
+                                    item.state = false;
+                            }
+                            if (GUILayout.Button("All\nOn", GUILayout.Width(40f), GUILayout.Height(40f)))
+                            {
+                                foreach (var item in generalAbilities)
+                                    item.state = true;
+                            }
+                            GUILayout.Space(2.5f);
+                        }
+                    }
+
                     foreach (var item in generalAbilities)
                         item.AbilityGUI();
+
+
                     break;
                 case 3: //"Genre Specific Abilities" PAGE
                     string header = _gameplayType switch
@@ -318,7 +362,29 @@ namespace Etra.StarterAssets.Source.Editor
                         _ => new List<Ability>(),
                     };
 
-                    GUILayout.Label(header, s_header);
+                    using (new GUILayout.HorizontalScope())
+                    {
+                        GUILayout.Label(header, s_header);
+
+                        using (var change = new EditorGUI.ChangeCheckScope())
+                        {
+                            if (GUILayout.Button("All\nOff", GUILayout.Width(40f), GUILayout.Height(40f)))
+                            {
+                                foreach (var item in specificAbilities)
+                                    item.state = false;
+                            }
+                            if (GUILayout.Button("All\nOn", GUILayout.Width(40f), GUILayout.Height(40f)))
+                            {
+                                foreach (var item in specificAbilities)
+                                    item.state = true;
+                            }
+                            GUILayout.Space(2.5f);
+                        }
+                    }
+
+
+
+
                     foreach (var item in specificAbilities)
                         item.AbilityGUI();
 
@@ -326,7 +392,27 @@ namespace Etra.StarterAssets.Source.Editor
                     {
                         EditorGUILayout.Space();
 
-                        GUILayout.Label("First Person Items", s_header);
+
+                        using (new GUILayout.HorizontalScope())
+                        {
+                            GUILayout.Label("First Person Items", s_header);
+
+                            using (var change = new EditorGUI.ChangeCheckScope())
+                            {
+                                if (GUILayout.Button("All\nOff", GUILayout.Width(40f), GUILayout.Height(40f)))
+                                {
+                                    foreach (var item in fpsItems)
+                                        item.state = false;
+                                }
+                                if (GUILayout.Button("All\nOn", GUILayout.Width(40f), GUILayout.Height(40f)))
+                                {
+                                    foreach (var item in fpsItems)
+                                        item.state = true;
+                                }
+                                GUILayout.Space(2.5f);
+                            }
+                        }
+
                         foreach (var item in fpsItems)
                             item.AbilityGUI();
                     }
@@ -488,14 +574,14 @@ namespace Etra.StarterAssets.Source.Editor
         }
 
 
-            public void CreateOrModify(Type taughtAbilities, Type newAbilities)
-            {
+        public void CreateOrModify(Type taughtAbilities, Type newAbilities)
+        {
 
 
 
-            }
+        }
 
-           
+
         #endregion
 
         #region Utility
@@ -572,9 +658,9 @@ namespace Etra.StarterAssets.Source.Editor
                 get
                 {
                     if (_keepOpened == null)
-                        _keepOpened = EditorPrefs.GetBool(_KEEP_OPENED_KEY, false);
+                        _keepOpened = EditorPrefs.GetBool(_KEEP_OPENED_KEY, true);
 
-                    return _keepOpened ?? false;
+                    return _keepOpened ?? true;
                 }
                 set
                 {

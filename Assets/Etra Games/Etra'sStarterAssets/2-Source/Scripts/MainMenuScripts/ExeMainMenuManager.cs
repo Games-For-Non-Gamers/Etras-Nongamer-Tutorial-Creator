@@ -3,6 +3,7 @@ using EtrasStarterAssets;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Etra.StarterAssets
@@ -57,7 +58,13 @@ namespace Etra.StarterAssets
             foreach (TMP_Dropdown tmpDropdown in tmpDropdowns) { tmpDropdown.enabled = state; }
         }
 
-        public void ToCreator()
+
+        public void ToScene(string sceneName)
+        {
+            SceneManager.LoadScene(sceneName);
+        }
+
+            public void ToCreator()
         {
             UiSoundManager.I.a.Play("UiClick");
             titleScreen.SetActive(false);

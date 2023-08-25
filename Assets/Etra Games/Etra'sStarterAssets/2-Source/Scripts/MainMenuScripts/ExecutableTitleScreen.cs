@@ -25,7 +25,7 @@ namespace Etra.StarterAssets
             UiSoundManager.I.a.Play("UiClick");
         }
 
-        string youtubeLink = "https://www.youtube.com/@Games4NonGamers";
+        string youtubeLink = "https://www.youtube.com/channel/UCbivWQmCXFHUpMMAerDMMkQ";
         public void YoutubePressed()
         {
             if (!string.IsNullOrEmpty(youtubeLink))
