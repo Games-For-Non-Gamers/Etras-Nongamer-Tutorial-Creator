@@ -3,7 +3,27 @@ guid: 5b29312990ccd084689ef71ae9863d12
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PartyTables_Cube.001Mat
+    second: {fileID: 2100000, guid: af685c80d36d55943819920253d29585, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TableCloth
+    second: {fileID: 2100000, guid: a112f6da4c3415a4f9c40078c9300dcc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TableCloth_Plane.021Mat
+    second: {fileID: 2100000, guid: a112f6da4c3415a4f9c40078c9300dcc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodTable
+    second: {fileID: 2100000, guid: af685c80d36d55943819920253d29585, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

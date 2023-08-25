@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 2fa7e6d842e81de46b637c17eb281a2a
+guid: a5aa65d5fa7b1844395b326d50ec8188
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
   externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: beams
-    second: {fileID: 2100000, guid: 6fc89c73f38cd47439e3fdc46a3917cb, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

@@ -7,23 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Metal_Black
-    second: {fileID: 2100000, guid: b71914a964301ff449c59db1d17db344, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Metal_Steel_Textured
-    second: {fileID: 2100000, guid: c3b2905c46b389845b89f543baf91f45, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Polished_Concrete_New
-    second: {fileID: 2100000, guid: 9f62f800d89d0fb49acbb673c55e257a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: _Metal_Rough_4
-    second: {fileID: 2100000, guid: 530ead6c8216ad1499bea03163561ce8, type: 2}
+      name: Material #20
+    second: {fileID: 2100000, guid: 7585cbf291f6a4048acffd93c308a6a4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
