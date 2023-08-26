@@ -1,10 +1,11 @@
-Shader "Custom/TransparentEmissiveWithTexture"
+Shader "Custom/TransparentEmissiveWithTint"
 {
     Properties
     {
         _MainTex("Texture", 2D) = "white" {}
         _EmissionTex("Emission Texture", 2D) = "white" {}
         _EmissionStrength("Emission Strength", Range(0, 1)) = 1
+        _Tint("Albedo Tint", Color) = (1, 1, 1, 1)
     }
 
         SubShader
@@ -37,6 +38,7 @@ Shader "Custom/TransparentEmissiveWithTexture"
                 float4 _MainTex_ST;
                 sampler2D _EmissionTex;
                 float4 _EmissionStrength;
+                float4 _Tint;
 
                 v2f vert(appdata_t v)
                 {
@@ -50,6 +52,9 @@ Shader "Custom/TransparentEmissiveWithTexture"
                 {
                     half4 texColor = tex2D(_MainTex, i.uv);
                     half4 emissiveColor = tex2D(_EmissionTex, i.uv) * _EmissionStrength;
+
+                    // Apply albedo tint
+                    texColor.rgb *= _Tint.rgb;
 
                     return texColor + emissiveColor;
                 }
