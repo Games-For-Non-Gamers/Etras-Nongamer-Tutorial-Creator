@@ -190,15 +190,15 @@ namespace Etra.StarterAssets.Abilities
             else if (!_hasAnimator && abilityEnabled) // if there is no animator that plays the footstep sound, run it manually with a timer
             {
                 if (EtraCharacterMainController.Instance.Grounded)
-                {
+                {//
                     float nextStepThreshold;
                     if (isSprinting)
                     {
-                        nextStepThreshold = 0.333f;
+                        nextStepThreshold = 0.25f; //0.333f
                     }
                     else
                     {
-                        nextStepThreshold = 0.5f;
+                        nextStepThreshold = 0.5f;//0.5f
                     }
 
                     stepTime += Time.deltaTime;
