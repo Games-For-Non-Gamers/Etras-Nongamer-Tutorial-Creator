@@ -1,3 +1,4 @@
+using Etra.StarterAssets.Abilities;
 using Etra.StarterAssets.Input;
 using System;
 using UnityEngine;
@@ -21,11 +22,13 @@ namespace Etra.StarterAssets.Items
         public bool bobOffset = true;
         public bool bobSway = true;
         [HideInInspector] public bool lockInput;
+        [HideInInspector] static bool swayUnlocked = true;
 
         public float controllerLookAnimationReduction = 250f;
 
         public Vector3 startingPositionOffset;
         public Quaternion startingRotationOffset;
+
 
         private void OnValidate()
         {
@@ -33,6 +36,10 @@ namespace Etra.StarterAssets.Items
             startingRotationOffset = transform.localRotation;
         }
 
+        public void setSway(bool val)
+        {
+            swayUnlocked = val;
+        }
         private GameObject characterBase;
         StarterAssetsInputs starterAssetsInputs;
         EtraCharacterMainController etraCharacterMainController;
@@ -43,9 +50,20 @@ namespace Etra.StarterAssets.Items
             etraCharacterMainController = characterBase.GetComponent<EtraCharacterMainController>();
             starterAssetsInputs = characterBase.GetComponent<StarterAssetsInputs>();
             charController = characterBase.GetComponent<CharacterController>();
-
             startingPositionOffset = transform.localPosition;
             startingRotationOffset = transform.localRotation;
+
+            if (etraCharacterMainController.GetComponent<ABILITY_CameraMovement>())
+            {
+                if (etraCharacterMainController.GetComponent<ABILITY_CameraMovement>().abilityEnabled == false)
+                {
+                    swayUnlocked = false;
+                }
+                else if (etraCharacterMainController.GetComponent<ABILITY_CameraMovement>().lockLookX && etraCharacterMainController.GetComponent<ABILITY_CameraMovement>().lockLookY)
+                {
+                    swayUnlocked = false;
+                }
+            }
         }
 
         // Update is called once per frame
@@ -56,8 +74,11 @@ namespace Etra.StarterAssets.Items
                 GetInput();
             }
 
-            Sway();
-            SwayRotation();
+            if (swayUnlocked)
+            {
+                Sway();
+                SwayRotation();
+            }
             BobOffset();
             BobRotation();
 

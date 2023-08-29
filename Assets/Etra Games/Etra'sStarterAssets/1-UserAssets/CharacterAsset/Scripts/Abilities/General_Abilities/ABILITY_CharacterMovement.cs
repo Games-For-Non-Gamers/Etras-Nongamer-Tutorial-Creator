@@ -192,7 +192,7 @@ namespace Etra.StarterAssets.Abilities
                 if (EtraCharacterMainController.Instance.Grounded)
                 {
                     float nextStepThreshold;
-                    if (_input.sprint)
+                    if (isSprinting)
                     {
                         nextStepThreshold = 0.333f;
                     }

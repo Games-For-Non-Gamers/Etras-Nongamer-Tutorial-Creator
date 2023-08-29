@@ -1,4 +1,5 @@
 using Etra.StarterAssets.Input;
+using Etra.StarterAssets.Items;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
@@ -293,6 +294,16 @@ namespace Etra.StarterAssets.Abilities
                 lockLookY = false;
                 camModY = 1;
             }
+
+            if (lockLookX == false || lockLookY == false)
+            {
+                if (FindObjectOfType<FPSUsableItemSwayAndBobAnimations>())
+                {
+                    FindObjectOfType<FPSUsableItemSwayAndBobAnimations>().setSway(true);
+                }
+
+            }
+
         }
 
         public void manualSetCharacterAndCameraRotation(Vector3 rotation)
