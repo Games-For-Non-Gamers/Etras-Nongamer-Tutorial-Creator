@@ -1,3 +1,4 @@
+using Etra.StarterAssets.Abilities;
 using Etra.StarterAssets.Source;
 using EtrasStarterAssets;
 using System.Collections;
@@ -13,6 +14,7 @@ namespace Etra.StarterAssets
         public List<DialogueEntry> dialogueList;
         bool dialogueStarted = false;
         AudioManager audioManager;
+        EtraCharacterMainController mainController;
         TextMeshProUGUI speakerLabel;
         TextMeshProUGUI dialogueLabel;
         [HideInInspector] public bool canPlayText = true;
@@ -21,7 +23,7 @@ namespace Etra.StarterAssets
         {
             // Get references to necessary components
             audioManager = GetComponent<AudioManager>();
-            EtraCharacterMainController mainController = FindAnyObjectByType<EtraCharacterMainController>();
+             mainController = FindAnyObjectByType<EtraCharacterMainController>();
             speakerLabel = mainController.starterAssetCanvas.speakerLabel;
             dialogueLabel = mainController.starterAssetCanvas.dialogueLabel;
         }
@@ -83,8 +85,37 @@ namespace Etra.StarterAssets
                         yield return new WaitForSeconds(entry.timeTillNextEvent);
                         break;
 
+
+                    case DialogueEntry.DialogueEvents.PlayLineWithAudio:
+                        audioManager.Play(entry.sfxName);
+                        speakerLabel.enabled = true;
+                        dialogueLabel.enabled = true;
+                        speakerLabel.text = entry.speaker;
+                        dialogueLabel.text = entry.dialogueLine;
+                        yield return new WaitForSeconds(entry.clip.length);
+                        break;
+
                     case DialogueEntry.DialogueEvents.Wait:
                         yield return new WaitForSeconds(entry.timeTillNextEvent);
+                        break;
+
+                    case DialogueEntry.DialogueEvents.MoveObject:
+                        LeanTween.move(entry.savedObject, entry.targetVector3, entry.timeTillNextEvent );
+                        break;
+
+                    case DialogueEntry.DialogueEvents.RotateObject:
+                        LeanTween.rotate(entry.savedObject, entry.targetVector3, entry.timeTillNextEvent);
+                        break;
+
+                    case DialogueEntry.DialogueEvents.MovePlayer:
+                        LeanTween.move(entry.savedObject, entry.targetVector3, entry.timeTillNextEvent);
+                        break;
+
+                    case DialogueEntry.DialogueEvents.RotatePlayerCam:
+                        if (mainController.etraAbilityManager.GetComponent<ABILITY_CameraMovement>()) {
+                            Vector3 savedRot = entry.targetVector3;
+                            LeanTween.rotate(entry.savedObject, savedRot, entry.timeTillNextEvent).setOnComplete(() => setCameraRot(mainController.etraAbilityManager.GetComponent<ABILITY_CameraMovement>(), savedRot));
+                        }
                         break;
                 }
             }
@@ -92,6 +123,12 @@ namespace Etra.StarterAssets
             dialogueLabel.enabled = false;
             yield return null;
         }
+
+        public void setCameraRot(ABILITY_CameraMovement camScript, Vector3 rot)
+        {
+            camScript.manualSetCharacterAndCameraRotation(rot);
+        }
+    
 
         IEnumerator destroyObjectTimer()
         {

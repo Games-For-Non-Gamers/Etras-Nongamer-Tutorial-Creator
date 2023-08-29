@@ -422,6 +422,7 @@ namespace Etra.NonGamerTutorialCreator
 
                     case AnimationEvents.UnlockAbilityOrItem:
                         unlockAbility(abilityToActivate, selectedItem, isAbility);
+
                         break;
 
                     case AnimationEvents.UnlockPlayer:

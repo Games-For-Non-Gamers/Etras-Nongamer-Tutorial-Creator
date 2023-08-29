@@ -149,10 +149,10 @@ namespace Etra.NonGamerTutorialCreator.Level
             float timeToBack = levelController.chunks.Count * 1.4f; // in first and last second do ease
             LeanTween.move(camRoot, scoutSpawn.transform.position + new Vector3(0, 0, -10f), timeToBack).setEaseInOutQuad(); //Behind scout
             yield return new WaitForSecondsRealtime(timeToBack);
-            LeanTween.move(camRoot, character.transform.position + new Vector3(0, 1.375f, -10f), 3).setEaseInOutSine(); //Behind scout
+            LeanTween.move(camRoot, character.transform.position + new Vector3(0, savedCamRootPos.y, -10f), 3).setEaseInOutSine(); //Behind scout
             LeanTween.rotate(camRoot, new Vector3(0, 0, 0), 2f).setEaseInOutSine(); //Behind scout
             yield return wait3p2Seconds;
-            LeanTween.move(camRoot, character.transform.position + new Vector3(0, 1.375f, 0), 3).setEaseInOutSine();
+            LeanTween.move(camRoot, character.transform.position + savedCamRootPos, 3).setEaseInOutSine();
 
             //CUSTSCENE MOVE CAM SETTINGS
             character.setCameraSettingsOverTime(savedCameraSettings, 3);
@@ -189,14 +189,16 @@ namespace Etra.NonGamerTutorialCreator.Level
             levelController = GetComponentInChildren<LevelController>();
             character = EtraCharacterMainController.Instance;
         }
-
+        Vector3 savedCamRootPos;
         private void PlayerSetup()
         {
             EtraStandardMenusManager menusManager = FindObjectOfType<EtraStandardMenusManager>();
             menusManager.canFreeze = true;
+            savedCamRootPos = camRoot.transform.localPosition;
             character.enableAllActiveAbilities();
             character.setCameraSettings(savedCameraSettings);
-            LeanTween.move(camRoot, character.transform.position + new Vector3(0, 1.375f, 0), 0).setEaseInOutSine();
+
+            LeanTween.move(camRoot, character.transform.position + savedCamRootPos, 0).setEaseInOutSine();
 
             cursorCanvas.SetActive(true);
             foreach (AbilityOrItemPickup a in pickups)
