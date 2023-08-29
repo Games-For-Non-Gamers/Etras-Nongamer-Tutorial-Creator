@@ -52,6 +52,12 @@ namespace Etra.StarterAssets.Source.Editor
                     }
 
                     return base.GetPropertyHeight(prop, label) + 60 + additionalHeightFromArraySizeInput;
+
+                case GameFreezeEntry.GameFreezeEvents.EnableMonobehavior:
+                    return base.GetPropertyHeight(prop, label) + 30 ;
+                case GameFreezeEntry.GameFreezeEvents.EnableTrigger:
+                    return base.GetPropertyHeight(prop, label) + 30;
+
                 default:
                     return base.GetPropertyHeight(prop, label) + 10;
             }
@@ -119,6 +125,14 @@ namespace Etra.StarterAssets.Source.Editor
                     EditorGUI.PropertyField(new Rect(pos.x, pos.y + 20, pos.width, 20), inputsNeededToAdvance2); //Need to dynamic size?
                     break;
 
+                case GameFreezeEntry.GameFreezeEvents.EnableMonobehavior:
+                    SerializedProperty monoBehaviour = prop.FindPropertyRelative("monoBehaviour");
+                    EditorGUI.PropertyField(new Rect(pos.x, pos.y + 20, pos.width, 20), monoBehaviour);
+                    break;
+                case GameFreezeEntry.GameFreezeEvents.EnableTrigger:
+                    SerializedProperty selectedGameobject = prop.FindPropertyRelative("selectedGameobject");
+                    EditorGUI.PropertyField(new Rect(pos.x, pos.y + 20, pos.width, 20), selectedGameobject);
+                    break;
                 default:
                     break;
             }

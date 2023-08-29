@@ -194,7 +194,7 @@ namespace Etra.StarterAssets.Abilities
                     float nextStepThreshold;
                     if (isSprinting)
                     {
-                        nextStepThreshold = 0.25f; //0.333f
+                        nextStepThreshold = 0.333f; //0.333f
                     }
                     else
                     {

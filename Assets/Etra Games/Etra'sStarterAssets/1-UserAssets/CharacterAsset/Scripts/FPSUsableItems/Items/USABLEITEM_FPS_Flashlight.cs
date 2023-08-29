@@ -13,7 +13,7 @@ namespace Etra.StarterAssets.Items
 
         //Public variables
         [Header("Basics")]
-        public float lightIntensity = 2f;
+        public float lightIntensity = 1f;
         public float lightRange = 20f;
         public Color lightColor = Color.white;
 

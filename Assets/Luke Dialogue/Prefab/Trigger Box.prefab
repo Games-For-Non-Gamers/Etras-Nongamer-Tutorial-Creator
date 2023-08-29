@@ -1,0 +1,147 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7478436173789068020
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8452709075589144448}
+  - component: {fileID: 179807499582999763}
+  - component: {fileID: 1300277012272709133}
+  - component: {fileID: 8395976686747332214}
+  - component: {fileID: 6772869261282883762}
+  m_Layer: 0
+  m_Name: Trigger Box
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8452709075589144448
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7478436173789068020}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 5.5, z: -15.25}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &179807499582999763
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7478436173789068020}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1300277012272709133
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7478436173789068020}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: e1d413920538be747874830c7fe8c583, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8395976686747332214
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7478436173789068020}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6772869261282883762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7478436173789068020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 682f0f5c4621a0148aa5672d3f7e83da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tagName: Player
+  _dialogueTriggerEvent: 0
+  _dialogueEntryNews:
+  - _speakerName: Brain
+    _dialogueLine: Easily convert your US English text into professional speech for
+      free.
+    _audioClip: {fileID: 8300000, guid: 82ae565518d13424fac57872bb3f8059, type: 3}
+    _useAudioClipLengthAsWaitTime: 1
+    _waitTime: 0
+    _dialogueEvents: 3
+    _textSpeed: 0
+  - _speakerName: Emma
+    _dialogueLine: Our voices pronounce your texts in their own language using a
+      specific accent. Plus, these texts can be downloaded as MP3.
+    _audioClip: {fileID: 8300000, guid: d65c59dcbcf968046af8919d43e87b88, type: 3}
+    _useAudioClipLengthAsWaitTime: 1
+    _waitTime: 0
+    _dialogueEvents: 5
+    _textSpeed: 0
+  - _speakerName: Amy
+    _dialogueLine: Perfect for e-learning, presentations, YouTube videos and increasing
+      the accessibility of your website.
+    _audioClip: {fileID: 8300000, guid: b8301c7c831301c449efc5bb686d0836, type: 3}
+    _useAudioClipLengthAsWaitTime: 1
+    _waitTime: 0
+    _dialogueEvents: 3
+    _textSpeed: 0
+  - _speakerName: Emma
+    _dialogueLine: Our voices pronounce your texts in their own language using a
+      specific accent. Plus, these texts can be downloaded as MP3.
+    _audioClip: {fileID: 8300000, guid: d65c59dcbcf968046af8919d43e87b88, type: 3}
+    _useAudioClipLengthAsWaitTime: 1
+    _waitTime: 0
+    _dialogueEvents: 3
+    _textSpeed: 0

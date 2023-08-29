@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
+using static Etra.StarterAssets.DialogueEntry;
 
 namespace Etra.StarterAssets
 {
@@ -206,6 +207,36 @@ namespace Etra.StarterAssets
                     yield return new WaitTillButtonsPressed(entry.inputsNeededToAdvance);
                     playNextPopupEvent();
                     break;
+
+
+
+                case GameFreezeEntry.GameFreezeEvents.EnableMonobehavior:
+                    entry.monoBehaviour.enabled = true;
+                    playNextPopupEvent();
+                    break;
+                case GameFreezeEntry.GameFreezeEvents.EnableTrigger:
+                    if (entry.selectedGameobject.GetComponent<BoxCollider>() && entry.selectedGameobject.GetComponent<BoxCollider>().isTrigger)
+                    {
+                        entry.selectedGameobject.GetComponent<BoxCollider>().enabled = true;
+                    }
+                    if (entry.selectedGameobject.GetComponent<CapsuleCollider>() && entry.selectedGameobject.GetComponent<CapsuleCollider>().isTrigger)
+                    {
+                        entry.selectedGameobject.GetComponent<CapsuleCollider>().enabled = true;
+                    }
+                    if (entry.selectedGameobject.GetComponent<SphereCollider>() && entry.selectedGameobject.GetComponent<SphereCollider>().isTrigger)
+                    {
+                        entry.selectedGameobject.GetComponent<SphereCollider>().enabled = true;
+                    }
+                    if (entry.selectedGameobject.GetComponent<MeshCollider>() && entry.selectedGameobject.GetComponent<MeshCollider>().isTrigger)
+                    {
+                        entry.selectedGameobject.GetComponent<MeshCollider>().enabled = true;
+                    }
+                    playNextPopupEvent();
+                    break;
+
+
+
+   
             }
         }
 
@@ -213,8 +244,16 @@ namespace Etra.StarterAssets
         {
             if (currentPopup.GetComponent<EtraPopup>() && savedEntry != null)
             {
-                currentPopup.GetComponent<EtraPopup>().popupText.text = savedEntry.popupText;
-                currentPopup.GetComponent<EtraPopup>().popupText.fontSize = savedEntry.popupTextSize;
+                if (savedEntry.popupText != "" )
+                {
+                    currentPopup.GetComponent<EtraPopup>().popupText.text = savedEntry.popupText;
+                }
+
+                if (savedEntry.popupTextSize != 0)
+                {
+                    currentPopup.GetComponent<EtraPopup>().popupText.fontSize = savedEntry.popupTextSize;
+                }
+
 
                 if (savedEntry.advanceType == GameFreezeEntry.AdvanceType.WaitForInput)
                 {

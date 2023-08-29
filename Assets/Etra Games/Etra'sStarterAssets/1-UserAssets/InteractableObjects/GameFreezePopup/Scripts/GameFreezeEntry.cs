@@ -16,7 +16,9 @@ namespace Etra.StarterAssets
             UnlockMouse,
             Unfreeze,
             WaitForTime,
-            WaitForInput
+            WaitForInput,
+            EnableMonobehavior,
+            EnableTrigger
         }
 
         public GameFreezeEvents chosenEvent = GameFreezeEvents.Popup;
@@ -50,6 +52,9 @@ namespace Etra.StarterAssets
 
         //WaitForInput
         //public InputActionReference[][] inputsNeededToAdvance;
+
+        public MonoBehaviour monoBehaviour;
+        public GameObject selectedGameobject;
 
     }
 }

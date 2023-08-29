@@ -27,7 +27,7 @@ namespace Etra.StarterAssets.Source
             {
                 SetInitialScreenWiperState();
             }
-
+            /*
             if (speakerLabel != null)
             {
                 speakerLabel.enabled = false;
@@ -36,7 +36,7 @@ namespace Etra.StarterAssets.Source
             if (dialogueLabel != null)
             {
                 dialogueLabel.enabled = false;
-            }
+            }*/
         }
 
         public void SetInitialScreenWiperState()
