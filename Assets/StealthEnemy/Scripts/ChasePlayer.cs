@@ -108,7 +108,6 @@ namespace Etra.StarterAssets.Interactables
                 }
             }
       agent.destination = destination;
-            Debug.Log(Vector3.Distance(transform.position, playerCamRoot.position));
 
       if (Vector3.Distance(transform.position, playerCamRoot.position) < 1.65f && !inJumpscare)
       {

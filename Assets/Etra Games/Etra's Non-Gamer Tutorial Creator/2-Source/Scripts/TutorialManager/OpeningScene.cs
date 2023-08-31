@@ -185,7 +185,11 @@ namespace Etra.NonGamerTutorialCreator.Level
 
         public void GetReferenceVariables()
         {
-            star = GameObject.Find("Star").GetComponent<Star>();
+            if (GameObject.Find("Star"))
+            {
+                star = GameObject.Find("Star").GetComponent<Star>();
+            }
+
             playerSpawn = GameObject.Find("PlayerSpawn");
             camRoot = GameObject.Find("EtraPlayerCameraRoot");
             cursorCanvas = GameObject.Find("CursorCanvas");
