@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -28,6 +29,8 @@ public class DialogueEntryNew
     public Vector3 targetVector3;
     public MonoBehaviour monoBehaviour;
 
+    public UnityEvent unityEvent;
+
 }
 
 public enum DialogueEvents
@@ -45,7 +48,8 @@ public enum DialogueEvents
     LockPlayer,
     UnlockPlayer,
     EnableMonoBehavior,
-    EnableTrigger
+    EnableTrigger,
+    RunEvent
 }
 
 #if UNITY_EDITOR
@@ -60,11 +64,11 @@ public class DialogueEntryPropertyDrawer : PropertyDrawer
             case DialogueEvents.SetSpeaker:
                 return base.GetPropertyHeight(prop, label) + 30;
             case DialogueEvents.NewLine:
-                return base.GetPropertyHeight(prop, label) + 150;
+                return base.GetPropertyHeight(prop, label) + 170;
             case DialogueEvents.AddLine:
                 return base.GetPropertyHeight(prop, label) + 150;
             case DialogueEvents.SetSpeakerAndNewLine:
-                return base.GetPropertyHeight(prop, label) + 170;
+                return base.GetPropertyHeight(prop, label) + 190;
             case DialogueEvents.Wait:
                 return base.GetPropertyHeight(prop, label) + 30;
             case DialogueEvents.TextSpeed:
@@ -85,6 +89,8 @@ public class DialogueEntryPropertyDrawer : PropertyDrawer
                 return base.GetPropertyHeight(prop, label) + 30;
             case DialogueEvents.EnableTrigger:
                 return base.GetPropertyHeight(prop, label) + 30;
+            case DialogueEvents.RunEvent:
+                return base.GetPropertyHeight(prop, label) + 90;
             default:
                 return base.GetPropertyHeight(prop, label) + 70;
         }
@@ -111,6 +117,7 @@ public class DialogueEntryPropertyDrawer : PropertyDrawer
         SerializedProperty savedObject = prop.FindPropertyRelative("savedObject");
         SerializedProperty targetVector3 = prop.FindPropertyRelative("targetVector3");
         SerializedProperty monoBehaviour = prop.FindPropertyRelative("monoBehaviour");
+        SerializedProperty unityEvent = prop.FindPropertyRelative("unityEvent");
 
         DialogueEvents state = (DialogueEvents)prop.FindPropertyRelative("_dialogueEvents").enumValueIndex;
         switch (state)
@@ -123,6 +130,7 @@ public class DialogueEntryPropertyDrawer : PropertyDrawer
                 EditorGUI.PropertyField(new Rect(pos.x, pos.y + 20, pos.width, 100), _dialogueLine);
                 EditorGUI.PropertyField(new Rect(pos.x, pos.y + 120, pos.width, 20), _audioClip);
                 EditorGUI.PropertyField(new Rect(pos.x, pos.y + 140, pos.width, 20), _useAudioClipLengthAsWaitTime);
+                EditorGUI.PropertyField(new Rect(pos.x, pos.y + 160, pos.width, 20), _waitTime);
                 break;
 
             case DialogueEvents.AddLine:
@@ -136,6 +144,7 @@ public class DialogueEntryPropertyDrawer : PropertyDrawer
                 EditorGUI.PropertyField(new Rect(pos.x, pos.y + 40, pos.width, 100), _dialogueLine);
                 EditorGUI.PropertyField(new Rect(pos.x, pos.y + 140, pos.width, 20), _audioClip);
                 EditorGUI.PropertyField(new Rect(pos.x, pos.y + 160, pos.width, 20), _useAudioClipLengthAsWaitTime);
+                EditorGUI.PropertyField(new Rect(pos.x, pos.y + 180, pos.width, 20), _waitTime);
                 break;
 
             case DialogueEvents.Wait:
@@ -159,6 +168,10 @@ public class DialogueEntryPropertyDrawer : PropertyDrawer
                 break;
             case DialogueEvents.EnableTrigger:
                 EditorGUI.PropertyField(new Rect(pos.x, pos.y + 20, pos.width, 20), savedObject);
+                break;
+
+            case DialogueEvents.RunEvent:
+                EditorGUI.PropertyField(new Rect(pos.x, pos.y + 20, pos.width, 20), unityEvent);
                 break;
 
             default:

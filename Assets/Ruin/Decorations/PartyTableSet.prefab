@@ -87,7 +87,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chair
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7582825127276042137, guid: d2e2692ea93d580428f06629baf186c9, type: 3}
+    - {fileID: 8858610737490908883, guid: d2e2692ea93d580428f06629baf186c9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d2e2692ea93d580428f06629baf186c9, type: 3}
 --- !u!1001 &2962513298315326979
 PrefabInstance:
@@ -201,7 +203,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chair (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7582825127276042137, guid: d2e2692ea93d580428f06629baf186c9, type: 3}
+    - {fileID: 8858610737490908883, guid: d2e2692ea93d580428f06629baf186c9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d2e2692ea93d580428f06629baf186c9, type: 3}
 --- !u!1001 &4884892882257337218
 PrefabInstance:
@@ -258,7 +262,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chair (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7582825127276042137, guid: d2e2692ea93d580428f06629baf186c9, type: 3}
+    - {fileID: 8858610737490908883, guid: d2e2692ea93d580428f06629baf186c9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d2e2692ea93d580428f06629baf186c9, type: 3}
 --- !u!1001 &6450822553249864607
 PrefabInstance:
@@ -315,7 +321,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chair (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7582825127276042137, guid: d2e2692ea93d580428f06629baf186c9, type: 3}
+    - {fileID: 8858610737490908883, guid: d2e2692ea93d580428f06629baf186c9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d2e2692ea93d580428f06629baf186c9, type: 3}
 --- !u!1001 &9103223458391858925
 PrefabInstance:

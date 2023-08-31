@@ -51,9 +51,10 @@ public class AutoDialoguePlayer : MonoBehaviour
 
     private IEnumerator StartDialogueReadCoroutine(string textDialogue, AudioClip audioClip, bool clearText)
     {
-        _audioSource.Stop();
+
         if (audioClip != null)
         {
+            _audioSource.Stop();
             _audioSource.clip = audioClip;
             _audioSource.Play();
         }

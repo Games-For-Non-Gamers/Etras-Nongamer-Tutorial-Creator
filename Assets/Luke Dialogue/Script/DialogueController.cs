@@ -154,6 +154,9 @@ public class DialogueController : MonoBehaviour
                     }
 
                     break;
+                case DialogueEvents.RunEvent:
+                    dialogueEntry.unityEvent.Invoke();
+                    break;
 
             }
         }
@@ -176,6 +179,10 @@ public class DialogueController : MonoBehaviour
         if (dialogueEntry.AudioClip != null && dialogueEntry.UseAudioClipLengthAsWaitTime)
         {
             return dialogueEntry.AudioClip.length + _additionalWaitTimeAfterAudioClip;
+        }
+        else if (dialogueEntry.WaitTime != 0)
+        {
+            return dialogueEntry.WaitTime;
         }
         else
         {

@@ -127,7 +127,6 @@ GameObject:
   - component: {fileID: 4892191536351357434}
   - component: {fileID: 4984174613744456554}
   - component: {fileID: 3460879284051992731}
-  - component: {fileID: 2095732493406572022}
   m_Layer: 0
   m_Name: PartyTables_Cube.001
   m_TagString: Untagged
@@ -200,16 +199,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2095732493406572022
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7723638192987778921}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.038902, y: 0.83834, z: 0.9}
-  m_Center: {x: 0, y: 0.41917, z: 0}

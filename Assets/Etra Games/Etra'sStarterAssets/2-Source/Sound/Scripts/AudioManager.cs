@@ -114,8 +114,6 @@ namespace EtrasStarterAssets
                 return;
             }
 
-
-
             Sound s = sounds.Find((sound) => sound.name == passedSound.name);
             if (s.randomizePitch)
             {
@@ -124,6 +122,48 @@ namespace EtrasStarterAssets
             s.source.Play();
         }
 
+
+        public bool IsPlaying(string name)
+        {
+
+            if (sounds == null)
+            {
+                Debug.LogWarning("Sound " + name + " not found!");
+                return false;
+            }
+            bool soundFound = false;
+            foreach (Sound so in sounds)
+            {
+                if (so.name == name)
+                {
+                    soundFound = true;
+                    break;
+                }
+
+            }
+            if (soundFound == false)
+            {
+                Debug.LogWarning("Sound " + name + " not found!");
+                return false;
+            }
+            Sound s = sounds.Find((sound) => sound.name == name);
+            return s.source.isPlaying;
+        }
+
+
+
+        public bool IsPlaying(Sound passedSound)
+        {
+            if (sounds == null)
+            {
+                Debug.LogWarning("Sound " + passedSound.name + " not found!"); // not working?
+                return false;
+            }
+
+            Sound s = sounds.Find((sound) => sound.name == passedSound.name);
+
+            return s.source.isPlaying;
+        }
 
         public void Stop(string name)
         {

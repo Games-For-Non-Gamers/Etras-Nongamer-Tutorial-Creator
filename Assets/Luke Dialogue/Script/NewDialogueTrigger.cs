@@ -12,21 +12,26 @@ public class NewDialogueTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag(_tagName))
         {
-            DialogueController.Instance.StartNewAutoDialogue(_dialogueEntryNews);
-
-            switch (_dialogueTriggerEvent)
-            {
-                case DialogueTriggerEvent.None:
-                    break;
-                case DialogueTriggerEvent.Hide:
-                    gameObject.SetActive(false);
-                    break;
-                case DialogueTriggerEvent.Destroy:
-                    Destroy(gameObject);
-                    break;
-            }
-
+            runEvents();
         }
+    }
+
+    public void runEvents()
+    {
+        DialogueController.Instance.StartNewAutoDialogue(_dialogueEntryNews);
+
+        switch (_dialogueTriggerEvent)
+        {
+            case DialogueTriggerEvent.None:
+                break;
+            case DialogueTriggerEvent.Hide:
+                gameObject.SetActive(false);
+                break;
+            case DialogueTriggerEvent.Destroy:
+                Destroy(gameObject);
+                break;
+        }
+
     }
 }
 

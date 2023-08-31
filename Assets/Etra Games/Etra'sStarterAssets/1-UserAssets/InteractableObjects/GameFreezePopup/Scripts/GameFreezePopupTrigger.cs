@@ -1,4 +1,5 @@
 using Etra.StandardMenus;
+using Etra.StarterAssets.Abilities;
 using Etra.StarterAssets.Source;
 using EtrasStarterAssets;
 using System;
@@ -54,10 +55,23 @@ namespace Etra.StarterAssets
             }
         }
 
+        public void playEvents()
+        {
+            hidePickup();
+            playNextPopupEvent();
+        }
+
         void hidePickup()
         {
-            GetComponent<MeshRenderer>().enabled = false;
-            GetComponent<BoxCollider>().enabled = false;
+            if (GetComponent<MeshRenderer>())
+            {
+                GetComponent<MeshRenderer>().enabled = false;
+            }
+            if (GetComponent<BoxCollider>())
+            {
+                GetComponent<BoxCollider>().enabled = false;
+            }
+
         }
 
         //Cycle through the full eventList
@@ -129,6 +143,7 @@ namespace Etra.StarterAssets
                     currentPopup.transform.SetAsLastSibling();
                     savedEntry = entry;
                     currentPopup.transform.localPosition = entry.position;
+                    currentPopup.transform.localScale = Vector3.one;
                     UpdatePopupText();
 
                     if (entry.playDefaultAudio) { audioManager.Play(defaultPopupSfx); }
@@ -138,6 +153,7 @@ namespace Etra.StarterAssets
                         currentPopup.transform.localScale = Vector3.zero;
                         LeanTween.scale(currentPopup, Vector3.one, 0.25f).setEaseOutBack().setIgnoreTimeScale(true);
                     }
+
 
                     switch (entry.advanceType)
                     {
@@ -234,10 +250,55 @@ namespace Etra.StarterAssets
                     playNextPopupEvent();
                     break;
 
+                case GameFreezeEntry.GameFreezeEvents.RunEvent:
+                    entry.unityEvent.Invoke();
+                    playNextPopupEvent();
+                    break;
+
+                case GameFreezeEntry.GameFreezeEvents.MoveObject:
+                    LeanTween.move(entry.savedObject, entry.targetVector3, entry.timeToWait);
+                    playNextPopupEvent();
+                    break;
+                case GameFreezeEntry.GameFreezeEvents.RotateObject:
+                    LeanTween.rotate(entry.savedObject, entry.targetVector3, entry.timeToWait);
+                    playNextPopupEvent();
+                    break;
+                case GameFreezeEntry.GameFreezeEvents.MovePlayer:
+                    if (entry.savedObject != null)
+                    {
+                        LeanTween.move(mainController.gameObject, new Vector3(entry.savedObject.transform.position.x, mainController.gameObject.transform.position.y, entry.savedObject.transform.position.z), entry.timeToWait);
+                    }
+                    else
+                    {
+                        LeanTween.move(mainController.gameObject, entry.targetVector3, entry.timeToWait);
+                    }
+                    playNextPopupEvent();
+                    break;
+
+                case GameFreezeEntry.GameFreezeEvents.RotatePlayerCam:
+                    if (mainController.etraAbilityManager.GetComponent<ABILITY_CameraMovement>())
+                    {
+                        if (entry.savedObject != null)
+                        {
+                            Vector3 savedRot = entry.savedObject.transform.rotation.eulerAngles;
+                            LeanTween.rotate(mainController.gameObject, savedRot, entry.timeToWait).setOnComplete(() => setCameraRot(mainController.etraAbilityManager.GetComponent<ABILITY_CameraMovement>(), savedRot));
+                        }
+                        else
+                        {
+                            Vector3 savedRot = entry.targetVector3;
+                            LeanTween.rotate(mainController.gameObject, savedRot, entry.timeToWait).setOnComplete(() => setCameraRot(mainController.etraAbilityManager.GetComponent<ABILITY_CameraMovement>(), savedRot));
+                        }
+                    }
+                    playNextPopupEvent();
+                    break;
 
 
-   
             }
+        }
+
+        public void setCameraRot(ABILITY_CameraMovement camScript, Vector3 rot)
+        {
+            camScript.manualSetCharacterAndCameraRotation(rot);
         }
 
         private void UpdatePopupText()

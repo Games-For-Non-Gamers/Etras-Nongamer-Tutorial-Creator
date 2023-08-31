@@ -25,6 +25,8 @@ namespace Etra.StarterAssets.Interactables
     Transform playerCamRoot; 
     public Transform followTarget;
     NavMeshAgent agent;
+    public float walkSpeed = 1f;
+    public float chaseSpeed = 2.5f;
     public bool spotted;
     public bool searchStarted;
     public float searchTime;
@@ -40,7 +42,6 @@ namespace Etra.StarterAssets.Interactables
         public UnityEvent postScare;
         Vector3 startPos;
         AudioManager audioManager;
-        AudioSource alarmSfx;
 
     private void Start()
     {
@@ -52,12 +53,11 @@ namespace Etra.StarterAssets.Interactables
             playerCamRoot = GameObject.Find("EtraPlayerCameraRoot").transform;
             agent.enabled = true;
             audioManager = GetComponent<AudioManager>();
-            alarmSfx = GetComponent<AudioSource>();
 
         }
 
         void Update()
-    {
+        {
         if (inJumpscare)
         {
             return;
@@ -66,10 +66,19 @@ namespace Etra.StarterAssets.Interactables
         if(this.transform.hasChanged)
         {
             animator.SetBool("Moving", true);
+            if (!audioManager.IsPlaying("Move"))
+            {
+                audioManager.Play("Move");
+            }
+
         }
         else
         {
             animator.SetBool("Moving", false);
+            if (audioManager.IsPlaying("Move"))
+            {
+                audioManager.Stop("Move");
+            }
         }
 
       findThePlayer();
@@ -79,10 +88,11 @@ namespace Etra.StarterAssets.Interactables
         enemyEye.GetComponent<MeshRenderer>().material = PlayerFound;
         enemyEye.transform.Find("Spot Light").GetComponent<Light>().color = Color.red;
         destination = playerCamRoot.position;
-            if (!alarmSfx.isPlaying)
+            if (!audioManager.IsPlaying("Alarm") && Time.timeScale != 0)
             {
+                    agent.speed = chaseSpeed;
                     audioManager.Play("Spotted");
-                    alarmSfx.Play();
+                    audioManager.Play("Alarm");
             }
       }
       else
@@ -91,9 +101,10 @@ namespace Etra.StarterAssets.Interactables
         enemyEye.GetComponent<MeshRenderer>().material = NoneFound;
         enemyEye.transform.Find("Spot Light").GetComponent<Light>().color = Color.white;
         destination = followTarget.position;
-                if (alarmSfx.isPlaying)
+                if (audioManager.IsPlaying("Alarm"))
                 {
-                    alarmSfx.Stop();
+                    agent.speed = walkSpeed;
+                    audioManager.Stop("Alarm");
                 }
             }
       agent.destination = destination;
@@ -120,6 +131,7 @@ namespace Etra.StarterAssets.Interactables
             etraCharacterMainController.disableAllActiveAbilities();
             animator.SetBool("Moving", false);
             animator.SetBool("Jumpscare", true);
+            audioManager.Stop("Move");
             Transform savedParent = this.transform.parent;
             agent.enabled = false;
             audioManager.Stop("Spotted");
@@ -128,7 +140,7 @@ namespace Etra.StarterAssets.Interactables
             this.transform.localPosition = new Vector3( 0, -1.24f, 1.25f);
             LeanTween.rotateLocal(this.gameObject, new Vector3(7, 180, 0 ),0 );
             yield return new WaitForSeconds(1f);
-            alarmSfx.Stop();
+            audioManager.Stop("Alarm");
             this.transform.parent = savedParent;
             this.transform.localPosition = startPos;
             LeanTween.rotateLocal(this.gameObject, new Vector3(0, 180, 0), 0);

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using static Etra.StarterAssets.DialogueEntry;
 
 namespace Etra.StarterAssets.Source.Editor
 {
@@ -57,7 +58,16 @@ namespace Etra.StarterAssets.Source.Editor
                     return base.GetPropertyHeight(prop, label) + 30 ;
                 case GameFreezeEntry.GameFreezeEvents.EnableTrigger:
                     return base.GetPropertyHeight(prop, label) + 30;
-
+                case GameFreezeEntry.GameFreezeEvents.RunEvent:
+                    return base.GetPropertyHeight(prop, label) + 100;
+                case GameFreezeEntry.GameFreezeEvents.MoveObject:
+                    return base.GetPropertyHeight(prop, label) + 70;
+                case GameFreezeEntry.GameFreezeEvents.RotateObject:
+                    return base.GetPropertyHeight(prop, label) + 70;
+                case GameFreezeEntry.GameFreezeEvents.MovePlayer:
+                    return base.GetPropertyHeight(prop, label) + 70;
+                case GameFreezeEntry.GameFreezeEvents.RotatePlayerCam:
+                    return base.GetPropertyHeight(prop, label) + 70;
                 default:
                     return base.GetPropertyHeight(prop, label) + 10;
             }
@@ -133,6 +143,24 @@ namespace Etra.StarterAssets.Source.Editor
                     SerializedProperty selectedGameobject = prop.FindPropertyRelative("selectedGameobject");
                     EditorGUI.PropertyField(new Rect(pos.x, pos.y + 20, pos.width, 20), selectedGameobject);
                     break;
+
+                case GameFreezeEntry.GameFreezeEvents.RunEvent:
+                    SerializedProperty unityEvent = prop.FindPropertyRelative("unityEvent");
+                    EditorGUI.PropertyField(new Rect(pos.x, pos.y + 20, pos.width, 20), unityEvent);
+                    break;
+
+                case GameFreezeEntry.GameFreezeEvents.MoveObject:
+                case GameFreezeEntry.GameFreezeEvents.RotateObject:
+                case GameFreezeEntry.GameFreezeEvents.MovePlayer:
+                case GameFreezeEntry.GameFreezeEvents.RotatePlayerCam:
+                    SerializedProperty savedObject = prop.FindPropertyRelative("savedObject");
+                    SerializedProperty targetVector3 = prop.FindPropertyRelative("targetVector3");
+                    SerializedProperty timeToWait3 = prop.FindPropertyRelative("timeToWait");
+                    EditorGUI.PropertyField(new Rect(pos.x, pos.y + 20, pos.width, 20), savedObject);
+                    EditorGUI.PropertyField(new Rect(pos.x, pos.y + 40, pos.width, 20), targetVector3);
+                    EditorGUI.PropertyField(new Rect(pos.x, pos.y + 60, pos.width, 20), timeToWait3);
+                    break;
+
                 default:
                     break;
             }

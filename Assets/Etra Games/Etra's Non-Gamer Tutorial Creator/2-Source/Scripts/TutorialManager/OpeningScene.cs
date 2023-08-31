@@ -54,15 +54,18 @@ namespace Etra.NonGamerTutorialCreator.Level
             }
 
             cursorCanvas.SetActive(false);
-            pickups = levelController.chunks[levelController.chunks.Count - 1].gameObject.GetComponentsInChildren<AbilityOrItemPickup>();
-            animPickups = levelController.chunks[levelController.chunks.Count - 1].gameObject.GetComponentsInChildren<AnimationTriggerPickup>();
-            foreach (AbilityOrItemPickup a in pickups)
+            if (!skipOpeningScene)
             {
-                a.gameObject.SetActive(false);
-            }
-            foreach (AnimationTriggerPickup a in animPickups)
-            {
-                a.gameObject.SetActive(false);
+                pickups = levelController.chunks[levelController.chunks.Count - 1].gameObject.GetComponentsInChildren<AbilityOrItemPickup>();
+                animPickups = levelController.chunks[levelController.chunks.Count - 1].gameObject.GetComponentsInChildren<AnimationTriggerPickup>();
+                foreach (AbilityOrItemPickup a in pickups)
+                {
+                    a.gameObject.SetActive(false);
+                }
+                foreach (AnimationTriggerPickup a in animPickups)
+                {
+                    a.gameObject.SetActive(false);
+                }
             }
             nonGamerTutorialUi.gameObject.SetActive(false);
         }
@@ -201,13 +204,16 @@ namespace Etra.NonGamerTutorialCreator.Level
             LeanTween.move(camRoot, character.transform.position + savedCamRootPos, 0).setEaseInOutSine();
 
             cursorCanvas.SetActive(true);
-            foreach (AbilityOrItemPickup a in pickups)
+            if (!skipOpeningScene)
             {
-                a.gameObject.SetActive(true);
-            }
-            foreach (AnimationTriggerPickup a in animPickups)
-            {
-                a.gameObject.SetActive(true);
+                foreach (AbilityOrItemPickup a in pickups)
+                {
+                    a.gameObject.SetActive(true);
+                }
+                foreach (AnimationTriggerPickup a in animPickups)
+                {
+                    a.gameObject.SetActive(true);
+                }
             }
             openingSceneUi.SetActive(true);
             nonGamerTutorialUi.gameObject.SetActive(true);

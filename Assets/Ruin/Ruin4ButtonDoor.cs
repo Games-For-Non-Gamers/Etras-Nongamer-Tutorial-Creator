@@ -7,20 +7,20 @@ public class Ruin4ButtonDoor : MonoBehaviour
 {
     public int buttonsPressed;
     //This is the worst script. Apologies.
-    public BoxCollider ThreeLeft;
-    public BoxCollider TwoLeft;
-    public BoxCollider OneLeft;
-    public BoxCollider Done;
+    public NewDialogueTrigger ThreeLeft;
+    public NewDialogueTrigger TwoLeft;
+    public NewDialogueTrigger OneLeft;
+    public NewDialogueTrigger Done;
     // Start is called before the first frame updates
     public void buttonPressed()
     {
         buttonsPressed++;
         if (buttonsPressed == 1)
         {
-            ThreeLeft.enabled = true;
+            ThreeLeft.runEvents();
         }
-        if (buttonsPressed == 2) { TwoLeft.enabled = true; }
-        if (buttonsPressed == 3) { OneLeft.enabled = true; }
-        if (buttonsPressed == 4) { Done.enabled = true; this.GetComponent<Door>().doorInteract(); }
+        if (buttonsPressed == 2) { TwoLeft.runEvents(); }
+        if (buttonsPressed == 3) { OneLeft.runEvents(); }
+        if (buttonsPressed == 4) { Done.runEvents(); this.GetComponent<Door>().doorInteract(); }
     }
 }

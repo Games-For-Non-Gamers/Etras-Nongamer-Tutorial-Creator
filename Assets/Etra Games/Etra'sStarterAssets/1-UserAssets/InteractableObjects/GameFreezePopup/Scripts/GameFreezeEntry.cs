@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 namespace Etra.StarterAssets
@@ -18,7 +19,12 @@ namespace Etra.StarterAssets
             WaitForTime,
             WaitForInput,
             EnableMonobehavior,
-            EnableTrigger
+            EnableTrigger,
+            RunEvent,
+            MoveObject,
+            RotateObject,
+            MovePlayer,
+            RotatePlayerCam,
         }
 
         public GameFreezeEvents chosenEvent = GameFreezeEvents.Popup;
@@ -55,6 +61,12 @@ namespace Etra.StarterAssets
 
         public MonoBehaviour monoBehaviour;
         public GameObject selectedGameobject;
+
+        public UnityEvent unityEvent;
+
+        //MoveOrRotateObject
+        public GameObject savedObject;//target object at times
+        public Vector3 targetVector3;
 
     }
 }
