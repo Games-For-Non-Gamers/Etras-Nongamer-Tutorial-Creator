@@ -4,6 +4,7 @@ using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 using static Etra.StarterAssets.Abilities.EtraAbilityBaseClass;
+using static UnityEngine.EventSystems.EventTrigger;
 #endif
 
 namespace Etra.StarterAssets.Abilities
@@ -44,7 +45,10 @@ namespace Etra.StarterAssets.Abilities
         [Tooltip("How far in degrees can you move the camera down")]
         public float BottomClamp = -70.0f;
         [Tooltip("Additional degress to override the camera. Useful for fine tuning camera position when locked")]
-        public float CameraAngleOverride = 0.0f;
+        public float YAngleOverride = 0.0f;
+        [Tooltip("Additional degress to override the camera. Useful for fine tuning camera position when locked")]
+        public float XAngleOverride = 0.0f;
+
         //Misc
         private const float _threshold = 0.01f;
         [HideInInspector] public float _cinemachineTargetYaw;
@@ -153,6 +157,7 @@ namespace Etra.StarterAssets.Abilities
                 pointCharacterIsLookingAt = ray.GetPoint(distanceToTargetIfNoObjectIsHitByRay);
 
             }
+
             //Return if this ability is disabled
             if (!abilityEnabled)
             {
@@ -164,6 +169,8 @@ namespace Etra.StarterAssets.Abilities
             {
                 debugTransform.position = pointCharacterIsLookingAt;
             }
+
+
 
             //If the boolean is checked, set the players forward to where the player is facing
             if (setForwardToPlayerLookDirection)
@@ -179,6 +186,7 @@ namespace Etra.StarterAssets.Abilities
 
         public override void abilityLateUpdate()
         {
+
             //Return if this ability is disabled
             if (!abilityEnabled)
             {
@@ -202,7 +210,7 @@ namespace Etra.StarterAssets.Abilities
             _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, BottomClamp, TopClamp);
 
             // Cinemachine will follow this target
-            playerCameraRoot.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride, _cinemachineTargetYaw, 0.0f);
+            playerCameraRoot.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + XAngleOverride, _cinemachineTargetYaw + YAngleOverride, 0.0f);
 
         }
 
@@ -225,12 +233,6 @@ namespace Etra.StarterAssets.Abilities
             #endif
         }
 
-        private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
-        {
-            if (lfAngle < -360f) lfAngle += 360f;
-            if (lfAngle > 360f) lfAngle -= 360f;
-            return Mathf.Clamp(lfAngle, lfMin, lfMax);
-        }
 
         private void OnValidate()
         {
@@ -306,6 +308,7 @@ namespace Etra.StarterAssets.Abilities
 
         }
 
+
         public void manualSetCharacterAndCameraRotation(Vector3 rotation)
         {
             manualSetCharacterAndCameraRotation(Quaternion.Euler(rotation));
@@ -315,11 +318,31 @@ namespace Etra.StarterAssets.Abilities
         {
             EtraCharacterMainController etraCharacterMainController = GetComponentInParent<EtraCharacterMainController>();
             etraCharacterMainController.transform.forward = Vector3.right;
-            etraCharacterMainController.gameObject.transform.rotation = rotation;
-            this.playerCameraRoot.transform.rotation = rotation;
+            etraCharacterMainController.gameObject.transform.rotation = Quaternion.Euler(etraCharacterMainController.gameObject.transform.rotation.x, rotation.eulerAngles.y, etraCharacterMainController.gameObject.transform.rotation.z);
 
             this._cinemachineTargetPitch = rotation.eulerAngles.x;
             this._cinemachineTargetYaw = rotation.eulerAngles.y;
+            playerCameraRoot.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + XAngleOverride, _cinemachineTargetYaw + YAngleOverride, 0.0f);
+        }
+
+
+        
+        public void manualSetCharacterAndCameraRotation(Vector3 rotation, float time)
+        {
+            manualSetCharacterAndCameraRotation(Quaternion.Euler(rotation), time);
+        }
+
+        private void manualSetCharacterAndCameraRotation(Quaternion rotation, float time)
+        {
+            float newTargetYRotation = rotation.eulerAngles.y;
+            mainController = GetComponentInParent<EtraCharacterMainController>();
+            LeanTween.rotate(playerCameraRoot.gameObject, rotation.eulerAngles, time).setEase(LeanTweenType.easeInOutSine).setOnComplete(() => manualSetCharacterAndCameraRotation(rotation));
+        }
+        private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
+        {
+            if (lfAngle <= -360f) lfAngle += 360f;
+            if (lfAngle >= 360f) lfAngle -= 360f;
+            return Mathf.Clamp(lfAngle, lfMin, lfMax);
         }
 
     }

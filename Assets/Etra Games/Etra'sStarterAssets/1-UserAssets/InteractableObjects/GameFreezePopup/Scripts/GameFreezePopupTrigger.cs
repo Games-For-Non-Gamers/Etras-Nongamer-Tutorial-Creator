@@ -280,13 +280,11 @@ namespace Etra.StarterAssets
                     {
                         if (entry.savedObject != null)
                         {
-                            Vector3 savedRot = entry.savedObject.transform.rotation.eulerAngles;
-                            LeanTween.rotate(mainController.gameObject, savedRot, entry.timeToWait).setOnComplete(() => setCameraRot(mainController.etraAbilityManager.GetComponent<ABILITY_CameraMovement>(), savedRot));
+                            setCameraRot(mainController.etraAbilityManager.GetComponent<ABILITY_CameraMovement>(), entry.savedObject.transform.rotation.eulerAngles, entry.timeToWait);
                         }
                         else
                         {
-                            Vector3 savedRot = entry.targetVector3;
-                            LeanTween.rotate(mainController.gameObject, savedRot, entry.timeToWait).setOnComplete(() => setCameraRot(mainController.etraAbilityManager.GetComponent<ABILITY_CameraMovement>(), savedRot));
+                            setCameraRot(mainController.etraAbilityManager.GetComponent<ABILITY_CameraMovement>(), entry.targetVector3, entry.timeToWait);
                         }
                     }
                     playNextPopupEvent();
@@ -296,9 +294,9 @@ namespace Etra.StarterAssets
             }
         }
 
-        public void setCameraRot(ABILITY_CameraMovement camScript, Vector3 rot)
+        public void setCameraRot(ABILITY_CameraMovement camScript, Vector3 rot, float wait)
         {
-            camScript.manualSetCharacterAndCameraRotation(rot);
+            camScript.manualSetCharacterAndCameraRotation(rot, wait);
         }
 
         private void UpdatePopupText()

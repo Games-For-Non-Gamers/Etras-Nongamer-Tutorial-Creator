@@ -100,58 +100,70 @@ namespace Etra.NonGamerTutorialCreator
         {
             if (other.gameObject.tag == "Player")
             {
-
-                if (isAbility)
-                {
-                    GetComponent<MeshRenderer>().enabled = false;
-                    GetComponent<BoxCollider>().enabled = false;
-
-                    if (playPickupSfx)
-                    {
-                        GetComponent<AudioManager>().Play("AbilityGet");
-                    }
-                    
-                    //enable the ability and destroy the pickup
-                    if (showTutorialAnimation)
-                    {
-                        GameObject.Find(getUiObjectName(selectedAbility.shortenedName)).GetComponent<EtraAnimationHolder>().runAnimation(selectedAbility, selectedItem, true);
-                    }
-                    else
-                    {
-                        if (showUi)
-                        {
-                            GameObject.Find(getUiObjectName(selectedAbility.shortenedName)).GetComponent<EtraAnimationHolder>().showAllAnimatedObjects();
-                        }
-                        abilityScriptOnCharacter.unlockAbility(selectedAbility.name);
-                    }
-                    StartCoroutine(waitToDestroy());
-                }
-                else if (isItem)
-                {
-                    if (showTutorialAnimation)
-                    {
-                        GameObject.Find(getUiObjectName(selectedItem.shortenedName)).GetComponent<EtraAnimationHolder>().runAnimation(selectedAbility, selectedItem, false);
-                       
-                    }
-                    else
-                    {
-                        if (showUi)
-                        {
-                            GameObject.Find(getUiObjectName(selectedItem.shortenedName)).GetComponent<EtraAnimationHolder>().showAllAnimatedObjects();
-                        }
-
-                        //Add the script to the item manager
-                        EtraCharacterMainController.Instance.etraFPSUsableItemManager.gameObject.AddComponent(selectedItem.script.GetType());
-                        //Update the items array
-                        EtraCharacterMainController.Instance.etraFPSUsableItemManager.updateUsableItemsArray();
-                        //Equip the new item
-                        EtraCharacterMainController.Instance.etraFPSUsableItemManager.equipLastItem();
-                    }
-                    //Destory this pickup
-                    Destroy(gameObject);
-                }
+                GetAbilityOrItem();
             }
 
+        }
+
+        public void GetAbilityOrItem()
+        {
+            if (isAbility)
+            {
+                if (GetComponent<MeshRenderer>())
+                {
+                    GetComponent<MeshRenderer>().enabled = false;
+                }
+
+                if (GetComponent<BoxCollider>())
+                {
+                    GetComponent<BoxCollider>().enabled = false;
+                }
+
+
+                if (playPickupSfx)
+                {
+                    GetComponent<AudioManager>().Play("AbilityGet");
+                }
+
+                //enable the ability and destroy the pickup
+                if (showTutorialAnimation)
+                {
+                    GameObject.Find(getUiObjectName(selectedAbility.shortenedName)).GetComponent<EtraAnimationHolder>().runAnimation(selectedAbility, selectedItem, true);
+                }
+                else
+                {
+                    if (showUi)
+                    {
+                        GameObject.Find(getUiObjectName(selectedAbility.shortenedName)).GetComponent<EtraAnimationHolder>().showAllAnimatedObjects();
+                    }
+                    abilityScriptOnCharacter.unlockAbility(selectedAbility.name);
+                }
+                StartCoroutine(waitToDestroy());
+            }
+            else if (isItem)
+            {
+                if (showTutorialAnimation)
+                {
+                    GameObject.Find(getUiObjectName(selectedItem.shortenedName)).GetComponent<EtraAnimationHolder>().runAnimation(selectedAbility, selectedItem, false);
+
+                }
+                else
+                {
+                    if (showUi)
+                    {
+                        GameObject.Find(getUiObjectName(selectedItem.shortenedName)).GetComponent<EtraAnimationHolder>().showAllAnimatedObjects();
+                    }
+
+                    //Add the script to the item manager
+                    EtraCharacterMainController.Instance.etraFPSUsableItemManager.gameObject.AddComponent(selectedItem.script.GetType());
+                    //Update the items array
+                    EtraCharacterMainController.Instance.etraFPSUsableItemManager.updateUsableItemsArray();
+                    //Equip the new item
+                    EtraCharacterMainController.Instance.etraFPSUsableItemManager.equipLastItem();
+                }
+                //Destory this pickup
+                Destroy(gameObject);
+            }
         }
 
         private string getUiObjectName(string baseName)
@@ -194,6 +206,7 @@ namespace Etra.NonGamerTutorialCreator
 
         }
 
+
         public void OnBeforeSerialize()
         {
             //abilityShortenedNames = GetAllAbilities();
@@ -204,6 +217,7 @@ namespace Etra.NonGamerTutorialCreator
         {
 
         }
+
 
 
         private void OnValidate()
@@ -221,12 +235,18 @@ namespace Etra.NonGamerTutorialCreator
 
         void showRenderers()
         {
-            this.GetComponent<MeshRenderer>().enabled = true;
+            if (GetComponent<MeshRenderer>())
+            {
+                this.GetComponent<MeshRenderer>().enabled = true;
+            }
         }
 
         void hideRenderers()
         {
-            this.GetComponent<MeshRenderer>().enabled = false;
+            if (GetComponent<MeshRenderer>())
+            {
+                this.GetComponent<MeshRenderer>().enabled = false;
+            }
         }
 
     }
