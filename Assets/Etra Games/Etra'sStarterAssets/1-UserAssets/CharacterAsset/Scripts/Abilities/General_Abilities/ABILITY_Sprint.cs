@@ -46,9 +46,10 @@ namespace Etra.StarterAssets.Abilities
         ABILITY_CharacterMovement movementAbility;
         SprintStaminaSliderUi sprintStaminaSliderUi;
         bool sprintInputHeld = false; // Track if sprint input is held
-
+        bool firstTimeUnlock = false;
         //Events
         [HideInInspector] public UnityEvent OutOfStamina;
+        [HideInInspector] public UnityEvent StaminaRecovered;
 
 
         public override void abilityStart()
@@ -77,6 +78,11 @@ namespace Etra.StarterAssets.Abilities
                         sprintStaminaSliderUi.showUi();
                         break;
                 }
+            }
+            sprintUiVisibility(abilityEnabled);
+            if (!abilityEnabled)
+            {
+                firstTimeUnlock = true;
             }
         }
 
@@ -258,6 +264,7 @@ namespace Etra.StarterAssets.Abilities
                         sprintStaminaSliderUi.sliderBar.SetActive(false);
                         yield return new WaitForSeconds(0.15f);
                     }
+                    StaminaRecovered.Invoke();
                     sprintStaminaSliderUi.sliderBar.SetActive(true);
                     sprintStaminaSliderUi.SetAsDefaultColors();
                     break;
@@ -300,6 +307,35 @@ namespace Etra.StarterAssets.Abilities
                 }
             }
         }
+        public void sprintUiVisibility(bool visibility)
+        {
+            switch (staminaUiType) {
+                case StaminaUiType.ToCenterSlider:
+                    sprintStaminaSliderUi.uiVisibility(visibility);
+                    break;
+
+            }
+        }
+
+        public void sprintUiVisibility(bool visibility, bool animate)
+        {
+            if (!animate) { sprintUiVisibility(visibility); return; }
+
+            switch (staminaUiType)
+            {
+                case StaminaUiType.ToCenterSlider:
+                    if (visibility)
+                    {
+                        sprintStaminaSliderUi.fadeInUi(1);
+                    }
+                    else
+                    {
+                        sprintStaminaSliderUi.fadeOutUi(1);
+                    }
+                    break;
+
+            }
+        }
 
         public void updateUi()
         {
@@ -320,6 +356,18 @@ namespace Etra.StarterAssets.Abilities
                     break;
             }
         }
+
+        public override void unlockAbility(string abilityName)
+        {
+            if (firstTimeUnlock)
+            {
+                sprintUiVisibility(true, true);
+            }
+            base.unlockAbility(abilityName);
+        }
+
+
+
 
     }
 

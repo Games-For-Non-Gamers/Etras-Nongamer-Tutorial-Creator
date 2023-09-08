@@ -12,6 +12,18 @@ namespace Etra.StarterAssets
             c.enabled = false;
         }
 
+        public void uiVisibility(bool value)
+        {
+            if (value)
+            {
+                showUi();
+            }
+            else
+            {
+                hideUi();
+            }
+        }
+
         //Immediate hide or show
         public void showUi()
         {
