@@ -4,6 +4,7 @@ using Etra.StarterAssets.Source;
 using Etra.StarterAssets.Source.Camera;
 using EtrasStarterAssets;
 using UnityEngine;
+using UnityEngine.Events;
 using static Etra.StarterAssets.EtraCharacterMainController;
 
 namespace Etra.StarterAssets.Abilities
@@ -19,7 +20,7 @@ namespace Etra.StarterAssets.Abilities
         public float JumpTimeout = 0.05f;
         private float _jumpTimeoutDelta;
         public bool jumpInput;
-
+        public bool canJumpWhenCrouched = true;
         [Header("Cam Shake")]
         public bool jumpShakeEnabled = true;
         //The variables here are (intensity, time)
@@ -33,6 +34,11 @@ namespace Etra.StarterAssets.Abilities
         private int _animIDFreeFall;
         private GameObject _mainCamera;
         private AudioManager abilitySoundManager;
+        private ABILITY_CharacterMovement characterMovement;
+
+        //Events
+        [HideInInspector] public UnityEvent FailedCrouchJump;
+
 
         public override void abilityStart()
         {
@@ -45,6 +51,7 @@ namespace Etra.StarterAssets.Abilities
             mainController = GetComponentInParent<EtraCharacterMainController>();
             _input = GetComponentInParent<StarterAssetsInputs>();
             _hasAnimator = EtrasResourceGrabbingFunctions.TryGetComponentInChildren<Animator>(EtraCharacterMainController.Instance.modelParent);
+            characterMovement = GetComponent<ABILITY_CharacterMovement>();
             if (_hasAnimator) {
                 _animator = EtraCharacterMainController.Instance.modelParent.GetComponentInChildren<Animator>();
                 _animIDJump = Animator.StringToHash("Jump");
@@ -148,6 +155,16 @@ namespace Etra.StarterAssets.Abilities
                 return;
             }
             lockJump = true;
+
+
+            if (!canJumpWhenCrouched && characterMovement.isCrouched)
+            {
+                //Crouch jump lock event
+                FailedCrouchJump.Invoke();
+                return;
+            }
+
+
             if (jumpShakeEnabled) { CinemachineShake.Instance.ShakeCamera(jumpingShake); }
             // the square root of H * -2 * G = how much velocity needed to reach desired height
             mainController._verticalVelocity = Mathf.Sqrt(height * -2f * mainController.Gravity);

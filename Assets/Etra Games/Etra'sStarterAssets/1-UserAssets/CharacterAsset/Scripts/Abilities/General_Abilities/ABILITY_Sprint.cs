@@ -5,6 +5,7 @@ using Etra.StarterAssets.Source;
 using System.Collections;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.Events;
 
 namespace Etra.StarterAssets.Abilities
 {
@@ -45,6 +46,10 @@ namespace Etra.StarterAssets.Abilities
         ABILITY_CharacterMovement movementAbility;
         SprintStaminaSliderUi sprintStaminaSliderUi;
         bool sprintInputHeld = false; // Track if sprint input is held
+
+        //Events
+        [HideInInspector] public UnityEvent OutOfStamina;
+
 
         public override void abilityStart()
         {
@@ -118,6 +123,7 @@ namespace Etra.StarterAssets.Abilities
                             if (currentStamina <= 0)
                             {
                                 completelyOutOfStamina = true;
+                                OutOfStamina.Invoke();
                             }
 
                             movementAbility.isSprinting = false;

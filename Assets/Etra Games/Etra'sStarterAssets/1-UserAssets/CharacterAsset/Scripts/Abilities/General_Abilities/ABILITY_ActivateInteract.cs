@@ -94,10 +94,12 @@ namespace Etra.StarterAssets.Abilities
                                     if (objectThatIsLookedAt.transform.gameObject.GetComponent<ObjectInteraction>().timeToInteract > 0)
                                     {
                                         interactCircleUi.SliderVisibility(true);
+                                        interactCircleUi.leftText.text = "Hold";
                                     }
                                     else
                                     {
                                         interactCircleUi.SliderVisibility(false);
+                                        interactCircleUi.leftText.text = "Press";
                                     }
                                     break;
                             }
@@ -119,6 +121,7 @@ namespace Etra.StarterAssets.Abilities
                                 switch (interactUiType)
                                 {
                                     case InteractUiType.MidBottomScreenCircle:
+                                        interactCircleUi.leftText.text = "Hold";
                                         interactCircleUi.sliderValue = heldTime / objectThatIsLookedAt.transform.gameObject.GetComponent<ObjectInteraction>().timeToInteract;
                                         break;
                                 }
@@ -134,6 +137,7 @@ namespace Etra.StarterAssets.Abilities
                                     switch (interactUiType)
                                     {
                                         case InteractUiType.MidBottomScreenCircle:
+                                            interactCircleUi.leftText.text = "Hold";
                                             interactCircleUi.sliderValue = 0;
                                             interactCircleUi.fadeOutUi(0.3f);
                                             break;

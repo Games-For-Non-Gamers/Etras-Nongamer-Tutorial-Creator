@@ -60,6 +60,7 @@ namespace Etra.StarterAssets.Items
             var flashLightReference = GetComponent<EtraFPSUsableItemManager>().activeItemPrefab;
             flashlightAnimator = flashLightReference.GetComponentInChildren<Animator>();
             flashlightLight = flashLightReference.GetComponentInChildren<Light>();
+            starterAssetsInputs.shoot = false;
             setPublicFlashlightValues();
 
             if (flashLightOn)

@@ -20,6 +20,7 @@ namespace Etra.StarterAssets.Abilities.FirstPerson
         public crouchType CrouchType = crouchType.Hold;
         [Range(0.1f, 2)]
         [SerializeField] private float timeToCrouch = 0.25f;
+        [SerializeField] private bool allowJump = true;
 
         //Crouch and standing hitbox variables
         private float crouchHeight = 0.9f;

@@ -108,7 +108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8580568327532090352
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1851,7 +1851,7 @@ Transform:
   - {fileID: 3833952811792989706}
   m_Father: {fileID: 3833952811147800821}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0.3, z: 0}
 --- !u!20 &3833952810257056981
 Camera:
   m_ObjectHideFlags: 0
@@ -3448,6 +3448,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3833952810434245533}
   - component: {fileID: 3833952810434245535}
+  - component: {fileID: 2140279676}
   m_Layer: 0
   m_Name: EtraFPSUsableItemManagerPrefab
   m_TagString: Untagged
@@ -3485,8 +3486,30 @@ MonoBehaviour:
   playEquipAnims: 1
   playUnequipAnims: 1
   weaponInitHandledElsewhere: 0
-  usableItems: []
+  usableItems:
+  - script: {fileID: 2140279676}
+    prefab: {fileID: 7553328860832279285, guid: 2d021a297beb2334195d7ed34507300e, type: 3}
   activeItemPrefab: {fileID: 0}
+--- !u!114 &2140279676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3833952810434245532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340798d39a0897544992cf2c86f5f949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputsLocked: 0
+  toDelete: 0
+  equipSfxName: 
+  isEquipping: 0
+  isUnequipping: 0
+  lightIntensity: 1
+  lightRange: 20
+  lightColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &3833952810457384263
 GameObject:
   m_ObjectHideFlags: 0
@@ -7519,11 +7542,12 @@ MonoBehaviour:
   debugTransform: {fileID: 0}
   TopClamp: 70
   BottomClamp: -70
-  CameraAngleOverride: 0
+  YAngleOverride: 0
+  XAngleOverride: 0
   _cinemachineTargetYaw: 0
   _cinemachineTargetPitch: 0
-  lockLookX: 1
-  lockLookY: 1
+  lockLookX: 0
+  lockLookY: 0
   playerCameraRoot: {fileID: 3833952810969235320}
 --- !u!114 &3833952810877245613
 MonoBehaviour:
@@ -7587,7 +7611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityEnabled: 1
-  JumpHeight: 1.2
+  JumpHeight: 0.8
   JumpTimeout: 0.05
   jumpInput: 0
   jumpShakeEnabled: 1
@@ -8321,6 +8345,28 @@ MonoBehaviour:
     isMusic: 0
     loop: 0
     source: {fileID: 0}
+  - name: StartRecord
+    clip: {fileID: 8300000, guid: bd71ec1e9faba6e4f8a8e624c8e0ef10, type: 3}
+    volume: 0.7
+    basePitch: 1
+    spatialBlend: 0
+    randomizePitch: 1
+    randomPitchRange: {x: 0.95, y: 1.05}
+    isDialogue: 0
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: StopRecord
+    clip: {fileID: 8300000, guid: 69e79bb036208c740875b3255bc7c2ac, type: 3}
+    volume: 0.7
+    basePitch: 1
+    spatialBlend: 0
+    randomizePitch: 1
+    randomPitchRange: {x: 0.95, y: 1.05}
+    isDialogue: 0
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
   stopPlayingSounds: 0
 --- !u!1 &3833952810969235320
 GameObject:
@@ -8345,7 +8391,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3833952810969235320}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12113,7 +12159,7 @@ AudioSource:
   m_GameObject: {fileID: 3833952811338978193}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -818295901494562394, guid: 76551c8472bb2734bbef07c3a76c3579, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -12216,7 +12262,7 @@ MonoBehaviour:
   _dialogueTextTMP: {fileID: 3833952811882671569}
   _audioSource: {fileID: 3833952811338978199}
   _dialogueCanvasUi: {fileID: 3833952811880265875}
-  _textCharSpeed: 0.04
+  _textCharSpeed: 0
   _showTextOverTime: 0
 --- !u!114 &3833952811338978216
 MonoBehaviour:
@@ -16464,7 +16510,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This is the dialogue system!
+  m_text: 'THG here, back with another banger 3am Challenge!
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 980d0e864ad001947a8822bc67a67c30, type: 2}
   m_sharedMaterial: {fileID: 7162862059672822945, guid: 980d0e864ad001947a8822bc67a67c30, type: 2}

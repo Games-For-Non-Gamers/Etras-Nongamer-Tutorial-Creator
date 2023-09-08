@@ -404,15 +404,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0dd5fb6c074845d42a673bff89cdb761, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.219
+      value: 0.238
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0dd5fb6c074845d42a673bff89cdb761, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2589
+      value: -0.265
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0dd5fb6c074845d42a673bff89cdb761, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.25
+      value: 0.345
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0dd5fb6c074845d42a673bff89cdb761, type: 3}
       propertyPath: m_LocalRotation.w
@@ -445,6 +445,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0dd5fb6c074845d42a673bff89cdb761, type: 3}
       propertyPath: m_Name
       value: Flashlight
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0dd5fb6c074845d42a673bff89cdb761, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1298578820518797395, guid: 0dd5fb6c074845d42a673bff89cdb761, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2771276512244778213, guid: 0dd5fb6c074845d42a673bff89cdb761, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0dd5fb6c074845d42a673bff89cdb761, type: 3}
