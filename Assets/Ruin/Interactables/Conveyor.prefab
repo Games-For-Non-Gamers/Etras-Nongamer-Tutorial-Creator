@@ -2601,7 +2601,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textureScrollSpeedX: 0
-  textureScrollSpeedY: 0.3
+  textureScrollSpeedY: -0.025
 --- !u!1 &5538250125745376845
 GameObject:
   m_ObjectHideFlags: 0

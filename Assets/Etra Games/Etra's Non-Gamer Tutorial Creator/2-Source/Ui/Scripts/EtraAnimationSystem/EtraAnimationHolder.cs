@@ -93,7 +93,7 @@ namespace Etra.NonGamerTutorialCreator
                 //If rect transform
                 if (uiObject.GetComponent<RectTransform>())
                 {
-                    startPositions.Add(new ObjectStarterTransform(uiObject.GetComponent<RectTransform>().name, uiObject.GetComponent<RectTransform>().position, uiObject.GetComponent<RectTransform>().localScale));
+                    startPositions.Add(new ObjectStarterTransform(uiObject.GetComponent<RectTransform>().name, uiObject.GetComponent<RectTransform>().localPosition, uiObject.GetComponent<RectTransform>().localScale));
                 }
                 //If gameobject
                 else
@@ -277,12 +277,12 @@ namespace Etra.NonGamerTutorialCreator
                     case AnimationEvents.MoveAndScale:
                         if (isRectTransform)
                         {
-                            LeanTween.move(animEvent.rectTransform, animEvent.scaleAndMovePosition, animEvent.scaleAndMoveTime).setEaseInOutSine();
+                            LeanTween.moveLocal(animEvent.rectTransform.gameObject, animEvent.scaleAndMovePosition, animEvent.scaleAndMoveTime).setEaseInOutSine();
                             LeanTween.scale(animEvent.rectTransform, animEvent.scaleAndMoveScale, animEvent.scaleAndMoveTime).setEaseInOutSine();
                         }
                         else
                         {
-                            LeanTween.move(animEvent.tweenedObject, animEvent.scaleAndMovePosition, animEvent.scaleAndMoveTime).setEaseInOutSine();
+                            LeanTween.moveLocal(animEvent.tweenedObject, animEvent.scaleAndMovePosition, animEvent.scaleAndMoveTime).setEaseInOutSine();
                             LeanTween.scale(animEvent.tweenedObject, animEvent.scaleAndMoveScale, animEvent.scaleAndMoveTime).setEaseInOutSine();
                         }
                         break;
@@ -290,11 +290,11 @@ namespace Etra.NonGamerTutorialCreator
                     case AnimationEvents.Move:
                         if (isRectTransform)
                         {
-                            LeanTween.move(animEvent.rectTransform, animEvent.movePosition, animEvent.moveTime).setEaseInOutSine();
+                            LeanTween.moveLocal(animEvent.rectTransform.gameObject, animEvent.movePosition, animEvent.moveTime).setEaseInOutSine();
                         }
                         else
                         {
-                            LeanTween.move(animEvent.tweenedObject, animEvent.movePosition, animEvent.moveTime).setEaseInOutSine();
+                            LeanTween.moveLocal(animEvent.tweenedObject, animEvent.movePosition, animEvent.moveTime).setEaseInOutSine();
                         }
                         break;
 
@@ -328,7 +328,7 @@ namespace Etra.NonGamerTutorialCreator
                         }
 
 
-                        LeanTween.move(animEvent.tweenedObject, foundObjectTransform1.startPosition, 1).setEaseInOutSine();
+                        LeanTween.moveLocal(animEvent.tweenedObject, foundObjectTransform1.startPosition, 1).setEaseInOutSine();
                         LeanTween.scale(animEvent.tweenedObject, foundObjectTransform1.startScale, 1).setEaseInOutSine();
 
 
@@ -390,12 +390,12 @@ namespace Etra.NonGamerTutorialCreator
                     case AnimationEvents.InstantCenterAndZeroScaleObject:
                         if (isRectTransform)
                         {
-                            LeanTween.move(animEvent.rectTransform, Vector3.zero, 0).setEaseInOutSine();
+                            LeanTween.moveLocal(animEvent.rectTransform.gameObject, Vector3.zero, 0).setEaseInOutSine();
                             LeanTween.scale(animEvent.rectTransform, Vector3.zero, 0).setEaseInOutSine();
                         }
                         else
                         {
-                            LeanTween.move(animEvent.tweenedObject, Vector3.zero, 0).setEaseInOutSine();
+                            LeanTween.moveLocal(animEvent.tweenedObject, Vector3.zero, 0).setEaseInOutSine();
                             LeanTween.scale(animEvent.tweenedObject, Vector3.zero, 0).setEaseInOutSine();
                         }
 
@@ -445,7 +445,7 @@ namespace Etra.NonGamerTutorialCreator
                         break;
 
                     case AnimationEvents.MoveToGameObject:
-                            LeanTween.move(animEvent.tweenedObject, animEvent.moveToObjectGameobject.transform.position + animEvent.addedPosition, animEvent.moveToObjectTime).setEaseInOutSine();
+                            LeanTween.moveLocal(animEvent.tweenedObject, animEvent.moveToObjectGameobject.transform.position + animEvent.addedPosition, animEvent.moveToObjectTime).setEaseInOutSine();
 
                         break;
 
@@ -566,12 +566,12 @@ namespace Etra.NonGamerTutorialCreator
             if (obj.GetComponent<Image>().enabled == false)
             {
                 
-                LeanTween.move(rect, basicGrowPos, 0).setEaseInOutSine();
+                LeanTween.moveLocal(rect.gameObject, basicGrowPos, 0).setEaseInOutSine();
                 LeanTween.scale(rect, Vector3.zero, 0).setEaseInOutSine();
                 showOrHideUiObject(obj, true);
             }
 
-            LeanTween.move(rect, basicGrowPos, 1).setEaseInOutSine();
+            LeanTween.moveLocal(rect.gameObject, basicGrowPos, 1).setEaseInOutSine();
             LeanTween.scale(rect, basicGrowScale, 1).setEaseInOutSine();
             yield return new WaitForSeconds(basicGrowWait-2);
 
@@ -609,7 +609,7 @@ namespace Etra.NonGamerTutorialCreator
             }
 
 
-            LeanTween.move(obj, foundObjectTransform1.startPosition, 1).setEaseInOutSine();
+            LeanTween.moveLocal(obj, foundObjectTransform1.startPosition, 1).setEaseInOutSine();
             LeanTween.scale(obj, foundObjectTransform1.startScale, 1).setEaseInOutSine();
 
 

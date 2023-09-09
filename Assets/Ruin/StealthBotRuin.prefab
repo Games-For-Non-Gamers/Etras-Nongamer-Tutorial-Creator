@@ -1044,8 +1044,8 @@ MonoBehaviour:
   searchTime: 12
   viewDistance: 10
   viewAngle: 90
-  NoneFound: {fileID: 2100000, guid: 184a81e5143a9014fa3c0892820772d1, type: 2}
-  PlayerFound: {fileID: 2100000, guid: 9088022000801c74ea6c63a4a5d3d488, type: 2}
+  NoneFound: {fileID: 2100000, guid: 053a9d384cf8f394e9a87a8e686e482d, type: 2}
+  PlayerFound: {fileID: 2100000, guid: 51aa50341d394ef4199b06d893d1acc4, type: 2}
   jumpscare: 1
   postScare:
     m_PersistentCalls:

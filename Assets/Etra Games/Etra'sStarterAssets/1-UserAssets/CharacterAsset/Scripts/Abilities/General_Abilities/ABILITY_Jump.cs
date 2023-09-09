@@ -86,6 +86,7 @@ namespace Etra.StarterAssets.Abilities
         {
             jumpInput = _input.jump;
 
+
             // If ability is disabled do not take jump input
             if (!abilityEnabled)
             {
@@ -95,6 +96,15 @@ namespace Etra.StarterAssets.Abilities
 
             if (mainController.Grounded && mainController.gravityActive)
             {
+
+                if (!canJumpWhenCrouched && characterMovement.isCrouched)
+                {
+                    //Crouch jump lock event
+                    _input.jump = false;
+                    jumpInput = false;
+                    FailedCrouchJump.Invoke();
+                    return;
+                }
 
                 if (jumpInput && _jumpTimeoutDelta <= 0.0f)
                 {
@@ -155,14 +165,6 @@ namespace Etra.StarterAssets.Abilities
                 return;
             }
             lockJump = true;
-
-
-            if (!canJumpWhenCrouched && characterMovement.isCrouched)
-            {
-                //Crouch jump lock event
-                FailedCrouchJump.Invoke();
-                return;
-            }
 
 
             if (jumpShakeEnabled) { CinemachineShake.Instance.ShakeCamera(jumpingShake); }

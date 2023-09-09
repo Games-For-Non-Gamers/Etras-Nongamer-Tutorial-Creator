@@ -24,9 +24,11 @@ namespace Etra.NonGamerTutorialCreator
                 child.localScale = Vector3.one;
             }
 
+
+
             // Save the modified prefab
-            string prefabPath = PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(this.transform.parent.gameObject);
-            PrefabUtility.SaveAsPrefabAssetAndConnect(this.transform.parent.gameObject, prefabPath, InteractionMode.AutomatedAction);
+            //string prefabPath = PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(this.transform.parent.gameObject);
+            //PrefabUtility.SaveAsPrefabAssetAndConnect(this.transform.parent.gameObject, prefabPath, InteractionMode.AutomatedAction);
         }
 #endif
         private List<AbilityScriptAndNameHolder> abilityAndSubAbilities;

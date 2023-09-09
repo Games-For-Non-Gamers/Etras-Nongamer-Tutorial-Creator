@@ -54,7 +54,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1915496265}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1881,7 +1881,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3833952810252599705}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -2291,7 +2291,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3833952810313583464}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -3539,7 +3539,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3833952810434245533}
   - component: {fileID: 3833952810434245535}
-  - component: {fileID: 2140279676}
   m_Layer: 0
   m_Name: EtraFPSUsableItemManagerPrefab
   m_TagString: Untagged
@@ -3577,30 +3576,8 @@ MonoBehaviour:
   playEquipAnims: 1
   playUnequipAnims: 1
   weaponInitHandledElsewhere: 0
-  usableItems:
-  - script: {fileID: 2140279676}
-    prefab: {fileID: 7553328860832279285, guid: 2d021a297beb2334195d7ed34507300e, type: 3}
+  usableItems: []
   activeItemPrefab: {fileID: 0}
---- !u!114 &2140279676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3833952810434245532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 340798d39a0897544992cf2c86f5f949, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputsLocked: 0
-  toDelete: 0
-  equipSfxName: 
-  isEquipping: 0
-  isUnequipping: 0
-  lightIntensity: 1
-  lightRange: 20
-  lightColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &3833952810457384263
 GameObject:
   m_ObjectHideFlags: 0
@@ -7604,7 +7581,7 @@ MonoBehaviour:
   abilityEnabled: 1
   interactDistance: 2
   interactUiType: 1
-  hideUiInEditor: 0
+  hideUiInEditor: 1
 --- !u!114 &3833952810877245614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7617,7 +7594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7f441b8450b53d4c97f6152eacc7b04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityEnabled: 1
+  abilityEnabled: 0
   mouseSensitivity: 1
   joystickSensitivity: 1
   invertY: 0
@@ -7637,8 +7614,8 @@ MonoBehaviour:
   XAngleOverride: 0
   _cinemachineTargetYaw: 0
   _cinemachineTargetPitch: 0
-  lockLookX: 0
-  lockLookY: 0
+  lockLookX: 1
+  lockLookY: 1
   playerCameraRoot: {fileID: 3833952810969235320}
 --- !u!114 &3833952810877245613
 MonoBehaviour:
@@ -7652,7 +7629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b03eda00d7c61994d9b9d0c6b4280331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityEnabled: 1
+  abilityEnabled: 0
   moveSpeed: 1.6
   SpeedChangeRate: 10
   rotateTowardMoveDirection: 0
@@ -7660,10 +7637,10 @@ MonoBehaviour:
   preventMovement: 0
   rotateTowardMoveDirectionSpeed: 0.12
   isSprinting: 0
-  upUnlocked: 1
-  downUnlocked: 1
-  rightUnlocked: 1
-  leftUnlocked: 1
+  upUnlocked: 0
+  downUnlocked: 0
+  rightUnlocked: 0
+  leftUnlocked: 0
   passedMovementInput: {x: 0, y: 0}
   _hasAnimator: 0
   sprintSpeed: 4.8
@@ -7701,11 +7678,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c06f98a3d9f019438147034bec82dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityEnabled: 1
+  abilityEnabled: 0
   JumpHeight: 1
   JumpTimeout: 0.05
   jumpInput: 0
-  canJumpWhenCrouched: 1
+  canJumpWhenCrouched: 0
   jumpShakeEnabled: 1
   jumpingShake: {x: 1, y: 0.1}
   _hasAnimator: 0
@@ -7742,7 +7719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 691241e4558efb945b7e510a197a131c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityEnabled: 1
+  abilityEnabled: 0
   sprintType: 0
   sprintSpeed: 4.8
   usingStamina: 1
@@ -7750,7 +7727,7 @@ MonoBehaviour:
   recoveryDelay: 1
   secondsToRecover: 3
   staminaUiType: 1
-  hideUiInEditor: 0
+  hideUiInEditor: 1
   OutOfStamina:
     m_PersistentCalls:
       m_Calls: []
@@ -7773,7 +7750,6 @@ MonoBehaviour:
   crouchedMovementSpeed: 1
   CrouchType: 0
   timeToCrouch: 0.25
-  allowJump: 1
 --- !u!1 &3833952810878502383
 GameObject:
   m_ObjectHideFlags: 0
@@ -9055,7 +9031,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3833952810991196150}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -10432,7 +10408,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3833952811112373453}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -11069,7 +11045,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3833952811207696002}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -11836,7 +11812,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3833952811282733722}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -12929,7 +12905,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3833952811379255017}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -13008,7 +12984,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3833952811415818429}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -13620,7 +13596,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3833952811508766390}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -15709,7 +15685,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3833952811797644680}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -16738,7 +16714,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3833952811883177823}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -17110,7 +17086,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3833952811898810488}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 

@@ -5,6 +5,7 @@ public class RuinInteractUiUpdater : MonoBehaviour
 {
     public GameObject controllerUi;
     [SerializeField] public Image leftFaceUi;
+    [SerializeField] public Image eKey;
 
     Image self;
 
@@ -18,8 +19,15 @@ public class RuinInteractUiUpdater : MonoBehaviour
     {
         if (controllerUi.gameObject.activeInHierarchy)
         {
-            self.enabled = true;
-            self.sprite = leftFaceUi.sprite;
+            if (eKey.enabled)
+            {
+                self.enabled = true;
+                self.sprite = leftFaceUi.sprite;
+            }
+            else
+            {
+                self.enabled = false;
+            }
         }
         else
         {
