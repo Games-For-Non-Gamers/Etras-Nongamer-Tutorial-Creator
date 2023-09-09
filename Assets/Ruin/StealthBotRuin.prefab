@@ -1035,8 +1035,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84f6ad78b43cc3d41869ffd7ba5e0ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {x: 0, y: 0, z: 0}
-  followTarget: {fileID: 0}
+  currentTarget: {fileID: 0}
+  followTargets: []
+  targetNum: 0
   walkSpeed: 1
   chaseSpeed: 2.5
   spotted: 0
@@ -1047,7 +1048,11 @@ MonoBehaviour:
   NoneFound: {fileID: 2100000, guid: 053a9d384cf8f394e9a87a8e686e482d, type: 2}
   PlayerFound: {fileID: 2100000, guid: 51aa50341d394ef4199b06d893d1acc4, type: 2}
   jumpscare: 1
-  postScare:
+  respawnAfterJumpscare: 1
+  playerSpotted:
+    m_PersistentCalls:
+      m_Calls: []
+  playerCaught:
     m_PersistentCalls:
       m_Calls: []
 --- !u!95 &5632620335336115396
@@ -2860,8 +2865,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6061619702778494046}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1

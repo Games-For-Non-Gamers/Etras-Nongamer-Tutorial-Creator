@@ -21,10 +21,13 @@ namespace Etra.StarterAssets.Interactables
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     */
 
-    public Vector3 destination;
-    Transform playerCamRoot; 
-    public Transform followTarget;
+
+    Transform playerCamRoot;
+    public GameObject currentTarget;
+    public GameObject[] followTargets;
+    public int targetNum = 0;
     NavMeshAgent agent;
+
     public float walkSpeed = 1f;
     public float chaseSpeed = 2.5f;
     public bool spotted;
@@ -35,97 +38,122 @@ namespace Etra.StarterAssets.Interactables
     public Material NoneFound;
     public Material PlayerFound;
     public bool jumpscare = true;
-        bool inJumpscare = false;
+    public static bool enemyInJumpscare = false;
+    public bool respawnAfterJumpscare = true;
     private Animator animator;
+    private Transform startTransform;
     GameObject enemyEye;
-        EtraCharacterMainController etraCharacterMainController;
-        public UnityEvent postScare;
-        Vector3 startPos;
-        AudioManager audioManager;
+    EtraCharacterMainController etraCharacterMainController;
+    Vector3 startPos;
+    AudioManager audioManager;
 
-    private void Start()
-    {
+    //Unity Events
+    [HideInInspector] public UnityEvent playerSpotted; // Play music
+    [HideInInspector] public UnityEvent playerCaught;
+
+
+        private void Start()
+        {
+
             startPos = this.transform.localPosition;
             enemyEye = transform.Find("TiltRoot").Find("Base").Find("BaseTop").Find("Center").Find("Body").Find("NeckRoatator").Find("Neck").Find("Head").Find("Eye").gameObject;
-              etraCharacterMainController = EtraCharacterMainController.Instance;
+            etraCharacterMainController = EtraCharacterMainController.Instance;
             agent = this.GetComponent<NavMeshAgent>();
             animator = this.GetComponent<Animator>();
             playerCamRoot = GameObject.Find("EtraPlayerCameraRoot").transform;
             agent.enabled = true;
             audioManager = GetComponent<AudioManager>();
-
+            startTransform = this.transform;
+            nextLocation();
         }
 
         void Update()
         {
-        if (inJumpscare)
-        {
-            return;
-        }
-
-        if(this.transform.hasChanged)
-        {
-            animator.SetBool("Moving", true);
-            if (!audioManager.IsPlaying("Move"))
+            if (enemyInJumpscare)
             {
-                audioManager.Play("Move");
+                return;
             }
 
-        }
-        else
-        {
-            animator.SetBool("Moving", false);
-            if (audioManager.IsPlaying("Move"))
-            {
-                audioManager.Stop("Move");
-            }
-        }
+            agent.destination = currentTarget.transform.position;
 
-      findThePlayer();
-      if (searchStarted)
-      {
-        // Set eye material to player found material, and set flashlight to material color
-        enemyEye.GetComponent<MeshRenderer>().material = PlayerFound;
-        enemyEye.transform.Find("Spot Light").GetComponent<Light>().color = Color.red;
-        destination = playerCamRoot.position;
-            if (!audioManager.IsPlaying("Alarm") && Time.timeScale != 0)
+            if (this.transform.hasChanged)
             {
-                    agent.speed = chaseSpeed;
-                    audioManager.Play("Spotted");
-                    audioManager.Play("Alarm");
-            }
-      }
-      else
-      {
-        // Set eye material to none found material, and set flashlight to material color
-        enemyEye.GetComponent<MeshRenderer>().material = NoneFound;
-        enemyEye.transform.Find("Spot Light").GetComponent<Light>().color = Color.white;
-        destination = followTarget.position;
-                if (audioManager.IsPlaying("Alarm"))
+                animator.SetBool("Moving", true);
+                if (!audioManager.IsPlaying("Move"))
                 {
-                    agent.speed = walkSpeed;
-                    audioManager.Stop("Alarm");
+                    audioManager.Play("Move");
+                }
+
+            }
+            else
+            {
+                animator.SetBool("Moving", false);
+                if (audioManager.IsPlaying("Move"))
+                {
+                    audioManager.Stop("Move");
                 }
             }
-      agent.destination = destination;
 
-      if (Vector3.Distance(transform.position, playerCamRoot.position) < 1.65f && !inJumpscare)
-      {
-        if (jumpscare)
-        {
-                inJumpscare = true;
-                StopAllCoroutines();
-                StartCoroutine(jumpScare());
+              findThePlayer();
+              if (searchStarted)
+              {
+                // Set eye material to player found material, and set flashlight to material color
+                enemyEye.GetComponent<MeshRenderer>().material = PlayerFound;
+                enemyEye.transform.Find("Spot Light").GetComponent<Light>().color = Color.red;
+                    if (!audioManager.IsPlaying("Alarm") && Time.timeScale != 0)
+                    {
+                            currentTarget = playerCamRoot.gameObject;
+                            agent.speed = chaseSpeed;
+                            audioManager.Play("Spotted");
+                            audioManager.Play("Alarm");
+                    }
+              }
+              else
+              {
+                    // Set eye material to none found material, and set flashlight to material color
+                    enemyEye.GetComponent<MeshRenderer>().material = NoneFound;
+                    enemyEye.transform.Find("Spot Light").GetComponent<Light>().color = Color.white;
+
+                    if (audioManager.IsPlaying("Alarm"))
+                    {
+                        nextLocation();
+                        agent.speed = walkSpeed;
+                        audioManager.Stop("Alarm");
+                    }
+              }
+              
+
+            if (Vector3.Distance(transform.position, playerCamRoot.position) < 1.65f && !enemyInJumpscare)
+            {
+                if (jumpscare)
+                {
+                        enemyInJumpscare = true;
+                        StopAllCoroutines();
+                        StartCoroutine(jumpScare());
+                }
+                else
+                {
+                            respawnPlayer();
+                }
+
+            }
+
+            if (Vector3.Distance(transform.position, currentTarget.transform.position) < 1 && !enemyInJumpscare)
+            {
+                nextLocation();
+            }
+
         }
-        else
+
+
+
+        void nextLocation()
         {
-                    respawnPlayer();
+            currentTarget = followTargets[targetNum++ % followTargets.Length];
         }
 
-      }
-    }
 
-    IEnumerator jumpScare()
+        IEnumerator jumpScare()
     {
             etraCharacterMainController.disableAllActiveAbilities();
             animator.SetBool("Moving", false);
@@ -138,21 +166,37 @@ namespace Etra.StarterAssets.Interactables
             this.transform.parent = playerCamRoot;
             this.transform.localPosition = new Vector3( 0, -1.24f, 1.25f);
             LeanTween.rotateLocal(this.gameObject, new Vector3(7, 180, 0 ),0 );
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.95f);
+            etraCharacterMainController.enableAllActiveAbilities();
+            yield return new WaitForSeconds(0.05f);
             audioManager.Stop("Alarm");
             this.transform.parent = savedParent;
             this.transform.localPosition = startPos;
             LeanTween.rotateLocal(this.gameObject, new Vector3(0, 180, 0), 0);
             agent.enabled = true;
-            etraCharacterMainController.enableAllActiveAbilities();
             respawnPlayer();
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(2f);
             animator.SetBool("Jumpscare", false);
             animator.SetBool("Moving", true);
-            inJumpscare = false;
-            postScare.Invoke();
+            enemyInJumpscare = false;
+            if (respawnAfterJumpscare)
+            {
+                respawn();
+            }
+            else{
+                nextLocation();
+            }
+            playerCaught.Invoke(); 
+            yield return new WaitForSeconds(3f);
+            etraCharacterMainController.enableAllActiveAbilities();
         }
 
+        public void respawn()
+        {
+            this.transform.position = startTransform.position;
+            this.transform.rotation = startTransform.rotation;
+            nextLocation();
+        }
         void respawnPlayer()
         {
         // "Kill" player, respawn at last checkpoint.
