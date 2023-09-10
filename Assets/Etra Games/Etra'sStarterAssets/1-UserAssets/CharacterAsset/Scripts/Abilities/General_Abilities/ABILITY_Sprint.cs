@@ -363,6 +363,7 @@ namespace Etra.StarterAssets.Abilities
             {
                 sprintUiVisibility(true, true);
             }
+            GetComponent<ABILITY_CharacterMovement>().sprintSpeed = this.sprintSpeed;
             base.unlockAbility(abilityName);
         }
 

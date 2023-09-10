@@ -435,6 +435,8 @@ namespace Etra.StarterAssets
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         //MAIN FUNCTIONS
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
         private void Awake()
         {
             //Set up Instance so it can be easily referenced. 
@@ -661,6 +663,12 @@ namespace Etra.StarterAssets
                 ability.abilityCheckSubAbilityUnlocks();
             }
 
+        }
+
+
+        public void setGravity(bool state)
+        {
+            gravityActive = state;
         }
 
         public EtraCameraSettings getCameraSettings()
