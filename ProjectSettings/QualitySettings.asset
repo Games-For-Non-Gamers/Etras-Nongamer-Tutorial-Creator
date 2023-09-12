@@ -223,6 +223,7 @@ QualitySettings:
     customRenderPipeline: {fileID: 0}
     excludedTargetPlatforms: []
   m_PerPlatformDefaultQuality:
+    Server: 0
     Standalone: 5
     WebGL: 0
     Windows Store Apps: 3
