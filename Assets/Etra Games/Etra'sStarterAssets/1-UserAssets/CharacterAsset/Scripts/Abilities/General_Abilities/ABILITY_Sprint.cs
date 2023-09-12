@@ -162,6 +162,7 @@ namespace Etra.StarterAssets.Abilities
                             {
                                 movementAbility.isSprinting = false;
                                 completelyOutOfStamina = true;
+                                OutOfStamina.Invoke();
                             }
                         }
                         else

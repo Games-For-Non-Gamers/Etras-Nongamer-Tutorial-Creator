@@ -303,29 +303,36 @@ namespace Etra.StarterAssets
         {
             if (currentPopup.GetComponent<EtraPopup>() && savedEntry != null)
             {
-                if (savedEntry.popupText != "" )
+                if (currentPopup.GetComponent<EtraPopup>().popupText != null)
                 {
-                    currentPopup.GetComponent<EtraPopup>().popupText.text = savedEntry.popupText;
+                    if (savedEntry.popupText != "")
+                    {
+                        currentPopup.GetComponent<EtraPopup>().popupText.text = savedEntry.popupText;
+                    }
+
+                    if (savedEntry.popupTextSize != 0)
+                    {
+                        currentPopup.GetComponent<EtraPopup>().popupText.fontSize = savedEntry.popupTextSize;
+                    }
                 }
 
-                if (savedEntry.popupTextSize != 0)
+
+                if (currentPopup.GetComponent<EtraPopup>().continueText != null)
                 {
-                    currentPopup.GetComponent<EtraPopup>().popupText.fontSize = savedEntry.popupTextSize;
+                    if (savedEntry.advanceType == GameFreezeEntry.AdvanceType.WaitForInput)
+                    {
+                        UpdatePopupControllerText(savedEntry.inputsNeededToAdvance);
+                    }
+                    else if (savedEntry.advanceType == GameFreezeEntry.AdvanceType.Time)
+                    {
+                        currentPopup.GetComponent<EtraPopup>().continueText.text = "Will continue in " + savedEntry.timeToWait + " seconds...";
+                    }
+                    else
+                    {
+                        currentPopup.GetComponent<EtraPopup>().continueText.text = "";
+                    }
                 }
 
-
-                if (savedEntry.advanceType == GameFreezeEntry.AdvanceType.WaitForInput)
-                {
-                    UpdatePopupControllerText(savedEntry.inputsNeededToAdvance);
-                }
-                else if (savedEntry.advanceType == GameFreezeEntry.AdvanceType.Time)
-                {
-                    currentPopup.GetComponent<EtraPopup>().continueText.text = "Will continue in " + savedEntry.timeToWait + " seconds...";
-                }
-                else
-                {
-                    currentPopup.GetComponent<EtraPopup>().continueText.text = "";
-                }
             }
         }
 

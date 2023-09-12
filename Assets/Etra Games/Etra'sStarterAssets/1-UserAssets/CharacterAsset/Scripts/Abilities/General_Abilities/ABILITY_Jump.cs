@@ -21,6 +21,7 @@ namespace Etra.StarterAssets.Abilities
         private float _jumpTimeoutDelta;
         public bool jumpInput;
         public bool canJumpWhenCrouched = true;
+        public bool cancelSoundWhenFailedJump = false;
         [Header("Cam Shake")]
         public bool jumpShakeEnabled = true;
         //The variables here are (intensity, time)
@@ -97,11 +98,16 @@ namespace Etra.StarterAssets.Abilities
             if (mainController.Grounded && mainController.gravityActive)
             {
 
-                if (!canJumpWhenCrouched && characterMovement.isCrouched)
+                if (!canJumpWhenCrouched && characterMovement.isCrouched && jumpInput && _input.jump)
                 {
                     //Crouch jump lock event
                     _input.jump = false;
                     jumpInput = false;
+                    if (cancelSoundWhenFailedJump)
+                    {
+                        abilitySoundManager.Play("Cancel");
+                    }
+
                     FailedCrouchJump.Invoke();
                     return;
                 }
