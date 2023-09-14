@@ -2785,7 +2785,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1077608553}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 671859999}
+        m_TargetAssemblyTypeName: EtrasStarterAssets.AudioManager, Etra.StarterAssets
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: UiClick
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 817013960}
+        m_TargetAssemblyTypeName: Etra.StarterAssets.ToScene, Etra.StarterAssets
+        m_MethodName: GoToScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: RuinCredits
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1077608553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3573,7 +3597,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.000030518, y: -0.011047}
-  m_SizeDelta: {x: 1920, y: 1079.6}
+  m_SizeDelta: {x: 1930, y: 1090}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1587848934
 MonoBehaviour:

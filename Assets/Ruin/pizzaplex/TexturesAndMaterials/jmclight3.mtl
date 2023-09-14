@@ -1,0 +1,30 @@
+
+newmtl minecraft_block-grass_block_top
+Kd 0.3640 0.5742 0.2261
+Ks 0.0000 0.0000 0.0000
+map_Kd tex/minecraft/block/grass_block_top.png
+
+newmtl minecraft_block-yellow_lamp
+Kd 0.5520 0.4976 0.3599
+Ks 0.0000 0.0000 0.0000
+map_Kd tex/minecraft/block/yellow_lamp.png
+
+newmtl minecraft_block-red_concrete
+Kd 0.5584 0.1287 0.1287
+Ks 0.0000 0.0000 0.0000
+map_Kd tex/minecraft/block/red_concrete.png
+
+newmtl minecraft_block-bedrock
+Kd 0.3338 0.3338 0.3338
+Ks 0.0000 0.0000 0.0000
+map_Kd tex/minecraft/block/bedrock.png
+
+newmtl minecraft_block-dirt
+Kd 0.5265 0.3776 0.2627
+Ks 0.0000 0.0000 0.0000
+map_Kd tex/minecraft/block/dirt.png
+
+newmtl minecraft_block-grass_block_side
+Kd 0.4972 0.4201 0.2572
+Ks 0.0000 0.0000 0.0000
+map_Kd tex/minecraft/block/grass_block_side.png

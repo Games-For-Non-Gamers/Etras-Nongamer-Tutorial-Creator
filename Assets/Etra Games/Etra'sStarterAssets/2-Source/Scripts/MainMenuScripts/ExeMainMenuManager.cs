@@ -24,6 +24,8 @@ namespace Etra.StarterAssets
                 audioManager.Play("Music");
             }
 
+            Cursor.lockState = CursorLockMode.None;
+
         }
 
 
