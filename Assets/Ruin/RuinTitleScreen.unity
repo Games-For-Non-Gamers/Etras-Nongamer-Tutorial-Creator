@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.40474898, g: 0.5893636, b: 0.9445024, a: 1}
+  m_IndirectSpecularColor: {r: 0.66873544, g: 0.7914061, b: 0.97519726, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3668,7 +3668,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1678180956
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3724,7 +3724,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<--DOWNLOAD BETTER \n     DESKTOP VERSIONS \n     BELOW \n     \u2193\u2193\u2193\u2193\u2193"
+  m_text: "<--DOWNLOAD BETTER \n     DESKTOP VERSION \n     BELOW \n     \u2193\u2193\u2193\u2193\u2193"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab03246b6ff2fdf4e8192e35439e29fe, type: 2}
   m_sharedMaterial: {fileID: 7162862059672822945, guid: ab03246b6ff2fdf4e8192e35439e29fe, type: 2}
