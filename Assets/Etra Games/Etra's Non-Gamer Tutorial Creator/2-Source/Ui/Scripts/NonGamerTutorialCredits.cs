@@ -17,7 +17,11 @@ namespace Etra.NonGamerTutorialCreator.Level
         {
             StartCoroutine(LerpPosition(howLongToScroll));
             audioManager = GetComponent<AudioManager>();
-            audioManager.Play("Music");
+            if (audioManager != null)
+            {
+                audioManager.Play("Music");
+            }
+
             Cursor.lockState = CursorLockMode.None;
         }
 
@@ -37,7 +41,7 @@ namespace Etra.NonGamerTutorialCreator.Level
 
                 )
             {
-                fastSpeedMultiplier = 3;
+                fastSpeedMultiplier = 1;
             }
             else
             {

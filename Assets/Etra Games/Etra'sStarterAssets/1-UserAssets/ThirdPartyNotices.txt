@@ -116,7 +116,7 @@ Brsjak
 
 qubodup
     https://freesound.org/people/qubodup/sounds/60013/
-    "whoosh" by qubodup is licensed under CC BY 4.0
+    "whoosh" by qubodup is licensed under CC 0
     This sound is used for the screenWipe sound.
 
 infi1234
@@ -160,8 +160,8 @@ wesleyextreme_gamer
     This sound is used for the gunShot and modified for blasterShot2 sounds.
 
 Mrthenoronha
-    https://freesound.org/people/Mrthenoronha/sounds/376351/
-    "Single nerf shot.wav" by Mrthenoronha is licensed under CC 4.0
+    https://freesound.org/people/Mrthenoronha/sounds/372589/
+    "Nerf Shots.wav" by Mrthenoronha is licensed under CC 0
     This sound is used for the blasterShot and modified for blasterShot2 sounds.
 
 Merrick079

@@ -59,7 +59,7 @@ HastyPixels
 ~~THIRD PARTY AUDIO:~~
 harrietniamh
     https://freesound.org/people/harrietniamh/sounds/219673/
-    "long wispy woosh2.wav" by newagesoup is licensed under CC BY 3.0
+    "long wispy woosh2.wav" by newagesoup is licensed under CC BY 4.0
     This sound was modified to extract the uiElementMove sound.
 
 Vertex Studio
