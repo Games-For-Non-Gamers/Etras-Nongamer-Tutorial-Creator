@@ -25,11 +25,13 @@ namespace Etra.StarterAssets.Items
         //Private Variables
         private float _swordTimeoutDelta = 0;
         private bool cooling;
+        private string hitAnim;
+        private string missAnim;
 
         //References
         StarterAssetsInputs starterAssetsInputs;
         EtraFPSUsableItemManager etraFPSUsableItemManager;
-        Animator swordAnimator;
+        Animator mineAnimator;
         ABILITY_CameraMovement camMoveScript;
         AudioManager fpsItemAudioManager;
 
@@ -48,15 +50,30 @@ namespace Etra.StarterAssets.Items
         {
             starterAssetsInputs = GetComponentInParent<StarterAssetsInputs>();
             etraFPSUsableItemManager = GetComponent<EtraFPSUsableItemManager>();
+            etraFPSUsableItemManager = GetComponent<EtraFPSUsableItemManager>();
+            Transform referenceToMineTransform = etraFPSUsableItemManager.activeItemPrefab.transform;
+            mineAnimator = referenceToMineTransform.GetComponentInChildren<Animator>();
+
             camMoveScript = GameObject.Find("EtraAbilityManager").GetComponent<ABILITY_CameraMovement>();
+
+            if (isHand)
+            {
+                hitAnim = "ArmHit";
+                missAnim = "ArmMiss";
+            }
+            else
+            {
+                hitAnim = "BlockHit";
+                missAnim = "BlockMiss";
+            }
         }
 
         private void Reset()
         {
-            equipSfxName = "SwordEquip";
+            equipSfxName = "";
         }
 
-        public void Update()
+        public void LateUpdate()
         {
             if (inputsLocked)
             {
@@ -64,35 +81,19 @@ namespace Etra.StarterAssets.Items
                 return;
             }
 
-            if (_swordTimeoutDelta > 0.0f)
-            {
-                _swordTimeoutDelta -= Time.deltaTime;
-            }
-            else if (_swordTimeoutDelta < 0.0f && cooling)
-            {
-                cooling = false;
-                starterAssetsInputs.shoot = false;
-            }
-
-            if (cooling)
-            {
-                return;
-            }
-
             if (starterAssetsInputs.shoot)
             {
-                swordAnimator.SetTrigger("Swing");
-                fpsItemAudioManager.Play("SwordSwing");
-                _swordTimeoutDelta = swordCooldown;
-                cooling = true;
-
-                if (camMoveScript.objectHit)
-                {
-                }
-
+                mineAnimator.SetBool(hitAnim, true);
 
             }
+            else
+            {
+                mineAnimator.SetBool(hitAnim, false);
+            }
+
         }
+
+
 
     }
 }
