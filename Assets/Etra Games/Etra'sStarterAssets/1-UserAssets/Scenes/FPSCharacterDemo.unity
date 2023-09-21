@@ -5347,15 +5347,12 @@ MonoBehaviour:
   isUnequipping: 0
   nameOfPrefabToLoadFromAssets: FpsMineHandGroup
   isHand: 0
-  blockToLoad: {fileID: 8297567326084149092, guid: 055219d4f8dae54409912a6f15e3558a, type: 3}
-  blockOutline: {fileID: 5602639516089652961, guid: e257348d8272b1b429f2f44b55f54d12, type: 3}
-  blockParticle: {fileID: 8520089802386771490, guid: 146875649aecfc44eaa4a61639002c82, type: 3}
+  blockToLoad: {fileID: 5736622223613628490, guid: 055219d4f8dae54409912a6f15e3558a, type: 3}
   interactDistance: 5
   swordCooldown: 1
   swordDamage: 3
   hitCamShake: {x: 1, y: 0.1}
   blocksParent: {fileID: 1982665162}
-  test: 0
 --- !u!1001 &212221047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22952,7 +22949,7 @@ PrefabInstance:
       objectReference: {fileID: 1535734098}
     - target: {fileID: 3894844976976936251, guid: 055219d4f8dae54409912a6f15e3558a, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3894844976976936251, guid: 055219d4f8dae54409912a6f15e3558a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22993,6 +22990,22 @@ PrefabInstance:
     - target: {fileID: 3894844976976936251, guid: 055219d4f8dae54409912a6f15e3558a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960507354248006384, guid: 055219d4f8dae54409912a6f15e3558a, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960507354248006384, guid: 055219d4f8dae54409912a6f15e3558a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 98
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960507354248006384, guid: 055219d4f8dae54409912a6f15e3558a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960507354248006384, guid: 055219d4f8dae54409912a6f15e3558a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8297567326084149092, guid: 055219d4f8dae54409912a6f15e3558a, type: 3}
       propertyPath: m_Name

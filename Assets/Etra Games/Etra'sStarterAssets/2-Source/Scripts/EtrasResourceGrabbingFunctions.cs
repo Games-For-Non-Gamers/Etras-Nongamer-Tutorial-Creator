@@ -229,6 +229,26 @@ namespace Etra.StarterAssets.Source
         }
 
 
+        public static GameObject FindObjectByNameRecursive(GameObject parent, string name)
+        {
+            if (parent.name == name)
+            {
+                return parent.gameObject;
+            }
+
+            foreach (Transform child in parent.transform)
+            {
+                GameObject result = FindObjectByNameRecursive(child.gameObject, name);
+                if (result != null)
+                {
+                    return result;
+                }
+            }
+
+            return null;
+        }
+
+
     }
 
     //Get grandchildren extensions
@@ -259,6 +279,8 @@ namespace Etra.StarterAssets.Source
 
 
     }
+
+
 
 
 }

@@ -53,6 +53,7 @@ MonoBehaviour:
     spatialBlend: 1
     randomizePitch: 1
     randomPitchRange: {x: 0.95, y: 1.05}
+    isDialogue: 0
     isMusic: 0
     loop: 0
     source: {fileID: 0}
@@ -110,6 +111,7 @@ MonoBehaviour:
     spatialBlend: 0
     randomizePitch: 1
     randomPitchRange: {x: 0.95, y: 1.05}
+    isDialogue: 0
     isMusic: 0
     loop: 0
     source: {fileID: 0}
@@ -120,6 +122,7 @@ MonoBehaviour:
     spatialBlend: 0
     randomizePitch: 1
     randomPitchRange: {x: 0.95, y: 1.05}
+    isDialogue: 0
     isMusic: 0
     loop: 0
     source: {fileID: 0}
@@ -130,6 +133,7 @@ MonoBehaviour:
     spatialBlend: 0
     randomizePitch: 1
     randomPitchRange: {x: 0.95, y: 1.05}
+    isDialogue: 0
     isMusic: 0
     loop: 0
     source: {fileID: 0}
@@ -140,6 +144,7 @@ MonoBehaviour:
     spatialBlend: 0
     randomizePitch: 1
     randomPitchRange: {x: 0.95, y: 1.05}
+    isDialogue: 0
     isMusic: 0
     loop: 0
     source: {fileID: 0}
@@ -197,6 +202,7 @@ MonoBehaviour:
     spatialBlend: 0
     randomizePitch: 1
     randomPitchRange: {x: 0.95, y: 1.05}
+    isDialogue: 0
     isMusic: 0
     loop: 0
     source: {fileID: 0}
@@ -207,6 +213,7 @@ MonoBehaviour:
     spatialBlend: 0
     randomizePitch: 1
     randomPitchRange: {x: 0.95, y: 1.05}
+    isDialogue: 0
     isMusic: 0
     loop: 0
     source: {fileID: 0}
@@ -217,6 +224,7 @@ MonoBehaviour:
     spatialBlend: 0
     randomizePitch: 1
     randomPitchRange: {x: 0.95, y: 1.05}
+    isDialogue: 0
     isMusic: 0
     loop: 0
     source: {fileID: 0}
@@ -227,6 +235,7 @@ MonoBehaviour:
     spatialBlend: 0
     randomizePitch: 0
     randomPitchRange: {x: 0.95, y: 1.05}
+    isDialogue: 0
     isMusic: 0
     loop: 0
     source: {fileID: 0}
@@ -284,6 +293,7 @@ MonoBehaviour:
     spatialBlend: 0
     randomizePitch: 0
     randomPitchRange: {x: 0.95, y: 1.05}
+    isDialogue: 0
     isMusic: 0
     loop: 0
     source: {fileID: 0}
@@ -294,6 +304,7 @@ MonoBehaviour:
     spatialBlend: 0
     randomizePitch: 0
     randomPitchRange: {x: 0.95, y: 1.05}
+    isDialogue: 0
     isMusic: 0
     loop: 0
     source: {fileID: 0}
@@ -304,6 +315,7 @@ MonoBehaviour:
     spatialBlend: 0
     randomizePitch: 0
     randomPitchRange: {x: 0.95, y: 1.05}
+    isDialogue: 0
     isMusic: 0
     loop: 0
     source: {fileID: 0}
@@ -314,6 +326,7 @@ MonoBehaviour:
     spatialBlend: 0
     randomizePitch: 0
     randomPitchRange: {x: 0.95, y: 1.05}
+    isDialogue: 0
     isMusic: 0
     loop: 0
     source: {fileID: 0}
@@ -324,6 +337,7 @@ MonoBehaviour:
     spatialBlend: 0
     randomizePitch: 1
     randomPitchRange: {x: 0.95, y: 1.05}
+    isDialogue: 0
     isMusic: 0
     loop: 0
     source: {fileID: 0}
@@ -334,6 +348,7 @@ MonoBehaviour:
     spatialBlend: 0
     randomizePitch: 0
     randomPitchRange: {x: 0.95, y: 1.05}
+    isDialogue: 0
     isMusic: 0
     loop: 0
     source: {fileID: 0}
@@ -344,6 +359,7 @@ MonoBehaviour:
     spatialBlend: 0
     randomizePitch: 1
     randomPitchRange: {x: 0.95, y: 1.05}
+    isDialogue: 0
     isMusic: 0
     loop: 0
     source: {fileID: 0}
@@ -354,6 +370,7 @@ MonoBehaviour:
     spatialBlend: 0
     randomizePitch: 1
     randomPitchRange: {x: 0.95, y: 1.05}
+    isDialogue: 0
     isMusic: 0
     loop: 0
     source: {fileID: 0}
@@ -364,6 +381,7 @@ MonoBehaviour:
     spatialBlend: 0
     randomizePitch: 1
     randomPitchRange: {x: 0.95, y: 1.05}
+    isDialogue: 0
     isMusic: 0
     loop: 0
     source: {fileID: 0}
