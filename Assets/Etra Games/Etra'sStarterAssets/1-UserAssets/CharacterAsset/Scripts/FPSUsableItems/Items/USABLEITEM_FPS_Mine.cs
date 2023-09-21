@@ -1,4 +1,5 @@
 using Codice.CM.Client.Differences;
+using Codice.CM.Common;
 using Etra.StarterAssets.Abilities;
 using Etra.StarterAssets.Input;
 using Etra.StarterAssets.Interactables.Enemies;
@@ -20,11 +21,13 @@ namespace Etra.StarterAssets.Items
         [Header("Basics")]
         public bool isHand = false;
         public GameObject blockToLoad;
-        public float interactDistance = 5;
+        public float blockInteractDistance = 5;
+        public float damageDistance = 2;
+        public float hitDamage = 1;
         public float swordCooldown = 1f;
         public int swordDamage = 3;
         public Vector2 hitCamShake = new Vector2(1f, 0.1f);
-        public Transform blocksParent;
+        public GameObject mineBlockSystem;
 
         //Private Variables
         private float _swordTimeoutDelta = 0;
@@ -34,12 +37,10 @@ namespace Etra.StarterAssets.Items
 
         [Header("Prefab refs")]
         private GameObject scalerAndAnimMover;
-        private GameObject hand;
 
         //References
         EtraCharacterMainController mainController;
         StarterAssetsInputs starterAssetsInputs;
-        EtraFPSUsableItemManager etraFPSUsableItemManager;
         Animator mineAnimator;
         ABILITY_CameraMovement camMoveScript;
         AudioManager fpsItemAudioManager;
@@ -58,28 +59,30 @@ namespace Etra.StarterAssets.Items
         private void Awake()
         {
             enabled = false;
+            if (MineBlockSystem.Instance == null)
+            {
+                mineBlockSystem = (GameObject)Resources.Load("MineBlockSystem");
+                mineBlockSystem = Instantiate(mineBlockSystem, Vector3.zero, Quaternion.identity);
+                mineBlockSystem.name = "MineBlockSystem";
+            }     
         }
-        MeshRenderer [] outlineMeshComponents;
-        const int AMOUNT_OF_PARTICLES = 7;
-        GameObject[] blockParticles = new GameObject[AMOUNT_OF_PARTICLES];
-        int currentParticle;
 
+
+        GameObject heldItem;
         private void Start()
         {
-            blockOutline = (GameObject)Resources.Load("BlockOutline");
-            blockDestroyParticle = (GameObject)Resources.Load("BlockDestroyParticle");
-
-            blockOutline = Instantiate(blockOutline, Vector3.zero, Quaternion.identity, blocksParent);
-            for (int i = 0; i < blockParticles.Length; i++)
+            if(heldItem != null)
             {
-                blockParticles[i] = Instantiate(blockDestroyParticle, Vector3.zero, Quaternion.Euler(-90,0,0), blocksParent);
+                return;
             }
-            outlineMeshComponents = blockOutline.GetComponentsInChildren<MeshRenderer>();
+
+
             HideOutline();
             fpsItemAudioManager = GameObject.FindGameObjectWithTag("MainCamera").transform.Find("FPSItemSfx").GetComponent<AudioManager>();
             mainController = FindObjectOfType<EtraCharacterMainController>();
             camMoveScript = FindObjectOfType<ABILITY_CameraMovement>();
 
+            starterAssetsInputs = GetComponentInParent<StarterAssetsInputs>();
             if (isHand)
             {
                 hitAnim = "ArmHit";
@@ -87,70 +90,67 @@ namespace Etra.StarterAssets.Items
             }
             else
             {
+                heldItem = Instantiate(blockToLoad, Vector3.zero, Quaternion.Euler(0, 0, 0), MineBlockSystem.Instance.systemParent.transform);
+                heldItem.GetComponent<Collider>().enabled = false;
+                heldItem.GetComponent<Renderer>().enabled = false;
+                heldItem.GetComponent<MineBlock>().enabled = false;
+                heldItem.layer = LayerMask.NameToLayer("EtraFPSUsableItem");
                 hitAnim = "BlockHit";
                 missAnim = "BlockMiss";
+
             }
+
         }
 
+        public override void  runEquipAnimation() //return true when Animation is complete
+        {
+            StartCoroutine(equipWait());
+        }
+        IEnumerator equipWait()
+        {
+            while (!itemReady)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+            base.runEquipAnimation();
+        }
+
+        bool itemReady = false;
         public void OnEnable()
         {
-            starterAssetsInputs = GetComponentInParent<StarterAssetsInputs>();
-            etraFPSUsableItemManager = GetComponent<EtraFPSUsableItemManager>();
-            Transform referenceToMineTransform = etraFPSUsableItemManager.activeItemPrefab.transform;
-            mineBlockAudioManager = etraFPSUsableItemManager.activeItemPrefab.GetComponentInChildren<AudioManager>();
-            mineAnimator = referenceToMineTransform.GetComponentInChildren<Animator>();
-            scalerAndAnimMover = EtrasResourceGrabbingFunctions.FindObjectByNameRecursive(etraFPSUsableItemManager.activeItemPrefab, "ScalerAndAnimMover");
-            hand = EtrasResourceGrabbingFunctions.FindObjectByNameRecursive(scalerAndAnimMover, "Hand");
-            GameObject blockBase = EtrasResourceGrabbingFunctions.FindObjectByNameRecursive(scalerAndAnimMover, "BlockBase");
-
+            itemReady = false;
+            blockOutline = MineBlockSystem.Instance.blockOutline;
+            GameObject activeItem = EtraCharacterMainController.Instance.etraFPSUsableItemManager.activeItemPrefab;
             if (isHand)
             {
-                hand.SetActive(true);
-                hitAnim = "ArmHit";
-                missAnim = "ArmMiss";
+                GameObject hand = EtrasResourceGrabbingFunctions.FindObjectByNameRecursive(activeItem, "Hand");
+                hand.GetComponent<MeshRenderer>().enabled = true;
             }
             else
             {
-                hitAnim = "BlockHit";
-                missAnim = "BlockMiss";
-
-                    // Get the MeshRenderer component from the object with the new MeshRenderer
-                    MeshRenderer newMeshRenderer = blockToLoad.GetComponent<MeshRenderer>();
-
-                    // Check if the new MeshRenderer exists
-                    if (newMeshRenderer != null)
-                    {
-                        // Replace the MeshRenderer of the first object
-                        MeshRenderer originalMeshRenderer = blockBase.GetComponent<MeshRenderer>();
-                        if (originalMeshRenderer != null)
-                        {
-                            Destroy(originalMeshRenderer); // Remove the original MeshRenderer
-
-                            // Attach the new MeshRenderer to the first object
-                            MeshRenderer newRenderer = blockBase.AddComponent<MeshRenderer>();
-                            newRenderer.sharedMaterials = newMeshRenderer.sharedMaterials; // Copy materials
-
-                            // You can also copy other properties like sorting layer, sorting order, etc. if needed
-                            newRenderer.sortingOrder = newMeshRenderer.sortingOrder;
-
-                            Debug.Log("MeshRenderer replaced successfully.");
-                        }
-                        else
-                        {
-                            Debug.LogError("The object to replace the MeshRenderer does not have a MeshRenderer component.");
-                        }
-                    }
-                    else
-                    {
-                        Debug.LogError("The object with the new MeshRenderer does not have a MeshRenderer component.");
-                    }
-
+                GameObject scalerAndAnimMover = EtrasResourceGrabbingFunctions.FindObjectByNameRecursive(activeItem, "ScalerAndAnimMover");
+                if (heldItem == null)
+                {
+                    Start();
+                }
+                heldItem.transform.SetParent(scalerAndAnimMover.transform,false);
+                heldItem.GetComponent<Renderer>().enabled = true;
             }
-
+            Transform referenceToMineTransform = activeItem.transform;
+            mineBlockAudioManager = activeItem.GetComponentInChildren<AudioManager>();
+            mineAnimator = referenceToMineTransform.GetComponentInChildren<Animator>();
+            itemReady = true;
         }
 
         private void OnDisable()
         {
+            HideOutline();
+            itemReady = false;
+            if (heldItem!= null)
+            {
+                heldItem.transform.SetParent(MineBlockSystem.Instance.systemParent.transform, false);
+                heldItem.GetComponent<Renderer>().enabled=false;
+            }
 
         }
 
@@ -162,7 +162,8 @@ namespace Etra.StarterAssets.Items
         GameObject hitObject;
         public void Update()
         {
-            if (inputsLocked)
+
+            if (inputsLocked || !itemReady)
             {
                 starterAssetsInputs.shoot = false;
                 starterAssetsInputs.aim = false;
@@ -211,7 +212,7 @@ namespace Etra.StarterAssets.Items
                     isAiming = false;
                 }
 
-                if (starterAssetsInputs.aim && !isAiming)
+                if (starterAssetsInputs.aim && !isAiming && !isHand)
                 {
                     if (Time.time - _swordTimeoutDelta >= buildCooldown && inInteractDistance())
                     {
@@ -249,7 +250,7 @@ namespace Etra.StarterAssets.Items
 
         bool inInteractDistance()
         {
-            return interactDistance > Vector3.Distance(mainController.modelParent.transform.position, hitInfo.point);
+            return blockInteractDistance > Vector3.Distance(mainController.modelParent.transform.position, hitInfo.point);
         }
 
         void DestroyBlock()
@@ -259,25 +260,7 @@ namespace Etra.StarterAssets.Items
                 if (hitObject.GetComponent<MineBlock>())
                 {
                     mineBlockAudioManager.Play("WoolBreak");
-
-
-                    if (hitObject.GetComponent<BoxCollider>())
-                    {
-                        hitObject.GetComponent<BoxCollider>().enabled = false;
-                    }
-                    if (hitObject.GetComponent<MeshCollider>())
-                    {
-                        hitObject.GetComponent<MeshCollider>().enabled = false;
-                    }
-
-                    blockParticles[currentParticle].transform.position = hitObject.transform.position;
                     Destroy(hitObject.gameObject);
-                    blockParticles[currentParticle].GetComponent<ParticleSystem>().Play();
-                    currentParticle++;
-                    if (currentParticle >= blockParticles.Length)
-                    {
-                        currentParticle = 0;
-                    }
                 }
             }
         }
@@ -298,7 +281,7 @@ namespace Etra.StarterAssets.Items
 
             if (!blockCollidingWithPlayer(spawnPosition))
             {
-                Instantiate(block, spawnPosition, Quaternion.identity, blocksParent);
+                Instantiate(block, spawnPosition, Quaternion.identity, MineBlockSystem.Instance.blocksParent.transform);
                 mineBlockAudioManager.Play("WoolPlace");
             }
 
@@ -373,10 +356,7 @@ namespace Etra.StarterAssets.Items
             }
             else
             {
-                foreach (MeshRenderer mesh in outlineMeshComponents)
-                {
-                    mesh.enabled = true;
-                }
+                MineBlockSystem.Instance.ShowOutline();
             }
 
 
@@ -384,10 +364,11 @@ namespace Etra.StarterAssets.Items
 
         void HideOutline()
         {
-            foreach (MeshRenderer mesh in outlineMeshComponents)
+            if (MineBlockSystem.Instance)
             {
-                mesh.enabled= false;
+                MineBlockSystem.Instance.HideOutline();
             }
+
         }
 
     }
