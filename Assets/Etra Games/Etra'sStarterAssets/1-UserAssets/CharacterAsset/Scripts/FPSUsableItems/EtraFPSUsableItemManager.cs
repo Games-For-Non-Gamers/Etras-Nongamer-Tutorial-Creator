@@ -17,15 +17,58 @@ namespace Etra.StarterAssets.Items
         public bool playUnequipAnims = true;
         [HideInInspector]
         public bool weaponInitHandledElsewhere = false;
+
+        public usableItemScriptAndPrefab defaultNullItem;
+        public bool fillEmptySlotsWithDefaultItem = false;
+
+
+        private const int NUMBER_OF_HOTBAR_SLOTS = 9;
         [Header("The Items Will Be Selected In This Order:")]
         public usableItemScriptAndPrefab[] usableItems;
+
+        [Header("Item Inventory")]
+        private const int NUMBER_OF_INVENTORY_SLOTS = 27;
+        public usableItemScriptAndPrefab[] inventory = new usableItemScriptAndPrefab[NUMBER_OF_INVENTORY_SLOTS];
 
         #region Functions to update The usableItems Array
         //Run this function whenever an item is added
         [ContextMenu("updateUsableItemsArray")]
         public void updateUsableItemsArray()
         {
-            removeNullItemSlots();
+            if (defaultNullItem == null)
+            {
+                removeNullItemSlots();
+            }
+
+            if (defaultNullItem != null)
+            {
+                for (int i = 0; i < usableItems.Length; i++)
+                {
+                    if (usableItems[i] == null)
+                    {
+
+                    }
+                    else
+                    if (usableItems[i].script == null)
+                    {
+                        usableItems[i] = null;
+                    }
+                }
+                for (int i = 0; i < inventory.Length; i++)
+                {
+                    if (inventory[i] == null)
+                    {
+                        inventory[i] = null;
+                    }
+                    else
+                    if (inventory[i] == null)
+                    {
+                        inventory[i] = null;
+                    }
+                }
+            }
+
+
             //I understand this is Big O^2 however, it only runs on validate. What's more important is navigation of the final structure (an array) is as fast as possible.
             EtraFPSUsableItemBaseClass[] grabbedUsableItems;
 
@@ -43,15 +86,22 @@ namespace Etra.StarterAssets.Items
                 grabbedUsableItems = new EtraFPSUsableItemBaseClass[0];
             }
 
+
             foreach (var item in grabbedUsableItems)
             {
                 bool itemFound = false;
 
-                foreach (var setItem in usableItems)
+                foreach (usableItemScriptAndPrefab setItem in usableItems)
                 {
-                    if (item.Equals(setItem.script))
+                    if (setItem != null)
                     {
-                        itemFound = true;
+                        if (setItem.script != null)
+                        {
+                            if (item.Equals(setItem.script))
+                            {
+                                itemFound = true;
+                            }
+                        }
                     }
                 }
 
@@ -61,6 +111,44 @@ namespace Etra.StarterAssets.Items
                     increaseAbilityArrayWithNewElement(newItem);
                 }
             }
+
+            //Fill empty slots with null
+            if (usableItems.Length < NUMBER_OF_HOTBAR_SLOTS && fillEmptySlotsWithDefaultItem && defaultNullItem != null)
+            {
+                usableItemScriptAndPrefab[] temp = new usableItemScriptAndPrefab[NUMBER_OF_HOTBAR_SLOTS];
+                for (int i = 0; i < usableItems.Length; i++)
+                {
+                    temp[i] = usableItems[i];
+                }
+                usableItems = temp;
+            }
+            else if (usableItems.Length > NUMBER_OF_HOTBAR_SLOTS)
+            {
+                int inventoryIndex =0;
+                for (int i = NUMBER_OF_HOTBAR_SLOTS-1; i < usableItems.Length; i++)
+                {
+                    while (inventory[inventoryIndex] == null)
+                    {
+                        Debug.Log(inventoryIndex);
+                        inventoryIndex++;
+                        if (inventoryIndex >= NUMBER_OF_INVENTORY_SLOTS)
+                        {
+                            Debug.LogWarning("No room left in inventory");
+                            break;
+                        }
+                    }
+                    inventory[inventoryIndex] = usableItems[NUMBER_OF_HOTBAR_SLOTS - 1];
+                }
+                //Reduce prune the usableItemsInventory
+                usableItemScriptAndPrefab[] temp = new usableItemScriptAndPrefab[NUMBER_OF_HOTBAR_SLOTS];
+                for (int i = 0; i < temp.Length; i++)
+                {
+                    temp[i] = usableItems[i];
+                }
+                usableItems = temp;
+            }
+
+
 
         }
 
@@ -119,6 +207,11 @@ namespace Etra.StarterAssets.Items
 
         private void increaseAbilityArrayWithNewElement(usableItemScriptAndPrefab abilityToAdd)
         {
+            if (abilityToAdd.script == defaultNullItem.script)
+            {
+                return;
+            }
+
             usableItemScriptAndPrefab[] temp = new usableItemScriptAndPrefab[usableItems.Length + 1];
 
             for (int i = 0; i < usableItems.Length; i++)
@@ -218,8 +311,32 @@ namespace Etra.StarterAssets.Items
         private void Awake()
         {
 #if UNITY_EDITOR
-            removeNullItemSlots();
+            if (defaultNullItem == null)
+            {
+                removeNullItemSlots();
+            }
 #endif
+            if (defaultNullItem != null)
+            {
+                defaultNullItem = new usableItemScriptAndPrefab(defaultNullItem.script);
+                for (int i = 0; i < usableItems.Length; i++)
+                {
+
+                    if (usableItems[i] == null)
+                    {
+                        usableItems[i] = defaultNullItem;
+                    }
+                }
+
+                for (int i = 0; i < inventory.Length; i++)
+                {
+                    if (inventory[i] == null || inventory[i].script == null)
+                    {
+                        inventory[i] = defaultNullItem;
+                    }
+                }
+            }
+
             cameraRoot = GameObject.Find("EtraPlayerCameraRoot");
             starterAssetsInputs = GetComponentInParent<StarterAssetsInputs>();
 
@@ -345,13 +462,6 @@ namespace Etra.StarterAssets.Items
                 }
             }
 
-            if (starterAssetsInputs.item9Select)
-            {
-                if (activeItemNum != 9 && usableItems.Length > 9)
-                {
-                    StartCoroutine(equipItemCoroutine(9));
-                }
-            }
             #endregion
 
             if (usableItems.Length <= 1)
@@ -461,7 +571,6 @@ namespace Etra.StarterAssets.Items
             starterAssetsInputs.item6Select = false;
             starterAssetsInputs.item7Select = false;
             starterAssetsInputs.item8Select = false;
-            starterAssetsInputs.item9Select = false;
         }
 
         public void disableFPSItemInputs()

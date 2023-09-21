@@ -6,7 +6,8 @@ namespace Etra.StarterAssets
     {
         private void OnDestroy()
         {
-            MineBlockSystem.Instance.PlayDestroyParticle(transform.position, GetComponent<Renderer>().material.mainTexture);
+            Vector3 test = transform.position;
+            MineBlockSystem.Instance.PlayDestroyParticle(test, GetComponent<Renderer>().material.mainTexture);
         }
     }
 }

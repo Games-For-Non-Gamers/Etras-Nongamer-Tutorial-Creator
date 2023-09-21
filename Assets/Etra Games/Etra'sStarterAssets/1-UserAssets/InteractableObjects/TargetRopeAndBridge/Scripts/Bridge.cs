@@ -10,7 +10,7 @@ namespace Etra.StarterAssets.Interactables
         public Target[] targets;
         public float startRotation = -70;
         public float loweredRotation = 0;
-
+        public GameObject dumbHitbox;
         public float delayBeforeLower = 0.5f;
         public float timeToLower = 1;
         private bool bridgeLowered = false;
@@ -51,6 +51,7 @@ namespace Etra.StarterAssets.Interactables
         //Animation for bridge lowering
         IEnumerator lowerBridge()
         {
+            dumbHitbox.SetActive(false);
             bridgeLowered = true;
             //Second delay before the bridge lowers
             yield return new WaitForSeconds(delayBeforeLower);
