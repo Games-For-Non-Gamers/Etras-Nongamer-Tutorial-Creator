@@ -5220,6 +5220,9 @@ GameObject:
   - component: {fileID: 211148992}
   - component: {fileID: 211148991}
   - component: {fileID: 211148990}
+  - component: {fileID: 211148995}
+  - component: {fileID: 211148994}
+  - component: {fileID: 211148993}
   m_Layer: 0
   m_Name: EtraFPSUsableItemManagerPrefab
   m_TagString: Untagged
@@ -5264,11 +5267,11 @@ MonoBehaviour:
   usableItems:
   - script: {fileID: 211148989}
     prefab: {fileID: 7553328860832279285, guid: 2471f1728f814d24cb6a5b65cdc8d776, type: 3}
-  - script: {fileID: 211148992}
-    prefab: {fileID: 7553328860832279285, guid: 2471f1728f814d24cb6a5b65cdc8d776, type: 3}
   - script: {fileID: 211148991}
     prefab: {fileID: 7553328860832279285, guid: 2471f1728f814d24cb6a5b65cdc8d776, type: 3}
   - script: {fileID: 211148990}
+    prefab: {fileID: 7553328860832279285, guid: 2471f1728f814d24cb6a5b65cdc8d776, type: 3}
+  - script: {fileID: 211148992}
     prefab: {fileID: 7553328860832279285, guid: 2471f1728f814d24cb6a5b65cdc8d776, type: 3}
   - script: {fileID: 0}
     prefab: {fileID: 0}
@@ -5281,14 +5284,14 @@ MonoBehaviour:
   - script: {fileID: 0}
     prefab: {fileID: 0}
   inventory:
+  - script: {fileID: 211148994}
+    prefab: {fileID: 7553328860832279285, guid: 1c5e24114f8c0984eb13604c7cc2bdb8, type: 3}
+  - script: {fileID: 211148995}
+    prefab: {fileID: 7553328860832279285, guid: e1665db0efe4ceb48895241485203ab5, type: 3}
   - script: {fileID: 0}
     prefab: {fileID: 0}
-  - script: {fileID: 0}
-    prefab: {fileID: 0}
-  - script: {fileID: 0}
-    prefab: {fileID: 0}
-  - script: {fileID: 0}
-    prefab: {fileID: 0}
+  - script: {fileID: 211148993}
+    prefab: {fileID: 7553328860832279285, guid: 4d4dd19c2b72f83ec954940c8b823ca4, type: 3}
   - script: {fileID: 0}
     prefab: {fileID: 0}
   - script: {fileID: 0}
@@ -5445,6 +5448,73 @@ MonoBehaviour:
   damageDistance: 3.5
   hitDamage: 1
   rigidBodyKnockback: 5
+--- !u!114 &211148993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211148982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc5d9712c90071902bc346cc7b657493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputsLocked: 0
+  toDelete: 0
+  equipSfxName: ScifiEquip
+  isEquipping: 0
+  isUnequipping: 0
+  pickUpRange: 3
+  maxMass: 5
+  springJointForce: 200
+  springJointDamper: 10
+  temporaryParent: {fileID: 0}
+  pickedUpDrag: 10
+  pickedUpDistance: 2
+  dropDistance: 5
+--- !u!114 &211148994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211148982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c376119107b3e34448e3b1ccd958be0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputsLocked: 0
+  toDelete: 0
+  equipSfxName: SwordEquip
+  isEquipping: 0
+  isUnequipping: 0
+  swordRange: 2.5
+  swordKnockback: 5
+  swordCooldown: 1
+  swordDamage: 3
+  hitCamShake: {x: 1, y: 0.1}
+--- !u!114 &211148995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211148982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf851cd5385e556468badd773f7d249c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputsLocked: 0
+  toDelete: 0
+  equipSfxName: BlasterEquip
+  isEquipping: 0
+  isUnequipping: 0
+  launchedBullet: {fileID: 2721604698157709511, guid: 91a317a67144d3046b002e72f67fc99b, type: 3}
+  shootingCooldownTime: 0.05
+  lookAtPosIncludingTrigger: {x: 0, y: 0, z: 0}
 --- !u!1001 &212221047
 PrefabInstance:
   m_ObjectHideFlags: 0

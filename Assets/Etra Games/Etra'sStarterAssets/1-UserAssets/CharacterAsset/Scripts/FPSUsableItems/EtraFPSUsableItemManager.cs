@@ -32,12 +32,15 @@ namespace Etra.StarterAssets.Items
         private const int NUMBER_OF_INVENTORY_SLOTS = 27;
         public usableItemScriptAndPrefab[] inventory = new usableItemScriptAndPrefab[NUMBER_OF_INVENTORY_SLOTS];
 
+        usableItemScriptAndPrefab mostRecentItem;
+        int mostRecentItemIndex;
+
         #region Functions to update The usableItems Array
         //Run this function whenever an item is added
         [ContextMenu("updateUsableItemsArray")]
         public void updateUsableItemsArray()
         {
-            if (defaultNullItem == null)
+            if (defaultNullItem == null || defaultNullItem.script == null)
             {
                 removeNullItemSlots();
             }
@@ -196,7 +199,7 @@ namespace Etra.StarterAssets.Items
                 int elementToPass = 0;
                 for (int i = 0; i < usableItems.Length; i++)
                 {
-                    if (usableItems[i].script == null)
+                    if (usableItems[i] == null || usableItems[i].script == null)
                     {
                         slotsNeedRemoved = true;
                         elementToPass = i;
@@ -235,7 +238,8 @@ namespace Etra.StarterAssets.Items
             {
                 return;
             }
-
+            mostRecentItem = abilityToAdd;
+            mostRecentItemIndex = usableItems.Length;
             usableItemScriptAndPrefab[] temp = new usableItemScriptAndPrefab[usableItems.Length + 1];
 
             for (int i = 0; i < usableItems.Length; i++)
@@ -340,7 +344,7 @@ namespace Etra.StarterAssets.Items
                 removeNullItemSlots();
             }
 #endif
-            if (defaultNullItem != null)
+            if (defaultNullItem.script != null)
             {
                 defaultNullItem = new usableItemScriptAndPrefab(defaultNullItem.script);
                 for (int i = 0; i < usableItems.Length; i++)
@@ -353,11 +357,9 @@ namespace Etra.StarterAssets.Items
 
                 for (int i = 0; i < inventory.Length; i++)
                 {
-                    Debug.Log("a");
                     if (inventory[i] == null || inventory[i].script == null)
                     {
                         inventory[i] = defaultNullItem;
-                        Debug.Log("b" + i);
                     }
                 }
             }
@@ -367,6 +369,7 @@ namespace Etra.StarterAssets.Items
 
             for (int i = 0; i < usableItems.Length; i++)
             {
+
                 usableItems[i].script.enabled = false;
             }
 
@@ -531,11 +534,11 @@ namespace Etra.StarterAssets.Items
             }
         }
 
-        public void equipLastItem()
+        public void equipNewItem()
         {
             if (usableItems.Length>0)
             {
-                StartCoroutine(equipItemCoroutine(usableItems.Length - 1));
+                StartCoroutine(equipItemCoroutine(mostRecentItem, mostRecentItemIndex, true));
             }
         }
 
@@ -575,8 +578,14 @@ namespace Etra.StarterAssets.Items
 
         IEnumerator equipItemCoroutine(usableItemScriptAndPrefab oldItem, int newItemNum)
         {
+            StartCoroutine(equipItemCoroutine(oldItem, newItemNum, false));
+            yield return new WaitForSeconds(0.01f);
+        }
 
-            if (oldItem == usableItems[newItemNum])// avoid swapping items unncessarily if swap to same EXACT item like hand
+        IEnumerator equipItemCoroutine(usableItemScriptAndPrefab oldItem, int newItemNum, bool forceSelect)
+        {
+
+            if (oldItem == usableItems[newItemNum] && !forceSelect)// avoid swapping items unncessarily if swap to same EXACT item like hand
             {
                 activeItemNum = newItemNum;//Change num for ui, but do nothing else
             }

@@ -159,7 +159,7 @@ namespace Etra.NonGamerTutorialCreator
                     //Update the items array
                     EtraCharacterMainController.Instance.etraFPSUsableItemManager.updateUsableItemsArray();
                     //Equip the new item
-                    EtraCharacterMainController.Instance.etraFPSUsableItemManager.equipLastItem();
+                    EtraCharacterMainController.Instance.etraFPSUsableItemManager.equipNewItem();
                 }
                 //Destory this pickup
                 Destroy(gameObject);

@@ -455,6 +455,7 @@ namespace Etra.NonGamerTutorialCreator.TutorialCreator
                     {
                         DestroyImmediate(itemManager.GetComponent(itemManager.usableItems[i].script.GetType()));
                         itemManager.usableItems[i].script = null;
+                        itemManager.usableItems[i] = null;
                         itemManager.updateUsableItemsArray();
                     }
                 }
