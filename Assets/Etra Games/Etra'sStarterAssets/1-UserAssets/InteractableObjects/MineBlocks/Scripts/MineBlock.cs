@@ -4,10 +4,17 @@ namespace Etra.StarterAssets
 {
     public class MineBlock : MonoBehaviour
     {
+        Texture savedTexture;
+        Vector3 test;
+        private void Start()
+        {
+            savedTexture = GetComponent<Renderer>().material.mainTexture;
+            test = transform.position;
+        }
+
         private void OnDestroy()
         {
-            Vector3 test = transform.position;
-            MineBlockSystem.Instance.PlayDestroyParticle(test, GetComponent<Renderer>().material.mainTexture);
+            MineBlockSystem.Instance.PlayDestroyParticle(test, savedTexture);
         }
     }
 }

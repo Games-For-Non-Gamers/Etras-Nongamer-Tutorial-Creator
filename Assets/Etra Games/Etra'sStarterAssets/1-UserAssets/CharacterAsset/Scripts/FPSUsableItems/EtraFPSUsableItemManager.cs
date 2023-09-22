@@ -7,6 +7,8 @@ using EtrasStarterAssets;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System;
+using Codice.Client.BaseCommands.BranchExplorer;
 
 namespace Etra.StarterAssets.Items
 {
@@ -40,7 +42,7 @@ namespace Etra.StarterAssets.Items
                 removeNullItemSlots();
             }
 
-            if (defaultNullItem != null)
+            if (defaultNullItem != null && fillEmptySlotsWithDefaultItem)
             {
                 for (int i = 0; i < usableItems.Length; i++)
                 {
@@ -105,6 +107,20 @@ namespace Etra.StarterAssets.Items
                     }
                 }
 
+                foreach (usableItemScriptAndPrefab setItem in inventory)
+                {
+                    if (setItem != null)
+                    {
+                        if (setItem.script != null)
+                        {
+                            if (item.Equals(setItem.script))
+                            {
+                                itemFound = true;
+                            }
+                        }
+                    }
+                }
+
                 if (!itemFound)
                 {
                     usableItemScriptAndPrefab newItem = new usableItemScriptAndPrefab(item);
@@ -124,20 +140,28 @@ namespace Etra.StarterAssets.Items
             }
             else if (usableItems.Length > NUMBER_OF_HOTBAR_SLOTS)
             {
-                int inventoryIndex =0;
-                for (int i = NUMBER_OF_HOTBAR_SLOTS-1; i < usableItems.Length; i++)
+                for (int i = NUMBER_OF_HOTBAR_SLOTS; i < usableItems.Length; i++)
                 {
-                    while (inventory[inventoryIndex] == null)
+                    for (int j = 0; j < inventory.Length; j++)
                     {
-                        Debug.Log(inventoryIndex);
-                        inventoryIndex++;
-                        if (inventoryIndex >= NUMBER_OF_INVENTORY_SLOTS)
+                        if (inventory[j] == null)
+                        {
+                            inventory[j] = usableItems[i];
+                            break;
+                        }
+                        if (inventory[j].script == null)
+                        {
+                            inventory[j] = usableItems[i];
+                            break;
+                        }
+
+                        if (j == inventory.Length-1)
                         {
                             Debug.LogWarning("No room left in inventory");
                             break;
                         }
                     }
-                    inventory[inventoryIndex] = usableItems[NUMBER_OF_HOTBAR_SLOTS - 1];
+
                 }
                 //Reduce prune the usableItemsInventory
                 usableItemScriptAndPrefab[] temp = new usableItemScriptAndPrefab[NUMBER_OF_HOTBAR_SLOTS];
@@ -258,7 +282,7 @@ namespace Etra.StarterAssets.Items
         #endregion
 
         //Not in Inspector
-        private int activeItemNum = 0;
+        public  int activeItemNum = 0;
         [HideInInspector] public GameObject activeItemPrefab;
         [HideInInspector] bool isEquipping = false;
 
@@ -321,7 +345,6 @@ namespace Etra.StarterAssets.Items
                 defaultNullItem = new usableItemScriptAndPrefab(defaultNullItem.script);
                 for (int i = 0; i < usableItems.Length; i++)
                 {
-
                     if (usableItems[i] == null)
                     {
                         usableItems[i] = defaultNullItem;
@@ -330,9 +353,11 @@ namespace Etra.StarterAssets.Items
 
                 for (int i = 0; i < inventory.Length; i++)
                 {
+                    Debug.Log("a");
                     if (inventory[i] == null || inventory[i].script == null)
                     {
                         inventory[i] = defaultNullItem;
+                        Debug.Log("b" + i);
                     }
                 }
             }
@@ -500,7 +525,9 @@ namespace Etra.StarterAssets.Items
         {
             if (usableItems.Length > num)
             {
-                StartCoroutine(equipItemCoroutine(num));
+
+                    StartCoroutine(equipItemCoroutine(num));
+
             }
         }
 
@@ -512,49 +539,89 @@ namespace Etra.StarterAssets.Items
             }
         }
 
-        IEnumerator equipItemCoroutine(int newItemNum)
+        [ContextMenu("testSwap")]
+        void testSwap()
+        {
+            swapItems(usableItems, 0, usableItems, 3);
+        }
+
+        [ContextMenu("invSwap")]
+        void invSwap()
+        {
+            swapItems(usableItems, 0, inventory, 3);
+        }
+
+
+        public void swapItems(usableItemScriptAndPrefab[] array1, int index1, usableItemScriptAndPrefab[] array2, int index2)
         {
 
-            isEquipping = true;
+            usableItemScriptAndPrefab oldItem = usableItems[activeItemNum];
+            usableItemScriptAndPrefab temp = array1[index1];
+            array1[index1] = array2[index2];
+            array2[index2] = temp;
 
-
-            if (playUnequipAnims && usableItems.Length > 1)
+            if ((array1 == usableItems && index1 == activeItemNum) || (array2 == usableItems && index2 == activeItemNum))
             {
-                usableItems[activeItemNum].script.runUnequipAnimation();
-                yield return new WaitForSeconds(usableItems[activeItemNum].script.getItemUnequipSpeed());
+                StartCoroutine(equipItemCoroutine(oldItem, activeItemNum));
             }
+        }
 
-            usableItems[activeItemNum].script.enabled = false;
-            Destroy(activeItemPrefab);
 
-            activeItemNum = newItemNum;
-            var newItem = Instantiate(usableItems[activeItemNum].prefab);
-            newItem.transform.SetParent(cameraRoot.transform);
-            newItem.transform.localPosition = Vector3.zero;
-            newItem.transform.localRotation = Quaternion.identity;
-            activeItemPrefab = newItem;
+        IEnumerator equipItemCoroutine(int newItemNum)
+        {
+            StartCoroutine(equipItemCoroutine(usableItems[activeItemNum], newItemNum));
+            yield return new WaitForSeconds(0.01f);
+        }
 
-            if (playEquipAnims)
+        IEnumerator equipItemCoroutine(usableItemScriptAndPrefab oldItem, int newItemNum)
+        {
+
+            if (oldItem == usableItems[newItemNum])// avoid swapping items unncessarily if swap to same EXACT item like hand
             {
-                if (usableItems[activeItemNum].script.equipSfxName == "")
-                {
-                    fpsItemAudioManager.Play("DefaultEquip");
-                }
-                else
-                {
-                    fpsItemAudioManager.Play(usableItems[activeItemNum].script.equipSfxName);
-                }
-
-                
-                activeItemPrefab.transform.localRotation = Quaternion.Euler(usableItems[activeItemNum].script.getItemUnequipRotation());
-                usableItems[activeItemNum].script.runEquipAnimation();
-                yield return new WaitForSeconds(usableItems[activeItemNum].script.getItemEquipSpeed());
+                activeItemNum = newItemNum;//Change num for ui, but do nothing else
             }
+            else
+            {
+                isEquipping = true;
+                if (playUnequipAnims && usableItems.Length > 1)
+                {
+                    oldItem.script.runUnequipAnimation();
+                    yield return new WaitForSeconds(oldItem.script.getItemUnequipSpeed());
+                }
 
-            usableItems[activeItemNum].script.enabled = true;
-            setInputsToDefault();
-            isEquipping = false;
+                oldItem.script.enabled = false;
+                Destroy(activeItemPrefab);
 
+
+
+                activeItemNum = newItemNum;
+                var newItem = Instantiate(usableItems[activeItemNum].prefab);
+                newItem.transform.SetParent(cameraRoot.transform);
+                newItem.transform.localPosition = Vector3.zero;
+                newItem.transform.localRotation = Quaternion.identity;
+                activeItemPrefab = newItem;
+
+                if (playEquipAnims)
+                {
+                    if (usableItems[activeItemNum].script.equipSfxName == "")
+                    {
+                        fpsItemAudioManager.Play("DefaultEquip");
+                    }
+                    else
+                    {
+                        fpsItemAudioManager.Play(usableItems[activeItemNum].script.equipSfxName);
+                    }
+
+
+                    activeItemPrefab.transform.localRotation = Quaternion.Euler(usableItems[activeItemNum].script.getItemUnequipRotation());
+                    usableItems[activeItemNum].script.runEquipAnimation();
+                    yield return new WaitForSeconds(usableItems[activeItemNum].script.getItemEquipSpeed());
+                }
+
+                usableItems[activeItemNum].script.enabled = true;
+                setInputsToDefault();
+                isEquipping = false;
+            }
 
         }
 

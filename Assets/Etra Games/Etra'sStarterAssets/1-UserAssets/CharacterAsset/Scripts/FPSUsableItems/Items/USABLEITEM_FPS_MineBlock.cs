@@ -137,7 +137,7 @@ namespace Etra.StarterAssets.Items
         {
             HideOutline();
             itemReady = false;
-            if (heldItem != null)
+            if (heldItem != null && !isHand && Application.isPlaying)
             {
                 heldItem.transform.SetParent(MineBlockSystem.Instance.systemParent.transform, false);
                 heldItem.GetComponent<Renderer>().enabled = false;

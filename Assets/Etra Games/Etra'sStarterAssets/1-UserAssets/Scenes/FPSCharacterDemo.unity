@@ -5217,6 +5217,9 @@ GameObject:
   - component: {fileID: 211148987}
   - component: {fileID: 211148988}
   - component: {fileID: 211148989}
+  - component: {fileID: 211148992}
+  - component: {fileID: 211148991}
+  - component: {fileID: 211148990}
   m_Layer: 0
   m_Name: EtraFPSUsableItemManagerPrefab
   m_TagString: Untagged
@@ -5259,13 +5262,13 @@ MonoBehaviour:
     prefab: {fileID: 0}
   fillEmptySlotsWithDefaultItem: 1
   usableItems:
-  - script: {fileID: 0}
-    prefab: {fileID: 0}
-  - script: {fileID: 0}
-    prefab: {fileID: 0}
-  - script: {fileID: 0}
-    prefab: {fileID: 0}
   - script: {fileID: 211148989}
+    prefab: {fileID: 7553328860832279285, guid: 2471f1728f814d24cb6a5b65cdc8d776, type: 3}
+  - script: {fileID: 211148992}
+    prefab: {fileID: 7553328860832279285, guid: 2471f1728f814d24cb6a5b65cdc8d776, type: 3}
+  - script: {fileID: 211148991}
+    prefab: {fileID: 7553328860832279285, guid: 2471f1728f814d24cb6a5b65cdc8d776, type: 3}
+  - script: {fileID: 211148990}
     prefab: {fileID: 7553328860832279285, guid: 2471f1728f814d24cb6a5b65cdc8d776, type: 3}
   - script: {fileID: 0}
     prefab: {fileID: 0}
@@ -5330,8 +5333,7 @@ MonoBehaviour:
     prefab: {fileID: 0}
   - script: {fileID: 0}
     prefab: {fileID: 0}
-  - script: {fileID: 0}
-    prefab: {fileID: 0}
+  activeItemNum: 0
   activeItemPrefab: {fileID: 0}
 --- !u!114 &211148988
 MonoBehaviour:
@@ -5373,6 +5375,72 @@ MonoBehaviour:
   isEquipping: 0
   isUnequipping: 0
   blockToLoad: {fileID: 5736622223613628490, guid: 28e388b52871ad44783ea6533fe0e8b2, type: 3}
+  blockInteractDistance: 5
+  damageDistance: 3.5
+  hitDamage: 1
+  rigidBodyKnockback: 5
+--- !u!114 &211148990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211148982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 242a7ef1cf3fab145b5be62fa59baef2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputsLocked: 0
+  toDelete: 0
+  equipSfxName: 
+  isEquipping: 0
+  isUnequipping: 0
+  blockToLoad: {fileID: 5736622223613628490, guid: 4689b453a827d4645a8480f9acb3f609, type: 3}
+  blockInteractDistance: 5
+  damageDistance: 3.5
+  hitDamage: 1
+  rigidBodyKnockback: 5
+--- !u!114 &211148991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211148982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 242a7ef1cf3fab145b5be62fa59baef2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputsLocked: 0
+  toDelete: 0
+  equipSfxName: 
+  isEquipping: 0
+  isUnequipping: 0
+  blockToLoad: {fileID: 5736622223613628490, guid: 35010e01ff1a015439d1e8fd15b968f9, type: 3}
+  blockInteractDistance: 5
+  damageDistance: 3.5
+  hitDamage: 1
+  rigidBodyKnockback: 5
+--- !u!114 &211148992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211148982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 242a7ef1cf3fab145b5be62fa59baef2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputsLocked: 0
+  toDelete: 0
+  equipSfxName: 
+  isEquipping: 0
+  isUnequipping: 0
+  blockToLoad: {fileID: 5736622223613628490, guid: 928ded0aa92b5e541b7d5fda624028a2, type: 3}
   blockInteractDistance: 5
   damageDistance: 3.5
   hitDamage: 1
