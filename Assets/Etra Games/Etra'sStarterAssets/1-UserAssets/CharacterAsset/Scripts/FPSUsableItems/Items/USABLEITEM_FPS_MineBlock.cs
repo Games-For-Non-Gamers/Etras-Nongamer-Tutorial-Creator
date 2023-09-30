@@ -12,6 +12,7 @@ namespace Etra.StarterAssets.Items
     {
         [Header("Block")]
         public GameObject blockToLoad;
+        public bool canPlaceOnObjects = false;
         [Header("Interaction")]
         public float blockInteractDistance = 5;
         public float damageDistance = 3.5f;
@@ -285,12 +286,19 @@ namespace Etra.StarterAssets.Items
 
         private bool blockCollidingWithPlayer(Vector3 spawnPosition)
         {
-            Vector3 halfExtents = new Vector3(0.5f, 0.5f, 0.5f);
-            Collider[] colliders = Physics.OverlapBox(spawnPosition, halfExtents);
+            Vector3 halfExtents = new Vector3(0.495f, 0.495f, 0.495f);
+            Collider[] colliders = Physics.OverlapBox(spawnPosition, halfExtents, Quaternion.Euler(0, 0, 0), ~0,  QueryTriggerInteraction.Ignore);
+
 
             foreach (var collider in colliders)
             {
-                if (collider.CompareTag("Player"))
+
+                if (!canPlaceOnObjects)
+                {
+                    return true;
+                }
+
+                if (collider.gameObject.CompareTag("Player"))
                 {
                     return true;
                 }

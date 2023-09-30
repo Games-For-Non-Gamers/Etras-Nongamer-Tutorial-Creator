@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Etra.StarterAssets.Items
 {
@@ -9,7 +10,7 @@ namespace Etra.StarterAssets.Items
         public bool inputsLocked = false;
         [HideInInspector]public bool toDelete = false;
         public string equipSfxName = "";
-
+        public Sprite inventoryImage;
         #region Default Equip and Unequip Animations
 
         private EtraFPSUsableItemManager _manager;

@@ -5356,6 +5356,7 @@ MonoBehaviour:
   isEquipping: 0
   isUnequipping: 0
   blockToLoad: {fileID: 0}
+  canPlaceOnObjects: 0
   blockInteractDistance: 5
   damageDistance: 3.5
   hitDamage: 1
@@ -5378,6 +5379,7 @@ MonoBehaviour:
   isEquipping: 0
   isUnequipping: 0
   blockToLoad: {fileID: 5736622223613628490, guid: 28e388b52871ad44783ea6533fe0e8b2, type: 3}
+  canPlaceOnObjects: 1
   blockInteractDistance: 5
   damageDistance: 3.5
   hitDamage: 1
@@ -5400,6 +5402,7 @@ MonoBehaviour:
   isEquipping: 0
   isUnequipping: 0
   blockToLoad: {fileID: 5736622223613628490, guid: 4689b453a827d4645a8480f9acb3f609, type: 3}
+  canPlaceOnObjects: 0
   blockInteractDistance: 5
   damageDistance: 3.5
   hitDamage: 1
@@ -5422,6 +5425,7 @@ MonoBehaviour:
   isEquipping: 0
   isUnequipping: 0
   blockToLoad: {fileID: 5736622223613628490, guid: 35010e01ff1a015439d1e8fd15b968f9, type: 3}
+  canPlaceOnObjects: 0
   blockInteractDistance: 5
   damageDistance: 3.5
   hitDamage: 1
@@ -5444,6 +5448,7 @@ MonoBehaviour:
   isEquipping: 0
   isUnequipping: 0
   blockToLoad: {fileID: 5736622223613628490, guid: 928ded0aa92b5e541b7d5fda624028a2, type: 3}
+  canPlaceOnObjects: 0
   blockInteractDistance: 5
   damageDistance: 3.5
   hitDamage: 1

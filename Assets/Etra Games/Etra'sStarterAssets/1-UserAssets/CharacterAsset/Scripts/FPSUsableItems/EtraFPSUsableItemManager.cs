@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System;
 using Codice.Client.BaseCommands.BranchExplorer;
+using UnityEngine.Events;
 
 namespace Etra.StarterAssets.Items
 {
@@ -34,6 +35,7 @@ namespace Etra.StarterAssets.Items
 
         usableItemScriptAndPrefab mostRecentItem;
         int mostRecentItemIndex;
+        [HideInInspector]public UnityEvent uiItemSelectionChange;
 
         #region Functions to update The usableItems Array
         //Run this function whenever an item is added
@@ -582,8 +584,12 @@ namespace Etra.StarterAssets.Items
             yield return new WaitForSeconds(0.01f);
         }
 
+        public int targetItemUiNum;
         IEnumerator equipItemCoroutine(usableItemScriptAndPrefab oldItem, int newItemNum, bool forceSelect)
         {
+            targetItemUiNum = newItemNum;
+            uiItemSelectionChange.Invoke();
+
 
             if (oldItem == usableItems[newItemNum] && !forceSelect)// avoid swapping items unncessarily if swap to same EXACT item like hand
             {
