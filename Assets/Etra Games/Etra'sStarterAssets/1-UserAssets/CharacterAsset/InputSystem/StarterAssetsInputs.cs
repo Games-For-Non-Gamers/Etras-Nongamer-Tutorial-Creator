@@ -44,6 +44,8 @@ namespace Etra.StarterAssets.Input
         public bool item8Select;
         public bool item9Select;
 
+        [Header("Openable Inventory")]
+        public bool inventory;
 #if ENABLE_INPUT_SYSTEM
         public void OnMove(InputValue value)
         {
@@ -159,6 +161,11 @@ namespace Etra.StarterAssets.Input
         public void OnSelect(InputValue value)
         {
             SelectInput(value.isPressed);
+        }
+
+        public void OnInventory(InputValue value)
+        {
+            InventoryInput(value.isPressed);
         }
 
 #else
@@ -335,6 +342,11 @@ namespace Etra.StarterAssets.Input
         public void SelectInput(bool selectPressedState)
         {
             select = selectPressedState;
+        }
+
+        public void InventoryInput(bool inventoryPressedState)
+        {
+           inventory= inventoryPressedState;
         }
 
 

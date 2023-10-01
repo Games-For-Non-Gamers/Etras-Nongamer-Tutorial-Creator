@@ -36,6 +36,7 @@ namespace Etra.StarterAssets.Items
         usableItemScriptAndPrefab mostRecentItem;
         int mostRecentItemIndex;
         [HideInInspector]public UnityEvent uiItemSelectionChange;
+        [HideInInspector] public UnityEvent uiItemSwap;
 
         #region Functions to update The usableItems Array
         //Run this function whenever an item is added
@@ -557,6 +558,7 @@ namespace Etra.StarterAssets.Items
         }
 
 
+
         public void swapItems(usableItemScriptAndPrefab[] array1, int index1, usableItemScriptAndPrefab[] array2, int index2)
         {
 
@@ -569,6 +571,7 @@ namespace Etra.StarterAssets.Items
             {
                 StartCoroutine(equipItemCoroutine(oldItem, activeItemNum));
             }
+            uiItemSwap.Invoke();
         }
 
 

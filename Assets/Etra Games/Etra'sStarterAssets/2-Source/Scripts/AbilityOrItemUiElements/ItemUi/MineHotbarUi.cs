@@ -27,9 +27,8 @@ namespace Etra.StarterAssets
             }
 
             itemManager.uiItemSelectionChange.AddListener(ItemSwap);
-            //Will need an event trigger to set item images
+            itemManager.uiItemSwap.AddListener(SetItemImages);
             SetItemImages();
-
 
         }
 
@@ -44,6 +43,7 @@ namespace Etra.StarterAssets
             //Set InitialItemImages
             for (int i = 0; i < itemManager.usableItems.Length; i++)
             {
+                itemSlotsImages[i].enabled = true;
                 itemSlotsImages[i].sprite = itemManager.usableItems[i].script.inventoryImage;
             }
 
