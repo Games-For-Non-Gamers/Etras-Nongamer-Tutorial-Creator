@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 474673963627615799}
   - component: {fileID: 3411041286681850658}
+  - component: {fileID: 4309865470357210486}
   m_Layer: 0
   m_Name: MineBlockSystem
   m_TagString: Untagged
@@ -58,6 +59,43 @@ MonoBehaviour:
   - {fileID: 0}
   currentParticle: 0
   blockOutline: {fileID: 0}
+--- !u!114 &4309865470357210486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034561028020346572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d10d9b6d879748499838bb462e075de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  silenceSoundsUntilTutorialBegins: 1
+  sounds:
+  - name: PlaceSuccess
+    clip: {fileID: 8300000, guid: f762b437243350a458b7785b39bb1f51, type: 3}
+    volume: 0.6
+    basePitch: 1
+    spatialBlend: 0
+    randomizePitch: 1
+    randomPitchRange: {x: 0.95, y: 1.05}
+    isDialogue: 0
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: PlaceFail
+    clip: {fileID: 8300000, guid: 229735bc015f5a946bf9be76c1ef801f, type: 3}
+    volume: 0.6
+    basePitch: 1
+    spatialBlend: 0
+    randomizePitch: 0
+    randomPitchRange: {x: 0.95, y: 1.05}
+    isDialogue: 0
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  stopPlayingSounds: 0
 --- !u!1 &1420176862297552327
 GameObject:
   m_ObjectHideFlags: 0

@@ -43,8 +43,9 @@ namespace Etra.StarterAssets.Items
         private GameObject blockOutline;
 
         private float destroyCooldown = 0.1835f; //Matched with animation timing atm 0.367f
-        private float buildCooldown = .1835f;
-
+        private float buildCooldown = 0.1835f;
+        private float savedDestroyCooldown;
+        private float savedBuildCooldown;
         private GameObject heldItem;
 
         private bool itemReady = false;
@@ -88,6 +89,8 @@ namespace Etra.StarterAssets.Items
             mainController = FindObjectOfType<EtraCharacterMainController>();
             camMoveScript = FindObjectOfType<ABILITY_CameraMovement>();
             starterAssetsInputs = GetComponentInParent<StarterAssetsInputs>();
+            savedDestroyCooldown = destroyCooldown;
+            savedBuildCooldown = buildCooldown;
 
             if (isHand)
             {
@@ -194,36 +197,39 @@ namespace Etra.StarterAssets.Items
                         var isDamageableCheck = hitObject.GetComponent<IDamageable<int>>();
                         if (inInteractDistance(blockInteractDistance) && hitObject.GetComponent<MineBlock>())
                         {
-                            mineAnimator.SetBool(hitAnim, true);
+                            mineAnimator.SetTrigger(hitAnim);
                             DestroyBlock();
+                            destroyCooldown = savedDestroyCooldown;
+                            buildCooldown = savedBuildCooldown;
                         }
                         else if (inInteractDistance(damageDistance) && (isDamageableCheck != null || hitObject.GetComponent<Rigidbody>()))
                         {
                             if (isDamageableCheck != null)
                             {
                                 isDamageableCheck.TakeDamage(hitDamage);
-                                mineAnimator.SetBool(hitAnim, true);
+                                mineAnimator.SetTrigger(hitAnim);
                             }
                             if (hitObject.GetComponent<Rigidbody>())
                             {
-                                mineAnimator.SetBool(hitAnim, true);
+                                mineAnimator.SetTrigger(hitAnim);
                                 var charController = EtraCharacterMainController.Instance.GetComponent<CharacterController>();
                                 hitObject.GetComponent<Rigidbody>().AddForce(charController.transform.forward * rigidBodyKnockback, ForceMode.Impulse);
+                                destroyCooldown = savedDestroyCooldown;
+                                buildCooldown = savedBuildCooldown;
                             }
                         }
                         else
                         {
-                            mineAnimator.SetBool(missAnim, true);
+                            mineAnimator.SetTrigger(missAnim);
+                            destroyCooldown = savedDestroyCooldown*2;
+                            buildCooldown = savedBuildCooldown * 2;
+
                         }
                         _hitTimeoutDelta = Time.time;
                     }
                 }
 
-                if (!starterAssetsInputs.shoot)
-                {
-                    mineAnimator.SetBool(hitAnim, false);
-                    mineAnimator.SetBool(missAnim, false);
-                }
+
 
 
 
@@ -231,9 +237,27 @@ namespace Etra.StarterAssets.Items
                 {
                     if (Time.time - _hitTimeoutDelta >= buildCooldown && inInteractDistance(blockInteractDistance))
                     {
-                        mineAnimator.SetBool(hitAnim, true);
-                        BuildBlock(blockToLoad.blockPrefab);
+                        destroyCooldown = savedDestroyCooldown;
+                        buildCooldown = savedBuildCooldown;
                         _hitTimeoutDelta = Time.time;
+
+                        Vector3 spawnPosition;
+                        if (hitObject.GetComponent<MineBlock>())
+                        {
+                            spawnPosition = new Vector3(Mathf.RoundToInt(hitInfo.point.x + hitInfo.normal.x / 2), Mathf.RoundToInt(hitInfo.point.y + hitInfo.normal.y / 2), Mathf.RoundToInt(hitInfo.point.z + hitInfo.normal.z / 2));
+                        }
+                        else
+                        {
+                            spawnPosition = new Vector3(Mathf.RoundToInt(hitInfo.point.x), Mathf.RoundToInt(hitInfo.point.y), Mathf.RoundToInt(hitInfo.point.z));
+                        }
+
+                        if (!blockCollidingWithPlayer(spawnPosition))
+                        {
+                            GameObject block = Instantiate(blockToLoad.blockPrefab, spawnPosition, Quaternion.identity, MineBlockSystem.Instance.blocksParent.transform);
+                            block.GetComponent<MineBlock>().blockData = blockToLoad;
+                            mineBlockAudioManager.Play("WoolPlace");
+                            mineAnimator.SetTrigger(hitAnim);
+                        }
                     }
                 }
             }
@@ -245,16 +269,13 @@ namespace Etra.StarterAssets.Items
                 {
                     if (Time.time - _hitTimeoutDelta >= destroyCooldown)
                     {
-                        mineAnimator.SetBool(missAnim, true);
+                        mineAnimator.SetTrigger(missAnim);
+                        destroyCooldown = savedDestroyCooldown * 2;
+                        buildCooldown = savedBuildCooldown * 2;
                         _hitTimeoutDelta = Time.time;
                     }
                 }
 
-                if (!starterAssetsInputs.shoot)
-                {
-                    mineAnimator.SetBool(hitAnim, false);
-                    mineAnimator.SetBool(missAnim, false);
-                }
             }
         }
 
