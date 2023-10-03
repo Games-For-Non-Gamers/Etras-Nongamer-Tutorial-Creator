@@ -115,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockToCheckFor: {fileID: 11400000, guid: 9c55e95f551d07746b94a8531d563f49, type: 2}
   successParticle: {fileID: 7953517893135954361, guid: 9d7352bfc0fbe0a449d790cfc2c3fc02, type: 3}
-  outline: {fileID: 0}
+  outline: {fileID: 2125873632427651070}
 --- !u!1001 &1243546688106599087
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -129,15 +129,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9665ca3e469960949b8e92ea4d25e4d8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: -0.429
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9665ca3e469960949b8e92ea4d25e4d8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.48
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9665ca3e469960949b8e92ea4d25e4d8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.48
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9665ca3e469960949b8e92ea4d25e4d8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -180,5 +180,10 @@ PrefabInstance:
 --- !u!4 &1642492674882172228 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9665ca3e469960949b8e92ea4d25e4d8, type: 3}
+  m_PrefabInstance: {fileID: 1243546688106599087}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2125873632427651070 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9665ca3e469960949b8e92ea4d25e4d8, type: 3}
   m_PrefabInstance: {fileID: 1243546688106599087}
   m_PrefabAsset: {fileID: 0}

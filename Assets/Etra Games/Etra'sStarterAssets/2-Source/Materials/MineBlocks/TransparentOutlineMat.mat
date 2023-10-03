@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: TransparentOutlineMat
-  m_Shader: {fileID: 4800000, guid: f1e2a114e7340494380eade9818f32c2, type: 3}
+  m_Shader: {fileID: 4800000, guid: 2f5f3e5055f8bb046a7c599d026ec90d, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
   - _GLOSSYREFLECTIONS_OFF

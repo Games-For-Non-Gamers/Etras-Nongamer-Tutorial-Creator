@@ -27,6 +27,8 @@ namespace Etra.StarterAssets
             {
                 thisRenderer.materials[i] = new Material(thisRenderer.sharedMaterials[i]);
                 thisRenderer.materials[i].mainTexture = blockRenderer.sharedMaterials[i].mainTexture;
+                Color altBlockColor = blockRenderer.sharedMaterials[i].color; ;
+                thisRenderer.materials[i].color = new Color(altBlockColor.r, altBlockColor.g, altBlockColor.b, thisRenderer.materials[i].color.a);
             }
 
         }

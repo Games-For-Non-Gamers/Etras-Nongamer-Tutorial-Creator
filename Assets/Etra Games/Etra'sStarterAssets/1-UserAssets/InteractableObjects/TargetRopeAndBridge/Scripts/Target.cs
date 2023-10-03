@@ -151,6 +151,7 @@ namespace Etra.StarterAssets.Interactables
 
         //Here is the full hit to rope burning animation
         bool coroutineStarted = false;
+        [ContextMenu("Test Hit")]
         public void targetHit()
         {
             if (!coroutineStarted)
