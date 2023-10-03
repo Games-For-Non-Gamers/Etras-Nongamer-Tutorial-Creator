@@ -228,7 +228,10 @@ namespace Etra.StarterAssets
                     //FPS Ability Variable Default adjustment
                     if (GetComponentInChildren<ABILITY_CameraMovement>())
                     {
-                        GetComponentInChildren<ABILITY_CameraMovement>().setForwardToPlayerLookDirection = true;
+                        ABILITY_CameraMovement abilityCamMovement = GetComponentInChildren<ABILITY_CameraMovement>();
+                        abilityCamMovement.setForwardToPlayerLookDirection = true;
+                        abilityCamMovement.TopClamp = 90.0f; 
+                        abilityCamMovement.BottomClamp = -90.0f;
                     }
                     if (GetComponentInChildren<ABILITY_CharacterMovement>())
                     {
@@ -247,7 +250,10 @@ namespace Etra.StarterAssets
                     //TPS Ability Variable Default adjustment
                     if (GetComponentInChildren<ABILITY_CameraMovement>())
                     {
-                        GetComponentInChildren<ABILITY_CameraMovement>().setForwardToPlayerLookDirection = false;
+                        ABILITY_CameraMovement abilityCamMovement = GetComponentInChildren<ABILITY_CameraMovement>();
+                        abilityCamMovement.setForwardToPlayerLookDirection = false;
+                        abilityCamMovement.TopClamp = 70.0f;
+                        abilityCamMovement.BottomClamp = -70.0f;
                     }
                     if (GetComponentInChildren<ABILITY_CharacterMovement>())
                     {

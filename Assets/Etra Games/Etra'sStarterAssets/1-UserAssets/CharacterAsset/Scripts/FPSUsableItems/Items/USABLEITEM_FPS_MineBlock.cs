@@ -42,9 +42,8 @@ namespace Etra.StarterAssets.Items
         private GameObject mineBlockSystem;
         private GameObject blockOutline;
 
-        private bool isAiming = false;
-        private float destroyCooldown = 0.367f; //Matched with animation timing atm
-        private float buildCooldown = 0.367f;
+        private float destroyCooldown = 0.1835f; //Matched with animation timing atm 0.367f
+        private float buildCooldown = .1835f;
 
         private GameObject heldItem;
 
@@ -53,6 +52,12 @@ namespace Etra.StarterAssets.Items
 
         public override string getNameOfPrefabToLoad() { return "FpsMineHandGroup"; }
         public override string getEquipSfxName() { return "NoSound"; }
+
+
+        private void Reset()
+        {
+            blockToLoad = (MineBlockData)Resources.Load("DirtBlockDefaultData");
+        }
 
         protected void Awake()
         {
@@ -214,25 +219,21 @@ namespace Etra.StarterAssets.Items
                     }
                 }
 
-                if (!starterAssetsInputs.shoot || isAiming)
+                if (!starterAssetsInputs.shoot)
                 {
                     mineAnimator.SetBool(hitAnim, false);
                     mineAnimator.SetBool(missAnim, false);
                 }
 
-                if (!starterAssetsInputs.aim)
-                {
-                    isAiming = false;
-                }
 
-                if (starterAssetsInputs.aim && !isAiming && !isHand)
+
+                if (starterAssetsInputs.aim && !isHand)
                 {
                     if (Time.time - _hitTimeoutDelta >= buildCooldown && inInteractDistance(blockInteractDistance))
                     {
                         mineAnimator.SetBool(hitAnim, true);
                         BuildBlock(blockToLoad.blockPrefab);
                         _hitTimeoutDelta = Time.time;
-                        isAiming = true;
                     }
                 }
             }
@@ -249,7 +250,7 @@ namespace Etra.StarterAssets.Items
                     }
                 }
 
-                if (!starterAssetsInputs.shoot || isAiming)
+                if (!starterAssetsInputs.shoot)
                 {
                     mineAnimator.SetBool(hitAnim, false);
                     mineAnimator.SetBool(missAnim, false);

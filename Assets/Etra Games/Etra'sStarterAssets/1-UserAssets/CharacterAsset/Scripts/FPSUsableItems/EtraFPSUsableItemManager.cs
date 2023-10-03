@@ -18,9 +18,9 @@ namespace Etra.StarterAssets.Items
         //Visible in Inspector
         public bool playEquipAnims = true;
         public bool playUnequipAnims = true;
-        [HideInInspector]
-        public bool weaponInitHandledElsewhere = false;
+        [HideInInspector] public bool weaponInitHandledElsewhere = false;
 
+        [Header("Ovverride Default Null Item")]
         public usableItemScriptAndPrefab defaultNullItem;
         public bool fillEmptySlotsWithDefaultItem = false;
 
@@ -607,6 +607,7 @@ namespace Etra.StarterAssets.Items
             if (oldItem == usableItems[newItemNum] && !forceSelect)// avoid swapping items unncessarily if swap to same EXACT item like hand
             {
                 activeItemNum = newItemNum;//Change num for ui, but do nothing else
+                setInputsToDefault();
             }
             else
             {
@@ -619,8 +620,6 @@ namespace Etra.StarterAssets.Items
 
                 oldItem.script.enabled = false;
                 Destroy(activeItemPrefab);
-
-
 
                 activeItemNum = newItemNum;
                 var newItem = Instantiate(usableItems[activeItemNum].prefab);
@@ -640,7 +639,6 @@ namespace Etra.StarterAssets.Items
                         fpsItemAudioManager.Play(usableItems[activeItemNum].script.getEquipSfxName());
                     }
 
-
                     activeItemPrefab.transform.localRotation = Quaternion.Euler(usableItems[activeItemNum].script.getItemUnequipRotation());
                     usableItems[activeItemNum].script.runEquipAnimation();
                     yield return new WaitForSeconds(usableItems[activeItemNum].script.getItemEquipSpeed());
@@ -656,7 +654,6 @@ namespace Etra.StarterAssets.Items
         void setInputsToDefault()
         {
             starterAssetsInputs.usableItemInventoryScroll = 0;
-
             starterAssetsInputs.item0Select = false;
             starterAssetsInputs.item1Select = false;
             starterAssetsInputs.item2Select = false;

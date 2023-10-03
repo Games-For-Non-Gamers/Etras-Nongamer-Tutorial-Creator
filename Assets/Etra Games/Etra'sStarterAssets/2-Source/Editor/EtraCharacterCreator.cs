@@ -556,10 +556,23 @@ namespace Etra.StarterAssets.Source.Editor
                 .Except(tpAbilities)
                 .ToList();
 
-            //Initialize items
+            // Initialize items
             fpsItems = EtraGUIUtility.FindAllTypes<EtraFPSUsableItemBaseClass>()
                 .Select(x => new Ability(x))
                 .ToList();
+
+            Ability nullItem = new Ability(typeof(USABLEITEM_FPS_Default_Null_Item));
+            // Remove the null item
+
+            foreach (Ability item in fpsItems)
+            {
+                if (item.type == nullItem.type)
+                {
+                    fpsItems.Remove(item);
+                    break;
+                }
+            }
+
         }
 
         void RefreshTarget()

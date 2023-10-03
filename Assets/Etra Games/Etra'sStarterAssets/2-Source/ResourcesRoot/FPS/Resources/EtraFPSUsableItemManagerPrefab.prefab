@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4420940282929239709}
   - component: {fileID: 8521967955930860798}
+  - component: {fileID: 6242073665276152335}
   m_Layer: 0
   m_Name: EtraFPSUsableItemManagerPrefab
   m_TagString: Untagged
@@ -47,5 +48,89 @@ MonoBehaviour:
   playEquipAnims: 1
   playUnequipAnims: 1
   weaponInitHandledElsewhere: 0
+  defaultNullItem:
+    script: {fileID: 6242073665276152335}
+    prefab: {fileID: 0}
+  fillEmptySlotsWithDefaultItem: 0
   usableItems: []
+  inventory:
+  - script: {fileID: 0}
+    prefab: {fileID: 0}
+  - script: {fileID: 0}
+    prefab: {fileID: 0}
+  - script: {fileID: 0}
+    prefab: {fileID: 0}
+  - script: {fileID: 0}
+    prefab: {fileID: 0}
+  - script: {fileID: 0}
+    prefab: {fileID: 0}
+  - script: {fileID: 0}
+    prefab: {fileID: 0}
+  - script: {fileID: 0}
+    prefab: {fileID: 0}
+  - script: {fileID: 0}
+    prefab: {fileID: 0}
+  - script: {fileID: 0}
+    prefab: {fileID: 0}
+  - script: {fileID: 0}
+    prefab: {fileID: 0}
+  - script: {fileID: 0}
+    prefab: {fileID: 0}
+  - script: {fileID: 0}
+    prefab: {fileID: 0}
+  - script: {fileID: 0}
+    prefab: {fileID: 0}
+  - script: {fileID: 0}
+    prefab: {fileID: 0}
+  - script: {fileID: 0}
+    prefab: {fileID: 0}
+  - script: {fileID: 0}
+    prefab: {fileID: 0}
+  - script: {fileID: 0}
+    prefab: {fileID: 0}
+  - script: {fileID: 0}
+    prefab: {fileID: 0}
+  - script: {fileID: 0}
+    prefab: {fileID: 0}
+  - script: {fileID: 0}
+    prefab: {fileID: 0}
+  - script: {fileID: 0}
+    prefab: {fileID: 0}
+  - script: {fileID: 0}
+    prefab: {fileID: 0}
+  - script: {fileID: 0}
+    prefab: {fileID: 0}
+  - script: {fileID: 0}
+    prefab: {fileID: 0}
+  - script: {fileID: 0}
+    prefab: {fileID: 0}
+  - script: {fileID: 0}
+    prefab: {fileID: 0}
+  - script: {fileID: 0}
+    prefab: {fileID: 0}
+  uiItemSelectionChange:
+    m_PersistentCalls:
+      m_Calls: []
+  uiItemSwap:
+    m_PersistentCalls:
+      m_Calls: []
+  activeItemNum: 0
   activeItemPrefab: {fileID: 0}
+  targetItemUiNum: 0
+--- !u!114 &6242073665276152335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8609855485093357027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f5ed1d0a631ccb4da7c022719b5f9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputsLocked: 0
+  toDelete: 0
+  inventoryImage: {fileID: 0}
+  isEquipping: 0
+  isUnequipping: 0

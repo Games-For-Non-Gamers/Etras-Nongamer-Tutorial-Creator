@@ -5,6 +5,7 @@ namespace Etra.StarterAssets.Items
         private new void Awake()
         {
             isHand= true;
+            blockToLoad = null;
             iconName = "IconMineHand";
             base.Awake();
         }
