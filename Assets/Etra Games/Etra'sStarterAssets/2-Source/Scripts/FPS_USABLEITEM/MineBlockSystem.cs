@@ -64,6 +64,11 @@ namespace Etra.StarterAssets
 
         public void PlayDestroyParticle(Vector3 worldPosition, Texture mainTexture)
         {
+            if (!Application.isPlaying) {return;}
+            if (blockParticles[currentParticle] == null)
+            {
+                return;
+            }
             blockParticles[currentParticle].transform.position = worldPosition;
             blockParticles[currentParticle].GetComponent<ParticleSystem>().GetComponent<Renderer>().material.mainTexture = mainTexture;
             blockParticles[currentParticle].GetComponent<ParticleSystem>().Play();

@@ -44,6 +44,8 @@ namespace Etra.StarterAssets.Items
 
         private void Awake()
         {
+            Texture2D temp = (Texture2D)Resources.Load("IconFlashlight");
+            inventoryImage = Sprite.Create(temp, new Rect(0, 0, temp.width, temp.height), Vector2.zero);
             enabled = false;
         }
 
@@ -73,9 +75,6 @@ namespace Etra.StarterAssets.Items
             }
 
         }
-
-
-
 
         public void Update()
         {

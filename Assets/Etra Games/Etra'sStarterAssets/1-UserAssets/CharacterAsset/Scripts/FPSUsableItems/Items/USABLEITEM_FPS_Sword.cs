@@ -13,6 +13,7 @@ namespace Etra.StarterAssets.Items
         //Name of Prefab to load and required function
         private string nameOfPrefabToLoadFromAssets = "FPSSwordGroup";
         public override string getNameOfPrefabToLoad() { return nameOfPrefabToLoadFromAssets; }
+        public override string getEquipSfxName() { return "SwordEquip"; }
 
         [Header("Basics")]
         public float swordRange = 2.5f;
@@ -36,6 +37,8 @@ namespace Etra.StarterAssets.Items
 
         private void Awake()
         {
+            Texture2D temp = (Texture2D)Resources.Load("IconSword");
+            inventoryImage = Sprite.Create(temp, new Rect(0, 0, temp.width, temp.height), Vector2.zero);
             enabled = false;
         }
 
@@ -51,11 +54,6 @@ namespace Etra.StarterAssets.Items
             referenceToSwordTransform = etraFPSUsableItemManager.activeItemPrefab.transform;
             swordAnimator = referenceToSwordTransform.GetComponentInChildren<Animator>();
             camMoveScript = GameObject.Find("EtraAbilityManager").GetComponent<ABILITY_CameraMovement>();
-        }
-
-        private void Reset()
-        {
-            equipSfxName = "SwordEquip";
         }
 
         GameObject hitObject;

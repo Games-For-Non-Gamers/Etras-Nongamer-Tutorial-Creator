@@ -5,13 +5,14 @@ using Etra.StarterAssets.Source;
 using EtrasStarterAssets;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.XR;
 
 namespace Etra.StarterAssets.Items
 {
     public class USABLEITEM_FPS_MineBlock : EtraFPSUsableItemBaseClass
     {
         [Header("Block")]
-        public GameObject blockToLoad;
+        public MineBlockData blockToLoad;
         public bool canPlaceOnObjects = false;
         [Header("Interaction")]
         public float blockInteractDistance = 5;
@@ -48,11 +49,20 @@ namespace Etra.StarterAssets.Items
         private GameObject heldItem;
 
         private bool itemReady = false;
+        protected string iconName = "IconDirtBlock";
 
         public override string getNameOfPrefabToLoad() { return "FpsMineHandGroup"; }
+        public override string getEquipSfxName() { return "NoSound"; }
 
         protected void Awake()
         {
+            if (blockToLoad !=null)
+            {
+                iconName = blockToLoad.blockIcon.name;
+            }
+
+            Texture2D temp = (Texture2D)Resources.Load(iconName);
+            inventoryImage = Sprite.Create(temp, new Rect(0, 0, temp.width, temp.height), Vector2.zero);
             enabled = false;
             if (MineBlockSystem.Instance == null)
             {
@@ -81,7 +91,7 @@ namespace Etra.StarterAssets.Items
             }
             else
             {
-                heldItem = Instantiate(blockToLoad, Vector3.zero, Quaternion.Euler(0, 0, 0), MineBlockSystem.Instance.systemParent.transform);
+                heldItem = Instantiate(blockToLoad.blockPrefab, Vector3.zero, Quaternion.Euler(0, 0, 0), MineBlockSystem.Instance.systemParent.transform);
                 heldItem.GetComponent<Collider>().enabled = false;
                 heldItem.GetComponent<Renderer>().enabled = false;
                 heldItem.GetComponent<MineBlock>().enabled = false;
@@ -145,10 +155,6 @@ namespace Etra.StarterAssets.Items
             }
         }
 
-        private void Reset()
-        {
-            equipSfxName = "";
-        }
 
         private RaycastHit hitInfo;
         private GameObject hitObject;
@@ -224,7 +230,7 @@ namespace Etra.StarterAssets.Items
                     if (Time.time - _hitTimeoutDelta >= buildCooldown && inInteractDistance(blockInteractDistance))
                     {
                         mineAnimator.SetBool(hitAnim, true);
-                        BuildBlock(blockToLoad);
+                        BuildBlock(blockToLoad.blockPrefab);
                         _hitTimeoutDelta = Time.time;
                         isAiming = true;
                     }

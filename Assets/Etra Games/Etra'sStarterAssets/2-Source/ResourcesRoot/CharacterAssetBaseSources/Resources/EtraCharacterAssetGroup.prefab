@@ -385,6 +385,17 @@ MonoBehaviour:
     isMusic: 0
     loop: 0
     source: {fileID: 0}
+  - name: NoSound
+    clip: {fileID: 8300000, guid: 5afe6b870d4a4c342a4b32333e49c709, type: 3}
+    volume: 0
+    basePitch: 1
+    spatialBlend: 0
+    randomizePitch: 0
+    randomPitchRange: {x: 0.95, y: 1.05}
+    isDialogue: 0
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
   stopPlayingSounds: 0
 --- !u!1 &4805442598740618316
 GameObject:

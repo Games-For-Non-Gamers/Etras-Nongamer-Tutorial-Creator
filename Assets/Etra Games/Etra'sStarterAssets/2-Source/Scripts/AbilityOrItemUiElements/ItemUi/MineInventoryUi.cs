@@ -17,8 +17,7 @@ namespace Etra.StarterAssets
         public Image tint;
         public Image cursorImage;
 
-        private bool canExitInventory = true;
-        private bool cursorHasObject = false;
+        usableItemScriptAndPrefab cursorHeldItem = null;
 
         EtraFPSUsableItemManager itemManager;
 
@@ -51,6 +50,8 @@ namespace Etra.StarterAssets
 
             starterAssetsInputs = EtraCharacterMainController.Instance.GetComponent<StarterAssetsInputs>();
 
+            cursorHeldItem = itemManager.defaultNullItem;
+
             //itemManager.uiItemSelectionChange.AddListener(ItemSwap);
             //Will need an event trigger to set item images
             UpdateItemImages();//<---Run whenever menu opened
@@ -72,13 +73,22 @@ namespace Etra.StarterAssets
         {
             for (int i = 0; i < itemManager.usableItems.Length; i++)
             {
-                hotbarImages[i].sprite = itemManager.usableItems[i].script.inventoryImage;
+                if (itemManager.usableItems[i].script.inventoryImage != null)
+                {
+                    //Use normal image
+                    hotbarImages[i].sprite = itemManager.usableItems[i].script.inventoryImage;
+                }
+                else
+                {
+                    //Use no icon found
+                    hotbarImages[i].sprite = (Sprite)Resources.Load("IconNullItem");
+                }
                 MaxAlpha(hotbarImages[i]);
             }
 
             for (int i = 0; i < hotbarImages.Length; i++)
             {
-                if (hotbarImages[i].sprite == null)
+                if (hotbarImages[i].sprite == null || hotbarImages[i].sprite == itemManager.defaultNullItem.script.inventoryImage)
                 {
                     RemoveAlpha(hotbarImages[i]);
                 }
@@ -89,13 +99,22 @@ namespace Etra.StarterAssets
         {
             for (int i = 0; i < itemManager.inventory.Length; i++)
             {
-                inventoryImages[i].sprite = itemManager.inventory[i].script.inventoryImage;
+                if (itemManager.inventory[i].script.inventoryImage != null)
+                {
+                    //Use normal image
+                    inventoryImages[i].sprite = itemManager.inventory[i].script.inventoryImage;
+                }
+                else
+                {
+                    //Use no icon found
+                    inventoryImages[i].sprite = (Sprite)Resources.Load("IconNullItem");
+                }
                 MaxAlpha(inventoryImages[i]);
             }
 
             for (int i = 0; i < inventoryImages.Length; i++)
             {
-                if (inventoryImages[i].sprite == null)
+                if (inventoryImages[i].sprite == null || inventoryImages[i].sprite == itemManager.defaultNullItem.script.inventoryImage)
                 {
                     RemoveAlpha(inventoryImages[i]);
                 }
@@ -125,13 +144,13 @@ namespace Etra.StarterAssets
             if (starterAssetsInputs.inventory)
             {
                 starterAssetsInputs.inventory = false;
-                if (!cursorHasObject)
+                if (cursorHeldItem == itemManager.defaultNullItem)
                 {
                     toggleInvetory();
                 }
             }
 
-            if (cursorHasObject)
+            if (cursorHeldItem != itemManager.defaultNullItem)
             {
 
                 Vector2 mousePosition = Mouse.current.position.ReadValue();
@@ -174,107 +193,117 @@ namespace Etra.StarterAssets
 
         public void ButtonPressHotbar(int num)
         {
-            //Place down object
-            if (cursorHasObject)
+            //Place down or swap object
+            if (cursorHeldItem != itemManager.defaultNullItem)
             {
-                if (hotbarImages[num].sprite == null)
+                //Image Slot is empty
+                if (hotbarImages[num].sprite == null || hotbarImages[num].sprite == itemManager.defaultNullItem.script.inventoryImage )
                 {
-                    Sprite temp = cursorImage.sprite;
-                    cursorImage.sprite = null;
+                    //Set slot image to cursor image
+                    hotbarImages[num].sprite = cursorImage.sprite;
+                    //Hide/Reset Cursor Image
+                    cursorImage.sprite = itemManager.defaultNullItem.script.inventoryImage;
                     cursorImage.enabled = false;
-                    hotbarImages[num].sprite = temp;
+                    //Show slot image
                     MaxAlpha(hotbarImages[num]);
-                    cursorHasObject = false;
-                    placeItem(WhatArray.hotbar, num);
+                    //Update proper array
+                    itemManager.placeItem(cursorHeldItem, itemManager.usableItems, num);
+                    itemManager.disableFPSItemInputs();
+                    cursorHeldItem = itemManager.defaultNullItem;
                 }
                 else
+                //Image slot contains image/object
                 {
-                    placeItem(WhatArray.hotbar, num);
-                    Sprite mouseImageSaved = cursorImage.sprite;
-                    PickUpObjectHotbar(num);
-                    hotbarImages[num].sprite = mouseImageSaved;
-                    MaxAlpha(hotbarImages[num]);
-                }
+                    //Swap the cursor and slot images
+                    Sprite imageToSwapTo = hotbarImages[num].sprite;
+                    hotbarImages[num].sprite = cursorImage.sprite;
+                    cursorImage.sprite = imageToSwapTo;
 
+                    //Save clicked item
+                    usableItemScriptAndPrefab temp = itemManager.usableItems[num];
+                    //Place cursor item
+                    itemManager.placeItem(cursorHeldItem, itemManager.usableItems, num);
+                    itemManager.disableFPSItemInputs();
+                    //Getsaved item
+                    cursorHeldItem = temp;
+                }
             }
             //Pick up object
-            else if (hotbarImages[num].sprite != null && !cursorHasObject)
+            else if (hotbarImages[num].sprite != null && cursorHeldItem == itemManager.defaultNullItem)
             {
-                PickUpObjectHotbar(num);
+                //Hide and null slot image
+                Sprite temp = hotbarImages[num].sprite;
+                RemoveAlpha(hotbarImages[num]);
+                hotbarImages[num].sprite = null;
+                //Show cursor image
+                cursorImage.sprite = temp;
+                cursorImage.enabled = true;
+
+                //Add object to cursor slot
+                cursorHeldItem = itemManager.usableItems[num];
+                //Place cursor item
+                itemManager.placeItem(itemManager.defaultNullItem, itemManager.usableItems, num);
+                itemManager.disableFPSItemInputs();
             }
         }
 
-        void PickUpObjectHotbar(int num)
-        {
-            Sprite temp = hotbarImages[num].sprite;
-            RemoveAlpha(hotbarImages[num]);
-            hotbarImages[num].sprite = null;
-            cursorImage.sprite = temp;
-            cursorImage.enabled = true;
-            cursorHasObject = true;
-
-            arrayMouseItemIsFrom = WhatArray.hotbar;
-            arrayMouseItemIndex = num;
-        }
 
         public void ButtonPressInventory(int num)
         {
-            //Place down object
-            if (cursorHasObject)
+            //Place down or swap object
+            if (cursorHeldItem != itemManager.defaultNullItem)
             {
-                if (inventoryImages[num].sprite == null)
+                //Image Slot is empty
+                if (inventoryImages[num].sprite == null || inventoryImages[num].sprite == itemManager.defaultNullItem.script.inventoryImage)
                 {
-                    Sprite temp = cursorImage.sprite;
-                    cursorImage.sprite = null;
+                    //Set slot image to cursor image
+                    inventoryImages[num].sprite = cursorImage.sprite;
+                    //Hide/Reset Cursor Image
+                    cursorImage.sprite = itemManager.defaultNullItem.script.inventoryImage;
                     cursorImage.enabled = false;
-                    inventoryImages[num].sprite = temp;
+                    //Show slot image
                     MaxAlpha(inventoryImages[num]);
-                    cursorHasObject = false;
-                    placeItem(WhatArray.inventory, num);
+                    //Update proper array
+                    itemManager.placeItem(cursorHeldItem, itemManager.inventory, num);
+                    itemManager.disableFPSItemInputs();
+                    cursorHeldItem = itemManager.defaultNullItem;
                 }
                 else
+                //Image slot contains image/object
                 {
-                    placeItem(WhatArray.inventory, num);
-                    Sprite mouseImageSaved = cursorImage.sprite;
-                    pickUpObjectInventory(num);
-                    inventoryImages[num].sprite = mouseImageSaved;
-                    MaxAlpha(inventoryImages[num]);
-                }
+                    //Swap the cursor and slot images
+                    Sprite imageToSwapTo = inventoryImages[num].sprite;
+                    inventoryImages[num].sprite = cursorImage.sprite;
+                    cursorImage.sprite = imageToSwapTo;
 
+                    //Save clicked item
+                    usableItemScriptAndPrefab temp = itemManager.inventory[num];
+                    //Place cursor item
+                    itemManager.placeItem(cursorHeldItem, itemManager.inventory, num);
+                    itemManager.disableFPSItemInputs();
+                    //Getsaved item
+                    cursorHeldItem = temp;
+                }
             }
             //Pick up object
-            else if (inventoryImages[num].sprite != null && !cursorHasObject)
+            else if (inventoryImages[num].sprite != null && cursorHeldItem == itemManager.defaultNullItem)
             {
-                pickUpObjectInventory(num);
+                //Hide and null slot image
+                Sprite temp = inventoryImages[num].sprite;
+                RemoveAlpha(inventoryImages[num]);
+                inventoryImages[num].sprite = null;
+                //Show cursor image
+                cursorImage.sprite = temp;
+                cursorImage.enabled = true;
+
+                //Add object to cursor slot
+                cursorHeldItem = itemManager.inventory[num];
+                //Place cursor item
+                itemManager.placeItem(itemManager.defaultNullItem, itemManager.inventory, num);
+                itemManager.disableFPSItemInputs();
             }
         }
 
-        void pickUpObjectInventory(int num)
-        {
-            Sprite temp = inventoryImages[num].sprite;
-            RemoveAlpha(inventoryImages[num]);
-            inventoryImages[num].sprite = null;
-            cursorImage.sprite = temp;
-            cursorImage.enabled = true;
-            cursorHasObject = true;
-
-            arrayMouseItemIsFrom = WhatArray.inventory;
-            arrayMouseItemIndex = num;
-        }
-
-        void placeItem(WhatArray destinationArray, int destinationIndex )
-        {
-
-            if (arrayMouseItemIsFrom == WhatArray.hotbar)
-            {
-                itemManager.swapItems(itemManager.usableItems, arrayMouseItemIndex, destinationArray == WhatArray.hotbar ? itemManager.usableItems : itemManager.inventory, destinationIndex);
-            }
-            else if (arrayMouseItemIsFrom == WhatArray.inventory)
-            {
-                itemManager.swapItems(itemManager.inventory, arrayMouseItemIndex, destinationArray == WhatArray.hotbar ? itemManager.usableItems : itemManager.inventory, destinationIndex);
-            }
-
-        }
 
         public void ButtonHoverHotbar(int num)
         {

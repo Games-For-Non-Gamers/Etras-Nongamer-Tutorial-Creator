@@ -14,7 +14,9 @@ namespace Etra.StarterAssets
 
         private void OnDestroy()
         {
-            MineBlockSystem.Instance.PlayDestroyParticle(test, savedTexture);
+            if (Application.isPlaying) { 
+                MineBlockSystem.Instance.PlayDestroyParticle(test, savedTexture);
+            }
         }
     }
 }

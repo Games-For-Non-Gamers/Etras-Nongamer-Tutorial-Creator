@@ -7,10 +7,10 @@ namespace Etra.StarterAssets.Items
     public abstract class EtraFPSUsableItemBaseClass : MonoBehaviour
     {
         public abstract string getNameOfPrefabToLoad(); //Require the name of loaded prefab in all scripts
+        public virtual string getEquipSfxName() { return ""; }
         public bool inputsLocked = false;
         [HideInInspector]public bool toDelete = false;
-        public string equipSfxName = "";
-        public Sprite inventoryImage;
+        [HideInInspector] public Sprite inventoryImage;
         #region Default Equip and Unequip Animations
 
         private EtraFPSUsableItemManager _manager;

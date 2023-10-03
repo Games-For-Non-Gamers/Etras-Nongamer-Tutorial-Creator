@@ -14,6 +14,7 @@ namespace Etra.StarterAssets.Items
         //Name of Prefab to load and required function
         private string nameOfPrefabToLoadFromAssets = "FPSBlasterGroup";
         public override string getNameOfPrefabToLoad() { return nameOfPrefabToLoadFromAssets; }
+        public override string getEquipSfxName() { return "BlasterEquip"; }
 
         //Public variables
         [Header("Basics")]
@@ -35,13 +36,14 @@ namespace Etra.StarterAssets.Items
         private void Reset()
         {
             // Set example projectile default when this component is added
-            equipSfxName = "BlasterEquip";
             launchedBullet = EtrasResourceGrabbingFunctions.getPrefabFromResourcesByName("ExampleProjectile");
         }
 
         private void Awake()
         {
             enabled = false;
+            Texture2D temp = (Texture2D)Resources.Load("IconBlaster");
+            inventoryImage = Sprite.Create(temp, new Rect(0, 0, temp.width, temp.height), Vector2.zero);
             if (launchedBullet == null)
             {
                 launchedBullet = (GameObject)Resources.Load("ExampleProjectile");

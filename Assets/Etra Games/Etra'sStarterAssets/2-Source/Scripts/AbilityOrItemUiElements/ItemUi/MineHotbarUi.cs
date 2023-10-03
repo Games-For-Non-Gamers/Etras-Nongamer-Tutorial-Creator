@@ -44,12 +44,25 @@ namespace Etra.StarterAssets
             for (int i = 0; i < itemManager.usableItems.Length; i++)
             {
                 itemSlotsImages[i].enabled = true;
-                itemSlotsImages[i].sprite = itemManager.usableItems[i].script.inventoryImage;
+                if (itemManager.usableItems[i].script != null)
+                {
+                    if (itemManager.usableItems[i].script.inventoryImage != null)
+                    {
+                        //Use normal image
+                        itemSlotsImages[i].sprite = itemManager.usableItems[i].script.inventoryImage;
+                    }
+                    else
+                    {
+                        //Use no icon found
+                        Texture2D temp = (Texture2D)Resources.Load("IconNullItem");
+                        itemSlotsImages[i].sprite = Sprite.Create(temp, new Rect(0, 0, temp.width, temp.height), Vector2.zero);
+                    }
+                }
             }
 
             for (int i = 0; i < itemSlotsImages.Length; i++)
             {
-                if (itemSlotsImages[i].sprite == null)
+                if (itemSlotsImages[i].sprite == null || itemSlotsImages[i].sprite == itemManager.defaultNullItem.script.inventoryImage)
                 {
                     itemSlotsImages[i].enabled = false;
                 }

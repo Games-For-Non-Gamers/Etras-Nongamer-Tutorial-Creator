@@ -531,9 +531,7 @@ namespace Etra.StarterAssets.Items
         {
             if (usableItems.Length > num)
             {
-
                     StartCoroutine(equipItemCoroutine(num));
-
             }
         }
 
@@ -559,9 +557,21 @@ namespace Etra.StarterAssets.Items
 
 
 
+        public void placeItem(usableItemScriptAndPrefab item, usableItemScriptAndPrefab[] arrayOfTargetItem, int targetIndex)
+        {
+            usableItemScriptAndPrefab oldItem = usableItems[activeItemNum];
+            arrayOfTargetItem[targetIndex] = item;
+
+            if (arrayOfTargetItem == usableItems && targetIndex == activeItemNum)
+            {
+                StartCoroutine(equipItemCoroutine(oldItem, activeItemNum));
+            }
+            uiItemSwap.Invoke();
+        }
+
+
         public void swapItems(usableItemScriptAndPrefab[] array1, int index1, usableItemScriptAndPrefab[] array2, int index2)
         {
-
             usableItemScriptAndPrefab oldItem = usableItems[activeItemNum];
             usableItemScriptAndPrefab temp = array1[index1];
             array1[index1] = array2[index2];
@@ -621,13 +631,13 @@ namespace Etra.StarterAssets.Items
 
                 if (playEquipAnims)
                 {
-                    if (usableItems[activeItemNum].script.equipSfxName == "")
+                    if (usableItems[activeItemNum].script.getEquipSfxName() == "")
                     {
                         fpsItemAudioManager.Play("DefaultEquip");
                     }
                     else
                     {
-                        fpsItemAudioManager.Play(usableItems[activeItemNum].script.equipSfxName);
+                        fpsItemAudioManager.Play(usableItems[activeItemNum].script.getEquipSfxName());
                     }
 
 
