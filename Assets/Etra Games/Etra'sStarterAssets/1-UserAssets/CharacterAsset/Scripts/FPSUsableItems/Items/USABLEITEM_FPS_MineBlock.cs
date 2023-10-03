@@ -1,3 +1,4 @@
+using Codice.CM.Client.Differences;
 using Etra.StarterAssets.Abilities;
 using Etra.StarterAssets.Input;
 using Etra.StarterAssets.Interactables.Enemies;
@@ -53,6 +54,13 @@ namespace Etra.StarterAssets.Items
 
         public override string getNameOfPrefabToLoad() { return "FpsMineHandGroup"; }
         public override string getEquipSfxName() { return "NoSound"; }
+
+        private enum ScanTypes
+        {
+            Create,
+            Destroy,
+            Scan
+        }
 
 
         private void Reset()
@@ -229,10 +237,6 @@ namespace Etra.StarterAssets.Items
                     }
                 }
 
-
-
-
-
                 if (starterAssetsInputs.aim && !isHand)
                 {
                     if (Time.time - _hitTimeoutDelta >= buildCooldown && inInteractDistance(blockInteractDistance))
@@ -241,20 +245,19 @@ namespace Etra.StarterAssets.Items
                         buildCooldown = savedBuildCooldown;
                         _hitTimeoutDelta = Time.time;
 
-                        Vector3 spawnPosition;
-                        if (hitObject.GetComponent<MineBlock>())
-                        {
-                            spawnPosition = new Vector3(Mathf.RoundToInt(hitInfo.point.x + hitInfo.normal.x / 2), Mathf.RoundToInt(hitInfo.point.y + hitInfo.normal.y / 2), Mathf.RoundToInt(hitInfo.point.z + hitInfo.normal.z / 2));
-                        }
-                        else
-                        {
-                            spawnPosition = new Vector3(Mathf.RoundToInt(hitInfo.point.x), Mathf.RoundToInt(hitInfo.point.y), Mathf.RoundToInt(hitInfo.point.z));
-                        }
-
-                        if (!blockCollidingWithPlayer(spawnPosition))
+                        Vector3 spawnPosition = GetSpawnPosition();
+                        if (!BlockPlacementCollidingWithNonTrigger(spawnPosition))
                         {
                             GameObject block = Instantiate(blockToLoad.blockPrefab, spawnPosition, Quaternion.identity, MineBlockSystem.Instance.blocksParent.transform);
-                            block.GetComponent<MineBlock>().blockData = blockToLoad;
+                            MineBlock mineBlock = block.GetComponent<MineBlock>();
+                            mineBlock.blockData = blockToLoad;
+
+                            if (checker != null)
+                            {
+                                checker.BlockPlaced(mineBlock);
+                                checker = null;
+                            }
+
                             mineBlockAudioManager.Play("WoolPlace");
                             mineAnimator.SetTrigger(hitAnim);
                         }
@@ -288,12 +291,18 @@ namespace Etra.StarterAssets.Items
         {
             if (camMoveScript.objectHit && hitObject.GetComponent<MineBlock>())
             {
+                BlockPlacementCollidingWithNonTrigger(hitObject.GetComponent<MineBlock>().transform.position);
+                if (checker != null)
+                {
+                    checker.BlockDestroyed();
+                    checker = null;
+                }
                 mineBlockAudioManager.Play("WoolBreak");
                 Destroy(hitObject.gameObject);
             }
         }
 
-        private void BuildBlock(GameObject block)
+        private Vector3 GetSpawnPosition()
         {
             Vector3 spawnPosition;
             if (hitObject.GetComponent<MineBlock>())
@@ -304,33 +313,42 @@ namespace Etra.StarterAssets.Items
             {
                 spawnPosition = new Vector3(Mathf.RoundToInt(hitInfo.point.x), Mathf.RoundToInt(hitInfo.point.y), Mathf.RoundToInt(hitInfo.point.z));
             }
-
-            if (!blockCollidingWithPlayer(spawnPosition))
-            {
-                Instantiate(block, spawnPosition, Quaternion.identity, MineBlockSystem.Instance.blocksParent.transform);
-                mineBlockAudioManager.Play("WoolPlace");
-            }
+            return spawnPosition;
         }
 
-        private bool blockCollidingWithPlayer(Vector3 spawnPosition)
+        private bool BlockPlacementCollidingWithNonTrigger()
         {
-            Vector3 halfExtents = new Vector3(0.495f, 0.495f, 0.495f);
-            Collider[] colliders = Physics.OverlapBox(spawnPosition, halfExtents, Quaternion.Euler(0, 0, 0), ~0,  QueryTriggerInteraction.Ignore);
+            return BlockPlacementCollidingWithNonTrigger(GetSpawnPosition());
+        }
 
+        MineblockChecker checker = null;
+        private bool BlockPlacementCollidingWithNonTrigger( Vector3 spawnPosition)
+        {
+            checker = null;
+            Vector3 halfExtents = new Vector3(0.495f, 0.495f, 0.495f);
+            Collider[] colliders = Physics.OverlapBox(spawnPosition, halfExtents, Quaternion.Euler(0, 0, 0), ~0,  QueryTriggerInteraction.Collide);
 
             foreach (var collider in colliders)
             {
-
-                if (!canPlaceOnObjects)
+                if (collider.gameObject.GetComponent<MineblockChecker>())
                 {
-                    return true;
+                    checker = collider.gameObject.GetComponent<MineblockChecker>();
                 }
 
-                if (collider.gameObject.CompareTag("Player"))
+                if (!collider.isTrigger)
                 {
-                    return true;
+                    if (!canPlaceOnObjects)
+                    {
+                        return true;
+                    }
+
+                    if (collider.gameObject.CompareTag("Player"))
+                    {
+                        return true;
+                    }
                 }
             }
+
             return false;
         }
 
@@ -378,7 +396,7 @@ namespace Etra.StarterAssets.Items
                 blockOutline.transform.rotation = Quaternion.Euler(0, 270, 0);
             }
 
-            if (blockCollidingWithPlayer(spawnPosition))
+            if (BlockPlacementCollidingWithNonTrigger())
             {
                 HideOutline();
             }

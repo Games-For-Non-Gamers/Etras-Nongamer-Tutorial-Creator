@@ -1,16 +1,19 @@
 using EtrasStarterAssets;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Etra.StarterAssets
 {
     public class MineblockChecker : MonoBehaviour
     {
+        [Header("Basics")]
         public MineBlockData blockToCheckFor;
+        [Header("References")]
         public GameObject successParticle;
+        public GameObject outline;
+        //private
         Renderer thisRenderer;
-        MineBlock blockInSlot = null;  //This is our success check.
+        MineBlock connectedBlock;//This is our success check.
 
         void Start()
         {
@@ -29,35 +32,54 @@ namespace Etra.StarterAssets
         }
 
 
-        private void OnTriggerEnter(Collider other)
+        public void BlockPlaced(MineBlock block)
         {
-            Debug.Log("a");
-            if (other.GetComponent<MineBlock>())
-            {
-                Debug.Log("e");
-                StartCoroutine(BlockJudge(other.GetComponent<MineBlock>()));
-            }
+            connectedBlock = block;
+            StartCoroutine(BlockJudge(block));
+
+        }
+
+        public void BlockDestroyed()
+        {
+            Debug.Log("e");
+            connectedBlock = null;
+            OutlineVisibility(true);
         }
 
 
-        IEnumerator BlockJudge(MineBlock block )
+        IEnumerator BlockJudge(MineBlock block)
         {
-            thisRenderer.enabled = false;
+            OutlineVisibility(false);
             if (block.blockData.blockPrefab == blockToCheckFor.blockPrefab)
             {
-                blockInSlot = block;
                 MineBlockSystem.Instance.gameObject.GetComponent<AudioManager>().Play("PlaceSuccess");
-                GameObject particle =  Instantiate(successParticle, Vector3.zero, Quaternion.identity, this.transform);
+                GameObject particle =  Instantiate(successParticle, this.transform.position, Quaternion.identity);
                 yield return new WaitForSeconds(2);
                 Destroy(particle);
             }
             else
             {
+                GameObject tempDestroyBlock = connectedBlock.gameObject;
+                connectedBlock = null;
                 yield return new WaitForSeconds(0.5f);
                 MineBlockSystem.Instance.gameObject.GetComponent<AudioManager>().Play("PlaceFail");
-                Destroy(block.gameObject);
+                OutlineVisibility(true);
+                yield return new WaitForSeconds(1f);
+
+                if (tempDestroyBlock != null)
+                {
+                    Destroy(tempDestroyBlock);
+                }
+
             }
 
+        }
+
+
+        void OutlineVisibility(bool visible)
+        {
+            thisRenderer.enabled = visible;
+            outline.SetActive(visible);
         }
 
     }
