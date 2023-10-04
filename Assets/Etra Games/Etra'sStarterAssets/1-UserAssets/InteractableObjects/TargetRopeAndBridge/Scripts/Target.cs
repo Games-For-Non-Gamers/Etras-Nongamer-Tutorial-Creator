@@ -157,19 +157,30 @@ namespace Etra.StarterAssets.Interactables
             if (!coroutineStarted)
             {
                 coroutineStarted = true;
+                ongoing = false;
+                StopCoroutine(moveToMovePositions());
+                LeanTween.cancel(this.gameObject);
+
+                StartCoroutine(popTarget());
+            }
+        }
+
+        public void ropeActivate()
+        {
+            if (!coroutineStarted)
+            {
+                coroutineStarted = true;
+                ongoing = false;
+                StopCoroutine(moveToMovePositions());
+                LeanTween.cancel(this.gameObject);
+
                 StartCoroutine(burnRope());
             }
-
         }
-        IEnumerator burnRope()
+
+
+        IEnumerator popTarget()
         {
-
-            ongoing = false;
-            StopCoroutine(moveToMovePositions());
-            LeanTween.cancel(this.gameObject);
-
-            ropeLine = transform.GetChild(0).GetChild(0).gameObject.GetComponent<LineRenderer>();
-            //from end to beggining. So odd
             audioManager.Play("LightSparkle");
             LeanTween.scale(animScaler.gameObject, new Vector3(1.2f, 1.2f, 1.2f), 0.25f).setEaseInOutSine();
             yield return new WaitForSeconds(0.25f);
@@ -177,6 +188,15 @@ namespace Etra.StarterAssets.Interactables
             LeanTween.scale(animScaler.gameObject, Vector3.zero, 0.5f).setEaseInOutSine();
             yield return new WaitForSeconds(0.45f);
             LeanTween.scale(lineFuser, Vector3.zero, 0.05f);
+            lineFuser.SetActive(false);
+            StartCoroutine(burnRope());
+        }
+
+
+        IEnumerator burnRope()
+        {
+            ropeLine = transform.GetChild(0).GetChild(0).gameObject.GetComponent<LineRenderer>();
+            //from end to beggining. So odd
             lineFuser.SetActive(false);
             sparker.gameObject.SetActive(true);
             LeanTween.scale(sparker.gameObject, new Vector3(0.2f, 0.2f, 0.11f), 0.05f).setEaseInOutSine();

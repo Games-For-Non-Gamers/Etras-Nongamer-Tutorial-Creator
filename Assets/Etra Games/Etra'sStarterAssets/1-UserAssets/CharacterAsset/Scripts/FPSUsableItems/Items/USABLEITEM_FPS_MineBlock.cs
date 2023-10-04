@@ -205,7 +205,6 @@ namespace Etra.StarterAssets.Items
                         var isDamageableCheck = hitObject.GetComponent<IDamageable<int>>();
                         if (inInteractDistance(blockInteractDistance) && hitObject.GetComponent<MineBlock>())
                         {
-                            mineAnimator.SetTrigger(hitAnim);
                             DestroyBlock();
                             destroyCooldown = savedDestroyCooldown;
                             buildCooldown = savedBuildCooldown;
@@ -291,14 +290,30 @@ namespace Etra.StarterAssets.Items
         {
             if (camMoveScript.objectHit && hitObject.GetComponent<MineBlock>())
             {
+                if (!hitObject.GetComponent<MineBlock>().breakable)
+                {
+                    mineAnimator.SetTrigger(missAnim);
+                    return;
+                }
+
                 BlockPlacementCollidingWithNonTrigger(hitObject.GetComponent<MineBlock>().transform.position);
                 if (checker != null)
                 {
-                    checker.BlockDestroyed();
-                    checker = null;
+                    if (!checker.successFreeze)
+                    {
+                        mineAnimator.SetTrigger(hitAnim);
+                        mineBlockAudioManager.Play("WoolBreak");
+                        Destroy(hitObject.gameObject);
+                        checker.BlockDestroyed();
+                        checker = null;
+                    }
                 }
-                mineBlockAudioManager.Play("WoolBreak");
-                Destroy(hitObject.gameObject);
+                else
+                {
+                    mineAnimator.SetTrigger(hitAnim);
+                    mineBlockAudioManager.Play("WoolBreak");
+                    Destroy(hitObject.gameObject);
+                }
             }
         }
 

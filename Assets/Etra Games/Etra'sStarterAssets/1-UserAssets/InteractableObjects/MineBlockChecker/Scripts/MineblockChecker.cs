@@ -13,7 +13,9 @@ namespace Etra.StarterAssets
         public GameObject outline;
         //private
         Renderer thisRenderer;
-        MineBlock connectedBlock;//This is our success check.
+        [HideInInspector]public MineBlock connectedBlock;//This is our success check.
+        [HideInInspector]public MineblockCheckerSet setToActivate = null;
+        [HideInInspector] public bool successFreeze = false;
 
         void Start()
         {
@@ -43,7 +45,6 @@ namespace Etra.StarterAssets
 
         public void BlockDestroyed()
         {
-            Debug.Log("e");
             connectedBlock = null;
             OutlineVisibility(true);
         }
@@ -56,8 +57,14 @@ namespace Etra.StarterAssets
             {
                 MineBlockSystem.Instance.gameObject.GetComponent<AudioManager>().Play("PlaceSuccess");
                 GameObject particle =  Instantiate(successParticle, this.transform.position, Quaternion.identity);
+                successFreeze = true;
+                if (setToActivate)
+                {
+                    setToActivate.CheckTriggers();
+                }
                 yield return new WaitForSeconds(2);
                 Destroy(particle);
+                successFreeze = false;
             }
             else
             {

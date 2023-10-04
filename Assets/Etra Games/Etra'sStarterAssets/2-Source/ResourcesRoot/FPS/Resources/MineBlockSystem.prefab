@@ -95,6 +95,17 @@ MonoBehaviour:
     isMusic: 0
     loop: 0
     source: {fileID: 0}
+  - name: Pop
+    clip: {fileID: 8300000, guid: 0e36d892e5e0fad4d9468f8dec4fe676, type: 3}
+    volume: 0.6
+    basePitch: 1
+    spatialBlend: 0
+    randomizePitch: 0
+    randomPitchRange: {x: 0.95, y: 1.05}
+    isDialogue: 0
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
   stopPlayingSounds: 0
 --- !u!1 &1420176862297552327
 GameObject:
