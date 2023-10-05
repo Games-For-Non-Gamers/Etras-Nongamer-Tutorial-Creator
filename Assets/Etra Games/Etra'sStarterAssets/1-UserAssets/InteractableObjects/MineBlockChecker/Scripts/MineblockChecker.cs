@@ -58,12 +58,12 @@ namespace Etra.StarterAssets
                 MineBlockSystem.Instance.gameObject.GetComponent<AudioManager>().Play("PlaceSuccess");
                 GameObject particle =  Instantiate(successParticle, this.transform.position, Quaternion.identity);
                 successFreeze = true;
+                yield return new WaitForSeconds(2);
+                Destroy(particle);
                 if (setToActivate)
                 {
                     setToActivate.CheckTriggers();
                 }
-                yield return new WaitForSeconds(2);
-                Destroy(particle);
                 successFreeze = false;
             }
             else

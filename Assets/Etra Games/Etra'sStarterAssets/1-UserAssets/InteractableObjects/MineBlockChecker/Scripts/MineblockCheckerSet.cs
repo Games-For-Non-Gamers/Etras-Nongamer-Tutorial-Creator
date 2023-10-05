@@ -45,8 +45,6 @@ namespace Etra.StarterAssets
 
         IEnumerator ActivateAnimation()
         {
-            yield return new WaitForSeconds(2); //Wait for initial particles to destory
-
             GameObject[] particles = new GameObject[mineBlockCheckers.Length];
 
             for (int i = 0; i < mineBlockCheckers.Length; i++)

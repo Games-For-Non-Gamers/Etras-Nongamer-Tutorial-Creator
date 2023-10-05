@@ -128,6 +128,7 @@ namespace Etra.NonGamerTutorialCreator
                 //enable the ability and destroy the pickup
                 if (showTutorialAnimation)
                 {
+                    Debug.Log(getUiObjectName(selectedAbility.shortenedName));
                     GameObject.Find(getUiObjectName(selectedAbility.shortenedName)).GetComponent<EtraAnimationHolder>().runAnimation(selectedAbility, selectedItem, true);
                 }
                 else
