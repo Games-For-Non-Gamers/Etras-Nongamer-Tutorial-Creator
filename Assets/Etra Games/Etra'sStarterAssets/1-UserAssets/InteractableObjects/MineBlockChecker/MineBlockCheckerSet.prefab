@@ -5180,6 +5180,9 @@ MonoBehaviour:
   sparker: {fileID: 4133682525741893913}
   ropeLine: {fileID: 4514378860672696481}
   activated: 0
+  targetDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6960169562559433259
 MonoBehaviour:
   m_ObjectHideFlags: 0
