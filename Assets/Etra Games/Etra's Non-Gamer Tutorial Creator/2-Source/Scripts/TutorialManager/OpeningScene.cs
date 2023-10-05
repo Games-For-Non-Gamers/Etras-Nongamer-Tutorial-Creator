@@ -56,8 +56,19 @@ namespace Etra.NonGamerTutorialCreator.Level
 
             cursorCanvas.SetActive(false);
 
-            pickups = levelController.chunks[levelController.chunks.Count - 1].gameObject.GetComponentsInChildren<AbilityOrItemPickup>();
-            animPickups = levelController.chunks[levelController.chunks.Count - 1].gameObject.GetComponentsInChildren<AnimationTriggerPickup>();
+
+            if (levelController.chunks[levelController.chunks.Count - 1] == null)
+            {
+                //BAD
+                pickups = FindObjectsOfType<AbilityOrItemPickup>();
+                animPickups = FindObjectsOfType<AnimationTriggerPickup>();
+            }
+            else
+            {
+                levelController.chunks[levelController.chunks.Count - 1].gameObject.GetComponentsInChildren<AbilityOrItemPickup>();
+                animPickups = levelController.chunks[levelController.chunks.Count - 1].gameObject.GetComponentsInChildren<AnimationTriggerPickup>();
+            }
+
             foreach (AbilityOrItemPickup a in pickups)
             {
                 a.gameObject.SetActive(false);

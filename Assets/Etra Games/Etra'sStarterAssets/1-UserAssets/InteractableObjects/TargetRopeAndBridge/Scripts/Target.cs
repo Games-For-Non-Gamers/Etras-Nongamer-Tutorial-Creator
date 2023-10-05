@@ -1,6 +1,7 @@
 using Etra.StarterAssets.Source;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Etra.StarterAssets.Interactables
 {
@@ -28,6 +29,8 @@ namespace Etra.StarterAssets.Interactables
         //Activated var
         [HideInInspector] public bool activated = false;
         ParticleSystem impact;
+        public UnityEvent targetDestroyed;
+
         // This function is called when a change is made in the Inspector
         public void OnValidate()
         {
@@ -256,6 +259,7 @@ namespace Etra.StarterAssets.Interactables
             bridge.checkActivate();
             yield return new WaitForSeconds(1);
             sparker.gameObject.SetActive(false);
+            targetDestroyed.Invoke();
         }
     }
 }
