@@ -40,7 +40,22 @@ namespace Etra.StarterAssets.Items
 
         #region Functions to update The usableItems Array
         //Run this function whenever an item is added
+
+        bool addInHotbar = false;
         [ContextMenu("updateUsableItemsArray")]
+        public void updateUsableItemsArray(bool addInHotbar)
+        {
+            if (addInHotbar)
+            {
+                this.addInHotbar = true;
+            }
+            else
+            {
+                this.addInHotbar = false;
+            }
+            updateUsableItemsArray();
+        }
+
         public void updateUsableItemsArray()
         {
             if (defaultNullItem == null || defaultNullItem.script == null)
@@ -79,7 +94,7 @@ namespace Etra.StarterAssets.Items
 
             //I understand this is Big O^2 however, it only runs on validate. What's more important is navigation of the final structure (an array) is as fast as possible.
             EtraFPSUsableItemBaseClass[] grabbedUsableItems;
-
+            int lastAddedItemIndex = -1;
             if (this == null)
             {
                 return;
@@ -137,6 +152,8 @@ namespace Etra.StarterAssets.Items
             //Fill empty slots with null
             if (usableItems.Length < NUMBER_OF_HOTBAR_SLOTS && fillEmptySlotsWithDefaultItem && defaultNullItem != null)
             {
+                //maybe unnecesary?
+                //If we have no item added don't do anything but basic prune
                 usableItemScriptAndPrefab[] temp = new usableItemScriptAndPrefab[NUMBER_OF_HOTBAR_SLOTS];
                 for (int i = 0; i < usableItems.Length; i++)
                 {
@@ -146,7 +163,29 @@ namespace Etra.StarterAssets.Items
             }
             else if (usableItems.Length > NUMBER_OF_HOTBAR_SLOTS)
             {
-                for (int i = NUMBER_OF_HOTBAR_SLOTS; i < usableItems.Length; i++)
+
+                int itemNum = NUMBER_OF_HOTBAR_SLOTS;
+                //add in hotbar if selected
+                if (addInHotbar)
+                {
+                    addInHotbar = false;
+                    for (int i = 0; i < NUMBER_OF_HOTBAR_SLOTS; i++)
+                    {
+                        if (usableItems[i].script == defaultNullItem.script || usableItems[i].script == null)
+                        {
+                            Debug.Log(i + " " + itemNum);
+                            usableItems[i] = usableItems[itemNum];
+                            if (itemNum!= usableItems.Length-1)
+                            {
+                                itemNum++;
+                            }
+                            lastAddedItemIndex = i;
+                        }
+                    }
+                }
+
+                //Add the rest to inventory
+                for (int i = itemNum; i < usableItems.Length; i++)
                 {
                     for (int j = 0; j < inventory.Length; j++)
                     {
@@ -177,6 +216,12 @@ namespace Etra.StarterAssets.Items
                 }
                 usableItems = temp;
             }
+
+            if (lastAddedItemIndex != -1)
+            {
+                StartCoroutine(equipItemCoroutine(lastAddedItemIndex));
+            }
+
 
             uiItemSwap.Invoke();
 
