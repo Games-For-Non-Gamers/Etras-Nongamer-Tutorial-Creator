@@ -109,6 +109,7 @@ namespace Etra.StarterAssets
                     //Use no icon found
                     inventoryImages[i].sprite = (Sprite)Resources.Load("IconNullItem");
                 }
+
                 MaxAlpha(inventoryImages[i]);
             }
 
@@ -146,7 +147,7 @@ namespace Etra.StarterAssets
                 starterAssetsInputs.inventory = false;
                 if (cursorHeldItem == itemManager.defaultNullItem)
                 {
-                    toggleInvetory();
+                    toggleInventory();
                 }
             }
 
@@ -160,10 +161,11 @@ namespace Etra.StarterAssets
         }
 
 
-        void toggleInvetory()
+        void toggleInventory()
         {
             if (!inventoryOpen)
             {
+                UpdateItemImages();
                 openInventory();
             }
             else

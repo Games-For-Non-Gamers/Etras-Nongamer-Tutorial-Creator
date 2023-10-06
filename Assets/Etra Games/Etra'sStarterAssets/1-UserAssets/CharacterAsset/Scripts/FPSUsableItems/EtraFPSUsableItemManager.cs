@@ -155,7 +155,7 @@ namespace Etra.StarterAssets.Items
                             inventory[j] = usableItems[i];
                             break;
                         }
-                        if (inventory[j].script == null)
+                        if (inventory[j].script == null || inventory[j].script == defaultNullItem.script)
                         {
                             inventory[j] = usableItems[i];
                             break;
@@ -178,6 +178,7 @@ namespace Etra.StarterAssets.Items
                 usableItems = temp;
             }
 
+            uiItemSwap.Invoke();
 
 
         }
@@ -539,7 +540,14 @@ namespace Etra.StarterAssets.Items
         {
             if (usableItems.Length>0)
             {
-                StartCoroutine(equipItemCoroutine(mostRecentItem, mostRecentItemIndex, true));
+                foreach (usableItemScriptAndPrefab item in usableItems) //Makes sure it is added to hotbar, not inventory
+                {
+                    if (item == mostRecentItem)
+                    {
+                        StartCoroutine(equipItemCoroutine(mostRecentItem, mostRecentItemIndex, true));
+                        break;
+                    }
+                }
             }
         }
 
