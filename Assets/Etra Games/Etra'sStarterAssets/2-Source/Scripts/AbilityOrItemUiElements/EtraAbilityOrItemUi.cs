@@ -6,6 +6,7 @@ namespace Etra.StarterAssets
 {
     public class EtraAbilityOrItemUi : MonoBehaviour
     {
+        public bool hideUiAtStart = false;
         //Misc
         void disableComponent(MonoBehaviour c)
         {
@@ -39,7 +40,7 @@ namespace Etra.StarterAssets
         }
 
         //Fade in or out over time
-        public void fadeInUi(float time)
+        public virtual void fadeInUi(float time)
         {
             foreach (Image image in transform.GetComponentsInChildren<Image>())
             {

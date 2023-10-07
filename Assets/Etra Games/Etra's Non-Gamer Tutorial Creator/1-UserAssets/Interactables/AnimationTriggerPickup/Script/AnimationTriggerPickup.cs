@@ -56,18 +56,23 @@ namespace Etra.NonGamerTutorialCreator.Level
         {
             if (other.gameObject.tag == "Player" && objectWithEtraAnimationScript != null)
             {
-                if (runAnimation)
-                {
-                    objectWithEtraAnimationScript.runAnimation();
-                }
-                else
-                {
-                    objectWithEtraAnimationScript.showAllAnimatedObjects();
-                }
-
-                Destroy(gameObject);
+                RunTriggerPickupEvents();
             }
 
+        }
+
+        public void RunTriggerPickupEvents()
+        {
+            if (runAnimation)
+            {
+                objectWithEtraAnimationScript.runAnimation();
+            }
+            else
+            {
+                objectWithEtraAnimationScript.showAllAnimatedObjects();
+            }
+
+            Destroy(gameObject);
         }
 
 

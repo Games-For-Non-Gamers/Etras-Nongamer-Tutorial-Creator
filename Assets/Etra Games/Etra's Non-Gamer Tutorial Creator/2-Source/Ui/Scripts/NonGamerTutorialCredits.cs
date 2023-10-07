@@ -80,7 +80,7 @@ namespace Etra.NonGamerTutorialCreator.Level
 
         public void backToMain()
         {
-            SceneManager.LoadScene("ExecutableMegaNonGamerTutorial");
+            SceneManager.LoadScene(0);
         }
 
         private bool IsAnyGamepadButtonPressed()

@@ -1,8 +1,7 @@
 using Etra.StarterAssets.Input;
 using Etra.StarterAssets.Items;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using static Etra.StarterAssets.Items.EtraFPSUsableItemManager;
@@ -11,6 +10,7 @@ namespace Etra.StarterAssets
 {
     public class MineInventoryUi : MonoBehaviour
     {
+        [SerializeField]private bool inventoryUnlocked = true;
         public GameObject activeParent;
         public Image[] hotbarImages;
         public Image[] inventoryImages; //topLefttobottomleft
@@ -21,7 +21,14 @@ namespace Etra.StarterAssets
 
         EtraFPSUsableItemManager itemManager;
 
+        public UnityEvent InventoryOpenFirstTime;
+        public UnityEvent InventoryCloseFirstTime; 
+        public UnityEvent InventoryOpened; //Stop new item ui anim
 
+        public void SetInventoryUnlocked(bool state)
+        {
+            inventoryUnlocked = state;
+        }
         public enum WhatArray
         {
             hotbar,
@@ -32,6 +39,7 @@ namespace Etra.StarterAssets
         WhatArray arrayMouseItemIsFrom;
         int arrayMouseItemIndex;
         StarterAssetsInputs starterAssetsInputs;
+        public Image reticle;
         // Start is called before the first frame update
         void Start()
         {
@@ -141,11 +149,14 @@ namespace Etra.StarterAssets
         // Update is called once per frame
         void Update()
         {
-
+            if (starterAssetsInputs == null)
+            {
+                starterAssetsInputs = EtraCharacterMainController.Instance.GetComponent<StarterAssetsInputs>();
+            }
             if (starterAssetsInputs.inventory)
             {
                 starterAssetsInputs.inventory = false;
-                if (cursorHeldItem == itemManager.defaultNullItem)
+                if (cursorHeldItem == itemManager.defaultNullItem && inventoryUnlocked)
                 {
                     toggleInventory();
                 }
@@ -160,21 +171,25 @@ namespace Etra.StarterAssets
 
         }
 
-
+        bool savedReticleState;
         void toggleInventory()
         {
             if (!inventoryOpen)
             {
+                savedReticleState = reticle.enabled;
+                reticle.enabled = false;
                 UpdateItemImages();
                 openInventory();
             }
             else
             {
                 closeInventory();
+                reticle.enabled = savedReticleState;
             }
         }
 
         bool inventoryOpen = false;
+        bool firstTimeOpened = true;
         void openInventory()
         {
             EtraCharacterMainController.Instance.disableAllActiveAbilities();
@@ -182,8 +197,17 @@ namespace Etra.StarterAssets
             starterAssetsInputs.SetCursorState(false);
             activeParent.SetActive(true);
             inventoryOpen = true;
+
+            if (firstTimeOpened)
+            {
+                InventoryOpenFirstTime.Invoke();
+                firstTimeOpened = false;
+            }
+
+            InventoryOpened.Invoke();
         }
 
+        bool firstTimeClosed = true;
         void closeInventory()
         {
             EtraCharacterMainController.Instance.enableAllActiveAbilities();
@@ -191,6 +215,12 @@ namespace Etra.StarterAssets
             starterAssetsInputs.SetCursorState(true);
             activeParent.SetActive(false);
             inventoryOpen = false;
+
+            if (firstTimeClosed)
+            {
+                InventoryCloseFirstTime.Invoke();
+                firstTimeClosed = false;
+            }
         }
 
         public void ButtonPressHotbar(int num)
@@ -198,6 +228,7 @@ namespace Etra.StarterAssets
             //Place down or swap object
             if (cursorHeldItem != itemManager.defaultNullItem)
             {
+               
                 //Image Slot is empty
                 if (hotbarImages[num].sprite == null || hotbarImages[num].sprite == itemManager.defaultNullItem.script.inventoryImage )
                 {
@@ -231,7 +262,7 @@ namespace Etra.StarterAssets
                 }
             }
             //Pick up object
-            else if (hotbarImages[num].sprite != null && cursorHeldItem == itemManager.defaultNullItem)
+            else if (hotbarImages[num].sprite != null && cursorHeldItem == itemManager.defaultNullItem && hotbarImages[num].sprite != itemManager.defaultNullItem.script.inventoryImage)
             {
                 //Hide and null slot image
                 Sprite temp = hotbarImages[num].sprite;
@@ -288,7 +319,7 @@ namespace Etra.StarterAssets
                 }
             }
             //Pick up object
-            else if (inventoryImages[num].sprite != null && cursorHeldItem == itemManager.defaultNullItem)
+            else if (inventoryImages[num].sprite != null &&  cursorHeldItem == itemManager.defaultNullItem && inventoryImages[num].sprite != itemManager.defaultNullItem.script.inventoryImage)
             {
                 //Hide and null slot image
                 Sprite temp = inventoryImages[num].sprite;

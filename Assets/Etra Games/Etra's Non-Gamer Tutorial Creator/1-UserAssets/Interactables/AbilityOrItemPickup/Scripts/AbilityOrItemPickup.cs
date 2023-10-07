@@ -32,6 +32,11 @@ namespace Etra.NonGamerTutorialCreator
         public bool showInGame = false;
 
 
+        public void SetShowTutorialAnimation(bool state)
+        {
+            showTutorialAnimation= state;
+        }
+
         //Set the correct selected ability
         private void Start()
         {
@@ -78,7 +83,7 @@ namespace Etra.NonGamerTutorialCreator
                 //If the ability is not on the player, it cannot be activated or deactivated
                 if ((EtraAbilityBaseClass)EtraCharacterMainController.Instance.etraAbilityManager.GetComponent(selectedAbility.script.GetType()) == null)
                 {
-                    Debug.LogWarning("PickupAbility.cs cannot activate the " + AbilityOrItem_To_Activate + " ability on your character because your character does not have the " + AbilityOrItem_To_Activate + " script attached to its ability manager.");
+                   // Debug.LogWarning("PickupAbility.cs cannot activate the " + AbilityOrItem_To_Activate + " ability on your character because your character does not have the " + AbilityOrItem_To_Activate + " script attached to its ability manager.");
                 }
                 else
                 {
@@ -128,7 +133,6 @@ namespace Etra.NonGamerTutorialCreator
                 //enable the ability and destroy the pickup
                 if (showTutorialAnimation)
                 {
-                    Debug.Log(getUiObjectName(selectedAbility.shortenedName));
                     GameObject.Find(getUiObjectName(selectedAbility.shortenedName)).GetComponent<EtraAnimationHolder>().runAnimation(selectedAbility, selectedItem, true);
                 }
                 else

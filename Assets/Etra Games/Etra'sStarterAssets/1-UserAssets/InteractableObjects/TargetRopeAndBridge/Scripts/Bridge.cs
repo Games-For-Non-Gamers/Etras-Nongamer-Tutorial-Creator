@@ -1,6 +1,7 @@
 using EtrasStarterAssets;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Etra.StarterAssets.Interactables
 {
@@ -15,7 +16,7 @@ namespace Etra.StarterAssets.Interactables
         public float timeToLower = 1;
         private bool bridgeLowered = false;
         EtrasStarterAssets.AudioManager audioManager;
-
+        public UnityEvent bridgeActivateStart;
         private void Start()
         {
             LeanTween.rotateLocal(transform.GetChild(0).gameObject, new Vector3 (startRotation,0,0), 0);
@@ -43,6 +44,7 @@ namespace Etra.StarterAssets.Interactables
 
             if (allActivated)
             {
+                bridgeActivateStart.Invoke();
                 StartCoroutine(lowerBridge());
             }
 

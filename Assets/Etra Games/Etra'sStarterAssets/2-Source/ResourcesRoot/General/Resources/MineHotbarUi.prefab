@@ -1218,7 +1218,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7221827421928476337}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1244,6 +1244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff912d1945f42c4ea18c02140b50330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hideUiAtStart: 1
   itemSlotPos:
   - {fileID: 8126779428299946680}
   - {fileID: 6167368633629982237}
@@ -1265,6 +1266,19 @@ MonoBehaviour:
   - {fileID: 860026907995584282}
   - {fileID: 2235906552642070161}
   selectionImage: {fileID: 1411869460188491639}
+  imagesToFadeIn:
+  - {fileID: 7311560549230517488}
+  - {fileID: 3625096410700183567}
+  - {fileID: 4975103812674907245}
+  - {fileID: 8627011944559444763}
+  - {fileID: 8421308908464346124}
+  - {fileID: 4486616735747855567}
+  - {fileID: 2586206561266634143}
+  - {fileID: 2927705796168568760}
+  - {fileID: 2322078385558784908}
+  - {fileID: 9223332178658767499}
+  - {fileID: 3494368856099994737}
+  - {fileID: 5612164703276794651}
 --- !u!1 &7303979478166201855
 GameObject:
   m_ObjectHideFlags: 0

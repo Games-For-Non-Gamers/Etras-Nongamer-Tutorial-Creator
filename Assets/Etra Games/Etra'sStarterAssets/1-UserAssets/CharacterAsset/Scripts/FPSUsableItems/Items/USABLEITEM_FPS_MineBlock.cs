@@ -1,4 +1,3 @@
-using Codice.CM.Client.Differences;
 using Etra.StarterAssets.Abilities;
 using Etra.StarterAssets.Input;
 using Etra.StarterAssets.Interactables.Enemies;
@@ -77,13 +76,15 @@ namespace Etra.StarterAssets.Items
 
             Texture2D temp = (Texture2D)Resources.Load(iconName);
             inventoryImage = Sprite.Create(temp, new Rect(0, 0, temp.width, temp.height), Vector2.zero);
-            enabled = false;
             if (MineBlockSystem.Instance == null)
             {
                 mineBlockSystem = (GameObject)Resources.Load("MineBlockSystem");
                 mineBlockSystem = Instantiate(mineBlockSystem, Vector3.zero, Quaternion.identity);
                 mineBlockSystem.name = "MineBlockSystem";
             }
+
+            enabled = false;
+
         }
 
         protected void Start()
@@ -152,12 +153,16 @@ namespace Etra.StarterAssets.Items
                 heldItem.transform.SetParent(scalerAndAnimMover.transform, false);
                 heldItem.GetComponent<Renderer>().enabled = true;
             }
+            SetAnimatorAndAudio();
+            itemReady = true;
+        }
+
+        void SetAnimatorAndAudio()
+        {
+            GameObject activeItem = EtraCharacterMainController.Instance.etraFPSUsableItemManager.activeItemPrefab;
             Transform referenceToMineTransform = activeItem.transform;
             mineBlockAudioManager = activeItem.GetComponentInChildren<AudioManager>();
             mineAnimator = referenceToMineTransform.GetComponentInChildren<Animator>();
-            itemReady = true;
-
-
         }
 
         protected void OnDisable()
@@ -202,6 +207,10 @@ namespace Etra.StarterAssets.Items
                 {
                     if (Time.time - _hitTimeoutDelta >= destroyCooldown)
                     {
+                        if (mineAnimator == null)
+                        {
+                            SetAnimatorAndAudio();
+                        }
                         var isDamageableCheck = hitObject.GetComponent<IDamageable<int>>();
                         if (inInteractDistance(blockInteractDistance) && hitObject.GetComponent<MineBlock>())
                         {
@@ -240,6 +249,10 @@ namespace Etra.StarterAssets.Items
                 {
                     if (Time.time - _hitTimeoutDelta >= buildCooldown && inInteractDistance(blockInteractDistance))
                     {
+                        if (mineAnimator == null)
+                        {
+                            SetAnimatorAndAudio();
+                        }
                         destroyCooldown = savedDestroyCooldown;
                         buildCooldown = savedBuildCooldown;
                         _hitTimeoutDelta = Time.time;
@@ -271,6 +284,10 @@ namespace Etra.StarterAssets.Items
                 {
                     if (Time.time - _hitTimeoutDelta >= destroyCooldown)
                     {
+                        if (mineAnimator == null)
+                        {
+                            SetAnimatorAndAudio();
+                        }
                         mineAnimator.SetTrigger(missAnim);
                         destroyCooldown = savedDestroyCooldown * 2;
                         buildCooldown = savedBuildCooldown * 2;
@@ -288,6 +305,11 @@ namespace Etra.StarterAssets.Items
 
         private void DestroyBlock()
         {
+            if (mineAnimator == null)
+            {
+                SetAnimatorAndAudio();
+            }
+
             if (camMoveScript.objectHit && hitObject.GetComponent<MineBlock>())
             {
                 if (!hitObject.GetComponent<MineBlock>().breakable)

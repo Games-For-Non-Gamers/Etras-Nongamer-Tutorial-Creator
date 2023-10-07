@@ -1,5 +1,6 @@
 using Etra.StandardMenus;
 using Etra.StarterAssets.Abilities;
+using Etra.StarterAssets.Items;
 using Etra.StarterAssets.Source;
 using EtrasStarterAssets;
 using System;
@@ -33,8 +34,52 @@ namespace Etra.StarterAssets
         PlayerInput _playerInput;
         EtraCharacterMainController mainController;
 
+
+        [Header("Rendering")]
+        public bool showInEditor = true;
+        public bool showInGame = false;
+
+        private void OnValidate()
+        {
+            if (showInEditor)
+            {
+                showRenderers();
+            }
+            else
+            {
+                hideRenderers();
+            }
+
+        }
+
+        void showRenderers()
+        {
+            if (GetComponent<MeshRenderer>())
+            {
+                this.GetComponent<MeshRenderer>().enabled = true;
+            }
+        }
+
+        void hideRenderers()
+        {
+            if (GetComponent<MeshRenderer>())
+            {
+                this.GetComponent<MeshRenderer>().enabled = false;
+            }
+        }
+
+
         private void Start()
         {
+            if (showInGame)
+            {
+                showRenderers();
+            }
+            else
+            {
+                hideRenderers();
+            }
+
             audioManager = GetComponent<AudioManager>();
             mainController = FindAnyObjectByType<EtraCharacterMainController>();
             starterCanvas = mainController.starterAssetCanvas;

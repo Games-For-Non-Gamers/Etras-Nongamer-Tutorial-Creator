@@ -2,7 +2,6 @@ using Etra.StarterAssets.Interactables;
 using EtrasStarterAssets;
 using System.Collections;
 using UnityEngine;
-using static PlasticPipe.PlasticProtocol.Messages.Serialization.ItemHandlerMessagesSerialization;
 
 namespace Etra.StarterAssets
 {

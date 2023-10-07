@@ -56,7 +56,7 @@ namespace Etra.NonGamerTutorialCreator
 
                 if (_inputs.start)
                 {
-                    SceneManager.LoadScene("CreditsNonGamerTutorial");
+                    SceneManager.LoadScene("CreditsCreative");
                 }
 
             }

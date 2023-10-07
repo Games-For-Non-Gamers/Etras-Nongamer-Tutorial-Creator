@@ -65,6 +65,14 @@ namespace EtrasStarterAssets
             }
         }
 
+        public void PlayAllSounds()
+        {
+            foreach (Sound s in sounds)
+            {
+                Play(s);
+            }
+        }
+
         public void Play(string name)
         {
             if (stopPlayingSounds)

@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System;
-using Codice.Client.BaseCommands.BranchExplorer;
 using UnityEngine.Events;
 
 namespace Etra.StarterAssets.Items
@@ -18,6 +17,8 @@ namespace Etra.StarterAssets.Items
         //Visible in Inspector
         public bool playEquipAnims = true;
         public bool playUnequipAnims = true;
+        [SerializeField] private bool lockNumberHotbarSwap = false;
+        [SerializeField] private bool lockScrollHotbarItemSwap = false;
         [HideInInspector] public bool weaponInitHandledElsewhere = false;
 
         [Header("Ovverride Default Null Item")]
@@ -35,13 +36,22 @@ namespace Etra.StarterAssets.Items
 
         usableItemScriptAndPrefab mostRecentItem;
         int mostRecentItemIndex;
-        [HideInInspector]public UnityEvent uiItemSelectionChange;
+        [HideInInspector] public UnityEvent uiItemSelectionChange;
         [HideInInspector] public UnityEvent uiItemSwap;
 
         #region Functions to update The usableItems Array
         //Run this function whenever an item is added
 
         bool addInHotbar = false;
+
+        public void SetLockNumberHotbarSwap(bool state)
+        {
+            lockNumberHotbarSwap = state;
+        }
+        public void SetLockScrollHotbarItemSwap(bool state) {
+            lockScrollHotbarItemSwap = state;
+        }
+
         [ContextMenu("updateUsableItemsArray")]
         public void updateUsableItemsArray(bool addInHotbar)
         {
@@ -95,6 +105,16 @@ namespace Etra.StarterAssets.Items
             //I understand this is Big O^2 however, it only runs on validate. What's more important is navigation of the final structure (an array) is as fast as possible.
             EtraFPSUsableItemBaseClass[] grabbedUsableItems;
             int lastAddedItemIndex = -1;
+            usableItemScriptAndPrefab savedOldItem = null;
+
+            if (usableItems.Length>0)
+            {
+                if (activeItemNum< usableItems.Length)
+                {
+                    savedOldItem = usableItems[activeItemNum];
+                }
+            }
+            
             if (this == null)
             {
                 return;
@@ -173,13 +193,17 @@ namespace Etra.StarterAssets.Items
                     {
                         if (usableItems[i].script == defaultNullItem.script || usableItems[i].script == null)
                         {
-                            Debug.Log(i + " " + itemNum);
                             usableItems[i] = usableItems[itemNum];
+                            lastAddedItemIndex = i;
                             if (itemNum!= usableItems.Length-1)
                             {
                                 itemNum++;
                             }
-                            lastAddedItemIndex = i;
+                            else
+                            {
+                                itemNum++;
+                                break;
+                            }
                         }
                     }
                 }
@@ -189,12 +213,7 @@ namespace Etra.StarterAssets.Items
                 {
                     for (int j = 0; j < inventory.Length; j++)
                     {
-                        if (inventory[j] == null)
-                        {
-                            inventory[j] = usableItems[i];
-                            break;
-                        }
-                        if (inventory[j].script == null || inventory[j].script == defaultNullItem.script)
+                        if (inventory[j] == null || inventory[j].script == null || inventory[j].script == defaultNullItem.script)
                         {
                             inventory[j] = usableItems[i];
                             break;
@@ -206,7 +225,6 @@ namespace Etra.StarterAssets.Items
                             break;
                         }
                     }
-
                 }
                 //Reduce prune the usableItemsInventory
                 usableItemScriptAndPrefab[] temp = new usableItemScriptAndPrefab[NUMBER_OF_HOTBAR_SLOTS];
@@ -219,7 +237,7 @@ namespace Etra.StarterAssets.Items
 
             if (lastAddedItemIndex != -1)
             {
-                StartCoroutine(equipItemCoroutine(lastAddedItemIndex));
+                StartCoroutine(equipItemCoroutine(savedOldItem, lastAddedItemIndex, true));
             }
 
 
@@ -354,10 +372,20 @@ namespace Etra.StarterAssets.Items
             public usableItemScriptAndPrefab(EtraFPSUsableItemBaseClass passedScript)
             {
                 script = passedScript;
-                prefab = EtrasResourceGrabbingFunctions.getPrefabFromResourcesByName(script.getNameOfPrefabToLoad());
+                prefab = Resources.Load<GameObject>(script.getNameOfPrefabToLoad()) ;
             }
         }
-
+        public static GameObject getPrefabFromResourcesByName(string prefabName)
+        {
+            GameObject foundObject;
+            if (Resources.Load<GameObject>(prefabName) == null)
+            {
+                Debug.LogError(prefabName + " not found in assets. Please restore the prefab.");
+                return null;
+            }
+            foundObject = Resources.Load<GameObject>(prefabName);
+            return foundObject;
+        }
 
 #if UNITY_EDITOR
         //Reset is ran by the character creator adding this component
@@ -387,12 +415,13 @@ namespace Etra.StarterAssets.Items
 
         private void Awake()
         {
-#if UNITY_EDITOR
+
             if (defaultNullItem == null)
             {
                 removeNullItemSlots();
             }
-#endif
+
+
             if (defaultNullItem.script != null)
             {
                 defaultNullItem = new usableItemScriptAndPrefab(defaultNullItem.script);
@@ -467,7 +496,7 @@ namespace Etra.StarterAssets.Items
 
             //Number Keys select
             #region Number Key Item Selection
-            if (starterAssetsInputs.item0Select)
+            if (starterAssetsInputs.item0Select && !lockNumberHotbarSwap)
             {
                 if (activeItemNum != 0 && usableItems.Length > 0)
                 {
@@ -475,7 +504,7 @@ namespace Etra.StarterAssets.Items
                 }
             }
 
-            if (starterAssetsInputs.item1Select)
+            if (starterAssetsInputs.item1Select && !lockNumberHotbarSwap)
             {
                 if (activeItemNum != 1 && usableItems.Length > 1)
                 {
@@ -483,7 +512,7 @@ namespace Etra.StarterAssets.Items
                 }
             }
 
-            if (starterAssetsInputs.item2Select)
+            if (starterAssetsInputs.item2Select && !lockNumberHotbarSwap)
             {
                 if (activeItemNum != 2 && usableItems.Length > 2)
                 {
@@ -491,7 +520,7 @@ namespace Etra.StarterAssets.Items
                 }
             }
 
-            if (starterAssetsInputs.item3Select)
+            if (starterAssetsInputs.item3Select && !lockNumberHotbarSwap)
             {
                 if (activeItemNum != 3 && usableItems.Length > 3)
                 {
@@ -499,7 +528,7 @@ namespace Etra.StarterAssets.Items
                 }
             }
 
-            if (starterAssetsInputs.item4Select)
+            if (starterAssetsInputs.item4Select && !lockNumberHotbarSwap)
             {
                 if (activeItemNum != 4 && usableItems.Length > 4)
                 {
@@ -507,7 +536,7 @@ namespace Etra.StarterAssets.Items
                 }
             }
 
-            if (starterAssetsInputs.item5Select)
+            if (starterAssetsInputs.item5Select && !lockNumberHotbarSwap)
             {
                 if (activeItemNum != 5 && usableItems.Length > 5)
                 {
@@ -515,7 +544,7 @@ namespace Etra.StarterAssets.Items
                 }
             }
 
-            if (starterAssetsInputs.item6Select)
+            if (starterAssetsInputs.item6Select && !lockNumberHotbarSwap)
             {
                 if (activeItemNum != 6 && usableItems.Length > 6)
                 {
@@ -523,7 +552,7 @@ namespace Etra.StarterAssets.Items
                 }
             }
 
-            if (starterAssetsInputs.item7Select)
+            if (starterAssetsInputs.item7Select && !lockNumberHotbarSwap)
             {
                 if (activeItemNum != 7 && usableItems.Length > 7)
                 {
@@ -531,7 +560,7 @@ namespace Etra.StarterAssets.Items
                 }
             }
 
-            if (starterAssetsInputs.item8Select)
+            if (starterAssetsInputs.item8Select && !lockNumberHotbarSwap)
             {
                 if (activeItemNum != 8 && usableItems.Length > 8)
                 {
@@ -547,7 +576,7 @@ namespace Etra.StarterAssets.Items
             }
 
             //Mouse wheel and shoulder button scroll
-            if (starterAssetsInputs.usableItemInventoryScroll == 1)
+            if (starterAssetsInputs.usableItemInventoryScroll == 1 && !lockScrollHotbarItemSwap)
             {
                 int itemToMoveTo = activeItemNum + 1;
 
@@ -559,7 +588,7 @@ namespace Etra.StarterAssets.Items
 
             }
 
-            if (starterAssetsInputs.usableItemInventoryScroll == -1)
+            if (starterAssetsInputs.usableItemInventoryScroll == -1 && !lockScrollHotbarItemSwap)
             {
                 int itemToMoveTo = activeItemNum - 1;
 
@@ -571,6 +600,23 @@ namespace Etra.StarterAssets.Items
 
             }
 
+            if (lockScrollHotbarItemSwap)
+            {
+                starterAssetsInputs.usableItemInventoryScroll = 0;
+            }
+
+            if (lockNumberHotbarSwap)
+            {
+                starterAssetsInputs.item0Select = false;
+                starterAssetsInputs.item1Select = false;
+                starterAssetsInputs.item2Select = false;
+                starterAssetsInputs.item3Select = false;
+                starterAssetsInputs.item4Select = false;
+                starterAssetsInputs.item5Select = false;
+                starterAssetsInputs.item6Select = false;
+                starterAssetsInputs.item7Select = false;
+                starterAssetsInputs.item8Select = false;
+            }
         }
 
         public void equipItem(int num)
@@ -672,6 +718,8 @@ namespace Etra.StarterAssets.Items
                 }
 
                 oldItem.script.enabled = false;
+
+
                 Destroy(activeItemPrefab);
 
                 activeItemNum = newItemNum;

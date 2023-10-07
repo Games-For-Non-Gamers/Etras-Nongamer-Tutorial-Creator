@@ -11,7 +11,7 @@ namespace Etra.StarterAssets
         public Transform[] itemSlotPos;
         public Image[] itemSlotsImages;
         public GameObject selectionImage;
-
+        public Image[] imagesToFadeIn;
         EtraFPSUsableItemManager itemManager;
 
         // Start is called before the first frame update
@@ -24,6 +24,11 @@ namespace Etra.StarterAssets
                 Debug.LogError("Cannot Use Hotbar without usable Item Manager");
                 this.enabled= false;
                 return;
+            }
+
+            if (hideUiAtStart)
+            {
+                hideUi();
             }
 
             itemManager.uiItemSelectionChange.AddListener(ItemSwap);
@@ -66,6 +71,15 @@ namespace Etra.StarterAssets
                 {
                     itemSlotsImages[i].enabled = false;
                 }
+            }
+        }
+
+        public override void fadeInUi(float time)
+        {
+            foreach (Image image in imagesToFadeIn)
+            {
+                image.enabled = true;
+                LeanTween.value(0, 1, time).setOnUpdate((float alphaValue) => { Color newColor = image.color; newColor.a = alphaValue; image.color = newColor; }).setEaseInOutSine();
             }
         }
 

@@ -30,7 +30,7 @@ namespace Etra.NonGamerTutorialCreator.Level
             allRectTransforms = openingMenuUi.GetComponentsInChildren<RectTransform>();
 
             audioManager = GetComponent<AudioManager>();
-            audioManager.Play("BackgroundMusic");
+            audioManager.PlayAllSounds();
 
             if (skipMenu)
             {
