@@ -427,7 +427,7 @@ namespace Etra.StarterAssets.Items
                 defaultNullItem = new usableItemScriptAndPrefab(defaultNullItem.script);
                 for (int i = 0; i < usableItems.Length; i++)
                 {
-                    if (usableItems[i] == null)
+                    if (usableItems[i] == null || inventory[i].script == null)
                     {
                         usableItems[i] = defaultNullItem;
                     }
@@ -447,7 +447,6 @@ namespace Etra.StarterAssets.Items
 
             for (int i = 0; i < usableItems.Length; i++)
             {
-
                 usableItems[i].script.enabled = false;
             }
 
@@ -751,7 +750,17 @@ namespace Etra.StarterAssets.Items
             }
 
         }
-
+        //For Ruin cutscene lol
+        public void ManualTurnOnLight()
+        {
+            USABLEITEM_FPS_Flashlight light = (USABLEITEM_FPS_Flashlight)usableItems[activeItemNum].script;
+            light.ManualTurnOffLight();
+        }
+        public void ManualTurnOffLight()
+        {
+            USABLEITEM_FPS_Flashlight light = (USABLEITEM_FPS_Flashlight)usableItems[activeItemNum].script;
+            light.ManualTurnOffLight();
+        }
         void setInputsToDefault()
         {
             starterAssetsInputs.usableItemInventoryScroll = 0;

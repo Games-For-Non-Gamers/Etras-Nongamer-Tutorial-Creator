@@ -47,6 +47,12 @@ namespace Etra.NonGamerTutorialCreator.Level
 
         private void Awake()
         {
+            if (!this.isActiveAndEnabled)
+            {
+                Debug.Log("e");
+                return;
+            }
+
             GetReferenceVariables();
             savedCamRootPos = camRoot.transform.localPosition;
             if (character.etraFPSUsableItemManager)
@@ -56,18 +62,20 @@ namespace Etra.NonGamerTutorialCreator.Level
 
             cursorCanvas.SetActive(false);
 
-
-            if (levelController.chunks[levelController.chunks.Count - 1] == null)
+            if (levelController != null)
             {
-                //BAD
-                pickups = FindObjectsOfType<AbilityOrItemPickup>();
-                animPickups = FindObjectsOfType<AnimationTriggerPickup>();
-            }
-            else
-            {
-                levelController.chunks[levelController.chunks.Count - 1].gameObject.GetComponentsInChildren<AbilityOrItemPickup>();
-                animPickups = levelController.chunks[levelController.chunks.Count - 1].gameObject.GetComponentsInChildren<AnimationTriggerPickup>();
-            }
+                if (levelController.chunks[levelController.chunks.Count - 1] == null)
+                {
+                    //BAD
+                    pickups = FindObjectsOfType<AbilityOrItemPickup>();
+                    animPickups = FindObjectsOfType<AnimationTriggerPickup>();
+                }
+                else
+                {
+                    levelController.chunks[levelController.chunks.Count - 1].gameObject.GetComponentsInChildren<AbilityOrItemPickup>();
+                    animPickups = levelController.chunks[levelController.chunks.Count - 1].gameObject.GetComponentsInChildren<AnimationTriggerPickup>();
+                }
+        
 
             foreach (AbilityOrItemPickup a in pickups)
             {
@@ -79,6 +87,7 @@ namespace Etra.NonGamerTutorialCreator.Level
             }
         
             nonGamerTutorialUi.gameObject.SetActive(false);
+            }
         }
 
         private void Start()
@@ -219,14 +228,19 @@ namespace Etra.NonGamerTutorialCreator.Level
             LeanTween.move(camRoot, character.transform.position + savedCamRootPos, 0).setEaseInOutSine();
 
             cursorCanvas.SetActive(true);
-            foreach (AbilityOrItemPickup a in pickups)
+
+            if (pickups != null )
             {
-                a.gameObject.SetActive(true);
+                foreach (AbilityOrItemPickup a in pickups)
+                {
+                    a.gameObject.SetActive(true);
+                }
+                foreach (AnimationTriggerPickup a in animPickups)
+                {
+                    a.gameObject.SetActive(true);
+                }
             }
-            foreach (AnimationTriggerPickup a in animPickups)
-            {
-                a.gameObject.SetActive(true);
-            }
+
    
             openingSceneUi.SetActive(true);
             nonGamerTutorialUi.gameObject.SetActive(true);

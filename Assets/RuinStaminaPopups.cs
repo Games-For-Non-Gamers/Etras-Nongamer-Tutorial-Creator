@@ -1,7 +1,5 @@
 using Etra.StarterAssets;
 using Etra.StarterAssets.Abilities;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RuinStaminaPopups : MonoBehaviour
@@ -10,6 +8,8 @@ public class RuinStaminaPopups : MonoBehaviour
     public GameFreezePopupTrigger outOfStam;
     bool firstOneShowed = false;
     public GameFreezePopupTrigger stamRestored;
+
+
     // Start is called before the first frame update
     public void setup()
     {
@@ -38,4 +38,6 @@ public class RuinStaminaPopups : MonoBehaviour
         abilitySprint.OutOfStamina.RemoveListener(outOfStamFunction);
         abilitySprint.StaminaRecovered.RemoveListener(stamRestoredFunction);
     }
+
+  
 }

@@ -150,7 +150,6 @@ namespace Etra.NonGamerTutorialCreator
                 if (showTutorialAnimation)
                 {
                     GameObject.Find(getUiObjectName(selectedItem.shortenedName)).GetComponent<EtraAnimationHolder>().runAnimation(selectedAbility, selectedItem, false);
-
                 }
                 else
                 {
@@ -159,12 +158,12 @@ namespace Etra.NonGamerTutorialCreator
                         GameObject.Find(getUiObjectName(selectedItem.shortenedName)).GetComponent<EtraAnimationHolder>().showAllAnimatedObjects();
                     }
 
+
                     //Add the script to the item manager
                     EtraCharacterMainController.Instance.etraFPSUsableItemManager.gameObject.AddComponent(selectedItem.script.GetType());
                     //Update the items array
-                    EtraCharacterMainController.Instance.etraFPSUsableItemManager.updateUsableItemsArray();
-                    //Equip the new item
-                    EtraCharacterMainController.Instance.etraFPSUsableItemManager.equipNewItem();
+                    EtraCharacterMainController.Instance.etraFPSUsableItemManager.updateUsableItemsArray(true);
+
                 }
                 //Destory this pickup
                 Destroy(gameObject);

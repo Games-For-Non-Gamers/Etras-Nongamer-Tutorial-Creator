@@ -86,7 +86,7 @@ namespace Etra.StarterAssets.Abilities
 
         public override void abilityStart()
         {
-  
+
             //Set Refences
             if (_mainCamera == null)
             {
@@ -134,7 +134,7 @@ namespace Etra.StarterAssets.Abilities
             float inputY = _input.move.y;
             
 
-            if (!(rightUnlocked && leftUnlocked && upUnlocked && downUnlocked))
+            if (rightUnlocked == false ||  leftUnlocked == false ||  upUnlocked == false || downUnlocked == false)
             {
                 //InputX
                 if (rightUnlocked == false && leftUnlocked == false)

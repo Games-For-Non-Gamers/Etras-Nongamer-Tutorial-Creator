@@ -630,12 +630,11 @@ namespace Etra.NonGamerTutorialCreator
                 }
                 else //is Item
                 {
+
                     //Add the script to the item manager
                     EtraCharacterMainController.Instance.etraFPSUsableItemManager.gameObject.AddComponent(selectedItem.script.GetType());
                     //Update the items array
-                    EtraCharacterMainController.Instance.etraFPSUsableItemManager.updateUsableItemsArray();
-                    //Equip the new item
-                    EtraCharacterMainController.Instance.etraFPSUsableItemManager.equipNewItem();
+                    EtraCharacterMainController.Instance.etraFPSUsableItemManager.updateUsableItemsArray(true);
                 }
             }
         }

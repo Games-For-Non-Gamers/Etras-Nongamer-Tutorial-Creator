@@ -75,6 +75,16 @@ namespace Etra.StarterAssets.Items
             }
 
         }
+        public void ManualTurnOnLight()
+        {
+            flashlightLight.enabled = true;
+        }
+
+        public void ManualTurnOffLight()
+        {
+            fpsItemAudioManager.Play("FlashlightClick");
+            flashlightLight.enabled = false;
+        }
 
         public void Update()
         {

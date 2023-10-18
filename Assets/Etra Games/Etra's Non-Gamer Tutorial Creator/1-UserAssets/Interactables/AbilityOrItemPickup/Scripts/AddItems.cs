@@ -90,7 +90,7 @@ public class AddItems : MonoBehaviour
                 field.SetValue(newComponent, field.GetValue(componentToDuplicate));
             }
             //Update the items array
-            EtraCharacterMainController.Instance.etraFPSUsableItemManager.updateUsableItemsArray(addInHotbar);//This base function only allows items to be added to inventory, which works for now...
+            EtraCharacterMainController.Instance.etraFPSUsableItemManager.updateUsableItemsArray(addInHotbar);
         }
         if (playAudio)
         {

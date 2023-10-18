@@ -20,6 +20,8 @@ namespace Etra.NonGamerTutorialCreator.Level
         private RectTransform[] allRectTransforms;
         AudioManager audioManager;
         [HideInInspector]public bool canBeginGame = true;
+        public bool playAllAttachedSfxAtStart = true;
+        public string[] sfxToPlayAtStart;
         private void Start()
         {
             // Find the OpeningMenuUi script in the scene
@@ -30,7 +32,17 @@ namespace Etra.NonGamerTutorialCreator.Level
             allRectTransforms = openingMenuUi.GetComponentsInChildren<RectTransform>();
 
             audioManager = GetComponent<AudioManager>();
-            audioManager.PlayAllSounds();
+            if (playAllAttachedSfxAtStart)
+            {
+                audioManager.PlayAllSounds();
+            }
+            else
+            {
+                foreach (string sfx in sfxToPlayAtStart)
+                {
+                    audioManager.Play(sfx);
+                }
+            }
 
             if (skipMenu)
             {

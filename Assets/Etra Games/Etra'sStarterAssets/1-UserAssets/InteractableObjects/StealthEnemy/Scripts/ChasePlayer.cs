@@ -53,7 +53,6 @@ namespace Etra.StarterAssets.Interactables
 
         private void Start()
         {
-
             startPos = this.transform.localPosition;
             enemyEye = transform.Find("TiltRoot").Find("Base").Find("BaseTop").Find("Center").Find("Body").Find("NeckRoatator").Find("Neck").Find("Head").Find("Eye").gameObject;
             etraCharacterMainController = EtraCharacterMainController.Instance;
@@ -194,6 +193,16 @@ namespace Etra.StarterAssets.Interactables
         {
             this.transform.position = startTransform.position;
             this.transform.rotation = startTransform.rotation;
+            searchStarted = false;
+            // Set eye material to none found material, and set flashlight to material color
+            enemyEye.GetComponent<MeshRenderer>().material = NoneFound;
+            enemyEye.transform.Find("Spot Light").GetComponent<Light>().color = Color.white;
+
+            if (audioManager.IsPlaying("Alarm"))
+            {
+                agent.speed = walkSpeed;
+                audioManager.Stop("Alarm");
+            }
             nextLocation();
         }
         void respawnPlayer()
