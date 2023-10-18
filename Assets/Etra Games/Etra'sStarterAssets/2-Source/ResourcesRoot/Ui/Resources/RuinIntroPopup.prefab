@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d843f4c4abd15b740ad9d57edca738e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hideUiAtStart: 0
   popupText: {fileID: 6774114115237127963}
   continueText: {fileID: 5482007169773977502}
 --- !u!1 &1024239829512146970
@@ -158,8 +159,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -176}
-  m_SizeDelta: {x: 392.4519, y: 18.0989}
+  m_AnchoredPosition: {x: 14.1827, y: -176}
+  m_SizeDelta: {x: 378.2692, y: 18.0989}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5624849286451579029
 CanvasRenderer:
@@ -191,8 +192,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press A,B, W, J  AND  to continue
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ebe392f84ec0b294fbd5dc6e26355048, type: 2}
-  m_sharedMaterial: {fileID: 7162862059672822945, guid: ebe392f84ec0b294fbd5dc6e26355048, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c63a0f05d6f46fa41b4384aecb72479a, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: c63a0f05d6f46fa41b4384aecb72479a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -222,7 +223,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -381,6 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d843f4c4abd15b740ad9d57edca738e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hideUiAtStart: 0
   popupText: {fileID: 6774114115237127963}
   continueText: {fileID: 5482007169773977502}
 --- !u!1 &7400417275812905953
@@ -450,12 +452,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Two weeks have passed since a mysterious earthquake closed the world-renowned
-    attraction, \u201CFreddy Fazbear's Mega Pizza-Plex\u201D. \n\nWith the building
-    abandoned, and the staff laid off, a local teen sneaks into the Mega Pizza Plex
-    with his live view eye camera,  for a chance at internet fame. "
+    attraction, \u201CFreddy Fazbear's Mega Pizza-Plex\u201D. Since the earthquake,
+    all human staff has been laid off.\n\nWith the building abandoned, a local teen
+    sneaks into the Mega Pizza-Plex with a stolen keycard and a live-view eye camera
+    for a chance at internet fame. "
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ebe392f84ec0b294fbd5dc6e26355048, type: 2}
-  m_sharedMaterial: {fileID: 7162862059672822945, guid: ebe392f84ec0b294fbd5dc6e26355048, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c63a0f05d6f46fa41b4384aecb72479a, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: c63a0f05d6f46fa41b4384aecb72479a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -485,7 +488,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
