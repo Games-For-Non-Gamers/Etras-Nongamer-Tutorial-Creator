@@ -32,6 +32,7 @@ namespace Etra.StarterAssets
             }
 
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             UpdateVersionAndWebglText();
 
             if (!GameObject.Find("UpdatePopup"))
