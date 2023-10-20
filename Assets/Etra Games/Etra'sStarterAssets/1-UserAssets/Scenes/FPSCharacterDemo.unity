@@ -38221,6 +38221,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playEquipAnims: 1
   playUnequipAnims: 1
+  lockNumberHotbarSwap: 0
+  lockScrollHotbarItemSwap: 0
   weaponInitHandledElsewhere: 0
   defaultNullItem:
     script: {fileID: 1309031713}
@@ -38892,6 +38894,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1327619677}
+  - component: {fileID: 1327619678}
   m_Layer: 0
   m_Name: Environment
   m_TagString: Untagged
@@ -38931,6 +38934,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1327619678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327619676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d35d5308cbb1fcd479dbf0c516db2aa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StartRecordingWhenEnabled: 1
+  m_RecordFrames: 1
+  m_ReplayOnNewDevices: 1
+  m_SimulateOriginalTimingOnReplay: 1
+  m_RecordStateEventsOnly: 0
+  m_CaptureMemoryDefaultSize: 2097152
+  m_CaptureMemoryMaxSize: 10485760
+  m_DevicePath: 
+  m_RecordButtonPath: 
+  m_PlayButtonPath: 
+  m_ChangeEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1329632724
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68475,3 +68503,61 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: a57f692cf0e0e0b4680e1698281f7a11, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cd2589ccb30d73409593efb0c27e907, type: 3}
+--- !u!1001 &9125240135265954103
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 9125240135928837859, guid: 1b21f28ef4fcca54da555836c2134f47, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9125240135928837859, guid: 1b21f28ef4fcca54da555836c2134f47, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 67.11878
+      objectReference: {fileID: 0}
+    - target: {fileID: 9125240135928837859, guid: 1b21f28ef4fcca54da555836c2134f47, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.068155
+      objectReference: {fileID: 0}
+    - target: {fileID: 9125240135928837859, guid: 1b21f28ef4fcca54da555836c2134f47, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.0785387
+      objectReference: {fileID: 0}
+    - target: {fileID: 9125240135928837859, guid: 1b21f28ef4fcca54da555836c2134f47, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9125240135928837859, guid: 1b21f28ef4fcca54da555836c2134f47, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9125240135928837859, guid: 1b21f28ef4fcca54da555836c2134f47, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9125240135928837859, guid: 1b21f28ef4fcca54da555836c2134f47, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9125240135928837859, guid: 1b21f28ef4fcca54da555836c2134f47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9125240135928837859, guid: 1b21f28ef4fcca54da555836c2134f47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9125240135928837859, guid: 1b21f28ef4fcca54da555836c2134f47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9125240135928837863, guid: 1b21f28ef4fcca54da555836c2134f47, type: 3}
+      propertyPath: m_Name
+      value: RecordAndReplayCamera
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 9125240135928837861, guid: 1b21f28ef4fcca54da555836c2134f47, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 1b21f28ef4fcca54da555836c2134f47, type: 3}

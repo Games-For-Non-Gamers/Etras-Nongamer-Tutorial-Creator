@@ -1,8 +1,8 @@
+using UnityEngine;
 using Etra.StarterAssets.Source;
 using EtrasStarterAssets;
 using System.Collections;
 using TMPro;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -15,6 +15,13 @@ namespace Etra.StarterAssets
         public GameObject creatorBackground;
         public GameObject[] creatorPages;
         public int currentPageIndex;
+        public GameFreezePopupTrigger updatePopup;
+        public GameObject webglWarning;
+        public TextMeshProUGUI version;
+        public string versionSuffix = "";
+
+        [HideInInspector] public struct userAttributes { };
+        [HideInInspector] public struct appAttributes { };
 
         private void Start()
         {
@@ -25,9 +32,30 @@ namespace Etra.StarterAssets
             }
 
             Cursor.lockState = CursorLockMode.None;
+            UpdateVersionAndWebglText();
+
+            if (!GameObject.Find("UpdatePopup"))
+            {
+                Debug.Log("UpdatePopup Not found, Need to add in for built Etra Versions");
+            }
 
         }
 
+        private void OnValidate()
+        {
+            UpdateVersionAndWebglText();
+        }
+
+        void UpdateVersionAndWebglText()
+        {
+            version.text = "V " + Application.version + versionSuffix;
+
+            #if UNITY_WEBGL
+            webglWarning.SetActive(true);
+            #else
+            webglWarning.SetActive(false);
+            #endif
+        }
 
         void EnableMenuInteractables(GameObject uiPage)
         {

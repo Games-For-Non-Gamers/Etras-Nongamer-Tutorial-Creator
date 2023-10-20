@@ -1,0 +1,157 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7897498549168772794
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7897498549168772797}
+  - component: {fileID: 7897498549168772798}
+  - component: {fileID: 7897498549168772796}
+  - component: {fileID: 7897498549168772771}
+  - component: {fileID: 8420128890929989678}
+  m_Layer: 0
+  m_Name: UpdatePopup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7897498549168772797
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7897498549168772794}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.5, y: 0.88999987, z: 9.113}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.7}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &7897498549168772798
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7897498549168772794}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &7897498549168772796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7897498549168772794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc5e504aab00d034bbecda831f58c3f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultPopupSfx: PopupDefault
+  eventList:
+  - chosenEvent: 0
+    backgroundFadeTime: 0.5
+    popupToAdd: {fileID: 0}
+    position: {x: 0, y: 0}
+    popupText: 
+    popupTextSize: 0
+    playDefaultAudio: 0
+    playDefaultAnimation: 0
+    advanceType: 0
+    inputsNeededToAdvance: []
+    timeToWait: 0
+    sfxToPlay: []
+    monoBehaviour: {fileID: 0}
+    selectedGameobject: {fileID: 0}
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    savedObject: {fileID: 0}
+    targetVector3: {x: 0, y: 0, z: 0}
+  - chosenEvent: 4
+    backgroundFadeTime: 0
+    popupToAdd: {fileID: 80247673514109132, guid: a9d5aecc1de96954983160b2a9b3884b, type: 3}
+    position: {x: 0, y: 0}
+    popupText: 
+    popupTextSize: 0
+    playDefaultAudio: 1
+    playDefaultAnimation: 1
+    advanceType: 2
+    inputsNeededToAdvance: []
+    timeToWait: 2
+    sfxToPlay: []
+    monoBehaviour: {fileID: 0}
+    selectedGameobject: {fileID: 0}
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    savedObject: {fileID: 0}
+    targetVector3: {x: 0, y: 0, z: 0}
+  - chosenEvent: 1
+    backgroundFadeTime: 0
+    popupToAdd: {fileID: 80247673514109132, guid: a9d5aecc1de96954983160b2a9b3884b, type: 3}
+    position: {x: 0, y: 0}
+    popupText: 
+    popupTextSize: 0
+    playDefaultAudio: 1
+    playDefaultAnimation: 1
+    advanceType: 2
+    inputsNeededToAdvance: []
+    timeToWait: 0
+    sfxToPlay: []
+    monoBehaviour: {fileID: 0}
+    selectedGameobject: {fileID: 0}
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    savedObject: {fileID: 0}
+    targetVector3: {x: 0, y: 0, z: 0}
+  showInEditor: 1
+  showInGame: 0
+--- !u!114 &7897498549168772771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7897498549168772794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d10d9b6d879748499838bb462e075de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  silenceSoundsUntilTutorialBegins: 1
+  sounds:
+  - name: PopupDefault
+    clip: {fileID: 8300000, guid: fe8ee12a062b50142b00f4abaaaad53f, type: 3}
+    volume: 1
+    basePitch: 1
+    spatialBlend: 0
+    randomizePitch: 0
+    randomPitchRange: {x: 0.95, y: 1.05}
+    isDialogue: 1
+    isMusic: 0
+    loop: 0
+    source: {fileID: 0}
+  stopPlayingSounds: 0
+--- !u!114 &8420128890929989678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7897498549168772794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a407829632d76b64e84380b28ccbf9d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  updatePopup: {fileID: 7897498549168772796}
